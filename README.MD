@@ -14,23 +14,17 @@ The **Abominable Spaghetti Workflow** combines the high prompt adherence of PixA
 
 ## Required Nodes
 
-To use this workflow, you'll need to have **ComfyUI_ExtraModels** installed. Here's how to do it on Linux in three simple steps:
+To use this workflow, you'll need to have **ComfyUI_ExtraModels** installed. Here's how to do it on Linux in four simple steps:
 
-1. Navigate to your ComfyUI directory:
+      cd <your-comfyui-directory>
+      cd custom_nodes
+      git clone https://github.com/city96/ComfyUI_ExtraModels
+      pip install -r requirements.txt
 
-        cd <your-comfyui-directory>
 
-2. Clone the **ComfyUI_ExtraModels** repository:
+**Note 1:** Running `pip` may require activating the virtual environment used to run ComfyUI.
 
-        git clone https://github.com/city96/ComfyUI_ExtraModels custom_nodes/ComfyUI_ExtraModels
-   
-3. Install the necessary requirements:
-
-        pip install -r requirements.txt
-
-**Note 1:** Running `pip` may require activating the virtual environment used to run ComfyUI. Pay attention to this detail.
-
-**Note 2:** Windows users can refer to the installation methods suggested on the **[ComfyUI_ExtraModels GitHub Page](https://github.com/city96/ComfyUI_ExtraModels?tab=readme-ov-file#installation)**
+**Note 2:** Windows users can refer to the installation methods suggested on the project **[GitHub Page](https://github.com/city96/ComfyUI_ExtraModels?tab=readme-ov-file#installation)**
 
 **Note 3:** ComfyUI_ExtraModels has various dependencies and requirements on which it heavily relies. Therefore, it might be more convenient to install it using a node manager like **[ComfyUI Manager](https://github.com/ltdrdata/ComfyUI-Manager)**.
 
@@ -39,30 +33,31 @@ To use this workflow, you'll need to have **ComfyUI_ExtraModels** installed. Her
 
 You also need to have the following 6 files locally:
 
- - from https://github.com/PixArt-alpha/PixArt-sigma?tab=readme-ov-file#-available-models
+ - **From [PixArt Sigma GitHub Page](https://github.com/PixArt-alpha/PixArt-sigma?tab=readme-ov-file#-available-models):**
     * PixArt-Sigma-XL-2-1024-MS.pth
 
- - from https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/text_encoder
+- **From [PixArt Text Encoder Hugging Face Repo](https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/text_encoder):**
     * config.json
     * model.safetensors.index.json
     * model-00001-of-00002.safetensors
     * model-00002-of-00002.safetensors
 
- - from https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/vae
+- **From [PixArt VAE Hugging Face Repo](https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/vae):**
     * diffusion_pytorch_model.safetensors
-    * **note:** this file must be renamed to "`pixart_sigma_vae.safetensors`"
+    * (this file must be renamed to "`pixart_sigma_vae.safetensors`")
 
-Place them inside the ComfyUI directory as follows:
+### File Placement
+Once obtained, place the files within the ComfyUI directory as outlined below:
 
- - comfyui/models/checkpoints:
+ - __`comfyui/models/checkpoints`__
      * `PixArt-Sigma-XL-2-1024-MS.pth`
      * `Photon_v1.safetensor` _(or any other SD15 model)_
- - comfyui/models/t5:
+ - __`comfyui/models/t5`__
      * `config.json`
      * `model.safetensors.index.json`
      * `model-00001-of-00002.safetensors`
      * `model-00002-of-00002.safetensors`
- - comfyui/models/vae:
+ - __`comfyui/models/vae`__
      * `pixart_sigma_vae.safetensors`
 
 
