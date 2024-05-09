@@ -1,0 +1,84 @@
+<h1 align="center">Abominable Spaghetti Workflow</h1>
+<p align="center">A comfyui workflow for PixArt Sigma employing SD1.5 to refine the image to boost its visual impact.</p>
+<p align="center">
+<img alt="Platform" src="https://img.shields.io/badge/platform-ComfyUI-33F">
+<img alt="License"  src="https://img.shields.io/github/license/martin-rizzo/AbominableSpaghetti?color=11D">
+<img alt="Last"     src="https://img.shields.io/github/last-commit/martin-rizzo/AbominableSpaghetti">
+</p>
+
+<!--
+# Abominable Spaghetti Workflow
+-->
+
+# Abominable Spaghetti Workflow
+
+The **Abominable Spaghetti Workflow** combines the high prompt adherence of PixArt Sigma with the impactful visual detail of SD1.5 models that we've always loved.
+
+## Required Nodes
+
+To use this workflow, you'll need to have **ComfyUI_ExtraModels** installed. Here's how to do it on Linux in three simple steps:
+
+1. Navigate to your ComfyUI directory:
+    cd <your-comfyui-directory>
+   
+2. Clone the **ComfyUI_ExtraModels** repository:
+    git clone https://github.com/city96/ComfyUI_ExtraModels custom_nodes/ComfyUI_ExtraModels
+   
+3. Install the necessary requirements:
+    pip install -r requirements.txt
+
+**Note 1:** Running `pip` may require activating the virtual environment used to run ComfyUI. Pay attention to this detail.
+
+**Note 2:** Windows users can refer to the installation methods suggested on the project page:
+- [ComfyUI_ExtraModels GitHub Page](https://github.com/city96/ComfyUI_ExtraModels?tab=readme-ov-file#installation)
+
+**Note 3:** ComfyUI_ExtraModels has various dependencies and requirements on which it heavily relies. Therefore, it might be more convenient to install it using a node manager like **[ComfyUI Manager](https://github.com/ltdrdata/ComfyUI-Manager)**.
+
+
+## Required Files
+
+You also need to have the following 6 files locally:
+
+  from: https://github.com/PixArt-alpha/PixArt-sigma?tab=readme-ov-file#-available-models
+   >> PixArt-Sigma-XL-2-1024-MS.pth
+
+  from: https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/text_encoder
+   >> config.json
+   >> model.safetensors.index.json
+   >> model-00001-of-00002.safetensors
+   >> model-00002-of-00002.safetensors
+
+  from: https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/vae
+   >> diffusion_pytorch_model.safetensors
+      --- note: this file must be renamed to 'pixart_sigma_vae.safetensors'
+
+Place them inside the ComfyUI directory as follows:
+
+  comfyui/models/checkpoints:
+               > PixArt-Sigma-XL-2-1024-MS.pth
+               > Photon_v1.safetensor  (or any other SD15 model)
+  comfyui/models/t5:
+               > config.json
+               > model.safetensors.index.json
+               > model-00001-of-00002.safetensors
+               > model-00002-of-00002.safetensors
+  comfyui/models/vae:
+               > pixart_sigma_vae.safetensors
+
+
+## Project Checklist
+
+- [x] Parámetros editables agrupados juntos.
+- [x] Explicación de como instalar los nodos y archivos necesarios.
+- [ ] Soporte para modelo de 2K.
+- [ ] Simplificar la instalación.
+- [ ] Selección automático de tamaño de imagen.
+- [ ] Detección automática del modelo utilizado.
+
+
+## Lincense
+
+Copyright (c) 2024 Martin Rizzo  
+This project is licensed under the MIT license.  
+See the ["LICENSE"](LICENSE) file for details.
+
