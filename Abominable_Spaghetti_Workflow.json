@@ -3,951 +3,6 @@
   "last_link_id": 114,
   "nodes": [
     {
-      "id": 7,
-      "type": "T5v11Loader",
-      "pos": [
-        79.84432027496429,
-        899.1944341707094
-      ],
-      "size": {
-        "0": 340,
-        "1": 154
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "T5",
-          "type": "T5",
-          "links": [
-            7,
-            8
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "T5 Loader",
-      "properties": {
-        "Node name for S&R": "T5v11Loader"
-      },
-      "widgets_values": [
-        "model-00001-of-00002.safetensors",
-        "xxl",
-        "folder",
-        "cpu",
-        "FP32"
-      ]
-    },
-    {
-      "id": 5,
-      "type": "T5TextEncode",
-      "pos": [
-        429.84432027496433,
-        899.1944341707094
-      ],
-      "size": {
-        "0": 210,
-        "1": 58.0341796875
-      },
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "T5",
-          "type": "T5",
-          "link": 7,
-          "slot_index": 0
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 90,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            93
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "T5TextEncode"
-      },
-      "widgets_values": [
-        "Photo of a woman with goggles on her head and a yellow jacket, sporting a post-apocalyptic outfit in a cyberpunk setting, looking dirty."
-      ]
-    },
-    {
-      "id": 6,
-      "type": "T5TextEncode",
-      "pos": [
-        429.84432027496433,
-        999.1944341707091
-      ],
-      "size": {
-        "0": 210,
-        "1": 54
-      },
-      "flags": {},
-      "order": 16,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "T5",
-          "type": "T5",
-          "link": 8,
-          "slot_index": 0
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 102,
-          "widget": {
-            "name": "text"
-          },
-          "slot_index": 1
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            94
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "T5TextEncode"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 1,
-      "type": "PixArtCheckpointLoader",
-      "pos": [
-        79.84432027496429,
-        1089.1944341707097
-      ],
-      "size": {
-        "0": 340,
-        "1": 82
-      },
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "links": [
-            92
-          ],
-          "shape": 3
-        }
-      ],
-      "title": "PixArt Sigma .pth Loader",
-      "properties": {
-        "Node name for S&R": "PixArtCheckpointLoader"
-      },
-      "widgets_values": [
-        "PixArt-Sigma-XL-2-1024-MS.pth",
-        "PixArtMS_Sigma_XL_2"
-      ]
-    },
-    {
-      "id": 8,
-      "type": "VAELoader",
-      "pos": [
-        79.84432027496429,
-        1209.1944341707097
-      ],
-      "size": {
-        "0": 340,
-        "1": 60
-      },
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            11
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "PixArt Sigma VAE Loader",
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "pixart_sigma_vae.safetensors"
-      ]
-    },
-    {
-      "id": 60,
-      "type": "KSamplerAdvanced",
-      "pos": [
-        649.8443202749645,
-        899.1944341707094
-      ],
-      "size": {
-        "0": 280,
-        "1": 370
-      },
-      "flags": {},
-      "order": 17,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 92
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 93
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 94
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 114
-        },
-        {
-          "name": "steps",
-          "type": "INT",
-          "link": 103,
-          "widget": {
-            "name": "steps"
-          }
-        },
-        {
-          "name": "cfg",
-          "type": "FLOAT",
-          "link": 112,
-          "widget": {
-            "name": "cfg"
-          }
-        },
-        {
-          "name": "noise_seed",
-          "type": "INT",
-          "link": 113,
-          "widget": {
-            "name": "noise_seed"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            96
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "PixArt Sigma KSampler",
-      "properties": {
-        "Node name for S&R": "KSamplerAdvanced"
-      },
-      "widgets_values": [
-        "enable",
-        2,
-        "fixed",
-        16,
-        4,
-        "euler",
-        "normal",
-        0,
-        10000,
-        "disable"
-      ]
-    },
-    {
-      "id": 61,
-      "type": "SaveImage",
-      "pos": [
-        1008.9335979768325,
-        89.1033567588483
-      ],
-      "size": {
-        "0": 440,
-        "1": 700
-      },
-      "flags": {},
-      "order": 25,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 107
-        }
-      ],
-      "title": "Save Final Image",
-      "properties": {},
-      "widgets_values": [
-        "ComfyUI/image"
-      ]
-    },
-    {
-      "id": 39,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        960,
-        900
-      ],
-      "size": {
-        "0": 290,
-        "1": 140
-      },
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            100
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            63,
-            85
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            77,
-            80
-          ],
-          "shape": 3,
-          "slot_index": 2
-        }
-      ],
-      "title": "SD15 Checkpoint Loader",
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "Photon_v1.safetensors"
-      ]
-    },
-    {
-      "id": 40,
-      "type": "CLIPTextEncode",
-      "pos": [
-        1260,
-        900
-      ],
-      "size": {
-        "0": 210,
-        "1": 54
-      },
-      "flags": {
-        "collapsed": false
-      },
-      "order": 15,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 63
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 91,
-          "widget": {
-            "name": "text"
-          },
-          "slot_index": 1
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            64
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "SD15 CLIP Encoder",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "Photo of a woman with goggles on her head and a yellow jacket, sporting a post-apocalyptic outfit in a cyberpunk setting, looking dirty."
-      ]
-    },
-    {
-      "id": 54,
-      "type": "VAEEncode",
-      "pos": [
-        1260,
-        990
-      ],
-      "size": {
-        "0": 210,
-        "1": 50
-      },
-      "flags": {},
-      "order": 19,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "pixels",
-          "type": "IMAGE",
-          "link": 99
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 80
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            81
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "SD15 Image Encoder",
-      "properties": {
-        "Node name for S&R": "VAEEncode"
-      }
-    },
-    {
-      "id": 43,
-      "type": "CLIPTextEncode",
-      "pos": [
-        960,
-        1080
-      ],
-      "size": {
-        "0": 510,
-        "1": 190
-      },
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 85
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            65
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "SD15 negative prompt",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "cartoon, painting, illustration, (worst quality:1.8), (low quality:1.8), (normal quality:1.8), (blurry:1.1), (stock-photo:1.1), (big boobs:1.3)"
-      ],
-      "color": "#322",
-      "bgcolor": "#533",
-      "shape": 1
-    },
-    {
-      "id": 42,
-      "type": "KSamplerAdvanced",
-      "pos": [
-        1480,
-        900
-      ],
-      "size": {
-        "0": 280,
-        "1": 370
-      },
-      "flags": {},
-      "order": 21,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 100
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 64
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 65
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 81,
-          "slot_index": 3
-        },
-        {
-          "name": "start_at_step",
-          "type": "INT",
-          "link": 110,
-          "widget": {
-            "name": "start_at_step"
-          },
-          "slot_index": 4
-        },
-        {
-          "name": "steps",
-          "type": "INT",
-          "link": 105,
-          "widget": {
-            "name": "steps"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            75
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "SD15 KSampler",
-      "properties": {
-        "Node name for S&R": "KSamplerAdvanced"
-      },
-      "widgets_values": [
-        "enable",
-        0,
-        "fixed",
-        26,
-        2,
-        "euler",
-        "normal",
-        16,
-        10000,
-        "disable"
-      ]
-    },
-    {
-      "id": 9,
-      "type": "VAEDecode",
-      "pos": [
-        1770,
-        900
-      ],
-      "size": {
-        "0": 210,
-        "1": 50
-      },
-      "flags": {},
-      "order": 18,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 96
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 11
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            99,
-            108
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "Preview Decoder",
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      }
-    },
-    {
-      "id": 51,
-      "type": "VAEDecode",
-      "pos": [
-        1770,
-        990
-      ],
-      "size": {
-        "0": 210,
-        "1": 50
-      },
-      "flags": {},
-      "order": 23,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 75
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 77
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            106
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "title": "Final Decoder",
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      }
-    },
-    {
-      "id": 55,
-      "type": "PrimitiveNode",
-      "pos": [
-        79.88284361794659,
-        100.74569897132474
-      ],
-      "size": [
-        690,
-        150
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            90
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "title": "PixArt Sigma prompt",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        "Photo of a woman with goggles on her head and a yellow jacket, sporting a post-apocalyptic outfit in a cyberpunk setting, looking dirty."
-      ],
-      "color": "#232",
-      "bgcolor": "#353",
-      "shape": 1
-    },
-    {
-      "id": 59,
-      "type": "PrimitiveNode",
-      "pos": [
-        79.88284361794659,
-        290.74569897132477
-      ],
-      "size": [
-        690,
-        110
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 5,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            91
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "title": "SD15 prompt",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        "Photo of a woman with goggles on her head and a yellow jacket, sporting a post-apocalyptic outfit in a cyberpunk setting, looking dirty."
-      ],
-      "color": "#232",
-      "bgcolor": "#353",
-      "shape": 1
-    },
-    {
-      "id": 56,
-      "type": "PrimitiveNode",
-      "pos": [
-        349.262011194286,
-        559.262014055309
-      ],
-      "size": [
-        420,
-        230
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            102
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "title": "negative prompt",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        ""
-      ],
-      "color": "#322",
-      "bgcolor": "#533",
-      "shape": 1
-    },
-    {
-      "id": 62,
-      "type": "PrimitiveNode",
-      "pos": [
-        100,
-        440
-      ],
-      "size": {
-        "0": 210,
-        "1": 82
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            103,
-            110
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "steps"
-          }
-        }
-      ],
-      "title": "PixArt steps",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        16,
-        "fixed"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1
-    },
-    {
-      "id": 64,
-      "type": "PrimitiveNode",
-      "pos": [
-        320,
-        440
-      ],
-      "size": {
-        "0": 210,
-        "1": 82
-      },
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            105
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "steps"
-          }
-        }
-      ],
-      "title": "SD15 end step",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        26,
-        "fixed"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1
-    },
-    {
-      "id": 71,
-      "type": "PrimitiveNode",
-      "pos": [
-        540,
-        440
-      ],
-      "size": {
-        "0": 210,
-        "1": 82
-      },
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "FLOAT",
-          "type": "FLOAT",
-          "links": [
-            112
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "cfg"
-          }
-        }
-      ],
-      "title": "CFG",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        4,
-        "fixed"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1
-    },
-    {
-      "id": 77,
-      "type": "PrimitiveNode",
-      "pos": [
-        79,
-        559
-      ],
-      "size": [
-        260,
-        80
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            113
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "noise_seed"
-          }
-        }
-      ],
-      "title": "Seed",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        2,
-        "fixed"
-      ],
-      "color": "#223",
-      "bgcolor": "#335",
-      "shape": 1
-    },
-    {
       "id": 69,
       "type": "Reroute",
       "pos": [
@@ -1020,30 +75,170 @@
       }
     },
     {
-      "id": 53,
-      "type": "PreviewImage",
+      "id": 71,
+      "type": "PrimitiveNode",
       "pos": [
-        800,
-        110
+        540,
+        440
       ],
-      "size": [
-        200,
-        330
-      ],
-      "flags": {},
-      "order": 22,
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 0,
       "mode": 0,
-      "inputs": [
+      "outputs": [
         {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 109
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            112
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "cfg"
+          }
         }
       ],
-      "title": "Preview PixArt",
+      "title": "CFG scale",
       "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        4,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 77,
+      "type": "PrimitiveNode",
+      "pos": [
+        79,
+        559
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            113
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "title": "Seed",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        2,
+        "fixed"
+      ],
+      "color": "#223",
+      "bgcolor": "#335",
+      "shape": 1
+    },
+    {
+      "id": 62,
+      "type": "PrimitiveNode",
+      "pos": [
+        100,
+        440
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            103,
+            110
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "title": "PixArt steps",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        17,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 64,
+      "type": "PrimitiveNode",
+      "pos": [
+        320,
+        440
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            105
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "title": "SD15 end step",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        26,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
     },
     {
       "id": 76,
@@ -1053,11 +248,13 @@
         680
       ],
       "size": {
-        "0": 260,
+        "0": 210,
         "1": 110
       },
-      "flags": {},
-      "order": 11,
+      "flags": {
+        "pinned": true
+      },
+      "order": 4,
       "mode": 0,
       "outputs": [
         {
@@ -1084,17 +281,867 @@
       "shape": 1
     },
     {
+      "id": 53,
+      "type": "PreviewImage",
+      "pos": [
+        800,
+        110
+      ],
+      "size": {
+        "0": 200,
+        "1": 330
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 109
+        }
+      ],
+      "title": "PixArt Preview",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 61,
+      "type": "SaveImage",
+      "pos": [
+        1010,
+        90
+      ],
+      "size": {
+        "0": 440,
+        "1": 700
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 107
+        }
+      ],
+      "title": "Save Final Image",
+      "properties": {},
+      "widgets_values": [
+        "abominable/%date:yyyy-MM-dd%/%date:hhmmss%"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "T5v11Loader",
+      "pos": [
+        80,
+        900
+      ],
+      "size": {
+        "0": 340,
+        "1": 154
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "T5",
+          "type": "T5",
+          "links": [
+            7,
+            8
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "T5 Loader",
+      "properties": {
+        "Node name for S&R": "T5v11Loader"
+      },
+      "widgets_values": [
+        "model-00001-of-00002.safetensors",
+        "xxl",
+        "folder",
+        "cpu",
+        "FP32"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "PixArtCheckpointLoader",
+      "pos": [
+        80,
+        1090
+      ],
+      "size": {
+        "0": 340,
+        "1": 82
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            92
+          ],
+          "shape": 3
+        }
+      ],
+      "title": "PixArt Sigma .pth Loader",
+      "properties": {
+        "Node name for S&R": "PixArtCheckpointLoader"
+      },
+      "widgets_values": [
+        "PixArt-Sigma-XL-2-1024-MS.pth",
+        "PixArtMS_Sigma_XL_2"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAELoader",
+      "pos": [
+        80,
+        1210
+      ],
+      "size": {
+        "0": 340,
+        "1": 60
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 7,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            11
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "PixArt Sigma VAE Loader",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "pixart_sigma_vae.safetensors"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "T5TextEncode",
+      "pos": [
+        430,
+        900
+      ],
+      "size": {
+        "0": 210,
+        "1": 58.0341796875
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "T5",
+          "type": "T5",
+          "link": 7,
+          "slot_index": 0
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 90,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            93
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "T5TextEncode"
+      },
+      "widgets_values": [
+        "Photo of a woman with goggles on her head and a yellow jacket, sporting a post-apocalyptic outfit in a cyberpunk setting, looking dirty."
+      ]
+    },
+    {
+      "id": 6,
+      "type": "T5TextEncode",
+      "pos": [
+        430,
+        1000
+      ],
+      "size": {
+        "0": 210,
+        "1": 54
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "T5",
+          "type": "T5",
+          "link": 8,
+          "slot_index": 0
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 102,
+          "widget": {
+            "name": "text"
+          },
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            94
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "T5TextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 60,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        650,
+        900
+      ],
+      "size": {
+        "0": 280,
+        "1": 370
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 92
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 93
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 94
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 114
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 103,
+          "widget": {
+            "name": "steps"
+          }
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": 112,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "noise_seed",
+          "type": "INT",
+          "link": 113,
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            96
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "PixArt Sigma KSampler",
+      "properties": {
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        2,
+        "fixed",
+        17,
+        4,
+        "euler",
+        "normal",
+        0,
+        10000,
+        "disable"
+      ]
+    },
+    {
+      "id": 43,
+      "type": "CLIPTextEncode",
+      "pos": [
+        960,
+        1080
+      ],
+      "size": {
+        "0": 510,
+        "1": 190
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 85
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            65
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "SD15 negative prompt",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "cartoon, painting, illustration, (worst quality:1.8), (low quality:1.8), (normal quality:1.8), (blurry:1.1), (stock-photo:1.1), (big boobs:1.3)"
+      ],
+      "color": "#322",
+      "bgcolor": "#533",
+      "shape": 1
+    },
+    {
+      "id": 39,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        960,
+        900
+      ],
+      "size": {
+        "0": 290,
+        "1": 140
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 8,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            100
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            63,
+            85
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            77,
+            80
+          ],
+          "shape": 3,
+          "slot_index": 2
+        }
+      ],
+      "title": "SD15 Checkpoint Loader",
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "Photon_v1.safetensors"
+      ]
+    },
+    {
+      "id": 40,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1260,
+        900
+      ],
+      "size": {
+        "0": 210,
+        "1": 54
+      },
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 63
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 91,
+          "widget": {
+            "name": "text"
+          },
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            64
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "SD15 CLIP Encoder",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Photo of a woman with goggles on her head and a yellow jacket, sporting a post-apocalyptic outfit in a cyberpunk setting, looking dirty."
+      ]
+    },
+    {
+      "id": 54,
+      "type": "VAEEncode",
+      "pos": [
+        1260,
+        990
+      ],
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 99
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 80
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            81
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "SD15 Image Encoder",
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      }
+    },
+    {
+      "id": 42,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        1480,
+        900
+      ],
+      "size": {
+        "0": 280,
+        "1": 370
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 100
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 64
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 65
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 81,
+          "slot_index": 3
+        },
+        {
+          "name": "start_at_step",
+          "type": "INT",
+          "link": 110,
+          "widget": {
+            "name": "start_at_step"
+          },
+          "slot_index": 4
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 105,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            75
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "SD15 KSampler",
+      "properties": {
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        0,
+        "fixed",
+        26,
+        2,
+        "euler",
+        "normal",
+        17,
+        10000,
+        "disable"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [
+        1770,
+        900
+      ],
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 96
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            99,
+            108
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "Preview Decoder",
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 51,
+      "type": "VAEDecode",
+      "pos": [
+        1770,
+        990
+      ],
+      "size": {
+        "0": 210,
+        "1": 50
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 75
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 77
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            106
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "Final Decoder",
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 55,
+      "type": "PrimitiveNode",
+      "pos": [
+        80,
+        101
+      ],
+      "size": {
+        "0": 690,
+        "1": 150
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 9,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            90
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "title": "PixArt Sigma prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "Photo of a woman with goggles on her head and a yellow jacket, sporting a post-apocalyptic outfit in a cyberpunk setting, looking dirty."
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 59,
+      "type": "PrimitiveNode",
+      "pos": [
+        80,
+        290
+      ],
+      "size": {
+        "0": 690,
+        "1": 110
+      },
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 10,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            91
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "title": "SD15 prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "Photo of a woman with goggles on her head and a yellow jacket, sporting a post-apocalyptic outfit in a cyberpunk setting, looking dirty."
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 56,
+      "type": "PrimitiveNode",
+      "pos": [
+        300,
+        560
+      ],
+      "size": {
+        "0": 470,
+        "1": 230
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 11,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            102
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "title": "negative prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533",
+      "shape": 1
+    },
+    {
       "id": 66,
       "type": "Note",
       "pos": [
         -590,
-        130
+        40
       ],
       "size": [
         650,
-        1150
+        1270
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 12,
       "mode": 0,
       "title": "README.TXT",
@@ -1102,7 +1149,7 @@
         "text": ""
       },
       "widgets_values": [
-        "Abominable Spaghetti Workflow by Photographer\n=============================================\nhttps://civitai.com/models/420163\n\nPROMPTS\n-------\nUsing the same prompt for both models is usually sufficient. However:\n  * If the main prompt is very long, you may need a shorter one for SD15.\n  * If the generated image is low-quality, you may need to adjust the SD15 prompt based on the model author's recommendations.\n \nIMAGE SIZE\n----------\nI'm slightly overtaxing PixArt with the image size, but the original recommended values by its authors for the 1K model are:\n \n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768\n \nSTEPS & CFG\n-----------\nFor now, I've only been experimenting with photorealistic images and using Photon as a refiner. The following parameters have worked quite well, although you may need to tweak these values for other styles and models.\n\n  - PixArt steps  :  16\n  - SD15 end step :  26\n  - CFG           : 4.0\n \nREQUIRED NODES\n--------------\nYou need to have 'ComfyUI_ExtraModels' installed. To do this, use:\n  > cd <your-comfyui-directory>\n  > git clone https://github.com/city96/ComfyUI_ExtraModels custom_nodes/ComfyUI_ExtraModels\n  > pip install -r requirements.txt\n  \nOr try the installation methods suggested on the project page:\n  - https://github.com/city96/ComfyUI_ExtraModels?tab=readme-ov-file#installation\n\nREQUIRED FILES\n--------------\nYou also need to have the following 6 files locally:\n\n  from: https://github.com/PixArt-alpha/PixArt-sigma?tab=readme-ov-file#-available-models\n     > PixArt-Sigma-XL-2-1024-MS.pth\n\n  from: https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/text_encoder\n     > config.json\n     > model.safetensors.index.json\n     > model-00001-of-00002.safetensors\n     > model-00002-of-00002.safetensors\n\n  from: https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/vae\n     > diffusion_pytorch_model.safetensors\n       *** note: this file must be renamed to 'pixart_sigma_vae.safetensors'\n\nMove them inside the ComfyUI directory as follows:\n\n comfyui/models/\n          /checkpoints\n               > PixArt-Sigma-XL-2-1024-MS.pth\n               > Photon_v1.safetensor  (or any other SD15 model)\n          /t5\n               > config.json\n               > model.safetensors.index.json\n               > model-00001-of-00002.safetensors\n               > model-00002-of-00002.safetensors\n          /vae\n               > pixart_sigma_vae.safetensors\n"
+        "Abominable Spaghetti Workflow v2 (by Photographer)\n==================================================\nhttps://civitai.com/models/420163\n\nPROMPTS\n-------\nUsing the same prompt for both models is usually sufficient. However:\n  * If the main prompt is very long, you may need a shorter one for SD15.\n  * If the image quality is poor, adjust the SD15 prompt as per the model author's recommendations.\n \nSTEPS & CFG\n-----------\nCurrently, I've only been experimenting with photorealistic images and using Photon as a refiner. The following parameters have worked quite well, though you may need to adjust these values for other styles and models:\n\n  - PixArt steps  :  16\n  - SD15 end step :  26\n  - CFG scale     : 4.0\n \nIMAGE SIZE\n----------\nI'm pushing PixArt beyond its recommended image size. However, if quality suffers, it's best to stick to the values provided by PixArt's authors. For the 1K model:\n \n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768\n\nOUTPUT IMAGES\n-------------\nThe generated images will be automatically stored in the folder:\n    <your-comfyui-directory>/output/abominable\n \nREQUIRED NODES\n--------------\nYou need to have 'ComfyUI_ExtraModels' installed.\nHere's how to do it on Linux in four simple steps:\n  > cd <your-comfyui-directory>\n  > cd custom_nodes\n  > git clone https://github.com/city96/ComfyUI_ExtraModels\n  > pip install -r requirements.txt\n\nNote 1: Running pip may require activating the virtual env used to run ComfyUI.\nNote 2: Windows users can refer to the installation methods on the project GitHub Page:\n        - https://github.com/city96/ComfyUI_ExtraModels?tab=readme-ov-file#installation\nNote 3: ComfyUI_ExtraModels has dependencies and requirements on which it heavily relies.\n        Therefore, it might be more convenient to install it using ComfyUI Manager.\n        - https://github.com/ltdrdata/ComfyUI-Manager\n\nREQUIRED FILES\n--------------\nYou also need to have the following 6 files locally:\n\n  from: https://github.com/PixArt-alpha/PixArt-sigma?tab=readme-ov-file#-available-models\n   >> PixArt-Sigma-XL-2-1024-MS.pth\n\n  from: https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/text_encoder\n   >> config.json\n   >> model.safetensors.index.json\n   >> model-00001-of-00002.safetensors\n   >> model-00002-of-00002.safetensors\n\n  from: https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/vae\n   >> diffusion_pytorch_model.safetensors\n      --- note: this file must be renamed to 'pixart_sigma_vae.safetensors'\n\nPlace them inside the ComfyUI directory as follows:\n\n  comfyui/models/checkpoints:\n               > PixArt-Sigma-XL-2-1024-MS.pth\n               > Photon_v1.safetensor  (or any other SD15 model)\n  comfyui/models/t5:\n               > config.json\n               > model.safetensors.index.json\n               > model-00001-of-00002.safetensors\n               > model-00002-of-00002.safetensors\n  comfyui/models/vae:\n               > pixart_sigma_vae.safetensors\n"
       ],
       "color": "#222",
       "bgcolor": "#000"
@@ -1389,7 +1436,7 @@
       "bounding": [
         790,
         10,
-        672,
+        669,
         789
       ],
       "color": "#444",
