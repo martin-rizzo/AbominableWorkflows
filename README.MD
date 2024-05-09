@@ -63,12 +63,12 @@ Once obtained, place the files within the ComfyUI directory as outlined below:
 
 ## Project Checklist
 
-- [x] Parámetros editables agrupados juntos.
-- [x] Explicación de como instalar los nodos y archivos necesarios.
-- [ ] Soporte para modelo de 2K.
-- [ ] Simplificar la instalación.
-- [ ] Selección automático de tamaño de imagen.
-- [ ] Detección automática del modelo utilizado.
+- [x] Editable parameters grouped together.
+- [x] Explanation of how to install required nodes and files.
+- [ ] Support for 2K model.
+- [ ] Simplify installation process.
+- [ ] Automatic detection of model used.
+- [ ] Automatic image size selection.
 
 
 ## Lincense
