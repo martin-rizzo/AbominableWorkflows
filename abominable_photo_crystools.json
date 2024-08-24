@@ -1,12 +1,12 @@
 {
-  "last_node_id": 97,
-  "last_link_id": 152,
+  "last_node_id": 109,
+  "last_link_id": 166,
   "nodes": [
     {
       "id": 9,
       "type": "VAEDecode",
       "pos": [
-        2320,
+        2130,
         900
       ],
       "size": {
@@ -16,7 +16,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 26,
+      "order": 33,
       "mode": 0,
       "inputs": [
         {
@@ -51,12 +51,12 @@
       "id": 39,
       "type": "CheckpointLoaderSimple",
       "pos": [
-        1510,
+        1320,
         900
       ],
       "size": {
         "0": 290,
-        "1": 140
+        "1": 100
       },
       "flags": {
         "pinned": true
@@ -106,18 +106,18 @@
       "id": 40,
       "type": "CLIPTextEncode",
       "pos": [
-        1810,
+        1620,
         900
       ],
       "size": {
         "0": 210,
-        "1": 54
+        "1": 60
       },
       "flags": {
         "collapsed": false,
         "pinned": true
       },
-      "order": 19,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -158,17 +158,17 @@
       "id": 42,
       "type": "KSamplerAdvanced",
       "pos": [
-        2030,
+        1840,
         900
       ],
       "size": {
         "0": 280,
-        "1": 370
+        "1": 400
       },
       "flags": {
         "pinned": true
       },
-      "order": 29,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
@@ -239,55 +239,10 @@
       ]
     },
     {
-      "id": 43,
-      "type": "CLIPTextEncode",
-      "pos": [
-        1510,
-        1080
-      ],
-      "size": {
-        "0": 510,
-        "1": 190
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 85
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            65
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "SD15 negative prompt",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "cartoon, painting, illustration, (worst quality:1.8), (low quality:1.8), (normal quality:1.8), (blurry:1.1), (stock-photo:1.1), (big boobs:1.3)"
-      ],
-      "color": "#322",
-      "bgcolor": "#533",
-      "shape": 1
-    },
-    {
       "id": 51,
       "type": "VAEDecode",
       "pos": [
-        2320,
+        2130,
         990
       ],
       "size": {
@@ -297,7 +252,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 31,
+      "order": 38,
       "mode": 0,
       "inputs": [
         {
@@ -328,107 +283,6 @@
       }
     },
     {
-      "id": 53,
-      "type": "PreviewImage",
-      "pos": [
-        760,
-        110
-      ],
-      "size": {
-        "0": 200,
-        "1": 330
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 30,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 109
-        }
-      ],
-      "title": "PixArt Preview",
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
-      "id": 54,
-      "type": "VAEEncode",
-      "pos": [
-        1810,
-        990
-      ],
-      "size": {
-        "0": 210,
-        "1": 50
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 27,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "pixels",
-          "type": "IMAGE",
-          "link": 99
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 80
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            81
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "SD15 Image Encoder",
-      "properties": {
-        "Node name for S&R": "VAEEncode"
-      }
-    },
-    {
-      "id": 61,
-      "type": "SaveImage",
-      "pos": [
-        970,
-        90
-      ],
-      "size": {
-        "0": 440,
-        "1": 700
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 33,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 107
-        }
-      ],
-      "title": "Save Final Image",
-      "properties": {},
-      "widgets_values": [
-        "abominable/%date:yyyy-MM-dd%/%date:hhmmss%"
-      ]
-    },
-    {
       "id": 68,
       "type": "Reroute",
       "pos": [
@@ -440,7 +294,7 @@
         26
       ],
       "flags": {},
-      "order": 32,
+      "order": 39,
       "mode": 0,
       "inputs": [
         {
@@ -476,7 +330,7 @@
         26
       ],
       "flags": {},
-      "order": 28,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -528,6 +382,7 @@
           "shape": 3
         }
       ],
+      "title": "T5 Loader (GGUF)",
       "properties": {
         "Node name for S&R": "CLIPLoaderGGUF"
       },
@@ -564,48 +419,13 @@
           "shape": 3
         }
       ],
-      "title": "PixArt Sigma .pth Loader",
+      "title": "PixArt-Sigma Loader",
       "properties": {
         "Node name for S&R": "PixArtCheckpointLoader"
       },
       "widgets_values": [
         "PixArt-Sigma-1024.safetensors",
         "PixArtMS_Sigma_XL_2"
-      ]
-    },
-    {
-      "id": 8,
-      "type": "VAELoader",
-      "pos": [
-        80,
-        1140
-      ],
-      "size": {
-        "0": 340,
-        "1": 60
-      },
-      "flags": {
-        "pinned": false
-      },
-      "order": 3,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            11
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "PixArt Sigma VAE Loader",
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "pixart_sigma_vae.safetensors"
       ]
     },
     {
@@ -620,7 +440,7 @@
         "1": 160
       },
       "flags": {},
-      "order": 24,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -662,7 +482,7 @@
         "Node name for S&R": "CFGGuider"
       },
       "widgets_values": [
-        3.4
+        3
       ]
     },
     {
@@ -677,7 +497,7 @@
         "1": 60
       },
       "flags": {},
-      "order": 20,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -725,7 +545,7 @@
         "1": 60
       },
       "flags": {},
-      "order": 23,
+      "order": 24,
       "mode": 0,
       "inputs": [
         {
@@ -773,7 +593,7 @@
         "1": 60
       },
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "outputs": [
         {
@@ -805,7 +625,7 @@
         "1": 106
       },
       "flags": {},
-      "order": 14,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -835,102 +655,233 @@
       ]
     },
     {
-      "id": 62,
-      "type": "PrimitiveNode",
+      "id": 66,
+      "type": "Note",
       "pos": [
-        1252,
-        1191
+        -590,
+        40
       ],
       "size": {
-        "0": 210,
-        "1": 82
-      },
-      "flags": {
-        "collapsed": false,
-        "pinned": false
-      },
-      "order": 5,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            136
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "start_at_step"
-          }
-        }
-      ],
-      "title": "PixArt steps",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        16,
-        "fixed"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1
-    },
-    {
-      "id": 85,
-      "type": "RandomNoise",
-      "pos": [
-        80,
-        390
-      ],
-      "size": {
-        "0": 210,
-        "1": 82
+        "0": 650,
+        "1": 1270
       },
       "flags": {
         "pinned": true
       },
-      "order": 6,
+      "order": 4,
+      "mode": 0,
+      "title": "README.TXT",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Abominable Spaghetti Workflow v3 experimental (by Photographer)\n===============================================================\nhttps://civitai.com/models/420163\n\nPROMPTS\n-------\nUsing the same prompt for both models is usually sufficient. However:\n  * If the main prompt is very long, you may need a shorter one for SD15.\n  * If the image quality is poor, adjust the SD15 prompt as per the model author's recommendations.\n \nSTEPS & CFG\n-----------\nCurrently, I've only been experimenting with photorealistic images and using Photon as a refiner. The following parameters have worked quite well, though you may need to adjust these values for other styles and models:\n\n  - PixArt steps  :  16\n  - SD15 end step :  26\n  - CFG scale     : 4.0\n \nIMAGE SIZE\n----------\nI'm pushing PixArt beyond its recommended image size. However, if quality suffers, it's best to stick to the values provided by PixArt's authors. For the 1K model:\n \n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768\n\nOUTPUT IMAGES\n-------------\nThe generated images will be automatically stored in the folder:\n    <your-comfyui-directory>/output/abominable\n \nREQUIRED NODES\n--------------\nYou need to have 'ComfyUI_ExtraModels' installed.\nHere's how to do it on Linux in four simple steps:\n  > cd <your-comfyui-directory>\n  > cd custom_nodes\n  > git clone https://github.com/city96/ComfyUI_ExtraModels\n  > pip install -r requirements.txt\n\nNote 1: Running pip may require activating the virtual env used to run ComfyUI.\nNote 2: Windows users can refer to the installation methods on the project GitHub Page:\n        - https://github.com/city96/ComfyUI_ExtraModels?tab=readme-ov-file#installation\nNote 3: ComfyUI_ExtraModels has dependencies and requirements on which it heavily relies.\n        Therefore, it might be more convenient to install it using ComfyUI Manager.\n        - https://github.com/ltdrdata/ComfyUI-Manager\n\nREQUIRED FILES\n--------------\nYou also need to have the following 6 files locally:\n\n  from: https://github.com/PixArt-alpha/PixArt-sigma?tab=readme-ov-file#-available-models\n   >> PixArt-Sigma-XL-2-1024-MS.pth\n\n  from: https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/text_encoder\n   >> config.json\n   >> model.safetensors.index.json\n   >> model-00001-of-00002.safetensors\n   >> model-00002-of-00002.safetensors\n\n  from: https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/vae\n   >> diffusion_pytorch_model.safetensors\n      --- note: this file must be renamed to 'pixart_sigma_vae.safetensors'\n\nPlace them inside the ComfyUI directory as follows:\n\n  comfyui/models/checkpoints:\n               > PixArt-Sigma-XL-2-1024-MS.pth\n               > Photon_v1.safetensor  (or any other SD15 model)\n  comfyui/models/t5:\n               > config.json\n               > model.safetensors.index.json\n               > model-00001-of-00002.safetensors\n               > model-00002-of-00002.safetensors\n  comfyui/models/vae:\n               > pixart_sigma_vae.safetensors\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 105,
+      "type": "Primitive integer [Crystools]",
+      "pos": [
+        -270,
+        1460
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {},
+      "order": 5,
       "mode": 0,
       "outputs": [
         {
-          "name": "NOISE",
-          "type": "NOISE",
+          "name": "int",
+          "type": "INT",
           "links": [
-            126
+            155,
+            157
           ],
           "slot_index": 0,
           "shape": 3
         }
       ],
-      "title": "Seed",
       "properties": {
-        "Node name for S&R": "RandomNoise"
+        "Node name for S&R": "Primitive integer [Crystools]"
       },
       "widgets_values": [
-        4,
-        "fixed"
+        1408
+      ]
+    },
+    {
+      "id": 104,
+      "type": "Primitive integer [Crystools]",
+      "pos": [
+        -270,
+        1600
       ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1
+      "size": {
+        "0": 210.80006408691406,
+        "1": 58
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            156,
+            158
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]"
+      },
+      "widgets_values": [
+        944
+      ]
+    },
+    {
+      "id": 106,
+      "type": "Switch any [Crystools]",
+      "pos": [
+        -50,
+        1580
+      ],
+      "size": {
+        "0": 210,
+        "1": 80
+      },
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "on_true",
+          "type": "*",
+          "link": 156
+        },
+        {
+          "name": "on_false",
+          "type": "*",
+          "link": 157
+        },
+        {
+          "name": "boolean",
+          "type": "BOOLEAN",
+          "link": 162,
+          "widget": {
+            "name": "boolean"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": [
+            160
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Switch any [Crystools]"
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 103,
+      "type": "Switch any [Crystools]",
+      "pos": [
+        -50,
+        1460
+      ],
+      "size": {
+        "0": 210,
+        "1": 80
+      },
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "on_true",
+          "type": "*",
+          "link": 155
+        },
+        {
+          "name": "on_false",
+          "type": "*",
+          "link": 158
+        },
+        {
+          "name": "boolean",
+          "type": "BOOLEAN",
+          "link": 161,
+          "widget": {
+            "name": "boolean"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": [
+            159
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Switch any [Crystools]"
+      },
+      "widgets_values": [
+        false
+      ]
     },
     {
       "id": 76,
       "type": "EmptyLatentImage",
       "pos": [
-        80,
-        510
+        170,
+        1460
       ],
       "size": {
         "0": 210,
-        "1": 130
+        "1": 200
       },
       "flags": {
         "pinned": false
       },
-      "order": 7,
+      "order": 30,
       "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 159,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 160,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
       "outputs": [
         {
           "name": "LATENT",
@@ -950,132 +901,62 @@
         944,
         1408,
         1
-      ],
-      "color": "#223",
-      "bgcolor": "#335",
-      "shape": 1
+      ]
     },
     {
-      "id": 66,
-      "type": "Note",
+      "id": 109,
+      "type": "Reroute",
       "pos": [
-        -590,
-        40
+        -290,
+        1530
       ],
-      "size": {
-        "0": 650,
-        "1": 1270
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 8,
+      "size": [
+        98.8,
+        26
+      ],
+      "flags": {},
+      "order": 21,
       "mode": 0,
-      "title": "README.TXT",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "Abominable Spaghetti Workflow v3 experimental (by Photographer)\n===============================================================\nhttps://civitai.com/models/420163\n\nPROMPTS\n-------\nUsing the same prompt for both models is usually sufficient. However:\n  * If the main prompt is very long, you may need a shorter one for SD15.\n  * If the image quality is poor, adjust the SD15 prompt as per the model author's recommendations.\n \nSTEPS & CFG\n-----------\nCurrently, I've only been experimenting with photorealistic images and using Photon as a refiner. The following parameters have worked quite well, though you may need to adjust these values for other styles and models:\n\n  - PixArt steps  :  16\n  - SD15 end step :  26\n  - CFG scale     : 4.0\n \nIMAGE SIZE\n----------\nI'm pushing PixArt beyond its recommended image size. However, if quality suffers, it's best to stick to the values provided by PixArt's authors. For the 1K model:\n \n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768\n\nOUTPUT IMAGES\n-------------\nThe generated images will be automatically stored in the folder:\n    <your-comfyui-directory>/output/abominable\n \nREQUIRED NODES\n--------------\nYou need to have 'ComfyUI_ExtraModels' installed.\nHere's how to do it on Linux in four simple steps:\n  > cd <your-comfyui-directory>\n  > cd custom_nodes\n  > git clone https://github.com/city96/ComfyUI_ExtraModels\n  > pip install -r requirements.txt\n\nNote 1: Running pip may require activating the virtual env used to run ComfyUI.\nNote 2: Windows users can refer to the installation methods on the project GitHub Page:\n        - https://github.com/city96/ComfyUI_ExtraModels?tab=readme-ov-file#installation\nNote 3: ComfyUI_ExtraModels has dependencies and requirements on which it heavily relies.\n        Therefore, it might be more convenient to install it using ComfyUI Manager.\n        - https://github.com/ltdrdata/ComfyUI-Manager\n\nREQUIRED FILES\n--------------\nYou also need to have the following 6 files locally:\n\n  from: https://github.com/PixArt-alpha/PixArt-sigma?tab=readme-ov-file#-available-models\n   >> PixArt-Sigma-XL-2-1024-MS.pth\n\n  from: https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/text_encoder\n   >> config.json\n   >> model.safetensors.index.json\n   >> model-00001-of-00002.safetensors\n   >> model-00002-of-00002.safetensors\n\n  from: https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/vae\n   >> diffusion_pytorch_model.safetensors\n      --- note: this file must be renamed to 'pixart_sigma_vae.safetensors'\n\nPlace them inside the ComfyUI directory as follows:\n\n  comfyui/models/checkpoints:\n               > PixArt-Sigma-XL-2-1024-MS.pth\n               > Photon_v1.safetensor  (or any other SD15 model)\n  comfyui/models/t5:\n               > config.json\n               > model.safetensors.index.json\n               > model-00001-of-00002.safetensors\n               > model-00002-of-00002.safetensors\n  comfyui/models/vae:\n               > pixart_sigma_vae.safetensors\n"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
-      "id": 71,
-      "type": "PrimitiveNode",
-      "pos": [
-        520,
-        390
-      ],
-      "size": {
-        "0": 210,
-        "1": 82
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 9,
-      "mode": 0,
-      "outputs": [
+      "inputs": [
         {
-          "name": "FLOAT",
-          "type": "FLOAT",
-          "links": [
-            134
-          ],
-          "slot_index": 0,
+          "name": "",
+          "type": "*",
+          "link": 163,
           "widget": {
-            "name": "cfg"
+            "name": "value"
           }
         }
       ],
-      "title": "CFG scale",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        3.4,
-        "fixed"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1
-    },
-    {
-      "id": 64,
-      "type": "PrimitiveNode",
-      "pos": [
-        300,
-        390
-      ],
-      "size": {
-        "0": 210,
-        "1": 82
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 10,
-      "mode": 0,
       "outputs": [
         {
-          "name": "INT",
-          "type": "INT",
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
           "links": [
-            105
+            161,
+            162
           ],
-          "slot_index": 0,
-          "widget": {
-            "name": "steps"
-          }
+          "slot_index": 0
         }
       ],
-      "title": "Refiner intensity",
       "properties": {
-        "Run widget replace on values": false
+        "showOutputText": true,
+        "horizontal": false
       },
-      "widgets_values": [
-        22,
-        "fixed"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
       "shape": 1
     },
     {
       "id": 88,
       "type": "List of strings [Crystools]",
       "pos": [
-        491,
-        1382
+        680,
+        1410
       ],
       "size": {
-        "0": 352.2000732421875,
-        "1": 206
+        "0": 340,
+        "1": 210
       },
       "flags": {},
-      "order": 17,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -1166,15 +1047,15 @@
       "id": 90,
       "type": "List of strings [Crystools]",
       "pos": [
-        500,
-        1637
+        680,
+        1660
       ],
       "size": {
-        "0": 340.00006103515625,
-        "1": 206
+        "0": 340,
+        "1": 210
       },
       "flags": {},
-      "order": 18,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -1244,7 +1125,7 @@
           "shape": 6
         }
       ],
-      "title": "🪛 Concatenate (Neg)",
+      "title": "🪛 Concatenate (Negative)",
       "properties": {
         "Node name for S&R": "List of strings [Crystools]"
       },
@@ -1261,18 +1142,286 @@
       ]
     },
     {
+      "id": 96,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": [
+        550,
+        1690
+      ],
+      "size": {
+        "0": 243.60000610351562,
+        "1": 45.999969482421875
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 152,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            151
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "🪛 Multiline",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "shape": 1
+    },
+    {
+      "id": 92,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": [
+        550,
+        1440
+      ],
+      "size": {
+        "0": 243.60000610351562,
+        "1": 46.00001525878906
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 150,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            149
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "🪛 Multiline",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        "massive noodle monster, big evil smile, evil face, monster made out of noodles, tomato sauce, flying tomatoes, dark mirror background, made out of noodles, evil scene, dark scene"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 89,
+      "type": "Show any [Crystools]",
+      "pos": [
+        1030,
+        1410
+      ],
+      "size": {
+        "0": 540,
+        "1": 210
+      },
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "any_value",
+          "type": "*",
+          "link": 141
+        }
+      ],
+      "title": "🪛 Abominable Prompt",
+      "properties": {
+        "Node name for S&R": "Show any [Crystools]"
+      }
+    },
+    {
+      "id": 91,
+      "type": "Show any [Crystools]",
+      "pos": [
+        1030,
+        1660
+      ],
+      "size": {
+        "0": 540,
+        "1": 210
+      },
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "any_value",
+          "type": "*",
+          "link": 142
+        }
+      ],
+      "title": "🪛 Abominable Negative",
+      "properties": {
+        "Node name for S&R": "Show any [Crystools]"
+      }
+    },
+    {
+      "id": 62,
+      "type": "PrimitiveNode",
+      "pos": [
+        1320,
+        1040
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {
+        "collapsed": false,
+        "pinned": false
+      },
+      "order": 7,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            136
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "start_at_step"
+          }
+        }
+      ],
+      "title": "SD15 start step",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        16,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 54,
+      "type": "VAEEncode",
+      "pos": [
+        1620,
+        1000
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 99
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 80
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            81
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "SD15 VAE Encoder",
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      }
+    },
+    {
+      "id": 108,
+      "type": "Reroute",
+      "pos": [
+        -723,
+        511
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 166,
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "BOOLEAN",
+          "links": [
+            163
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
       "id": 82,
       "type": "SamplerCustomAdvanced",
       "pos": [
-        983,
-        913
+        920,
+        910
       ],
       "size": {
-        "0": 355.20001220703125,
-        "1": 106
+        "0": 360,
+        "1": 120
       },
       "flags": {},
-      "order": 25,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -1323,141 +1472,63 @@
       }
     },
     {
-      "id": 95,
-      "type": "PrimitiveNode",
+      "id": 43,
+      "type": "CLIPTextEncode",
       "pos": [
-        80,
-        90
+        1320,
+        1160
       ],
-      "size": [
-        650,
-        260
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            150
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "title": "Prompt",
-      "properties": {
-        "Run widget replace on values": false
+      "size": {
+        "0": 510,
+        "1": 140
       },
-      "widgets_values": [
-        "Kermit the Frog drinking tea, sitting in a coffee booth near the window, with a light rain outside"
-      ],
-      "color": "#232",
-      "bgcolor": "#353",
-      "shape": 1
-    },
-    {
-      "id": 92,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": [
-        230,
-        1390
-      ],
-      "size": [
-        243.60000610351562,
-        46.000014305114746
-      ],
-      "flags": {},
+      "flags": {
+        "pinned": false
+      },
       "order": 15,
       "mode": 0,
       "inputs": [
         {
-          "name": "string",
-          "type": "STRING",
-          "link": 150,
-          "widget": {
-            "name": "string"
-          }
+          "name": "clip",
+          "type": "CLIP",
+          "link": 85
         }
       ],
       "outputs": [
         {
-          "name": "string",
-          "type": "STRING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
           "links": [
-            149
+            65
           ],
-          "shape": 3,
-          "slot_index": 0
+          "slot_index": 0,
+          "shape": 3
         }
       ],
-      "title": "🪛 Multiline",
+      "title": "SD15 negative prompt",
       "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
+        "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "Kermit the Frog drinking tea, sitting in a coffee booth near the window, with a light rain outside"
-      ]
-    },
-    {
-      "id": 96,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": [
-        231,
-        1643
+        "cartoon, painting, illustration, (worst quality:1.8), (low quality:1.8), (normal quality:1.8), (blurry:1.1), (stock-photo:1.1), (big boobs:1.3)"
       ],
-      "size": [
-        243.60000610351562,
-        45.999969482421875
-      ],
-      "flags": {},
-      "order": 16,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "link": 152,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            151
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        "wet"
-      ]
+      "color": "#322",
+      "bgcolor": "#533",
+      "shape": 1
     },
     {
       "id": 97,
       "type": "PrimitiveNode",
       "pos": [
         300,
-        510
+        500
       ],
-      "size": [
-        430,
-        130
-      ],
+      "size": {
+        "0": 430,
+        "1": 110
+      },
       "flags": {},
-      "order": 12,
+      "order": 8,
       "mode": 0,
       "outputs": [
         {
@@ -1477,61 +1548,302 @@
         "Run widget replace on values": false
       },
       "widgets_values": [
-        "wet"
+        ""
       ],
       "color": "#322",
       "bgcolor": "#533",
       "shape": 1
     },
     {
-      "id": 91,
-      "type": "Show any [Crystools]",
+      "id": 107,
+      "type": "PrimitiveNode",
       "pos": [
-        867,
-        1641
+        80,
+        500
       ],
-      "size": [
-        536.3026534597229,
-        181.45747077597866
-      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
       "flags": {},
-      "order": 22,
+      "order": 9,
       "mode": 0,
-      "inputs": [
+      "outputs": [
         {
-          "name": "any_value",
-          "type": "*",
-          "link": 142
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            166
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "value"
+          }
         }
       ],
+      "title": "Landscape version",
       "properties": {
-        "Node name for S&R": "Show any [Crystools]"
-      }
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        false
+      ],
+      "color": "#223",
+      "bgcolor": "#335",
+      "shape": 1
     },
     {
-      "id": 89,
-      "type": "Show any [Crystools]",
+      "id": 61,
+      "type": "SaveImage",
       "pos": [
-        867,
-        1388
+        970,
+        80
       ],
-      "size": [
-        539.570653459723,
-        208.5902951473165
-      ],
-      "flags": {},
-      "order": 21,
+      "size": {
+        "0": 400,
+        "1": 640
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 40,
       "mode": 0,
       "inputs": [
         {
-          "name": "any_value",
-          "type": "*",
-          "link": 141
+          "name": "images",
+          "type": "IMAGE",
+          "link": 107
         }
       ],
+      "title": "Save Refined Image",
+      "properties": {},
+      "widgets_values": [
+        "abominable/%date:yyyy-MM-dd%/%date:hhmmss%"
+      ],
+      "shape": 1
+    },
+    {
+      "id": 53,
+      "type": "PreviewImage",
+      "pos": [
+        760,
+        90
+      ],
+      "size": {
+        "0": 200,
+        "1": 330
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 109
+        }
+      ],
+      "title": "PixArt Image",
       "properties": {
-        "Node name for S&R": "Show any [Crystools]"
-      }
+        "Node name for S&R": "PreviewImage"
+      },
+      "shape": 1
+    },
+    {
+      "id": 71,
+      "type": "PrimitiveNode",
+      "pos": [
+        520,
+        380
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 10,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            134
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "cfg"
+          }
+        }
+      ],
+      "title": "CFG scale",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        3,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 85,
+      "type": "RandomNoise",
+      "pos": [
+        80,
+        380
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 11,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "NOISE",
+          "type": "NOISE",
+          "links": [
+            126
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Seed",
+      "properties": {
+        "Node name for S&R": "RandomNoise"
+      },
+      "widgets_values": [
+        1,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 64,
+      "type": "PrimitiveNode",
+      "pos": [
+        300,
+        380
+      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 12,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            105
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "title": "Refiner intensity",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        22,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 95,
+      "type": "PrimitiveNode",
+      "pos": [
+        80,
+        80
+      ],
+      "size": {
+        "0": 650,
+        "1": 260
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            150
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "title": "Prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "massive noodle monster, big evil smile, evil face, monster made out of noodles, tomato sauce, flying tomatoes, dark mirror background, made out of noodles, evil scene, dark scene"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 8,
+      "type": "VAELoader",
+      "pos": [
+        80,
+        1140
+      ],
+      "size": {
+        "0": 340,
+        "1": 60
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 14,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            11
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "PixArt-Sigma VAE Loader",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "pixart_sigma_vae.safetensors"
+      ]
     }
   ],
   "links": [
@@ -1846,16 +2158,96 @@
       96,
       0,
       "STRING"
+    ],
+    [
+      155,
+      105,
+      0,
+      103,
+      0,
+      "*"
+    ],
+    [
+      156,
+      104,
+      0,
+      106,
+      0,
+      "*"
+    ],
+    [
+      157,
+      105,
+      0,
+      106,
+      1,
+      "*"
+    ],
+    [
+      158,
+      104,
+      0,
+      103,
+      1,
+      "*"
+    ],
+    [
+      159,
+      103,
+      0,
+      76,
+      0,
+      "INT"
+    ],
+    [
+      160,
+      106,
+      0,
+      76,
+      1,
+      "INT"
+    ],
+    [
+      161,
+      109,
+      0,
+      103,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      162,
+      109,
+      0,
+      106,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      163,
+      108,
+      0,
+      109,
+      0,
+      "*"
+    ],
+    [
+      166,
+      107,
+      0,
+      108,
+      0,
+      "*"
     ]
   ],
   "groups": [
     {
       "title": "SD15 refiner",
       "bounding": [
-        1500,
+        1310,
         830,
-        1041,
-        450
+        1030,
+        480
       ],
       "color": "#444",
       "font_size": 20
@@ -1866,10 +2258,10 @@
         70,
         10,
         670,
-        640
+        610
       ],
       "color": "#b58b2a",
-      "font_size": 28
+      "font_size": 24
     },
     {
       "title": "PixArt-Sigma Model",
@@ -1887,11 +2279,11 @@
       "bounding": [
         750,
         10,
-        669,
-        789
+        630,
+        720
       ],
       "color": "#444",
-      "font_size": 28
+      "font_size": 24
     },
     {
       "title": "PixArt-Sigma Process",
@@ -1899,6 +2291,39 @@
         440,
         830,
         450,
+        480
+      ],
+      "color": "#444",
+      "font_size": 20
+    },
+    {
+      "title": "Size Logic",
+      "bounding": [
+        -280,
+        1390,
+        670,
+        280
+      ],
+      "color": "#444",
+      "font_size": 20
+    },
+    {
+      "title": "Prompt Logic",
+      "bounding": [
+        560,
+        1340,
+        1020,
+        540
+      ],
+      "color": "#444",
+      "font_size": 20
+    },
+    {
+      "title": "PixArt-Sigma Sampler",
+      "bounding": [
+        900,
+        830,
+        400,
         480
       ],
       "color": "#444",
