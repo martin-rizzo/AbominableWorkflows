@@ -1,16 +1,20 @@
-<h1 align="center">Abominable Spaghetti Workflow</h1>
-<p align="center">A comfyui workflow for PixArt Sigma employing SD1.5 to refine the image to boost its visual impact.</p>
-<p align="center">
+<div align="center">
+
+# Abominable Workflow
+**A comfyui workflow for PixArt-Sigma employing SD15 to boost its visual impact.**
+
+<p>
 <img alt="Platform" src="https://img.shields.io/badge/platform-ComfyUI-33F">
-<img alt="License"  src="https://img.shields.io/github/license/martin-rizzo/AbominableSpaghetti?color=11D">
-<img alt="Last"     src="https://img.shields.io/github/last-commit/martin-rizzo/AbominableSpaghetti">
+<img alt="License"  src="https://img.shields.io/github/license/martin-rizzo/AbominableWorkflow?color=11D">
+<img alt="Last"     src="https://img.shields.io/github/last-commit/martin-rizzo/AbominableWorkflow">
+<img alt="Version"  src="https://img.shields.io/github/v/tag/martin-rizzo/AbominableWorkflow?label=version">
 </p>
 
-<!--
-# Abominable Spaghetti Workflow
--->
+![Abominable Screenshot](examples/abominable_screenshot.jpg)
 
-The **Abominable Spaghetti Workflow** combines the high prompt adherence of PixArt Sigma with the impactful visual detail of SD1.5 models that we've always loved.
+</div>
+
+The **Abominable Workflow** combines the high prompt adherence of PixArt Sigma with the impactful visual detail of SD1.5 models that we've always loved.
 
 ## Required Nodes
 
@@ -31,7 +35,7 @@ To use this workflow, you'll need to have **ComfyUI_ExtraModels** installed. Her
 
 ## Required Files
 
-You also need to have the following 6 files locally:
+You also need to have the following 6 files  locally:
 
  - **From [PixArt Sigma GitHub Page](https://github.com/PixArt-alpha/PixArt-sigma?tab=readme-ov-file#-available-models):**
     * PixArt-Sigma-XL-2-1024-MS.pth
