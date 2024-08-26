@@ -19,14 +19,15 @@ with the impactful visual detail of the SD1.5 models that we've always loved.
 
  * [Required Files](#required-files)
  * [Required Nodes](#required-nodes)
-   * [Automatically Installing Required Nodes](#automatically-installing-required-nodes)
+   * [How to Automatically Install the Required Nodes](#how-to-automatically-install-the-required-nodes)
    * [Manually Installing Required Nodes on Linux](#manually-installing-required-nodes-on-linux)
    * [Manually Installing Required Nodes on Windows](#manually-installing-required-nodes-on-windows)
 
+
 ## Required Files
 
-The workflow requires the following models to be installed in ComfyUI, please
-place them in the directories specified below:
+To use the workflow, you need to have the following models installed in ComfyUI.
+Please place them in the corresponding directories as specified below:
 
  * __(your_comfyui_dir) / models / checkpoints /__
    * [PixArt-Sigma-1024.safetensors](
@@ -40,9 +41,13 @@ place them in the directories specified below:
    * [PixArt-Sigma-VAE.safetensors](
      https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main/vae)
 
+
 ## Required Nodes
 
-ComfyUI must also have the following custom nodes installed:
+> [!IMPORTANT]
+> Ensure that your ComfyUI is updated to the latest version.
+
+Additionally, the workflow requires the following custom nodes to be installed:
  * [__ComfyUI_ExtraModels__](
    https://github.com/city96/ComfyUI_ExtraModels): provides support for PixArt-Sigma.
  * [__ComfyUI-GGUF__](
@@ -50,30 +55,72 @@ ComfyUI must also have the following custom nodes installed:
  * [__ComfyUI-Crystools__](
    https://github.com/crystian/ComfyUI-Crystools): used for some simple string operations.
 
-### Automatically Installing Required Nodes
+### How to Automatically Install the Required Nodes
 
-The best way to install the required nodes is to use [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager).
-This is an extension for ComfyUI that offers management functions to install,
-remove, disable, and enable various custom nodes. From there, you can easily
-install the required nodes.
+The easiest way to install the required nodes is by using [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager).
+This extension for ComfyUI offers management functions to install, remove,
+disable, and enable custom nodes. It simplifies the process and can save you
+a lot of trouble.
+
+If for some reason you cannot use ComfyUI-Manager, follow the instructions
+below to install the nodes manually.
 
 ### Manually Installing Required Nodes on Linux
 
-*To be completed soon...*
+To manually install the nodes, open a terminal and run the following commands:
+```
+cd <your_comfyui_dir>
+git clone https://github.com/city96/ComfyUI_ExtraModels ./custom_nodes/ComfyUI_ExtraModels
+git clone https://github.com/city96/ComfyUI-GGUF        ./custom_nodes/ComfyUI-GGUF
+git clone https://github.com/crystian/ComfyUI-Crystools ./custom_nodes/ComfyUI-Crystools
+```
+
+If ComfyUI is using a virtual environment, you must activate it before installing
+the dependencies:
+```
+# You might need to replace '.venv' with the directory
+# where the virtual environment is located
+source .venv/bin/activate
+```
+
+Then, install the dependencies required by the nodes:
+```
+python -m pip install -r ./custom_nodes/ComfyUI_ExtraModels/requirements.txt
+python -m pip install -r ./custom_nodes/ComfyUI-GGUF/requirements.txt
+python -m pip install -r ./custom_nodes/ComfyUI-Crystools/requirements.txt
+```
 
 ### Manually Installing Required Nodes on Windows
 
-*To be completed soon...*
+If you are using the standalone ComfyUI release on Windows, open a CMD in
+the "ComfyUI_windows_portable" folder (the one containing your `run_nvidia_gpu.bat`
+file).
+
+From that directory, run the following commands to install the required nodes:
+```
+git clone https://github.com/city96/ComfyUI_ExtraModels ComfyUI/custom_nodes/ComfyUI_ExtraModels
+git clone https://github.com/city96/ComfyUI-GGUF        ComfyUI/custom_nodes/ComfyUI-GGUF
+git clone https://github.com/crystian/ComfyUI-Crystools ComfyUI/custom_nodes/ComfyUI-Crystools
+```
+
+Then, install the dependencies required by these nodes:
+```
+.\python_embeded\python.exe -s -m pip install -r .\ComfyUI\custom_nodes\ComfyUI_ExtraModels\requirements.txt
+.\python_embeded\python.exe -s -m pip install -r .\ComfyUI\custom_nodes\ComfyUI-GGUF\requirements.txt
+.\python_embeded\python.exe -s -m pip install -r .\ComfyUI\custom_nodes\ComfyUI-Crystools\requirements.txt
+```
+
 
 ## Project Checklist
 
 - [x] Editable parameters grouped together.
-- [ ] Explanation of how to install required files.
-- [ ] Explanation of how to manually install nodes on Linux and Windows.
+- [x] Explanation of how to install required files.
+- [x] Explanation of how to manually install nodes on Linux and Windows.
 - [ ] Support for 2K model.
 - [ ] Simplify installation process.
 - [ ] Automatic detection of model used.
 - [ ] Automatic image size selection.
+
 
 ## Lincense
 
