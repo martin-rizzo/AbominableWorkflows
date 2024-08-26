@@ -25,7 +25,7 @@ with the impactful visual detail of the SD1.5 models that we've always loved.
 
 ## Required Files
 
-The workflow requires the following models to be installed in ComfyUI. Please
+The workflow requires the following models to be installed in ComfyUI, please
 place them in the directories specified below:
 
  * __`<your_comfyui_dir>` / models / checkpoints__
