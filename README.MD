@@ -25,15 +25,16 @@ with the impactful visual detail of the SD1.5 models that we've always loved.
 
 ## Required Files
 
-The following models must be installed in ComfyUI:
+The workflow requires the following models to be installed in ComfyUI. Please
+place them in the directories specified below:
 
- * In the folder `<your-comfyui-dir>/models/checkpoints/`:
-   * PixArt-Sigma-1024.safetensors
-   * Photon-Refiner.safetensors
- * In the folder `<your-comfyui-dir>/models/clip/`:
-   * T5-Encoder-Q5_K_M.gguf
- * In the folder `<your-comfyui-dir>/models/vae/`:
-   * PixArt-Sigma-VAE.safetensors
+ * __`<your_comfyui_dir>` / models / checkpoints__
+   * [PixArt-Sigma-1024.safetensors](https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main/checkpoints)
+   * [Photon-Refiner.safetensors](https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main/checkpoints)
+ * __`<your_comfyui_dir>` / models / clip__
+   * [T5-Encoder-Q5_K_M.gguf](https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main/clip)
+ * __`<your_comfyui_dir>` / models / vae__
+   * [PixArt-Sigma-VAE.safetensors](https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main/vae)
 
 ## Required Nodes
 
