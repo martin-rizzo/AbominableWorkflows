@@ -14,66 +14,58 @@
 
 </div>
 
-The **Abominable Workflow** combines the high prompt adherence of PixArt Sigma with the impactful visual detail of SD1.5 models that we've always loved.
+The **Abominable Workflow** combines the high prompt adherence of PixArt-Sigma
+with the impactful visual detail of the SD1.5 models that we've always loved.
 
-## Required Nodes
-
-To use this workflow, you'll need to have **ComfyUI_ExtraModels** installed. Here's how to do it on Linux in four simple steps:
-
-      cd <your-comfyui-directory>
-      cd custom_nodes
-      git clone https://github.com/city96/ComfyUI_ExtraModels
-      pip install -r requirements.txt
-
-
-**Note 1:** Running `pip` may require activating the virtual environment used to run ComfyUI.
-
-**Note 2:** Windows users can refer to the installation methods suggested on the project **[GitHub Page](https://github.com/city96/ComfyUI_ExtraModels?tab=readme-ov-file#installation)**
-
-**Note 3:** ComfyUI_ExtraModels has various dependencies and requirements on which it heavily relies. Therefore, it might be more convenient to install it using a node manager like **[ComfyUI Manager](https://github.com/ltdrdata/ComfyUI-Manager)**.
-
+ * [Required Files](#required-files)
+ * [Required Nodes](#required-nodes)
+   * [Automatically Installing Required Nodes](#automatically-installing-required-nodes)
+   * [Manually Installing Required Nodes on Linux](#manually-installing-required-nodes-on-linux)
+   * [Manually Installing Required Nodes on Windows](#manually-installing-required-nodes-on-windows)
 
 ## Required Files
 
-You also need to have the following 6 files  locally:
+The following models must be installed in ComfyUI:
 
- - **From [PixArt Sigma GitHub Page](https://github.com/PixArt-alpha/PixArt-sigma?tab=readme-ov-file#-available-models):**
-    * PixArt-Sigma-XL-2-1024-MS.pth
+ * In the folder `<your-comfyui-dir>/models/checkpoints/`:
+   * PixArt-Sigma-1024.safetensors
+   * Photon-Refiner.safetensors
+ * In the folder `<your-comfyui-dir>/models/clip/`:
+   * T5-Encoder-Q5_K_M.gguf
+ * In the folder `<your-comfyui-dir>/models/vae/`:
+   * PixArt-Sigma-VAE.safetensors
 
-- **From [PixArt Text Encoder Hugging Face Repo](https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/text_encoder):**
-    * config.json
-    * model.safetensors.index.json
-    * model-00001-of-00002.safetensors
-    * model-00002-of-00002.safetensors
+## Required Nodes
 
-- **From [PixArt VAE Hugging Face Repo](https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/vae):**
-    * diffusion_pytorch_model.safetensors
-    * (this file must be renamed to "`pixart_sigma_vae.safetensors`")
+ComfyUI must also have the following custom nodes installed:
+ * **ComfyUI_ExtraModels**: Provides support for PixArt-Sigma.
+ * **ComfyUI-GGUF**: Provides support for the GGUF format (quantized T5).
+ * **ComfyUI-Crystools**: Used for some simple string operations.
 
-### File Placement
-Once obtained, place the files within the ComfyUI directory as outlined below:
+### Automatically Installing Required Nodes
 
- - __`comfyui/models/checkpoints`__
-     * `PixArt-Sigma-XL-2-1024-MS.pth`
-     * `Photon_v1.safetensor` _(or any other SD15 model)_
- - __`comfyui/models/t5`__
-     * `config.json`
-     * `model.safetensors.index.json`
-     * `model-00001-of-00002.safetensors`
-     * `model-00002-of-00002.safetensors`
- - __`comfyui/models/vae`__
-     * `pixart_sigma_vae.safetensors`
+The best way to install the required nodes is to use [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager).
+This is an extension for ComfyUI that offers management functions to install,
+remove, disable, and enable various custom nodes. From there, you can easily
+install the required nodes.
 
+### Manually Installing Required Nodes on Linux
+
+*To be completed soon...*
+
+### Manually Installing Required Nodes on Windows
+
+*To be completed soon...*
 
 ## Project Checklist
 
 - [x] Editable parameters grouped together.
-- [x] Explanation of how to install required nodes and files.
+- [ ] Explanation of how to install required files.
+- [ ] Explanation of how to manually install nodes on Linux and Windows.
 - [ ] Support for 2K model.
 - [ ] Simplify installation process.
 - [ ] Automatic detection of model used.
 - [ ] Automatic image size selection.
-
 
 ## Lincense
 
