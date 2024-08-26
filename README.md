@@ -28,20 +28,27 @@ with the impactful visual detail of the SD1.5 models that we've always loved.
 The workflow requires the following models to be installed in ComfyUI, please
 place them in the directories specified below:
 
- * __`<your_comfyui_dir>` / models / checkpoints__
-   * [PixArt-Sigma-1024.safetensors](https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main/checkpoints)
-   * [Photon-Refiner.safetensors](https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main/checkpoints)
- * __`<your_comfyui_dir>` / models / clip__
-   * [T5-Encoder-Q5_K_M.gguf](https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main/clip)
- * __`<your_comfyui_dir>` / models / vae__
-   * [PixArt-Sigma-VAE.safetensors](https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main/vae)
+ * __(your_comfyui_dir) / models / checkpoints /__
+   * [PixArt-Sigma-1024.safetensors](
+     https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main/checkpoints)
+   * [Photon-Refiner.safetensors](
+     https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main/checkpoints)
+ * __(your_comfyui_dir) / models / clip /__
+   * [T5-Encoder-Q5_K_M.gguf](
+     https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main/clip)
+ * __(your_comfyui_dir) / models / vae /__
+   * [PixArt-Sigma-VAE.safetensors](
+     https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main/vae)
 
 ## Required Nodes
 
 ComfyUI must also have the following custom nodes installed:
- * **ComfyUI_ExtraModels**: Provides support for PixArt-Sigma.
- * **ComfyUI-GGUF**: Provides support for the GGUF format (quantized T5).
- * **ComfyUI-Crystools**: Used for some simple string operations.
+ * [__ComfyUI_ExtraModels__](
+   https://github.com/city96/ComfyUI_ExtraModels): provides support for PixArt-Sigma.
+ * [__ComfyUI-GGUF__](
+   https://github.com/city96/ComfyUI-GGUF): provides support for the GGUF format (quantized T5).
+ * [__ComfyUI-Crystools__](
+   https://github.com/crystian/ComfyUI-Crystools): used for some simple string operations.
 
 ### Automatically Installing Required Nodes
 
