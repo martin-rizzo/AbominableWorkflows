@@ -19,9 +19,9 @@ with the impactful visual detail of the SD1.5 models that we've always loved.
 
  * [Required Files](#required-files)
  * [Required Nodes](#required-nodes)
-   * [How to Automatically Install the Required Nodes](#how-to-automatically-install-the-required-nodes)
-   * [Manually Installing Required Nodes on Linux](#manually-installing-required-nodes-on-linux)
-   * [Manually Installing Required Nodes on Windows](#manually-installing-required-nodes-on-windows)
+ * [How to Automatically Install the Required Nodes](#how-to-automatically-install-the-required-nodes)
+ * [Manually Installing Required Nodes on Linux](#manually-installing-required-nodes-on-linux)
+ * [Manually Installing Required Nodes on Windows](#manually-installing-required-nodes-on-windows)
 
 
 ## Required Files
