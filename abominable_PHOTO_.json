@@ -3,32 +3,6 @@
   "last_link_id": 214,
   "nodes": [
     {
-      "id": 66,
-      "type": "Note",
-      "pos": [
-        -590,
-        40
-      ],
-      "size": {
-        "0": 650,
-        "1": 1270
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 0,
-      "mode": 0,
-      "title": "README.TXT",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "Abominable Spaghetti Workflow v3 experimental (by Photographer)\n===============================================================\nhttps://civitai.com/models/420163\n\nPROMPTS\n-------\nUsing the same prompt for both models is usually sufficient. However:\n  * If the main prompt is very long, you may need a shorter one for SD15.\n  * If the image quality is poor, adjust the SD15 prompt as per the model author's recommendations.\n \nSTEPS & CFG\n-----------\nCurrently, I've only been experimenting with photorealistic images and using Photon as a refiner. The following parameters have worked quite well, though you may need to adjust these values for other styles and models:\n\n  - PixArt steps  :  16\n  - SD15 end step :  26\n  - CFG scale     : 4.0\n \nIMAGE SIZE\n----------\nI'm pushing PixArt beyond its recommended image size. However, if quality suffers, it's best to stick to the values provided by PixArt's authors. For the 1K model:\n \n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768\n\nOUTPUT IMAGES\n-------------\nThe generated images will be automatically stored in the folder:\n    <your-comfyui-directory>/output/abominable\n \nREQUIRED NODES\n--------------\nYou need to have 'ComfyUI_ExtraModels' installed.\nHere's how to do it on Linux in four simple steps:\n  > cd <your-comfyui-directory>\n  > cd custom_nodes\n  > git clone https://github.com/city96/ComfyUI_ExtraModels\n  > pip install -r requirements.txt\n\nNote 1: Running pip may require activating the virtual env used to run ComfyUI.\nNote 2: Windows users can refer to the installation methods on the project GitHub Page:\n        - https://github.com/city96/ComfyUI_ExtraModels?tab=readme-ov-file#installation\nNote 3: ComfyUI_ExtraModels has dependencies and requirements on which it heavily relies.\n        Therefore, it might be more convenient to install it using ComfyUI Manager.\n        - https://github.com/ltdrdata/ComfyUI-Manager\n\nREQUIRED FILES\n--------------\nYou also need to have the following 6 files locally:\n\n  from: https://github.com/PixArt-alpha/PixArt-sigma?tab=readme-ov-file#-available-models\n   >> PixArt-Sigma-XL-2-1024-MS.pth\n\n  from: https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/text_encoder\n   >> config.json\n   >> model.safetensors.index.json\n   >> model-00001-of-00002.safetensors\n   >> model-00002-of-00002.safetensors\n\n  from: https://huggingface.co/PixArt-alpha/pixart_sigma_sdxlvae_T5_diffusers/tree/main/vae\n   >> diffusion_pytorch_model.safetensors\n      --- note: this file must be renamed to 'pixart_sigma_vae.safetensors'\n\nPlace them inside the ComfyUI directory as follows:\n\n  comfyui/models/checkpoints:\n               > PixArt-Sigma-XL-2-1024-MS.pth\n               > Photon_v1.safetensor  (or any other SD15 model)\n  comfyui/models/t5:\n               > config.json\n               > model.safetensors.index.json\n               > model-00001-of-00002.safetensors\n               > model-00002-of-00002.safetensors\n  comfyui/models/vae:\n               > pixart_sigma_vae.safetensors\n"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
       "id": 90,
       "type": "List of strings [Crystools]",
       "pos": [
@@ -345,7 +319,7 @@
         "1": 60
       },
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "outputs": [
         {
@@ -556,7 +530,7 @@
         "collapsed": false,
         "pinned": false
       },
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "outputs": [
         {
@@ -640,7 +614,7 @@
         "1": 60
       },
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "outputs": [
         {
@@ -974,7 +948,7 @@
         "1": 240
       },
       "flags": {},
-      "order": 4,
+      "order": 3,
       "mode": 0,
       "outputs": [
         {
@@ -1015,7 +989,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "outputs": [
         {
@@ -1056,7 +1030,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "outputs": [
         {
@@ -1096,7 +1070,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "outputs": [
         {
@@ -1134,7 +1108,7 @@
         "1": 100
       },
       "flags": {},
-      "order": 8,
+      "order": 7,
       "mode": 0,
       "outputs": [
         {
@@ -1175,7 +1149,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 9,
+      "order": 8,
       "mode": 0,
       "title": "Guidance on \"Refiner intensity\" and \"CFG scale\"",
       "properties": {
@@ -1253,7 +1227,7 @@
         "1": 60
       },
       "flags": {},
-      "order": 10,
+      "order": 9,
       "mode": 0,
       "outputs": [
         {
@@ -2033,7 +2007,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 11,
+      "order": 10,
       "mode": 0,
       "outputs": [
         {
@@ -2075,7 +2049,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 12,
+      "order": 11,
       "mode": 0,
       "outputs": [
         {
@@ -2114,7 +2088,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 13,
+      "order": 12,
       "mode": 0,
       "outputs": [
         {
@@ -2153,7 +2127,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "outputs": [
         {
@@ -2190,7 +2164,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 15,
+      "order": 14,
       "mode": 0,
       "outputs": [
         {
@@ -2230,6 +2204,32 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 66,
+      "type": "Note",
+      "pos": [
+        -590,
+        40
+      ],
+      "size": {
+        "0": 650,
+        "1": 1270
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 15,
+      "mode": 0,
+      "title": "README.TXT",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Abominable Workflow v3\n======================\nhttps://civitai.com/models/420163\n\nREQUIRED FILES\n--------------\n\n To use the workflow, you need to have the following models installed in ComfyUI. Please place them in the corresponding directories as specified below:\n\n <your_comfyui_dir> / models / checkpoints /\n   > PixArt-Sigma-1024.safetensors\n   > Photon-Refiner.safetensors\n\n <your_comfyui_dir> / models / clip /\n   > T5-Encoder-Q5_K_M.gguf\n\n <your_comfyui_dir> / models / vae /\n   > PixArt-Sigma-VAE.safetensors\n\n Esos cuatro archivos pueden ser bajados desde:\n   https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main\n\nREQUIRED NODES\n--------------\n\n Additionally, this workflow requires the following custom nodes to be installed:\n   > ComfyUI_ExtraModels\n     https://github.com/city96/ComfyUI_ExtraModels\n   > ComfyUI-GGUF\n     https://github.com/city96/ComfyUI-GGUF\n   > ComfyUI-Crystools\n     https://github.com/crystian/ComfyUI-Crystools\n\n Información mas detallada de como instalar esos nodos puede ser encontrada en la página principal de Abominable Workflow.\n\nOUTPUT IMAGES\n-------------\nThe generated images will be automatically stored in the folder:\n    <your_comfyui_dir> / output / abominable /\n\nIMAGE SIZE\n----------\n I'm pushing PixArt-1024 beyond its recommended image size. However, if quality suffers, puede ser mejor to stick to the values provided by PixArt's authors, for the 1K model:\n \n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768\n\n \n\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
     }
   ],
   "links": [
