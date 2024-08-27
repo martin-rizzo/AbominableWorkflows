@@ -1,6 +1,6 @@
 {
-  "last_node_id": 124,
-  "last_link_id": 211,
+  "last_node_id": 125,
+  "last_link_id": 214,
   "nodes": [
     {
       "id": 66,
@@ -140,7 +140,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 24,
+      "order": 20,
       "mode": 0,
       "inputs": [
         {
@@ -184,7 +184,7 @@
         "1": 210
       },
       "flags": {},
-      "order": 32,
+      "order": 33,
       "mode": 0,
       "inputs": [
         {
@@ -301,7 +301,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 20,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -340,10 +340,10 @@
         580,
         910
       ],
-      "size": [
-        320,
-        60
-      ],
+      "size": {
+        "0": 320,
+        "1": 60
+      },
       "flags": {},
       "order": 1,
       "mode": 0,
@@ -358,6 +358,7 @@
           "shape": 3
         }
       ],
+      "title": "KSampler Selector",
       "properties": {
         "Node name for S&R": "KSamplerSelect"
       },
@@ -372,12 +373,12 @@
         580,
         1010
       ],
-      "size": [
-        320,
-        110
-      ],
+      "size": {
+        "0": 320,
+        "1": 110
+      },
       "flags": {},
-      "order": 19,
+      "order": 22,
       "mode": 0,
       "inputs": [
         {
@@ -397,6 +398,7 @@
           "shape": 3
         }
       ],
+      "title": "Scheduler",
       "properties": {
         "Node name for S&R": "BasicScheduler"
       },
@@ -404,195 +406,6 @@
         "beta",
         12,
         0.9
-      ]
-    },
-    {
-      "id": 80,
-      "type": "CLIPTextEncode",
-      "pos": [
-        720,
-        870
-      ],
-      "size": {
-        "0": 210,
-        "1": 60
-      },
-      "flags": {
-        "collapsed": true
-      },
-      "order": 36,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 116
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 143,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            176
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "T5 Text Encoder (Neg)",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "macrophoto"
-      ]
-    },
-    {
-      "id": 79,
-      "type": "CLIPTextEncode",
-      "pos": [
-        700,
-        830
-      ],
-      "size": {
-        "0": 210,
-        "1": 60
-      },
-      "flags": {
-        "collapsed": true
-      },
-      "order": 31,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 115
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 139,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            175
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "T5 Text Encoder (Prompt)",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "Poor quality iPhone photo of Kermit the Frog drinking tea, sitting in a coffee booth near the window, with a light rain outside. (144p photo:1.1) with JPEG artifacts."
-      ]
-    },
-    {
-      "id": 115,
-      "type": "SamplerCustom",
-      "pos": [
-        930,
-        830
-      ],
-      "size": [
-        250,
-        200
-      ],
-      "flags": {},
-      "order": 39,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 177
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 175
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 176
-        },
-        {
-          "name": "sampler",
-          "type": "SAMPLER",
-          "link": 174
-        },
-        {
-          "name": "sigmas",
-          "type": "SIGMAS",
-          "link": 173
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 205
-        },
-        {
-          "name": "cfg",
-          "type": "FLOAT",
-          "link": 178,
-          "widget": {
-            "name": "cfg"
-          }
-        },
-        {
-          "name": "noise_seed",
-          "type": "INT",
-          "link": 179,
-          "widget": {
-            "name": "noise_seed"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "output",
-          "type": "LATENT",
-          "links": [
-            181
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "denoised_output",
-          "type": "LATENT",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "SamplerCustom"
-      },
-      "widgets_values": [
-        true,
-        1,
-        "randomize",
-        3
       ]
     },
     {
@@ -607,8 +420,8 @@
         "1": 60
       },
       "flags": {
-        "pinned": false,
-        "collapsed": true
+        "collapsed": true,
+        "pinned": false
       },
       "order": 42,
       "mode": 0,
@@ -655,7 +468,7 @@
         "collapsed": true,
         "pinned": false
       },
-      "order": 30,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -700,8 +513,8 @@
         810
       ],
       "size": [
-        170,
-        30
+        75,
+        26
       ],
       "flags": {},
       "order": 40,
@@ -735,10 +548,10 @@
         1230,
         960
       ],
-      "size": [
-        310,
-        80
-      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
       "flags": {
         "collapsed": false,
         "pinned": false
@@ -777,14 +590,14 @@
         1230,
         1080
       ],
-      "size": [
-        310,
-        180
-      ],
+      "size": {
+        "0": 310,
+        "1": 180
+      },
       "flags": {
         "pinned": false
       },
-      "order": 25,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -822,10 +635,10 @@
         1420,
         500
       ],
-      "size": [
-        210,
-        60
-      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
       "flags": {},
       "order": 3,
       "mode": 0,
@@ -846,160 +659,6 @@
       },
       "widgets_values": [
         1408
-      ]
-    },
-    {
-      "id": 112,
-      "type": "CLIPTextEncode",
-      "pos": [
-        1420,
-        80
-      ],
-      "size": [
-        210,
-        54
-      ],
-      "flags": {
-        "collapsed": true
-      },
-      "order": 21,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": null
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 190,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            183
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "Tex Encoder (Prompt)",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "massive noodle monster, big evil smile, evil face, monster made out of noodles, tomato sauce, flying tomatoes, dark mirror background, made out of noodles, evil scene, dark scene"
-      ]
-    },
-    {
-      "id": 120,
-      "type": "CLIPTextEncode",
-      "pos": [
-        1420,
-        330
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {
-        "collapsed": true
-      },
-      "order": 23,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": null
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 192,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            188
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "Tex Encoder (Neg)",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "cute"
-      ]
-    },
-    {
-      "id": 114,
-      "type": "EmptyLatentImage",
-      "pos": [
-        1440,
-        160
-      ],
-      "size": [
-        210,
-        110
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 34,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "width",
-          "type": "INT",
-          "link": 208,
-          "widget": {
-            "name": "width"
-          }
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "link": 209,
-          "widget": {
-            "name": "height"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            184
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        944,
-        1408,
-        1
       ]
     },
     {
@@ -1111,176 +770,6 @@
       }
     },
     {
-      "id": 39,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        80,
-        1170
-      ],
-      "size": [
-        370,
-        100
-      ],
-      "flags": {
-        "pinned": false
-      },
-      "order": 4,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            201
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            195
-          ],
-          "slot_index": 1,
-          "shape": 3
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            203
-          ],
-          "slot_index": 2,
-          "shape": 3
-        }
-      ],
-      "title": "SD15 Refiner Loader",
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "Photon_v1.safetensors"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 8,
-      "type": "VAELoader",
-      "pos": [
-        80,
-        1070
-      ],
-      "size": [
-        370,
-        60
-      ],
-      "flags": {
-        "pinned": false
-      },
-      "order": 5,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            11
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "PixArt-Sigma VAE Loader",
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "pixart_sigma_vae.safetensors"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 1,
-      "type": "PixArtCheckpointLoader",
-      "pos": [
-        80,
-        950
-      ],
-      "size": [
-        370,
-        80
-      ],
-      "flags": {
-        "pinned": false
-      },
-      "order": 6,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "links": [
-            133,
-            177
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "PixArt-Sigma Loader",
-      "properties": {
-        "Node name for S&R": "PixArtCheckpointLoader"
-      },
-      "widgets_values": [
-        "PixArt-Sigma-1024.safetensors",
-        "PixArtMS_Sigma_XL_2"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 78,
-      "type": "CLIPLoaderGGUF",
-      "pos": [
-        80,
-        830
-      ],
-      "size": [
-        370,
-        80
-      ],
-      "flags": {
-        "pinned": false
-      },
-      "order": 7,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            115,
-            116
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "T5 Encoder Loader (GGUF)",
-      "properties": {
-        "Node name for S&R": "CLIPLoaderGGUF"
-      },
-      "widgets_values": [
-        "t5-v1_1-xxl-encoder-Q5_K_M.gguf",
-        "stable_diffusion"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 88,
       "type": "List of strings [Crystools]",
       "pos": [
@@ -1380,166 +869,16 @@
       ]
     },
     {
-      "id": 122,
-      "type": "Reroute",
-      "pos": [
-        1010,
-        1240
-      ],
-      "size": [
-        100,
-        30
-      ],
-      "flags": {},
-      "order": 18,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "",
-          "type": "*",
-          "link": 203
-        }
-      ],
-      "outputs": [
-        {
-          "name": "",
-          "type": "VAE",
-          "links": [
-            199,
-            200
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "showOutputText": false,
-        "horizontal": false
-      }
-    },
-    {
-      "id": 121,
-      "type": "Reroute",
-      "pos": [
-        1010,
-        1200
-      ],
-      "size": [
-        100,
-        30
-      ],
-      "flags": {},
-      "order": 17,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "",
-          "type": "*",
-          "link": 195
-        }
-      ],
-      "outputs": [
-        {
-          "name": "",
-          "type": "CLIP",
-          "links": [
-            196,
-            197
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "showOutputText": false,
-        "horizontal": false
-      }
-    },
-    {
-      "id": 118,
-      "type": "KSamplerAdvanced",
-      "pos": [
-        1690,
-        80
-      ],
-      "size": [
-        380,
-        310
-      ],
-      "flags": {},
-      "order": 38,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": null
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 183
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 188
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 184
-        },
-        {
-          "name": "noise_seed",
-          "type": "INT",
-          "link": 191,
-          "widget": {
-            "name": "noise_seed"
-          }
-        },
-        {
-          "name": "cfg",
-          "type": "FLOAT",
-          "link": 194,
-          "widget": {
-            "name": "cfg"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSamplerAdvanced"
-      },
-      "widgets_values": [
-        "enable",
-        1,
-        "randomize",
-        16,
-        3,
-        "heun",
-        "beta",
-        0,
-        10000,
-        "disable"
-      ]
-    },
-    {
       "id": 103,
       "type": "Switch any [Crystools]",
       "pos": [
         1640,
         500
       ],
-      "size": [
-        210,
-        90
-      ],
+      "size": {
+        "0": 210,
+        "1": 90
+      },
       "flags": {},
       "order": 27,
       "mode": 0,
@@ -1568,11 +907,10 @@
           "name": "*",
           "type": "*",
           "links": [
-            159,
-            208
+            159
           ],
-          "shape": 3,
-          "slot_index": 0
+          "slot_index": 0,
+          "shape": 3
         }
       ],
       "title": "🪛 Switch Width",
@@ -1595,7 +933,7 @@
         26
       ],
       "flags": {},
-      "order": 22,
+      "order": 18,
       "mode": 0,
       "inputs": [
         {
@@ -1631,12 +969,12 @@
         80,
         80
       ],
-      "size": [
-        650,
-        240
-      ],
+      "size": {
+        "0": 650,
+        "1": 240
+      },
       "flags": {},
-      "order": 8,
+      "order": 4,
       "mode": 0,
       "outputs": [
         {
@@ -1670,14 +1008,14 @@
         300,
         360
       ],
-      "size": [
-        210,
-        80
-      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
       "flags": {
         "pinned": false
       },
-      "order": 9,
+      "order": 5,
       "mode": 0,
       "outputs": [
         {
@@ -1711,14 +1049,14 @@
         520,
         360
       ],
-      "size": [
-        210,
-        80
-      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
       "flags": {
         "pinned": false
       },
-      "order": 10,
+      "order": 6,
       "mode": 0,
       "outputs": [
         {
@@ -1758,7 +1096,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 11,
+      "order": 7,
       "mode": 0,
       "outputs": [
         {
@@ -1791,12 +1129,12 @@
         300,
         480
       ],
-      "size": [
-        430,
-        100
-      ],
+      "size": {
+        "0": 430,
+        "1": 100
+      },
       "flags": {},
-      "order": 12,
+      "order": 8,
       "mode": 0,
       "outputs": [
         {
@@ -1837,7 +1175,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 13,
+      "order": 9,
       "mode": 0,
       "title": "Guidance on \"Refiner intensity\" and \"CFG scale\"",
       "properties": {
@@ -1857,10 +1195,10 @@
         1640,
         630
       ],
-      "size": [
-        210,
-        90
-      ],
+      "size": {
+        "0": 210,
+        "1": 90
+      },
       "flags": {},
       "order": 28,
       "mode": 0,
@@ -1889,11 +1227,10 @@
           "name": "*",
           "type": "*",
           "links": [
-            160,
-            209
+            160
           ],
-          "shape": 3,
-          "slot_index": 0
+          "slot_index": 0,
+          "shape": 3
         }
       ],
       "title": "🪛 Switch Height",
@@ -1911,12 +1248,12 @@
         1420,
         660
       ],
-      "size": [
-        210,
-        60
-      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
       "flags": {},
-      "order": 14,
+      "order": 10,
       "mode": 0,
       "outputs": [
         {
@@ -1935,61 +1272,6 @@
       },
       "widgets_values": [
         944
-      ]
-    },
-    {
-      "id": 76,
-      "type": "EmptyLatentImage",
-      "pos": [
-        1860,
-        500
-      ],
-      "size": [
-        210,
-        220
-      ],
-      "flags": {
-        "pinned": false
-      },
-      "order": 33,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "width",
-          "type": "INT",
-          "link": 159,
-          "widget": {
-            "name": "width"
-          }
-        },
-        {
-          "name": "height",
-          "type": "INT",
-          "link": 160,
-          "widget": {
-            "name": "height"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            206
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "Image Size",
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        944,
-        1408,
-        1
       ]
     },
     {
@@ -2032,7 +1314,7 @@
           "shape": 3
         }
       ],
-      "title": "PixArt-Sigma Decoder",
+      "title": "PixArt-Sigma VAE Decoder",
       "properties": {
         "Node name for S&R": "VAEDecode"
       }
@@ -2076,7 +1358,7 @@
           "shape": 3
         }
       ],
-      "title": "Final SD15 Decoder",
+      "title": "Final SD15 VAE Decoder",
       "properties": {
         "Node name for S&R": "VAEDecode"
       }
@@ -2088,10 +1370,10 @@
         1550,
         830
       ],
-      "size": [
-        300,
-        430
-      ],
+      "size": {
+        "0": 300,
+        "1": 430
+      },
       "flags": {
         "pinned": false
       },
@@ -2166,6 +1448,162 @@
       ]
     },
     {
+      "id": 76,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1860,
+        500
+      ],
+      "size": {
+        "0": 210,
+        "1": 220
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 159,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 160,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            206,
+            212
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Image Size",
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        944,
+        1408,
+        1
+      ]
+    },
+    {
+      "id": 112,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1420,
+        80
+      ],
+      "size": {
+        "0": 210,
+        "1": 54
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 190,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            183
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Tex Encoder (Prompt)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "massive noodle monster, big evil smile, evil face, monster made out of noodles, tomato sauce, flying tomatoes, dark mirror background, made out of noodles, evil scene, dark scene"
+      ]
+    },
+    {
+      "id": 120,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1420,
+        160
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 192,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            188
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Tex Encoder (Neg)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "cute"
+      ]
+    },
+    {
       "id": 123,
       "type": "Reroute",
       "pos": [
@@ -2173,11 +1611,11 @@
         1160
       ],
       "size": [
-        100,
-        30
+        82,
+        26
       ],
       "flags": {},
-      "order": 16,
+      "order": 23,
       "mode": 0,
       "inputs": [
         {
@@ -2188,7 +1626,7 @@
       ],
       "outputs": [
         {
-          "name": "",
+          "name": "MODEL",
           "type": "MODEL",
           "links": [
             210
@@ -2197,9 +1635,391 @@
         }
       ],
       "properties": {
-        "showOutputText": false,
+        "showOutputText": true,
         "horizontal": false
       }
+    },
+    {
+      "id": 121,
+      "type": "Reroute",
+      "pos": [
+        1010,
+        1200
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 195
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            196,
+            197
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": true,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 122,
+      "type": "Reroute",
+      "pos": [
+        1010,
+        1240
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 203
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            199,
+            200
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": true,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 79,
+      "type": "CLIPTextEncode",
+      "pos": [
+        580,
+        830
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 115
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 139,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            175
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "T5 Txt Encoder",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Poor quality iPhone photo of Kermit the Frog drinking tea, sitting in a coffee booth near the window, with a light rain outside. (144p photo:1.1) with JPEG artifacts."
+      ]
+    },
+    {
+      "id": 80,
+      "type": "CLIPTextEncode",
+      "pos": [
+        580,
+        870
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 116
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 143,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            176
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "T5 Txt Encoder (Neg)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "macrophoto"
+      ]
+    },
+    {
+      "id": 125,
+      "type": "Reroute",
+      "pos": [
+        910,
+        800
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 214,
+          "pos": [
+            37.5,
+            0
+          ],
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "INT",
+          "links": [
+            213
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": true
+      }
+    },
+    {
+      "id": 115,
+      "type": "SamplerCustom",
+      "pos": [
+        920,
+        870
+      ],
+      "size": {
+        "0": 260,
+        "1": 250
+      },
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 177
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 175
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 176
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 174
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 173
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 205
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": 178,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "noise_seed",
+          "type": "INT",
+          "link": 213,
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            181
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustom"
+      },
+      "widgets_values": [
+        true,
+        1,
+        "randomize",
+        3
+      ]
+    },
+    {
+      "id": 118,
+      "type": "KSamplerAdvanced",
+      "pos": [
+        1620,
+        80
+      ],
+      "size": {
+        "0": 450,
+        "1": 310
+      },
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 183
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 188
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 212
+        },
+        {
+          "name": "noise_seed",
+          "type": "INT",
+          "link": 191,
+          "widget": {
+            "name": "noise_seed"
+          }
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": 194,
+          "widget": {
+            "name": "cfg"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerAdvanced"
+      },
+      "widgets_values": [
+        "enable",
+        1,
+        "randomize",
+        16,
+        3,
+        "heun",
+        "beta",
+        0,
+        10000,
+        "disable"
+      ]
     },
     {
       "id": 116,
@@ -2208,20 +2028,20 @@
         80,
         360
       ],
-      "size": [
-        210,
-        80
-      ],
+      "size": {
+        "0": 210,
+        "1": 82
+      },
       "flags": {},
-      "order": 15,
+      "order": 11,
       "mode": 0,
       "outputs": [
         {
           "name": "INT",
           "type": "INT",
           "links": [
-            179,
-            191
+            191,
+            214
           ],
           "slot_index": 0,
           "widget": {
@@ -2240,6 +2060,176 @@
       "color": "#2a363b",
       "bgcolor": "#3f5159",
       "shape": 1
+    },
+    {
+      "id": 78,
+      "type": "CLIPLoaderGGUF",
+      "pos": [
+        80,
+        830
+      ],
+      "size": {
+        "0": 450,
+        "1": 82
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 12,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            115,
+            116
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "T5 Encoder Loader (GGUF)",
+      "properties": {
+        "Node name for S&R": "CLIPLoaderGGUF"
+      },
+      "widgets_values": [
+        "T5-Encoder-Q5_K_M.gguf",
+        "stable_diffusion"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 1,
+      "type": "PixArtCheckpointLoader",
+      "pos": [
+        80,
+        950
+      ],
+      "size": {
+        "0": 450,
+        "1": 82
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 13,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            133,
+            177
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "PixArt-Sigma Loader",
+      "properties": {
+        "Node name for S&R": "PixArtCheckpointLoader"
+      },
+      "widgets_values": [
+        "PixArt-Sigma-1024.safetensors",
+        "PixArtMS_Sigma_XL_2"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 8,
+      "type": "VAELoader",
+      "pos": [
+        80,
+        1070
+      ],
+      "size": {
+        "0": 450,
+        "1": 60
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 14,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            11
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "PixArt-Sigma VAE Loader",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "PixArt-Sigma-VAE.safetensors"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 39,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        80,
+        1170
+      ],
+      "size": {
+        "0": 450,
+        "1": 100
+      },
+      "flags": {
+        "pinned": false
+      },
+      "order": 15,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            201
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            195
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            203
+          ],
+          "slot_index": 2,
+          "shape": 3
+        }
+      ],
+      "title": "SD15 Refiner Loader",
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "Photon-Refiner.safetensors"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -2532,14 +2522,6 @@
       "FLOAT"
     ],
     [
-      179,
-      116,
-      0,
-      115,
-      7,
-      "INT"
-    ],
-    [
       181,
       115,
       0,
@@ -2562,14 +2544,6 @@
       118,
       1,
       "CONDITIONING"
-    ],
-    [
-      184,
-      114,
-      0,
-      118,
-      3,
-      "LATENT"
     ],
     [
       188,
@@ -2700,22 +2674,6 @@
       "*"
     ],
     [
-      208,
-      103,
-      0,
-      114,
-      0,
-      "INT"
-    ],
-    [
-      209,
-      106,
-      0,
-      114,
-      1,
-      "INT"
-    ],
-    [
       210,
       123,
       0,
@@ -2728,6 +2686,30 @@
       9,
       0,
       69,
+      0,
+      "*"
+    ],
+    [
+      212,
+      76,
+      0,
+      118,
+      3,
+      "LATENT"
+    ],
+    [
+      213,
+      125,
+      0,
+      115,
+      7,
+      "INT"
+    ],
+    [
+      214,
+      116,
+      0,
+      125,
       0,
       "*"
     ]
@@ -2778,7 +2760,7 @@
       "font_size": 20
     },
     {
-      "title": "PixArt-Sigma Process",
+      "title": "PixArt-Sigma Denoising",
       "bounding": [
         570,
         760,
