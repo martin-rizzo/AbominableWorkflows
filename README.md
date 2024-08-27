@@ -128,3 +128,14 @@ Copyright (c) 2024 Martin Rizzo
 This project is licensed under the MIT license.  
 See the ["LICENSE"](LICENSE) file for details.
 
+
+## Acknowledgments
+
+I would like to thank the developers of PixArt-Σ for their outstanding work.
+Their model has been a crucial component in the development of my workflow.
+
+__Further Information about PixArt-Σ__:
+  * [PixArt-Σ GitHub Repository](https://github.com/PixArt-alpha/PixArt-sigma)
+  * [PixArt-Σ Hugging Face Model](https://huggingface.co/PixArt-alpha/PixArt-Sigma-XL-2-1024-MS)
+  * [PixArt-Σ arXiv Report](https://arxiv.org/abs/2403.04692)
+
