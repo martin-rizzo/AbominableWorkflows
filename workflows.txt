@@ -1,0 +1,46 @@
+Abominable Workflows v3
+=======================
+
+./abominable_1GIRL_.json
+    Realistic images focused on an attractive woman with photographic details.
+    > prefix    : ''
+    > suffix    : ''
+    > neg-prefix: ''
+
+./abominable_CUTEDRAW_.json
+    Simple and expressive illustrations with a cute style.
+    > prefix    : 'Vector cute illustration of '
+    > suffix    : '. Outlined and minimalist.'
+    > neg-prefix: 'macrophoto'
+
+./abominable_DARKFAN80_.json
+    Deep and moody aesthetic with dark tones and dramatic lighting effects.
+    > prefix    : ''
+    > suffix    : '. (80's dark fantasy in VHS, blurry, tv captured:1.1)'
+    > neg-prefix: 'small, toy'
+   
+./abominable_GHIBLI_.json
+    Inspired by Japanese animation, characterized by vibrant colors and soft lines.
+    > prefix    : 'An anime style draw of '
+    > suffix    : '. (Outlined draw with solid colors and high contrast by Studio Ghibli:1.2), big eyes.'
+    > neg-prefix: ''
+   
+./abominable_MILO_.json
+    European comic style, featuring stylized figures and intense details.
+    > prefix      : 'Poster art with bold lines of '
+    > suffix      : '. Poster by (Milo Manara:1.2) in white, red, blue and black. Dark background and solid colors.'
+    > neg-prefix: ''
+   
+./abominable_PHOTO_.json
+    Realistic images with photographic details.
+    > prefix     : ''
+    > suffix     : ''
+    > neg-prefix : ''
+
+./abominable_POLAROID_.json
+    Nostalgic feel, mimicking the aesthetic of a Polaroid photograph.
+    > prefix    : 'Bright flash vintage Polaroid snapshot of '
+    > suffix    : '. High contrast.'
+    > neg-prefix: 'painting, draw'
+
+
