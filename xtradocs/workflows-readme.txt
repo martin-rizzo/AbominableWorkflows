@@ -1,0 +1,55 @@
+Abominable Workflows v3
+=======================
+https://civitai.com/models/420163/abominable-workflows
+
+REQUIRED FILES
+--------------
+ To use this workflow, you need to install the following models in ComfyUI.
+ Place them in the specified directories:
+
+ <your_comfyui_dir> / models / checkpoints /
+   > PixArt-Sigma-1024.safetensors
+   > Photon-Refiner.safetensors
+
+ <your_comfyui_dir> / models / clip /
+   > T5-Encoder-Q5_K_M.gguf
+
+ <your_comfyui_dir> / models / vae /
+   > PixArt-Sigma-VAE.safetensors
+
+ All four files can be downloaded from:
+   https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main
+
+REQUIRED NODES
+--------------
+ This workflow also requires the following custom nodes:
+
+   > ComfyUI_ExtraModels
+     https://github.com/city96/ComfyUI_ExtraModels
+
+   > ComfyUI-GGUF
+     https://github.com/city96/ComfyUI-GGUF
+
+   > ComfyUI-Crystools
+     https://github.com/crystian/ComfyUI-Crystools
+
+ For detailed installation instructions for these nodes, please refer to the main page of Abominable Workflows.
+
+OUTPUT IMAGES
+-------------
+ Generated images will be automatically saved in:
+    <your_comfyui_dir> / output / abominable /
+
+IMAGE SIZE
+----------
+ This workflow uses PixArt-1024 beyond its recommended size. For optimal quality, consider using the values provided by PixArt's authors:
+
+    9:21 =  640 x 1536
+    9:16 =  768 x 1344
+    4:5  =  896 x 1152
+    2:3  =  832 x 1216
+    1:1  = 1024 x 1024
+    3:2  = 1216 x  832
+    5:4  =  896 x 1152
+   21:9  = 1536 x  640
+   16:9  = 1344 x  768
