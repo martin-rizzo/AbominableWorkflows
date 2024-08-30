@@ -13,7 +13,9 @@
         "0": 210,
         "1": 90
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 37,
       "mode": 0,
       "inputs": [
@@ -66,7 +68,9 @@
         98.8,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 27,
       "mode": 0,
       "inputs": [
@@ -107,7 +111,9 @@
         "0": 210,
         "1": 90
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 38,
       "mode": 0,
       "inputs": [
@@ -161,7 +167,7 @@
         "1": 220
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 43,
       "mode": 0,
@@ -217,7 +223,8 @@
         "1": 54
       },
       "flags": {
-        "collapsed": true
+        "collapsed": true,
+        "pinned": true
       },
       "order": 31,
       "mode": 0,
@@ -267,7 +274,8 @@
         "1": 200
       },
       "flags": {
-        "collapsed": true
+        "collapsed": true,
+        "pinned": true
       },
       "order": 0,
       "mode": 0,
@@ -316,7 +324,9 @@
         "0": 450,
         "1": 310
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 50,
       "mode": 0,
       "inputs": [
@@ -392,7 +402,9 @@
         "0": 300,
         "1": 60
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 1,
       "mode": 0,
       "outputs": [
@@ -425,7 +437,9 @@
         "0": 300,
         "1": 110
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 33,
       "mode": 0,
       "inputs": [
@@ -467,7 +481,9 @@
         75,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 26,
       "mode": 0,
       "inputs": [
@@ -510,7 +526,9 @@
         "0": 240,
         "1": 250
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 54,
       "mode": 0,
       "inputs": [
@@ -600,7 +618,7 @@
         "1": 260
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 60,
       "mode": 0,
@@ -631,7 +649,7 @@
         "1": 640
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 63,
       "mode": 0,
@@ -663,7 +681,8 @@
         "1": 60
       },
       "flags": {
-        "collapsed": true
+        "collapsed": true,
+        "pinned": true
       },
       "order": 47,
       "mode": 0,
@@ -712,7 +731,9 @@
         "0": 330,
         "1": 80
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 2,
       "mode": 0,
       "outputs": [
@@ -745,7 +766,9 @@
         "0": 440,
         "1": 200
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 52,
       "mode": 0,
       "inputs": [
@@ -758,12 +781,7 @@
       "title": "🪛 Abominable Refiner",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 104,
@@ -776,7 +794,9 @@
         "0": 210,
         "1": 60
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 3,
       "mode": 0,
       "outputs": [
@@ -810,7 +830,9 @@
         "0": 210,
         "1": 60
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 4,
       "mode": 0,
       "outputs": [
@@ -970,7 +992,9 @@
         "0": 210,
         "1": 200
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 48,
       "mode": 0,
       "inputs": [
@@ -1084,7 +1108,9 @@
         "0": 210,
         "1": 58
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 8,
       "mode": 0,
       "outputs": [
@@ -1122,7 +1148,9 @@
         "0": 210,
         "1": 100
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 9,
       "mode": 0,
       "outputs": [
@@ -1160,7 +1188,9 @@
         "0": 400,
         "1": 100
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 10,
       "mode": 0,
       "outputs": [
@@ -1198,7 +1228,9 @@
         "0": 650,
         "1": 260
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 11,
       "mode": 0,
       "outputs": [
@@ -1238,7 +1270,9 @@
         "0": 330,
         "1": 80
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 12,
       "mode": 0,
       "outputs": [
@@ -1271,7 +1305,9 @@
         "0": 330,
         "1": 80
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 13,
       "mode": 0,
       "outputs": [
@@ -1304,7 +1340,9 @@
         "0": 330,
         "1": 80
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 14,
       "mode": 0,
       "outputs": [
@@ -1338,7 +1376,7 @@
         "1": 50
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 56,
       "mode": 0,
@@ -1383,7 +1421,7 @@
         "1": 50
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 61,
       "mode": 0,
@@ -1428,7 +1466,7 @@
       },
       "flags": {
         "collapsed": false,
-        "pinned": false
+        "pinned": true
       },
       "order": 15,
       "mode": 0,
@@ -1469,7 +1507,7 @@
         "1": 130
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 42,
       "mode": 0,
@@ -1515,7 +1553,7 @@
       },
       "flags": {
         "collapsed": false,
-        "pinned": false
+        "pinned": true
       },
       "order": 53,
       "mode": 0,
@@ -1567,7 +1605,7 @@
       },
       "flags": {
         "collapsed": false,
-        "pinned": false
+        "pinned": true
       },
       "order": 57,
       "mode": 0,
@@ -1611,7 +1649,7 @@
         "1": 370
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 59,
       "mode": 0,
@@ -1694,7 +1732,9 @@
         75,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 25,
       "mode": 0,
       "inputs": [
@@ -1733,7 +1773,9 @@
         75,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 55,
       "mode": 0,
       "inputs": [
@@ -1769,7 +1811,9 @@
         "0": 210,
         "1": 200
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 40,
       "mode": 0,
       "inputs": [
@@ -1883,7 +1927,9 @@
         "0": 440,
         "1": 200
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 46,
       "mode": 0,
       "inputs": [
@@ -1896,12 +1942,7 @@
       "title": "🪛 Abominable Prompt",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 68,
@@ -1914,7 +1955,9 @@
         75,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 62,
       "mode": 0,
       "inputs": [
@@ -1950,7 +1993,9 @@
         75,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 58,
       "mode": 0,
       "inputs": [
@@ -1987,7 +2032,7 @@
         "1": 82
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 16,
       "mode": 0,
@@ -2026,7 +2071,7 @@
         "1": 82
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 17,
       "mode": 0,
@@ -2065,7 +2110,7 @@
         "1": 60
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 18,
       "mode": 0,
@@ -2102,7 +2147,7 @@
         "1": 100
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 19,
       "mode": 0,
@@ -2156,7 +2201,9 @@
         "0": 210,
         "1": 58
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 20,
       "mode": 0,
       "outputs": [
@@ -2195,7 +2242,8 @@
         "1": 240
       },
       "flags": {
-        "collapsed": false
+        "collapsed": false,
+        "pinned": true
       },
       "order": 21,
       "mode": 0,
@@ -2221,7 +2269,9 @@
         75,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 49,
       "mode": 0,
       "inputs": [
@@ -2247,56 +2297,6 @@
       }
     },
     {
-      "id": 80,
-      "type": "CLIPTextEncode",
-      "pos": [
-        510,
-        1010
-      ],
-      "size": {
-        "0": 210,
-        "1": 60
-      },
-      "flags": {
-        "collapsed": false
-      },
-      "order": 51,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 116
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 257,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            176
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "T5 Txt Encoder (Neg)",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "macrophoto"
-      ]
-    },
-    {
       "id": 147,
       "type": "List of strings [Crystools]",
       "pos": [
@@ -2307,7 +2307,9 @@
         "0": 210,
         "1": 200
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 39,
       "mode": 0,
       "inputs": [
@@ -2421,7 +2423,9 @@
         "0": 440,
         "1": 200
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 44,
       "mode": 0,
       "inputs": [
@@ -2434,12 +2438,7 @@
       "title": "🪛 Abominable Negative",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 157,
@@ -2452,7 +2451,9 @@
         "0": 330,
         "1": 80
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 22,
       "mode": 0,
       "outputs": [
@@ -2485,7 +2486,9 @@
         75,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 36,
       "mode": 0,
       "inputs": [
@@ -2522,7 +2525,9 @@
         75,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 35,
       "mode": 0,
       "inputs": [
@@ -2559,7 +2564,9 @@
         82,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 34,
       "mode": 0,
       "inputs": [
@@ -2595,7 +2602,9 @@
         "0": 330,
         "1": 76.00000762939453
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 23,
       "mode": 0,
       "outputs": [
@@ -2628,7 +2637,9 @@
         75,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 45,
       "mode": 0,
       "inputs": [
@@ -2668,7 +2679,8 @@
         "1": 46
       },
       "flags": {
-        "collapsed": true
+        "collapsed": true,
+        "pinned": true
       },
       "order": 32,
       "mode": 0,
@@ -2713,7 +2725,8 @@
         "1": 34
       },
       "flags": {
-        "collapsed": true
+        "collapsed": true,
+        "pinned": true
       },
       "order": 29,
       "mode": 0,
@@ -2758,7 +2771,8 @@
         "1": 46.00001525878906
       },
       "flags": {
-        "collapsed": true
+        "collapsed": true,
+        "pinned": true
       },
       "order": 30,
       "mode": 0,
@@ -2803,7 +2817,8 @@
         "1": 74
       },
       "flags": {
-        "collapsed": true
+        "collapsed": true,
+        "pinned": true
       },
       "order": 41,
       "mode": 0,
@@ -2857,7 +2872,8 @@
         "1": 46.00004196166992
       },
       "flags": {
-        "collapsed": true
+        "collapsed": true,
+        "pinned": true
       },
       "order": 28,
       "mode": 0,
@@ -2902,7 +2918,7 @@
         "1": 1250
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 24,
       "mode": 0,
@@ -2916,6 +2932,57 @@
       "color": "#222",
       "bgcolor": "#000",
       "shape": 1
+    },
+    {
+      "id": 80,
+      "type": "CLIPTextEncode",
+      "pos": [
+        510,
+        1010
+      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 51,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 116
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 257,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            176
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "T5 Txt Encoder (Neg)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "macrophoto"
+      ]
     }
   ],
   "links": [
