@@ -7,12 +7,6 @@ Abominable Workflows v3
     > suffix    : ''
     > neg-prefix: ''
 
-./abominable_CUTEDRAW_.json
-    Simple and expressive illustrations with a cute style.
-    > prefix    : 'Vector cute illustration of '
-    > suffix    : '. Outlined and minimalist.'
-    > neg-prefix: 'macrophoto'
-
 ./abominable_DARKFAN80_.json
     Deep and moody aesthetic with dark tones and dramatic lighting effects.
     > prefix    : ''
@@ -25,6 +19,19 @@ Abominable Workflows v3
     > suffix    : '. (Outlined draw with solid colors and high contrast by Studio Ghibli:1.2), big eyes.'
     > neg-prefix: ''
    
+./abominable_INK_.json
+    Ink-style illustrations with bold outlines and hand-painted details.
+    > prefix    : 'Cute pencil illustration of '
+    > suffix    : '. Outlined minimalist with solid colors.'
+    > neg-prefix: 'blurry'
+    > INK Reference:
+       * CFG scale: [ 4.5 ] (lower for more details)
+       * Refiner intensity: [ 22 ]
+       * Refiner prefix: generally leave empty
+      Lowering the "CFG scale" will result in a drawing with more detail or realism.
+      If the drawing appears photorealistic, set negative with 'macrophoto, bokeh'.
+      Alternatively, enable 'Experimental refiner' and increase the intensity to 28.
+
 ./abominable_MILO_.json
     European comic style, featuring stylized figures and intense details.
     > prefix      : 'Poster art with bold lines of '
