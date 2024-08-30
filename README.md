@@ -9,6 +9,7 @@
 <img alt="Last"     src="https://img.shields.io/github/last-commit/martin-rizzo/AbominableWorkflows">
 <img alt="Version"  src="https://img.shields.io/github/v/tag/martin-rizzo/AbominableWorkflows?label=version">
 </p>
+
 ![Abominable Screenshot](examples/abominable_screenshot.jpg)
 </div>
 
