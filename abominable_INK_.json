@@ -5,10 +5,18 @@
     {
       "id": 103,
       "type": "Switch any [Crystools]",
-      "pos": [
-        1600,
-        640
-      ],
+      "pos": {
+        "0": 1600,
+        "1": 640,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 90
@@ -60,10 +68,18 @@
     {
       "id": 109,
       "type": "Reroute",
-      "pos": [
-        1360,
-        720
-      ],
+      "pos": {
+        "0": 1360,
+        "1": 720,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": [
         98.8,
         26
@@ -71,7 +87,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 27,
+      "order": 25,
       "mode": 0,
       "inputs": [
         {
@@ -103,10 +119,18 @@
     {
       "id": 106,
       "type": "Switch any [Crystools]",
-      "pos": [
-        1600,
-        770
-      ],
+      "pos": {
+        "0": 1600,
+        "1": 770,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 90
@@ -158,10 +182,18 @@
     {
       "id": 76,
       "type": "EmptyLatentImage",
-      "pos": [
-        1820,
-        640
-      ],
+      "pos": {
+        "0": 1820,
+        "1": 640,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 220
@@ -214,10 +246,18 @@
     {
       "id": 112,
       "type": "CLIPTextEncode",
-      "pos": [
-        1380,
-        220
-      ],
+      "pos": {
+        "0": 1380,
+        "1": 220,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 54
@@ -226,7 +266,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 31,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -265,10 +305,18 @@
     {
       "id": 120,
       "type": "CLIPTextEncode",
-      "pos": [
-        1380,
-        300
-      ],
+      "pos": {
+        "0": 1380,
+        "1": 300,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 400,
         "1": 200
@@ -316,10 +364,18 @@
     {
       "id": 118,
       "type": "KSamplerAdvanced",
-      "pos": [
-        1580,
-        220
-      ],
+      "pos": {
+        "0": 1580,
+        "1": 220,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 450,
         "1": 310
@@ -394,10 +450,18 @@
     {
       "id": 83,
       "type": "KSamplerSelect",
-      "pos": [
-        510,
-        1050
-      ],
+      "pos": {
+        "0": 510,
+        "1": 1050,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 300,
         "1": 60
@@ -407,6 +471,7 @@
       },
       "order": 1,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "SAMPLER",
@@ -429,10 +494,18 @@
     {
       "id": 84,
       "type": "BasicScheduler",
-      "pos": [
-        510,
-        1150
-      ],
+      "pos": {
+        "0": 510,
+        "1": 1150,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 300,
         "1": 110
@@ -440,7 +513,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 33,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -473,10 +546,18 @@
     {
       "id": 125,
       "type": "Reroute",
-      "pos": [
-        840,
-        940
-      ],
+      "pos": {
+        "0": 840,
+        "1": 940,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": [
         75,
         26
@@ -484,7 +565,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 26,
+      "order": 34,
       "mode": 0,
       "inputs": [
         {
@@ -518,10 +599,18 @@
     {
       "id": 115,
       "type": "SamplerCustom",
-      "pos": [
-        820,
-        1010
-      ],
+      "pos": {
+        "0": 820,
+        "1": 1010,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 240,
         "1": 250
@@ -609,10 +698,18 @@
     {
       "id": 53,
       "type": "PreviewImage",
-      "pos": [
-        698.945597181913,
-        80
-      ],
+      "pos": {
+        "0": 698.9456176757812,
+        "1": 80,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 180,
         "1": 260
@@ -629,6 +726,7 @@
           "link": 109
         }
       ],
+      "outputs": [],
       "title": "PixArt-Sigma Image",
       "properties": {
         "Node name for S&R": "PreviewImage"
@@ -640,10 +738,18 @@
     {
       "id": 61,
       "type": "SaveImage",
-      "pos": [
-        888.945597181913,
-        80
-      ],
+      "pos": {
+        "0": 888.9456176757812,
+        "1": 80,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 400,
         "1": 640
@@ -660,6 +766,7 @@
           "link": 107
         }
       ],
+      "outputs": [],
       "title": "Saved Refined Image",
       "properties": {},
       "widgets_values": [
@@ -672,10 +779,18 @@
     {
       "id": 79,
       "type": "CLIPTextEncode",
-      "pos": [
-        510,
-        970
-      ],
+      "pos": {
+        "0": 510,
+        "1": 970,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 60
@@ -684,7 +799,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 47,
+      "order": 45,
       "mode": 0,
       "inputs": [
         {
@@ -723,10 +838,18 @@
     {
       "id": 158,
       "type": "Primitive string multiline [Crystools]",
-      "pos": [
-        1030,
-        1820
-      ],
+      "pos": {
+        "0": 1030,
+        "1": 1820,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 330,
         "1": 80
@@ -736,6 +859,7 @@
       },
       "order": 2,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "string",
@@ -758,10 +882,18 @@
     {
       "id": 146,
       "type": "Show any [Crystools]",
-      "pos": [
-        1590,
-        1950
-      ],
+      "pos": {
+        "0": 1590,
+        "1": 1950,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 440,
         "1": 200
@@ -769,7 +901,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 52,
+      "order": 51,
       "mode": 0,
       "inputs": [
         {
@@ -778,6 +910,7 @@
           "link": 229
         }
       ],
+      "outputs": [],
       "title": "🪛 Abominable Refiner",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
@@ -786,10 +919,18 @@
     {
       "id": 104,
       "type": "Primitive integer [Crystools]",
-      "pos": [
-        1380,
-        800
-      ],
+      "pos": {
+        "0": 1380,
+        "1": 800,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 60
@@ -799,6 +940,7 @@
       },
       "order": 3,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "int",
@@ -822,10 +964,18 @@
     {
       "id": 105,
       "type": "Primitive integer [Crystools]",
-      "pos": [
-        1380,
-        640
-      ],
+      "pos": {
+        "0": 1380,
+        "1": 640,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 60
@@ -835,6 +985,7 @@
       },
       "order": 4,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "int",
@@ -856,138 +1007,20 @@
       ]
     },
     {
-      "id": 64,
-      "type": "PrimitiveNode",
-      "pos": [
-        298.9455971819121,
-        380
-      ],
-      "size": {
-        "0": 210,
-        "1": 82
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 5,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            254
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "value"
-          }
-        }
-      ],
-      "title": "Refiner intensity",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        22,
-        "fixed"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1
-    },
-    {
-      "id": 116,
-      "type": "PrimitiveNode",
-      "pos": [
-        38.94559718191227,
-        380
-      ],
-      "size": {
-        "0": 210,
-        "1": 82
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 6,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            191,
-            214
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "noise_seed"
-          }
-        }
-      ],
-      "title": "Seed",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        1,
-        "fixed"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1
-    },
-    {
-      "id": 71,
-      "type": "PrimitiveNode",
-      "pos": [
-        558.945597181913,
-        380
-      ],
-      "size": {
-        "0": 210,
-        "1": 82
-      },
-      "flags": {
-        "collapsed": false,
-        "pinned": true
-      },
-      "order": 7,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "FLOAT",
-          "type": "FLOAT",
-          "links": [
-            178,
-            194
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "cfg"
-          }
-        }
-      ],
-      "title": "CFG scale",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        4.5,
-        "fixed"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1
-    },
-    {
       "id": 136,
       "type": "List of strings [Crystools]",
-      "pos": [
-        1370,
-        1950
-      ],
+      "pos": {
+        "0": 1370,
+        "1": 1950,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 200
@@ -995,7 +1028,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 48,
+      "order": 46,
       "mode": 0,
       "inputs": [
         {
@@ -1100,19 +1133,28 @@
     {
       "id": 107,
       "type": "PrimitiveNode",
-      "pos": [
-        38.94559718191227,
-        500
-      ],
-      "size": {
-        "0": 210,
-        "1": 58
+      "pos": {
+        "0": 38.94559860229492,
+        "1": 500,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
       },
+      "size": [
+        210,
+        70
+      ],
       "flags": {
         "pinned": true
       },
-      "order": 8,
+      "order": 5,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "BOOLEAN",
@@ -1138,92 +1180,20 @@
       "shape": 1
     },
     {
-      "id": 132,
-      "type": "PrimitiveNode",
-      "pos": [
-        259,
-        500
-      ],
-      "size": {
-        "0": 210,
-        "1": 100
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 9,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            238
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "title": "Refiner prefix",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        ""
-      ],
-      "color": "#223",
-      "bgcolor": "#335",
-      "shape": 1
-    },
-    {
-      "id": 97,
-      "type": "PrimitiveNode",
-      "pos": [
-        480,
-        500
-      ],
-      "size": {
-        "0": 400,
-        "1": 100
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 10,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            235
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "title": "Negative prompt",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        ""
-      ],
-      "color": "#322",
-      "bgcolor": "#533",
-      "shape": 1
-    },
-    {
       "id": 95,
       "type": "PrimitiveNode",
-      "pos": [
-        39,
-        80
-      ],
+      "pos": {
+        "0": 39,
+        "1": 80,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 650,
         "1": 260
@@ -1231,8 +1201,9 @@
       "flags": {
         "pinned": true
       },
-      "order": 11,
+      "order": 6,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "STRING",
@@ -1262,10 +1233,18 @@
     {
       "id": 163,
       "type": "Primitive string multiline [Crystools]",
-      "pos": [
-        1030,
-        1450
-      ],
+      "pos": {
+        "0": 1030,
+        "1": 1450,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 330,
         "1": 80
@@ -1273,8 +1252,9 @@
       "flags": {
         "pinned": true
       },
-      "order": 12,
+      "order": 7,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "string",
@@ -1297,10 +1277,18 @@
     {
       "id": 162,
       "type": "Primitive string multiline [Crystools]",
-      "pos": [
-        1030,
-        1570
-      ],
+      "pos": {
+        "0": 1030,
+        "1": 1570,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 330,
         "1": 80
@@ -1308,8 +1296,9 @@
       "flags": {
         "pinned": true
       },
-      "order": 13,
+      "order": 8,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "string",
@@ -1332,10 +1321,18 @@
     {
       "id": 159,
       "type": "Primitive string multiline [Crystools]",
-      "pos": [
-        1030,
-        1700
-      ],
+      "pos": {
+        "0": 1030,
+        "1": 1700,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 330,
         "1": 80
@@ -1343,8 +1340,9 @@
       "flags": {
         "pinned": true
       },
-      "order": 14,
+      "order": 9,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "string",
@@ -1367,10 +1365,18 @@
     {
       "id": 9,
       "type": "VAEDecode",
-      "pos": [
-        1820,
-        970
-      ],
+      "pos": {
+        "0": 1820,
+        "1": 970,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 50
@@ -1412,10 +1418,18 @@
     {
       "id": 51,
       "type": "VAEDecode",
-      "pos": [
-        1820,
-        1060
-      ],
+      "pos": {
+        "0": 1820,
+        "1": 1060,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 50
@@ -1456,10 +1470,18 @@
     {
       "id": 62,
       "type": "PrimitiveNode",
-      "pos": [
-        1820,
-        1260
-      ],
+      "pos": {
+        "0": 1820,
+        "1": 1260,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 82
@@ -1468,8 +1490,9 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 15,
+      "order": 10,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "INT",
@@ -1498,10 +1521,18 @@
     {
       "id": 43,
       "type": "CLIPTextEncode",
-      "pos": [
-        1110,
-        1210
-      ],
+      "pos": {
+        "0": 1110,
+        "1": 1210,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 370,
         "1": 130
@@ -1509,7 +1540,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 42,
+      "order": 41,
       "mode": 0,
       "inputs": [
         {
@@ -1543,10 +1574,18 @@
     {
       "id": 40,
       "type": "CLIPTextEncode",
-      "pos": [
-        1230,
-        1010
-      ],
+      "pos": {
+        "0": 1230,
+        "1": 1010,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 240,
         "1": 60
@@ -1555,7 +1594,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 53,
+      "order": 52,
       "mode": 0,
       "inputs": [
         {
@@ -1595,10 +1634,18 @@
     {
       "id": 54,
       "type": "VAEEncode",
-      "pos": [
-        1230,
-        1110
-      ],
+      "pos": {
+        "0": 1230,
+        "1": 1110,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 240,
         "1": 60
@@ -1640,10 +1687,18 @@
     {
       "id": 42,
       "type": "KSamplerAdvanced",
-      "pos": [
-        1490,
-        970
-      ],
+      "pos": {
+        "0": 1490,
+        "1": 970,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 320,
         "1": 370
@@ -1724,10 +1779,18 @@
     {
       "id": 164,
       "type": "Reroute",
-      "pos": [
-        1090,
-        940
-      ],
+      "pos": {
+        "0": 1090,
+        "1": 940,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": [
         75,
         26
@@ -1735,7 +1798,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 25,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
@@ -1765,10 +1828,18 @@
     {
       "id": 117,
       "type": "Reroute",
-      "pos": [
-        1090,
-        980
-      ],
+      "pos": {
+        "0": 1090,
+        "1": 980,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": [
         75,
         26
@@ -1803,10 +1874,18 @@
     {
       "id": 160,
       "type": "List of strings [Crystools]",
-      "pos": [
-        1370,
-        1450
-      ],
+      "pos": {
+        "0": 1370,
+        "1": 1450,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 200
@@ -1814,7 +1893,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 40,
+      "order": 39,
       "mode": 0,
       "inputs": [
         {
@@ -1919,10 +1998,18 @@
     {
       "id": 161,
       "type": "Show any [Crystools]",
-      "pos": [
-        1590,
-        1450
-      ],
+      "pos": {
+        "0": 1590,
+        "1": 1450,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 440,
         "1": 200
@@ -1930,7 +2017,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 46,
+      "order": 44,
       "mode": 0,
       "inputs": [
         {
@@ -1939,6 +2026,7 @@
           "link": 249
         }
       ],
+      "outputs": [],
       "title": "🪛 Abominable Prompt",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
@@ -1947,10 +2035,18 @@
     {
       "id": 68,
       "type": "Reroute",
-      "pos": [
-        2220,
-        70
-      ],
+      "pos": {
+        "0": 2220,
+        "1": 70,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": [
         75,
         26
@@ -1985,10 +2081,18 @@
     {
       "id": 69,
       "type": "Reroute",
-      "pos": [
-        2220,
-        100
-      ],
+      "pos": {
+        "0": 2220,
+        "1": 100,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": [
         75,
         26
@@ -2023,10 +2127,18 @@
     {
       "id": 78,
       "type": "CLIPLoaderGGUF",
-      "pos": [
-        50,
-        970
-      ],
+      "pos": {
+        "0": 50,
+        "1": 970,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 410,
         "1": 82
@@ -2034,8 +2146,9 @@
       "flags": {
         "pinned": true
       },
-      "order": 16,
+      "order": 11,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "CLIP",
@@ -2062,10 +2175,18 @@
     {
       "id": 1,
       "type": "PixArtCheckpointLoader",
-      "pos": [
-        50,
-        1090
-      ],
+      "pos": {
+        "0": 50,
+        "1": 1090,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 410,
         "1": 82
@@ -2073,8 +2194,9 @@
       "flags": {
         "pinned": true
       },
-      "order": 17,
+      "order": 12,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "model",
@@ -2101,10 +2223,18 @@
     {
       "id": 8,
       "type": "VAELoader",
-      "pos": [
-        50,
-        1210
-      ],
+      "pos": {
+        "0": 50,
+        "1": 1210,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 410,
         "1": 60
@@ -2112,8 +2242,9 @@
       "flags": {
         "pinned": true
       },
-      "order": 18,
+      "order": 13,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "VAE",
@@ -2138,10 +2269,18 @@
     {
       "id": 39,
       "type": "CheckpointLoaderSimple",
-      "pos": [
-        50,
-        1310
-      ],
+      "pos": {
+        "0": 50,
+        "1": 1310,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 410,
         "1": 100
@@ -2149,8 +2288,9 @@
       "flags": {
         "pinned": true
       },
-      "order": 19,
+      "order": 14,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "MODEL",
@@ -2191,80 +2331,20 @@
       "bgcolor": "#335"
     },
     {
-      "id": 144,
-      "type": "PrimitiveNode",
-      "pos": [
-        38.94559718191227,
-        600
-      ],
-      "size": {
-        "0": 210,
-        "1": 58
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 20,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "BOOLEAN",
-          "type": "BOOLEAN",
-          "links": [
-            242
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "boolean"
-          }
-        }
-      ],
-      "title": "Experimental refiner",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        false
-      ],
-      "color": "#223",
-      "bgcolor": "#335",
-      "shape": 1
-    },
-    {
-      "id": 110,
-      "type": "Note",
-      "pos": [
-        258.9455971819121,
-        640
-      ],
-      "size": {
-        "0": 620,
-        "1": 240
-      },
-      "flags": {
-        "collapsed": false,
-        "pinned": true
-      },
-      "order": 21,
-      "mode": 0,
-      "title": "INK Reference",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "* CFG scale: [ 4.5 ] (lower for more details)\n* Refiner intensity: [ 22 ]\n* Refiner prefix: generally leave empty\nLowering the \"CFG scale\" will result in a drawing with more detail or realism.\nIf the drawing appears photorealistic, set negative with 'macrophoto, bokeh'.\nAlternatively, enable 'Experimental refiner' and increase the intensity to 28.\n"
-      ],
-      "color": "#222",
-      "bgcolor": "#000",
-      "shape": 1
-    },
-    {
       "id": 124,
       "type": "Reroute",
-      "pos": [
-        2220,
-        1090
-      ],
+      "pos": {
+        "0": 2220,
+        "1": 1090,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": [
         75,
         26
@@ -2299,10 +2379,18 @@
     {
       "id": 147,
       "type": "List of strings [Crystools]",
-      "pos": [
-        1370,
-        1700
-      ],
+      "pos": {
+        "0": 1370,
+        "1": 1700,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 200
@@ -2310,7 +2398,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 39,
+      "order": 42,
       "mode": 0,
       "inputs": [
         {
@@ -2415,10 +2503,18 @@
     {
       "id": 153,
       "type": "Show any [Crystools]",
-      "pos": [
-        1590,
-        1700
-      ],
+      "pos": {
+        "0": 1590,
+        "1": 1700,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 440,
         "1": 200
@@ -2426,7 +2522,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 44,
+      "order": 47,
       "mode": 0,
       "inputs": [
         {
@@ -2435,6 +2531,7 @@
           "link": 237
         }
       ],
+      "outputs": [],
       "title": "🪛 Abominable Negative",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
@@ -2443,10 +2540,18 @@
     {
       "id": 157,
       "type": "Primitive string multiline [Crystools]",
-      "pos": [
-        1030,
-        2070
-      ],
+      "pos": {
+        "0": 1030,
+        "1": 2070,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 330,
         "1": 80
@@ -2454,8 +2559,9 @@
       "flags": {
         "pinned": true
       },
-      "order": 22,
+      "order": 15,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "string",
@@ -2478,10 +2584,18 @@
     {
       "id": 122,
       "type": "Reroute",
-      "pos": [
-        870,
-        1360
-      ],
+      "pos": {
+        "0": 870,
+        "1": 1360,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": [
         75,
         26
@@ -2489,7 +2603,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 36,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -2517,10 +2631,18 @@
     {
       "id": 121,
       "type": "Reroute",
-      "pos": [
-        870,
-        1320
-      ],
+      "pos": {
+        "0": 870,
+        "1": 1320,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": [
         75,
         26
@@ -2528,7 +2650,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 35,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -2556,10 +2678,18 @@
     {
       "id": 123,
       "type": "Reroute",
-      "pos": [
-        870,
-        1280
-      ],
+      "pos": {
+        "0": 870,
+        "1": 1280,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": [
         82,
         26
@@ -2567,7 +2697,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 34,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -2594,10 +2724,18 @@
     {
       "id": 155,
       "type": "Primitive string multiline [Crystools]",
-      "pos": [
-        690,
-        2020
-      ],
+      "pos": {
+        "0": 690,
+        "1": 2020,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 330,
         "1": 76.00000762939453
@@ -2605,8 +2743,9 @@
       "flags": {
         "pinned": true
       },
-      "order": 23,
+      "order": 16,
       "mode": 0,
+      "inputs": [],
       "outputs": [
         {
           "name": "string",
@@ -2629,10 +2768,18 @@
     {
       "id": 165,
       "type": "Reroute",
-      "pos": [
-        2220,
-        1700
-      ],
+      "pos": {
+        "0": 2220,
+        "1": 1700,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": [
         75,
         26
@@ -2640,7 +2787,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 45,
+      "order": 48,
       "mode": 0,
       "inputs": [
         {
@@ -2670,10 +2817,18 @@
     {
       "id": 156,
       "type": "Primitive string multiline [Crystools]",
-      "pos": [
-        860,
-        1980
-      ],
+      "pos": {
+        "0": 860,
+        "1": 1980,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 46
@@ -2682,7 +2837,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 32,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -2716,10 +2871,18 @@
     {
       "id": 149,
       "type": "Primitive string multiline [Crystools]",
-      "pos": [
-        851,
-        1760
-      ],
+      "pos": {
+        "0": 851,
+        "1": 1760,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 243.60000610351562,
         "1": 34
@@ -2728,7 +2891,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 29,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -2762,10 +2925,18 @@
     {
       "id": 92,
       "type": "Primitive string multiline [Crystools]",
-      "pos": [
-        900,
-        1500
-      ],
+      "pos": {
+        "0": 900,
+        "1": 1500,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 243.60000610351562,
         "1": 46.00001525878906
@@ -2774,7 +2945,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 30,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -2806,12 +2977,508 @@
       ]
     },
     {
+      "id": 137,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 870,
+        "1": 1940,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 243.60000610351562,
+        "1": 46.00004196166992
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 238,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            222
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "🪛 Refiner prefix",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 66,
+      "type": "Note",
+      "pos": {
+        "0": -520,
+        "1": 40,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 530,
+        "1": 1250
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "README.TXT",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Abominable Workflows v3\n=======================\nhttps://civitai.com/models/420163/abominable-workflows\n\nREQUIRED FILES\n--------------\n To use this workflow, you need to install the following models in ComfyUI.\n Place them in the specified directories:\n\n <your_comfyui_dir> / models / checkpoints /\n   > PixArt-Sigma-1024.safetensors\n   > Photon-Refiner.safetensors\n\n <your_comfyui_dir> / models / clip /\n   > T5-Encoder-Q5_K_M.gguf\n\n <your_comfyui_dir> / models / vae /\n   > PixArt-Sigma-VAE.safetensors\n\n All four files can be downloaded from:\n   https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main\n\nREQUIRED NODES\n--------------\n This workflow also requires the following custom nodes:\n\n   > ComfyUI_ExtraModels\n     https://github.com/city96/ComfyUI_ExtraModels\n\n   > ComfyUI-GGUF\n     https://github.com/city96/ComfyUI-GGUF\n\n   > ComfyUI-Crystools\n     https://github.com/crystian/ComfyUI-Crystools\n\n For detailed installation instructions for these nodes, please refer to the main page of Abominable Workflows.\n\nOUTPUT IMAGES\n-------------\n Generated images will be automatically saved in:\n    <your_comfyui_dir> / output / abominable /\n\nIMAGE SIZE\n----------\n This workflow uses PixArt-1024 beyond its recommended size. For optimal quality, consider using the values provided by PixArt's authors:\n\n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768\n\nABOMINABLE WORKFLOWS IN V3\n--------------------------\n  > abominable_1GIRL_.json\n  > abominable_DARKFAN80_.json\n  > abominable_GHIBLI_.json\n  > abominable_INK_.json\n  > abominable_MILO_.json\n  > abominable_PHOTO_.json\n  > abominable_POLAROID_.json\n  > classic_abominable_spaghetti.json\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000",
+      "shape": 1
+    },
+    {
+      "id": 80,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 510,
+        "1": 1010,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 53,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 116
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 257,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            176
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "T5 Txt Encoder (Neg)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "macrophoto"
+      ]
+    },
+    {
+      "id": 132,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 670,
+        "1": 500,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        210,
+        100
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            238
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "title": "Refiner prefix",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#223",
+      "bgcolor": "#335",
+      "shape": 1
+    },
+    {
+      "id": 71,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 330,
+        "1": 380,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 250,
+        "1": 82
+      },
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            178,
+            194
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "cfg"
+          }
+        }
+      ],
+      "title": "CFG scale",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        4.5,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 116,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 70,
+        "1": 380,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        250,
+        80
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            191,
+            214
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "title": "Seed",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        1,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 97,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 260,
+        "1": 500,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        400,
+        100
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            235
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "title": "Negative prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533",
+      "shape": 1
+    },
+    {
+      "id": 110,
+      "type": "Note",
+      "pos": {
+        "0": 260,
+        "1": 640,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        620,
+        240
+      ],
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "INK Reference",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "* CFG scale: [ 4.5 ] (lower for more details)\n* Refiner intensity: [ 22 ]\n* Refiner prefix: generally leave empty\nLowering the \"CFG scale\" will result in a drawing with more detail or realism.\nIf the drawing appears photorealistic, set negative with 'macrophoto, bokeh'.\nAlternatively, enable 'Experimental' and increase the refiner intensity to 28.\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000",
+      "shape": 1
+    },
+    {
+      "id": 144,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 40,
+        "1": 610,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        210,
+        70
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            242
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "boolean"
+          }
+        }
+      ],
+      "title": "Experimental",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        false
+      ],
+      "color": "#223",
+      "bgcolor": "#335",
+      "shape": 1
+    },
+    {
+      "id": 64,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 590,
+        "1": 380,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        250,
+        82
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            254
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "title": "Refiner intensity",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        22,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
       "id": 154,
       "type": "Switch any [Crystools]",
-      "pos": [
-        1200,
-        2000
-      ],
+      "pos": {
+        "0": 1060,
+        "1": 2030,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
       "size": {
         "0": 210,
         "1": 74
@@ -2820,7 +3487,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 41,
+      "order": 40,
       "mode": 0,
       "inputs": [
         {
@@ -2858,130 +3525,6 @@
       },
       "widgets_values": [
         false
-      ]
-    },
-    {
-      "id": 137,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": [
-        870,
-        1940
-      ],
-      "size": {
-        "0": 243.60000610351562,
-        "1": 46.00004196166992
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 28,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "link": 238,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            222
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Refiner prefix",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 66,
-      "type": "Note",
-      "pos": [
-        -520,
-        40
-      ],
-      "size": {
-        "0": 530,
-        "1": 1250
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 24,
-      "mode": 0,
-      "title": "README.TXT",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "Abominable Workflows v3\n=======================\nhttps://civitai.com/models/420163/abominable-workflows\n\nREQUIRED FILES\n--------------\n To use this workflow, you need to install the following models in ComfyUI.\n Place them in the specified directories:\n\n <your_comfyui_dir> / models / checkpoints /\n   > PixArt-Sigma-1024.safetensors\n   > Photon-Refiner.safetensors\n\n <your_comfyui_dir> / models / clip /\n   > T5-Encoder-Q5_K_M.gguf\n\n <your_comfyui_dir> / models / vae /\n   > PixArt-Sigma-VAE.safetensors\n\n All four files can be downloaded from:\n   https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main\n\nREQUIRED NODES\n--------------\n This workflow also requires the following custom nodes:\n\n   > ComfyUI_ExtraModels\n     https://github.com/city96/ComfyUI_ExtraModels\n\n   > ComfyUI-GGUF\n     https://github.com/city96/ComfyUI-GGUF\n\n   > ComfyUI-Crystools\n     https://github.com/crystian/ComfyUI-Crystools\n\n For detailed installation instructions for these nodes, please refer to the main page of Abominable Workflows.\n\nOUTPUT IMAGES\n-------------\n Generated images will be automatically saved in:\n    <your_comfyui_dir> / output / abominable /\n\nIMAGE SIZE\n----------\n This workflow uses PixArt-1024 beyond its recommended size. For optimal quality, consider using the values provided by PixArt's authors:\n\n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768\n\nABOMINABLE WORKFLOWS IN V3\n--------------------------\n  > abominable_1GIRL_.json\n  > abominable_DARKFAN80_.json\n  > abominable_GHIBLI_.json\n  > abominable_INK_.json\n  > abominable_MILO_.json\n  > abominable_PHOTO_.json\n  > abominable_POLAROID_.json\n  > classic_abominable_spaghetti.json\n"
-      ],
-      "color": "#222",
-      "bgcolor": "#000",
-      "shape": 1
-    },
-    {
-      "id": 80,
-      "type": "CLIPTextEncode",
-      "pos": [
-        510,
-        1010
-      ],
-      "size": {
-        "0": 210,
-        "1": 60
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 51,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 116
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 257,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            176
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "T5 Txt Encoder (Neg)",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "macrophoto"
       ]
     }
   ],
