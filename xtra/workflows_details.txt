@@ -30,7 +30,7 @@ Abominable Workflows v3
        * Refiner prefix: generally leave empty
       Lowering the "CFG scale" will result in a drawing with more detail or realism.
       If the drawing appears photorealistic, set negative with 'macrophoto, bokeh'.
-      Alternatively, enable 'Experimental refiner' and increase the intensity to 28.
+      Alternatively, enable 'Experimental refiner' and increase the intensity to 26.
 
 ./abominable_MILO_.json
     European comic style, featuring stylized figures and intense details.
