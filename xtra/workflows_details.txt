@@ -40,9 +40,9 @@ Abominable Workflows v3
    
 ./abominable_PHOTO_.json
     Realistic images with photographic details.
-    > prefix     : ''
-    > suffix     : ''
-    > neg-prefix : ''
+    > prefix     : 'Poor quality iPhone photo of '
+    > suffix     : '(144p photo:1.1) with JPEG artifacts.'
+    > neg-prefix : 'macrophoto'
 
 ./abominable_POLAROID_.json
     Nostalgic feel, mimicking the aesthetic of a Polaroid photograph.
