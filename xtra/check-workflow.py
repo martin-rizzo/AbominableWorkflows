@@ -1,8 +1,9 @@
 import argparse
 import json
 
-RED = "\033[91m"
-ENDC = "\033[0m"
+RED   = "\033[91m"
+GREEN = "\033[92m"
+ENDC  = "\033[0m"
 
 def get_unpinned_nodes(workflow):
     """Extracts unpinned nodes from a workflow
@@ -115,20 +116,22 @@ def main():
         with open(filename, 'r') as f:
             workflow = json.load(f)
 
+        unpinned_nodes = get_unpinned_nodes(workflow)
         pos_bug_count, size_bug_count = check_node_dimensions(workflow);
+
+        if not unpinned_nodes:
+            print(f"{GREEN}  - All nodes are pinned{ENDC}")
+
         if pos_bug_count > 0:
             print(f"{RED}  - Potential issues with 'pos' attribute : {pos_bug_count}{ENDC}")
         if size_bug_count > 0:
             print(f"{RED}  - Potential issues with 'size' attribute: {size_bug_count}{ENDC}")
 
-        unpinned_nodes = get_unpinned_nodes(workflow)
         if unpinned_nodes:
             print(f"{RED}  - Found {len(unpinned_nodes)} unpinned nodes:{ENDC}")
             for node in unpinned_nodes:
                 #print(f"       {node.name}  ({node.x}, {node.y})")
                 print(f"       ({node.x:>4},{node.y:>4}) {node.name}")
-        else:
-            print(f"All nodes in {filename} are pinned.")
 
 
 if __name__ == '__main__':
