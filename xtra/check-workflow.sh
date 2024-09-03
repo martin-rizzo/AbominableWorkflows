@@ -4,7 +4,7 @@
 SCRIPT_DIR=$(dirname "$0")
 
 # construct the full path to the python script
-PYTHON_SCRIPT="$SCRIPT_DIR/workflow-check.py"
+PYTHON_SCRIPT="$SCRIPT_DIR/check-workflow.py"
 
 # pass all arguments to the python script
 python "$PYTHON_SCRIPT" "$@"
