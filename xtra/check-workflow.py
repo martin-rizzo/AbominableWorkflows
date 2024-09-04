@@ -29,7 +29,8 @@ def get_unpinned_nodes(workflow):
         pinned_flag = flags and flags.get('pinned')
         position    = node.get('pos')
 
-        # extract x and y coordinates
+        # extract 'x' and 'y' coordinates
+        # the coordinates can be located using 'app.canvas.canvas_mouse'
         x, y = 0, 0
         if isinstance(position, list):
             x, y = position[0], position[1]

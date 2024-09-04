@@ -454,12 +454,7 @@
       "title": "🪛 Abominable Refiner",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 104,
@@ -1028,12 +1023,7 @@
       "title": "🪛 Abominable Negative",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 157,
@@ -1205,7 +1195,7 @@
       },
       "flags": {
         "collapsed": true,
-        "pinned": false
+        "pinned": true
       },
       "order": 48,
       "mode": 0,
@@ -1259,7 +1249,7 @@
         "1": 640
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 71,
       "mode": 0,
@@ -1343,12 +1333,7 @@
       "title": "🪛 Abominable Prompt",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 162,
@@ -1434,7 +1419,7 @@
         "1": 250
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 68,
       "mode": 0,
@@ -1466,7 +1451,7 @@
         26
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 63,
       "mode": 0,
@@ -1505,7 +1490,7 @@
         26
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 28,
       "mode": 0,
@@ -1543,7 +1528,9 @@
         75,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 32,
       "mode": 0,
       "inputs": [
@@ -1583,7 +1570,7 @@
         26
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 36,
       "mode": 0,
@@ -1623,7 +1610,7 @@
         26
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 35,
       "mode": 0,
@@ -1664,7 +1651,7 @@
       },
       "flags": {
         "collapsed": false,
-        "pinned": false
+        "pinned": true
       },
       "order": 65,
       "mode": 0,
@@ -1708,7 +1695,7 @@
         "1": 50
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 64,
       "mode": 0,
@@ -1753,7 +1740,7 @@
         "1": 50
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 69,
       "mode": 0,
@@ -1797,7 +1784,7 @@
         26
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 70,
       "mode": 0,
@@ -1836,7 +1823,7 @@
         26
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 66,
       "mode": 0,
@@ -1875,7 +1862,7 @@
         26
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 34,
       "mode": 0,
@@ -1914,7 +1901,9 @@
         75,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 60,
       "mode": 0,
       "inputs": [
@@ -1954,7 +1943,9 @@
         "0": 210,
         "1": 54
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 51,
       "mode": 0,
       "inputs": [
@@ -2053,7 +2044,7 @@
       },
       "flags": {
         "collapsed": false,
-        "pinned": false
+        "pinned": true
       },
       "order": 13,
       "mode": 0,
@@ -2096,7 +2087,7 @@
         82
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 14,
       "mode": 0,
@@ -2138,7 +2129,7 @@
         "1": 460
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 67,
       "mode": 0,
@@ -2222,7 +2213,7 @@
       },
       "flags": {
         "collapsed": false,
-        "pinned": false
+        "pinned": true
       },
       "order": 62,
       "mode": 0,
@@ -2273,7 +2264,7 @@
         "1": 60
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 15,
       "mode": 0,
@@ -2309,7 +2300,7 @@
         "1": 110
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 43,
       "mode": 0,
@@ -2361,7 +2352,7 @@
         "1": 120
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 44,
       "mode": 0,
@@ -2407,7 +2398,7 @@
       },
       "flags": {
         "collapsed": false,
-        "pinned": false
+        "pinned": true
       },
       "order": 16,
       "mode": 0,
@@ -2449,7 +2440,7 @@
         "1": 460
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 61,
       "mode": 0,
@@ -2539,7 +2530,9 @@
         98.8,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 33,
       "mode": 0,
       "inputs": [
@@ -2580,7 +2573,7 @@
         26
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 40,
       "mode": 0,
@@ -2626,7 +2619,7 @@
       },
       "flags": {
         "collapsed": false,
-        "pinned": false
+        "pinned": true
       },
       "order": 50,
       "mode": 0,
@@ -2677,7 +2670,7 @@
       },
       "flags": {
         "collapsed": false,
-        "pinned": false
+        "pinned": true
       },
       "order": 58,
       "mode": 0,
@@ -2727,7 +2720,7 @@
         "1": 60
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 17,
       "mode": 0,
@@ -2763,7 +2756,7 @@
         "1": 120
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 27,
       "mode": 0,
@@ -2863,7 +2856,7 @@
         26
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 54,
       "mode": 0,
@@ -2904,7 +2897,7 @@
         26
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 56,
       "mode": 0,
@@ -2934,15 +2927,15 @@
       "id": 107,
       "type": "PrimitiveNode",
       "pos": {
-        "0": 28,
-        "1": 478
+        "0": 30,
+        "1": 480
       },
       "size": [
         210,
         90
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 19,
       "mode": 0,
@@ -2983,7 +2976,7 @@
         "1": 90
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 20,
       "mode": 0,
@@ -3024,7 +3017,7 @@
         "1": 90
       },
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 21,
       "mode": 0,
@@ -3063,7 +3056,7 @@
         82
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 22,
       "mode": 0,
@@ -3098,14 +3091,16 @@
       "id": 187,
       "type": "PrimitiveNode",
       "pos": {
-        "0": 608,
+        "0": 610,
         "1": 610
       },
       "size": {
         "0": 260,
         "1": 82
       },
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 23,
       "mode": 0,
       "inputs": [],
@@ -3140,10 +3135,12 @@
         "1": 1973
       },
       "size": [
-        93.27143033331333,
+        75,
         26
       ],
-      "flags": {},
+      "flags": {
+        "pinned": true
+      },
       "order": 41,
       "mode": 0,
       "inputs": [
@@ -3225,7 +3222,7 @@
       },
       "flags": {
         "collapsed": true,
-        "pinned": false
+        "pinned": true
       },
       "order": 39,
       "mode": 0,
@@ -3271,7 +3268,7 @@
       },
       "flags": {
         "collapsed": true,
-        "pinned": false
+        "pinned": true
       },
       "order": 31,
       "mode": 0,
@@ -3316,7 +3313,7 @@
         60
       ],
       "flags": {
-        "pinned": false
+        "pinned": true
       },
       "order": 25,
       "mode": 0,
@@ -3356,7 +3353,7 @@
       },
       "flags": {
         "collapsed": false,
-        "pinned": false
+        "pinned": true
       },
       "order": 26,
       "mode": 0,
