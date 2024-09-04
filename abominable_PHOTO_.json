@@ -71,7 +71,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 38,
+      "order": 37,
       "mode": 0,
       "inputs": [
         {
@@ -454,7 +454,12 @@
       "title": "🪛 Abominable Refiner",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
+      },
+      "widgets_values": [
+        false,
+        true,
+        ""
+      ]
     },
     {
       "id": 104,
@@ -849,10 +854,10 @@
         "0": 50,
         "1": 1240
       },
-      "size": [
-        410,
-        70
-      ],
+      "size": {
+        "0": 410,
+        "1": 70
+      },
       "flags": {
         "pinned": true
       },
@@ -1023,7 +1028,12 @@
       "title": "🪛 Abominable Negative",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
+      },
+      "widgets_values": [
+        false,
+        true,
+        ""
+      ]
     },
     {
       "id": 157,
@@ -1062,52 +1072,6 @@
       ]
     },
     {
-      "id": 156,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 860,
-        "1": 2100
-      },
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 31,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "link": 240,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            241
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Refiner prompt",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        "National geographic photograph of a desert mouse in the desert. It carries a glass sphere on its back. The glass sphere has a miniature city inside. Realistic mechanical plant cyborg, futuristic robotic organisms, steampunk robot mouse, steampunk animal"
-      ]
-    },
-    {
       "id": 149,
       "type": "Primitive string multiline [Crystools]",
       "pos": {
@@ -1122,7 +1086,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 39,
+      "order": 38,
       "mode": 0,
       "inputs": [
         {
@@ -1197,52 +1161,6 @@
       },
       "widgets_values": [
         "National geographic photograph of a desert mouse in the desert. It carries a glass sphere on its back. The glass sphere has a miniature city inside. Realistic mechanical plant cyborg, futuristic robotic organisms, steampunk robot mouse, steampunk animal"
-      ]
-    },
-    {
-      "id": 137,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 870,
-        "1": 2060
-      },
-      "size": {
-        "0": 243.60000610351562,
-        "1": 46.00004196166992
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 40,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "link": 238,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            222
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Refiner prefix",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        ""
       ]
     },
     {
@@ -1425,7 +1343,12 @@
       "title": "🪛 Abominable Prompt",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
+      },
+      "widgets_values": [
+        false,
+        true,
+        ""
+      ]
     },
     {
       "id": 162,
@@ -1621,7 +1544,7 @@
         26
       ],
       "flags": {},
-      "order": 33,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -1662,7 +1585,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 37,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
@@ -1702,7 +1625,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 36,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -1954,7 +1877,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 35,
+      "order": 34,
       "mode": 0,
       "inputs": [
         {
@@ -2081,10 +2004,10 @@
         "0": 30,
         "1": 70
       },
-      "size": [
-        680,
-        250
-      ],
+      "size": {
+        "0": 680,
+        "1": 250
+      },
       "flags": {
         "pinned": true
       },
@@ -2118,49 +2041,6 @@
       "shape": 1
     },
     {
-      "id": 116,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 60,
-        "1": 360
-      },
-      "size": [
-        250,
-        82
-      ],
-      "flags": {
-        "pinned": false
-      },
-      "order": 13,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            191,
-            214
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "noise_seed"
-          }
-        }
-      ],
-      "title": "Seed",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        4,
-        "fixed"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1
-    },
-    {
       "id": 71,
       "type": "PrimitiveNode",
       "pos": {
@@ -2175,7 +2055,7 @@
         "collapsed": false,
         "pinned": false
       },
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2218,7 +2098,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 15,
+      "order": 14,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2253,10 +2133,10 @@
         "0": 1540,
         "1": 1000
       },
-      "size": [
-        240,
-        460
-      ],
+      "size": {
+        "0": 240,
+        "1": 460
+      },
       "flags": {
         "pinned": false
       },
@@ -2336,10 +2216,10 @@
         "0": 1240,
         "1": 1000
       },
-      "size": [
-        290,
-        50
-      ],
+      "size": {
+        "0": 290,
+        "1": 54
+      },
       "flags": {
         "collapsed": false,
         "pinned": false
@@ -2395,7 +2275,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 16,
+      "order": 15,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2476,10 +2356,10 @@
         "0": 1240,
         "1": 1340
       },
-      "size": [
-        290,
-        120
-      ],
+      "size": {
+        "0": 290,
+        "1": 120
+      },
       "flags": {
         "pinned": false
       },
@@ -2521,15 +2401,15 @@
         "0": 1790,
         "1": 1370
       },
-      "size": [
-        210,
-        90
-      ],
+      "size": {
+        "0": 210,
+        "1": 90
+      },
       "flags": {
         "collapsed": false,
         "pinned": false
       },
-      "order": 17,
+      "order": 16,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2564,10 +2444,10 @@
         "0": 820,
         "1": 1000
       },
-      "size": [
-        240,
-        460
-      ],
+      "size": {
+        "0": 240,
+        "1": 460
+      },
       "flags": {
         "pinned": false
       },
@@ -2660,7 +2540,7 @@
         26
       ],
       "flags": {},
-      "order": 34,
+      "order": 33,
       "mode": 0,
       "inputs": [
         {
@@ -2702,7 +2582,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 32,
+      "order": 40,
       "mode": 0,
       "inputs": [
         {
@@ -2740,10 +2620,10 @@
         "0": 510,
         "1": 1040
       },
-      "size": [
-        220,
-        60
-      ],
+      "size": {
+        "0": 220,
+        "1": 60
+      },
       "flags": {
         "collapsed": false,
         "pinned": false
@@ -2791,10 +2671,10 @@
         "0": 510,
         "1": 1140
       },
-      "size": [
-        230,
-        60
-      ],
+      "size": {
+        "0": 230,
+        "1": 60
+      },
       "flags": {
         "collapsed": false,
         "pinned": false
@@ -2849,7 +2729,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 18,
+      "order": 17,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2878,10 +2758,10 @@
         "0": 510,
         "1": 1340
       },
-      "size": [
-        290,
-        120
-      ],
+      "size": {
+        "0": 290,
+        "1": 120
+      },
       "flags": {
         "pinned": false
       },
@@ -2929,7 +2809,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 19,
+      "order": 18,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2970,49 +2850,6 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
-    },
-    {
-      "id": 168,
-      "type": "Reroute",
-      "pos": {
-        "0": 410,
-        "1": 1780
-      },
-      "size": [
-        98.8,
-        26
-      ],
-      "flags": {},
-      "order": 41,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "",
-          "type": "*",
-          "link": 262,
-          "pos": [
-            49.4,
-            0
-          ],
-          "widget": {
-            "name": "value"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "BOOLEAN",
-          "type": "BOOLEAN",
-          "links": [
-            261
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "showOutputText": true,
-        "horizontal": true
-      }
     },
     {
       "id": 165,
@@ -3107,7 +2944,7 @@
       "flags": {
         "pinned": false
       },
-      "order": 20,
+      "order": 19,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3123,7 +2960,7 @@
           }
         }
       ],
-      "title": "Landscape",
+      "title": "Landscape mode",
       "properties": {
         "Run widget replace on values": false
       },
@@ -3141,14 +2978,14 @@
         "0": 250,
         "1": 480
       },
-      "size": [
-        390,
-        90
-      ],
+      "size": {
+        "0": 390,
+        "1": 90
+      },
       "flags": {
         "pinned": false
       },
-      "order": 21,
+      "order": 20,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3182,14 +3019,14 @@
         "0": 650,
         "1": 480
       },
-      "size": [
-        220,
-        90
-      ],
+      "size": {
+        "0": 220,
+        "1": 90
+      },
       "flags": {
         "pinned": false
       },
-      "order": 22,
+      "order": 21,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3215,16 +3052,59 @@
       "shape": 1
     },
     {
+      "id": 116,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 60,
+        "1": 360
+      },
+      "size": [
+        250,
+        82
+      ],
+      "flags": {
+        "pinned": false
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            191,
+            214
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "title": "Seed",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        4,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
       "id": 187,
       "type": "PrimitiveNode",
       "pos": {
         "0": 608,
         "1": 610
       },
-      "size": [
-        260,
-        80
-      ],
+      "size": {
+        "0": 260,
+        "1": 82
+      },
       "flags": {},
       "order": 23,
       "mode": 0,
@@ -3242,7 +3122,7 @@
           }
         }
       ],
-      "title": "Refiner noise",
+      "title": "Refiner variation",
       "properties": {
         "Run widget replace on values": false
       },
@@ -3253,11 +3133,55 @@
       "shape": 1
     },
     {
+      "id": 168,
+      "type": "Reroute",
+      "pos": {
+        "0": 571,
+        "1": 1973
+      },
+      "size": [
+        93.27143033331333,
+        26
+      ],
+      "flags": {},
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 262,
+          "pos": [
+            37.5,
+            0
+          ],
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "BOOLEAN",
+          "links": [
+            261
+          ],
+          "slot_index": 0,
+          "label": "experimental"
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": true
+      }
+    },
+    {
       "id": 155,
       "type": "Primitive string multiline [Crystools]",
       "pos": {
         "0": 690,
-        "1": 2140
+        "1": 2150
       },
       "size": {
         "0": 330,
@@ -3280,12 +3204,104 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Refiner prompt (experimental)",
+      "title": "🪛 Refiner experimental prompt",
       "properties": {
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "(argentine social womand and man:1.1), (breathtaking, detailed:1.1)"
+        ""
+      ]
+    },
+    {
+      "id": 137,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 870,
+        "1": 2050
+      },
+      "size": {
+        "0": 243.60000610351562,
+        "1": 46.00004196166992
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": false
+      },
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 238,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            222
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "🪛 Refiner prefix",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 156,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 860,
+        "1": 2090
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": false
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 240,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            241
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "🪛 Refiner prompt",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        "National geographic photograph of a desert mouse in the desert. It carries a glass sphere on its back. The glass sphere has a miniature city inside. Realistic mechanical plant cyborg, futuristic robotic organisms, steampunk robot mouse, steampunk animal"
       ]
     },
     {
@@ -3318,7 +3334,7 @@
           }
         }
       ],
-      "title": "Refiner experimental",
+      "title": "Refiner experimental prompt",
       "properties": {
         "Run widget replace on values": false
       },
@@ -3334,10 +3350,10 @@
         "0": 30,
         "1": 610
       },
-      "size": [
-        570,
-        290
-      ],
+      "size": {
+        "0": 570,
+        "1": 290
+      },
       "flags": {
         "collapsed": false,
         "pinned": false
@@ -3346,12 +3362,12 @@
       "mode": 0,
       "inputs": [],
       "outputs": [],
-      "title": "PHOTO personal tips (feel free to experiment)",
+      "title": "PHOTO personal tips (but feel free to experiment)",
       "properties": {
         "text": ""
       },
       "widgets_values": [
-        " * Guidance          : 3.0    [ 2.8 - 3.5 ]\n * Refiner intensity : 18     [ 18  - 24  ]\n * Refiner attention : empty  (add only objects distorted by the refiner)\n * Refiner noise     : 0      (different details but the same composition)\n * Experimental refiner : use at your own risk\nIf the image looks too drawn, add 'bokeh' to the prompt\nIf the image has a narrow field, add 'bokeh' to the negative prompt\n"
+        " * Seed              : random\n * Guidance          : 3.0     [ 2.8 - 3.5 ]\n * Refiner intensity : 18      [ 18  - 25  ]\n * Refiner attention : empty   guides refiner attention to specific objects\n * Refiner variation : 0       alternative versions with different detailed outcomes\n * Refiner experimental prompt : false (or use at your own risk)\n\nIf the image looks too drawn, add 'bokeh' to the prompt\nIf the image has a narrow field, add 'bokeh' to the negative prompt\n\nFor more information about Abominable Workflows:\nhttps://civitai.com/models/420163\n"
       ],
       "color": "#222",
       "bgcolor": "#000",

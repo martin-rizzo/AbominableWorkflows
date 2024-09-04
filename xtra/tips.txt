@@ -1,0 +1,18 @@
+
+./abominable_PHOTO_.json
+ * Seed              : random
+ * Guidance          : 3.0     [ 2.8 - 3.5 ]
+ * Refiner intensity : 18      [ 18  - 25  ]
+ * Refiner attention : empty   guides refiner attention to specific objects
+ * Refiner variation : 0       alternative versions with different detailed outcomes
+ * Refiner experimental prompt : false (or use at your own risk)
+
+If the image looks too drawn, add 'bokeh' to the prompt
+If the image has a narrow field, add 'bokeh' to the negative prompt
+
+For more information about Abominable Workflows:
+https://civitai.com/models/420163
+
+
+./abominable_PIXEL_.json
+
