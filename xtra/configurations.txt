@@ -1,47 +1,68 @@
 Abominable Workflows v3 (detailed configuration for each workflow)
 ==================================================================
+(SD15 sampler)   : dpmpp_2m
+(SD15 scheduler) : normal
+(SD15 denoise)   : 0.90     #should it be 1.00 ??
 
 ./abominable_PHOTO_.json
     Realistic images with photographic details.
-    > prefix     : 'Poor quality iPhone photo of '
-    > suffix     : '(144p photo:1.1) with JPEG artifacts.'
-    > neg-prefix : 'macrophoto'
+    > size        : 1536 x 1024
+    > prefix      : 'An iPhone photo. '                        #alt: 'Poor quality iPhone photo of '
+    > suffix      : '. (144p photo:1.1) with JPEG artifacts.'
+    > neg-prefix  : 'macrophoto'
+    > neg-suffix  : ''
+    > refi-exper  : '(argentine social womand and man:1.1), (breathtaking, detailed:1.1)'
+    > refi-suffix : ''
+    > KSampler    : lms
+    > Scheduler   : beta
+    > Steps       : 11
+    > Denoise     : 0.90
+    > (SD15 Neg)  : 'cartoon, (worst quality, low quality:1.8)'
+    > (SD15 Start): 12
 
 ./abominable_PIXEL_.json
     Pixel art style with retro aesthetics and vibrant, blocky details.
+    > size        : 1408 x 944
     > prefix      : 'A pixel-art image of '
     > suffix      : '. low-res, blocky, pixel art style, 8-bit graphics'
     > neg-prefix  : 'blurry, noisy, highly detailed, ultra textured, photo, realistic, macrophoto'
+    > neg-suffix  : ''
     > refi-exper  : ''
     > refi-suffix : 'pixel-art, low-res, blocky'
     > KSampler    : uni_pc
     > Scheduler   : beta
     > Steps       : 17
-    > denoise     : 0.75
+    > Denoise     : 0.75
+    > (SD15 Neg)  : '(worst quality, low quality:1.6)'
+    > (SD15 Start): 12
 
 ./abominable_INK_.json
     Ink-style illustrations with bold outlines and hand-painted details.
+    > size        : 1536 x 1024
     > prefix      : 'Cute pencil illustration of '
     > suffix      : '. Outlined minimalist with solid colors.'
     > neg-prefix  : 'blurry'
+    > neg-suffix  : ''
+    > refi-prefix : ''
     > refi-exper  : '(vector image, cute, illustration:1.1)'
-    > refi-suffix : ''
-    > KSampler    : heun
+    > KSampler    : uni_pc
     > Scheduler   : beta
-    > Steps       : 12
-    > denoise     : 0.90
-
-./abominable_DARKFAN80_.json
-    Deep and moody aesthetic with dark tones and dramatic lighting effects.
-    > prefix    : ''
-    > suffix    : '. (80's dark fantasy in VHS, blurry, tv captured:1.1)'
-    > neg-prefix: 'small, toy'
+    > Steps       : 16
+    > Denoise     : 0.80
+    > (SD15 Neg)  : '(worst quality, low quality:1.6)'
+    > (SD15 Start): 12
 
 ./abominable_MILO_.json
     European comic style, featuring stylized figures and intense details.
     > prefix      : 'Poster art with bold lines of '
     > suffix      : '. Poster by (Milo Manara:1.2) in white, red, blue and black. Dark background and solid colors.'
     > neg-prefix: ''
+
+./abominable_DARKFAN80_.json
+    Deep and moody aesthetic with dark tones and dramatic lighting effects.
+    > prefix    : ''
+    > suffix    : '. (80's dark fantasy in VHS, blurry, tv captured:1.1)'
+    > neg-prefix: 'small, toy'
 
 -----------------------------------------------------------
 Next Version?
