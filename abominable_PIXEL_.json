@@ -1,6 +1,6 @@
 {
   "last_node_id": 187,
-  "last_link_id": 296,
+  "last_link_id": 308,
   "nodes": [
     {
       "id": 103,
@@ -413,7 +413,7 @@
           "name": "string",
           "type": "STRING",
           "links": [
-            246
+            301
           ],
           "slot_index": 0,
           "shape": 3
@@ -426,35 +426,6 @@
       "widgets_values": [
         ""
       ]
-    },
-    {
-      "id": 146,
-      "type": "Show any [Crystools]",
-      "pos": {
-        "0": 1590,
-        "1": 2070
-      },
-      "size": {
-        "0": 410,
-        "1": 200
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 59,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "any_value",
-          "type": "*",
-          "link": 229
-        }
-      ],
-      "outputs": [],
-      "title": "🪛 Abominable Refiner",
-      "properties": {
-        "Node name for S&R": "Show any [Crystools]"
-      }
     },
     {
       "id": 104,
@@ -531,122 +502,6 @@
       ]
     },
     {
-      "id": 136,
-      "type": "List of strings [Crystools]",
-      "pos": {
-        "0": 1370,
-        "1": 2070
-      },
-      "size": {
-        "0": 210,
-        "1": 200
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 55,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "string_1",
-          "type": "STRING",
-          "link": 222,
-          "widget": {
-            "name": "string_1"
-          }
-        },
-        {
-          "name": "string_2",
-          "type": "STRING",
-          "link": 296,
-          "widget": {
-            "name": "string_2"
-          }
-        },
-        {
-          "name": "string_3",
-          "type": "STRING",
-          "link": 295,
-          "widget": {
-            "name": "string_3"
-          }
-        },
-        {
-          "name": "string_4",
-          "type": "STRING",
-          "link": null,
-          "widget": {
-            "name": "string_4"
-          }
-        },
-        {
-          "name": "string_5",
-          "type": "STRING",
-          "link": null,
-          "widget": {
-            "name": "string_5"
-          }
-        },
-        {
-          "name": "string_6",
-          "type": "STRING",
-          "link": null,
-          "widget": {
-            "name": "string_6"
-          }
-        },
-        {
-          "name": "string_7",
-          "type": "STRING",
-          "link": null,
-          "widget": {
-            "name": "string_7"
-          }
-        },
-        {
-          "name": "string_8",
-          "type": "STRING",
-          "link": null,
-          "widget": {
-            "name": "string_8"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "concatenated",
-          "type": "STRING",
-          "links": [
-            229,
-            292
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "list_string",
-          "type": "ListString",
-          "links": null,
-          "shape": 6
-        }
-      ],
-      "title": "🪛 Concatenate (Refiner)",
-      "properties": {
-        "Node name for S&R": "List of strings [Crystools]"
-      },
-      "widgets_values": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ", "
-      ]
-    },
-    {
       "id": 160,
       "type": "List of strings [Crystools]",
       "pos": {
@@ -674,7 +529,7 @@
         {
           "name": "string_2",
           "type": "STRING",
-          "link": 250,
+          "link": null,
           "widget": {
             "name": "string_2"
           }
@@ -682,7 +537,7 @@
         {
           "name": "string_3",
           "type": "STRING",
-          "link": 248,
+          "link": null,
           "widget": {
             "name": "string_3"
           }
@@ -690,7 +545,7 @@
         {
           "name": "string_4",
           "type": "STRING",
-          "link": null,
+          "link": 307,
           "widget": {
             "name": "string_4"
           }
@@ -722,7 +577,7 @@
         {
           "name": "string_8",
           "type": "STRING",
-          "link": null,
+          "link": 302,
           "widget": {
             "name": "string_8"
           }
@@ -908,7 +763,7 @@
         {
           "name": "string_2",
           "type": "STRING",
-          "link": 234,
+          "link": null,
           "widget": {
             "name": "string_2"
           }
@@ -916,7 +771,7 @@
         {
           "name": "string_3",
           "type": "STRING",
-          "link": 246,
+          "link": null,
           "widget": {
             "name": "string_3"
           }
@@ -924,7 +779,7 @@
         {
           "name": "string_4",
           "type": "STRING",
-          "link": null,
+          "link": 304,
           "widget": {
             "name": "string_4"
           }
@@ -956,7 +811,7 @@
         {
           "name": "string_8",
           "type": "STRING",
-          "link": null,
+          "link": 301,
           "widget": {
             "name": "string_8"
           }
@@ -1026,98 +881,6 @@
       }
     },
     {
-      "id": 149,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 850,
-        "1": 1880
-      },
-      "size": {
-        "0": 243.60000610351562,
-        "1": 34
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 38,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "link": 235,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            234
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Negative prompt",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 92,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 900,
-        "1": 1620
-      },
-      "size": {
-        "0": 243.60000610351562,
-        "1": 46.00001525878906
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 39,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "link": 169,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            250
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Prompt",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        "Coqui frog in batman uniform, stood on a New York City Street. Striking a dynamic pose"
-      ]
-    },
-    {
       "id": 66,
       "type": "Note",
       "pos": {
@@ -1145,61 +908,6 @@
       "color": "#222",
       "bgcolor": "#000",
       "shape": 1
-    },
-    {
-      "id": 154,
-      "type": "Switch any [Crystools]",
-      "pos": {
-        "0": 1130,
-        "1": 2120
-      },
-      "size": {
-        "0": 210,
-        "1": 74
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 48,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "on_true",
-          "type": "*",
-          "link": 239
-        },
-        {
-          "name": "on_false",
-          "type": "*",
-          "link": 241
-        },
-        {
-          "name": "boolean",
-          "type": "BOOLEAN",
-          "link": 261,
-          "widget": {
-            "name": "boolean"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "*",
-          "links": [
-            295
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Switch any [Crystools]"
-      },
-      "widgets_values": [
-        false
-      ]
     },
     {
       "id": 61,
@@ -2855,144 +2563,6 @@
       "shape": 1
     },
     {
-      "id": 168,
-      "type": "Reroute",
-      "pos": {
-        "0": 571,
-        "1": 1973
-      },
-      "size": [
-        75,
-        26
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 37,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "",
-          "type": "*",
-          "link": 262,
-          "pos": [
-            37.5,
-            0
-          ],
-          "widget": {
-            "name": "value"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "",
-          "type": "BOOLEAN",
-          "links": [
-            261
-          ],
-          "slot_index": 0,
-          "label": "experimental"
-        }
-      ],
-      "properties": {
-        "showOutputText": false,
-        "horizontal": true
-      }
-    },
-    {
-      "id": 137,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 870,
-        "1": 2050
-      },
-      "size": {
-        "0": 243.60000610351562,
-        "1": 46.00004196166992
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 35,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "link": 238,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            222
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Refiner prefix",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 156,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 860,
-        "1": 2090
-      },
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 41,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "link": 240,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            241
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Refiner prompt",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        "Coqui frog in batman uniform, stood on a New York City Street. Striking a dynamic pose"
-      ]
-    },
-    {
       "id": 144,
       "type": "PrimitiveNode",
       "pos": {
@@ -3089,7 +2659,7 @@
           "name": "string",
           "type": "STRING",
           "links": [
-            248
+            302
           ],
           "slot_index": 0,
           "shape": 3
@@ -3101,78 +2671,6 @@
       },
       "widgets_values": [
         ". low-res, blocky, pixel art style, 8-bit graphics"
-      ]
-    },
-    {
-      "id": 155,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 690,
-        "1": 2150
-      },
-      "size": {
-        "0": 330,
-        "1": 80
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 21,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            239
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Refiner experimental prompt",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 157,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 1030,
-        "1": 2190
-      },
-      "size": {
-        "0": 330,
-        "1": 80
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 22,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            296
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Refiner suffix",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        "pixel-art, low-res, blocky"
       ]
     },
     {
@@ -3234,7 +2732,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 23,
+      "order": 21,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3270,7 +2768,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 24,
+      "order": 22,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3312,7 +2810,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 25,
+      "order": 23,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -3341,7 +2839,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 26,
+      "order": 24,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3369,6 +2867,508 @@
       "color": "#232",
       "bgcolor": "#353",
       "shape": 1
+    },
+    {
+      "id": 157,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 1030,
+        "1": 2070
+      },
+      "size": {
+        "0": 330,
+        "1": 80
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            296
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "🪛 Refiner prefix",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        "pixel-art, low-res, blocky"
+      ]
+    },
+    {
+      "id": 137,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 840,
+        "1": 2050
+      },
+      "size": {
+        "0": 243.60000610351562,
+        "1": 46.00004196166992
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 238,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            222
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "🪛 Refiner prefix user",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 155,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 810,
+        "1": 2250
+      },
+      "size": {
+        "0": 330,
+        "1": 80
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            239
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "🪛 Refiner experimental prompt",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 146,
+      "type": "Show any [Crystools]",
+      "pos": {
+        "0": 1590,
+        "1": 2100
+      },
+      "size": {
+        "0": 410,
+        "1": 200
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 59,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "any_value",
+          "type": "*",
+          "link": 229
+        }
+      ],
+      "outputs": [],
+      "title": "🪛 Abominable Refiner",
+      "properties": {
+        "Node name for S&R": "Show any [Crystools]"
+      }
+    },
+    {
+      "id": 92,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 871,
+        "1": 1670
+      },
+      "size": {
+        "0": 243.60000610351562,
+        "1": 46.00001525878906
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 169,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            307
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "🪛 Prompt user",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        "Coqui frog in batman uniform, stood on a New York City Street. Striking a dynamic pose"
+      ]
+    },
+    {
+      "id": 149,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 860,
+        "1": 1920
+      },
+      "size": {
+        "0": 243.60000610351562,
+        "1": 34
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 235,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            304
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "🪛 Negative user",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 154,
+      "type": "Switch any [Crystools]",
+      "pos": {
+        "0": 1200,
+        "1": 2190
+      },
+      "size": {
+        "0": 210,
+        "1": 74
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 48,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "on_true",
+          "type": "*",
+          "link": 239
+        },
+        {
+          "name": "on_false",
+          "type": "*",
+          "link": 241
+        },
+        {
+          "name": "boolean",
+          "type": "BOOLEAN",
+          "link": 261,
+          "widget": {
+            "name": "boolean"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": [
+            308
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Switch any [Crystools]"
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 168,
+      "type": "Reroute",
+      "pos": {
+        "0": 540,
+        "1": 2100
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 262,
+          "pos": [
+            37.5,
+            0
+          ],
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "BOOLEAN",
+          "links": [
+            261
+          ],
+          "slot_index": 0,
+          "label": "experimental"
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": true
+      }
+    },
+    {
+      "id": 156,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 840,
+        "1": 2180
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 240,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            241
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "🪛 Refiner prompt user",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        "Coqui frog in batman uniform, stood on a New York City Street. Striking a dynamic pose"
+      ]
+    },
+    {
+      "id": 136,
+      "type": "List of strings [Crystools]",
+      "pos": {
+        "0": 1370,
+        "1": 2100
+      },
+      "size": [
+        210,
+        200
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 55,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_1",
+          "type": "STRING",
+          "link": 222,
+          "widget": {
+            "name": "string_1"
+          }
+        },
+        {
+          "name": "string_2",
+          "type": "STRING",
+          "link": 296,
+          "widget": {
+            "name": "string_2"
+          }
+        },
+        {
+          "name": "string_3",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "string_3"
+          }
+        },
+        {
+          "name": "string_4",
+          "type": "STRING",
+          "link": 308,
+          "widget": {
+            "name": "string_4"
+          }
+        },
+        {
+          "name": "string_5",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "string_5"
+          }
+        },
+        {
+          "name": "string_6",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "string_6"
+          }
+        },
+        {
+          "name": "string_7",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "string_7"
+          }
+        },
+        {
+          "name": "string_8",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "string_8"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "concatenated",
+          "type": "STRING",
+          "links": [
+            229,
+            292
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "list_string",
+          "type": "ListString",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "title": "🪛 Concatenate (Refiner)",
+      "properties": {
+        "Node name for S&R": "List of strings [Crystools]"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ", "
+      ]
     }
   ],
   "links": [
@@ -3629,14 +3629,6 @@
       "*"
     ],
     [
-      234,
-      149,
-      0,
-      147,
-      1,
-      "STRING"
-    ],
-    [
       235,
       97,
       0,
@@ -3693,27 +3685,11 @@
       "STRING"
     ],
     [
-      246,
-      158,
-      0,
-      147,
-      2,
-      "STRING"
-    ],
-    [
       247,
       163,
       0,
       160,
       0,
-      "STRING"
-    ],
-    [
-      248,
-      162,
-      0,
-      160,
-      2,
       "STRING"
     ],
     [
@@ -3723,14 +3699,6 @@
       161,
       0,
       "*"
-    ],
-    [
-      250,
-      92,
-      0,
-      160,
-      1,
-      "STRING"
     ],
     [
       252,
@@ -4021,19 +3989,51 @@
       "INT"
     ],
     [
-      295,
-      154,
-      0,
-      136,
-      2,
-      "STRING"
-    ],
-    [
       296,
       157,
       0,
       136,
       1,
+      "STRING"
+    ],
+    [
+      301,
+      158,
+      0,
+      147,
+      7,
+      "STRING"
+    ],
+    [
+      302,
+      162,
+      0,
+      160,
+      7,
+      "STRING"
+    ],
+    [
+      304,
+      149,
+      0,
+      147,
+      3,
+      "STRING"
+    ],
+    [
+      307,
+      92,
+      0,
+      160,
+      3,
+      "STRING"
+    ],
+    [
+      308,
+      154,
+      0,
+      136,
+      3,
       "STRING"
     ]
   ],
@@ -4099,7 +4099,7 @@
         990,
         1500,
         1020,
-        780
+        840
       ],
       "color": "#444",
       "font_size": 20
