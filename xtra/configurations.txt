@@ -54,9 +54,19 @@ Abominable Workflows v3 (detailed configuration for each workflow)
 
 ./abominable_MILO_.json
     European comic style, featuring stylized figures and intense details.
+    > size        : 1536 x 1024
     > prefix      : 'Poster art with bold lines of '
-    > suffix      : '. Poster by (Milo Manara:1.2) in white, red, blue and black. Dark background and solid colors.'
-    > neg-prefix: ''
+    > suffix      : '. Poster by (Milo Manara:1.25) in white, red, blue and black. Dark background and solid colors.'
+    > neg-prefix  : 'gradient'
+    > neg-suffix  : ''
+    > refi-prefix : 'Poster by Milo Manara'
+    > refi-exper  : ''
+    > KSampler    : uni_pc
+    > Scheduler   : beta
+    > Steps       : 16     #alt: 17
+    > Denoise     : 0.80   #alt: 0.75
+    > (SD15 Neg)  : '(worst quality, low quality:1.8)'
+    > (SD15 Start): 12
 
 ./abominable_DARKFAN80_.json
     Deep and moody aesthetic with dark tones and dramatic lighting effects.
