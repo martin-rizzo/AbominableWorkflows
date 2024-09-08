@@ -2158,36 +2158,6 @@
       ]
     },
     {
-      "id": 110,
-      "type": "Note",
-      "pos": {
-        "0": 30,
-        "1": 610
-      },
-      "size": {
-        "0": 570,
-        "1": 290
-      },
-      "flags": {
-        "collapsed": false,
-        "pinned": true
-      },
-      "order": 16,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "MILO personal tips (but feel free to experiment)",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        " * Seed              : random\n * Guidance          : 3.5     [ 3.0 - 5.0 ]\n * Refiner intensity : 18      [ 14  - 24  ]\n * Refiner attention : empty   < focuses refiner on specific objects\n * Refiner variation : 0       < creates alternative versions with different details\n * Refiner experimen : false   < not fully implemented yet\n\nA lower 'Guidance' value results in more detailed drawings.\nA higher 'Guidance' adds contrast and simplifies the drawing.\nIf it looks like a photo, increase 'Guidance'.\nIf it still looks like a photo, add \"macrophoto\" or \"bokeh\" to negative prompt.\nMILO workflow can be unpredictable, quality varies greatly based on parameters.\n\nFor more information about Abominable Workflows:\nhttps://civitai.com/models/420163\n"
-      ],
-      "color": "#222",
-      "bgcolor": "#000",
-      "shape": 1
-    },
-    {
       "id": 97,
       "type": "PrimitiveNode",
       "pos": {
@@ -2201,7 +2171,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 17,
+      "order": 16,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2242,7 +2212,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 18,
+      "order": 17,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2285,7 +2255,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 19,
+      "order": 18,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2649,7 +2619,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 20,
+      "order": 19,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2705,7 +2675,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 21,
+      "order": 20,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2745,7 +2715,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 22,
+      "order": 21,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2783,7 +2753,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 23,
+      "order": 22,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3092,7 +3062,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 24,
+      "order": 23,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3128,7 +3098,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 25,
+      "order": 24,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3168,7 +3138,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 26,
+      "order": 25,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3370,7 +3340,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 27,
+      "order": 26,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3441,6 +3411,36 @@
       ],
       "color": "#322",
       "bgcolor": "#533",
+      "shape": 1
+    },
+    {
+      "id": 110,
+      "type": "Note",
+      "pos": {
+        "0": 30,
+        "1": 610
+      },
+      "size": {
+        "0": 570,
+        "1": 290
+      },
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "MILO personal tips (but feel free to experiment)",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        " * Seed              : random\n * Guidance          : 3.5     [ 3.0 - 5.0 ]\n * Refiner intensity : 18      [ 14  - 24  ]\n * Refiner attention : empty   < focuses refiner on specific objects\n * Refiner variation : 0       < creates alternative versions with different details\n * Refiner experimen : false   < not fully implemented yet\n\nA lower 'Guidance' value results in more detailed drawings.\nA higher 'Guidance' adds contrast and simplifies the drawing.\nIf it looks like a photo, increase 'Guidance' or add \"bokeh\" to negative prompt.\nIncreasing 'Refiner intensity' creates more polished artwork, similar to cover art.\nMILO workflow can be unpredictable, quality varies greatly based on parameters.\n\nFor more information about Abominable Workflows:\nhttps://civitai.com/models/420163\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000",
       "shape": 1
     }
   ],

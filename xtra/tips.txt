@@ -4,46 +4,52 @@
  * Seed              : random
  * Guidance          : 3.0     [ 2.8 - 3.5 ]
  * Refiner intensity : 18      [ 18  - 25  ]
- * Refiner attention : empty   guides refiner attention to specific objects
- * Refiner variation : 0       alternative versions with different detailed outcomes
- * Refiner experimental prompt : false (or use at your own risk)
+ * Refiner attention : empty   < focuses refiner on specific objects
+ * Refiner variation : 0       < creates alternative versions with different details
+ * Refiner experimen : false   < not fully implemented yet
 
-If the image looks too drawn, add 'bokeh' to the prompt
-If the image has a narrow field, add 'bokeh' to the negative prompt
+If the image looks too drawn, add "bokeh" to the prompt
+If the image has a narrow field, add "bokeh" to the negative prompt
 
 For more information about Abominable Workflows:
 https://civitai.com/models/420163
 
 ----------------------------------------------------------------------------------------
 ./abominable_INK_.json
+INK personal tips (but feel free to experiment)
  * Seed              : random
- * Guidance          : 4.5    [ 3.0 - 4.5 ]
- * Refiner intensity : 14     [ 14  - 20  ]
- * Refiner attention : empty   guides refiner attention to specific objects
- * Refiner variation : 0       alternative versions with different detailed outcomes
- * Refiner experimental prompt : false (or use at your own risk)
- 
-Lowering the "CFG scale" will result in a drawing with more detail or realism.
-If the drawing appears photorealistic, set negative with 'macrophoto, bokeh'.
-Alternatively, enable 'Experimental' and increase the refiner intensity to 20.
+ * Guidance          : 4.5     [ 3.0 - 4.5 ]
+ * Refiner intensity : 14      [ 14  - 20  ]
+ * Refiner attention : empty   < focuses refiner on specific objects
+ * Refiner variation : 0       < creates alternative versions with different details
+ * Refiner experimen : false   < not fully implemented yet
+
+Lowering 'Guidance' adds more detail or realism.
+If it looks too photorealistic, add "macrophoto" or "bokeh" to negative prompt.
+Alternatively, enable 'experimental' and increase refiner intensity to 20.
 
 For more information about Abominable Workflows:
 https://civitai.com/models/420163
 
 ----------------------------------------------------------------------------------------
 ./abominable_PIXEL_.json
+PIXEL personal tips (but feel free to experiment)
 
 ----------------------------------------------------------------------------------------
 ./abominable_MILO_.json
+MILO personal tips (but feel free to experiment)
  * Seed              : random
- * Guidance          : 3.0     [ 3.0 - 5.0 ]
- * Refiner intensity : 18      [ 14   - 24 ]
- * Refiner attention : empty   guides refiner attention to specific objects
- * Refiner variation : 0       alternative versions with different detailed outcomes
- * Refiner experimental prompt : false (or use at your own risk)
+ * Guidance          : 3.5     [ 3.0 - 5.0 ]
+ * Refiner intensity : 18      [ 14  - 24  ]
+ * Refiner attention : empty   < focuses refiner on specific objects
+ * Refiner variation : 0       < creates alternative versions with different details
+ * Refiner experimen : false   < not fully implemented yet
 
-(??) Lowering the "CFG scale" will result in a drawing with more detail or realism.
-If the drawing appears photorealistic, set negative with 'macrophoto, bokeh'.
+A lower 'Guidance' value results in more detailed drawings.
+A higher 'Guidance' adds contrast and simplifies the drawing.
+If it looks like a photo, increase 'Guidance' or add "bokeh" to negative prompt.
+Increasing 'Refiner intensity' creates more polished artwork, similar to cover art.
+MILO workflow can be unpredictable, quality varies greatly based on parameters.
 
 For more information about Abominable Workflows:
 https://civitai.com/models/420163
