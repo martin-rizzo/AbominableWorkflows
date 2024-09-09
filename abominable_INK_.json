@@ -259,7 +259,7 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "Coqui frog in batman uniform, stood on a New York City Street. Striking a dynamic pose"
+        "A minion from despicable me, red skin, Darth Maul like spikes on head, dressed in a dark Sith lord robe, Dark Jedi, angry expression, scowling, holding a red lightsaber, pitch black background only illuminated by red lightsaber"
       ]
     },
     {
@@ -776,7 +776,12 @@
       "title": "🪛 Abominable Negative",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
+      },
+      "widgets_values": [
+        false,
+        true,
+        ""
+      ]
     },
     {
       "id": 66,
@@ -1591,7 +1596,12 @@
       "title": "🪛 Abominable Refiner",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
+      },
+      "widgets_values": [
+        false,
+        true,
+        ""
+      ]
     },
     {
       "id": 92,
@@ -1636,7 +1646,7 @@
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "Coqui frog in batman uniform, stood on a New York City Street. Striking a dynamic pose"
+        "A minion from despicable me, red skin, Darth Maul like spikes on head, dressed in a dark Sith lord robe, Dark Jedi, angry expression, scowling, holding a red lightsaber, pitch black background only illuminated by red lightsaber"
       ]
     },
     {
@@ -1682,7 +1692,7 @@
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "macrophoto, bokeh"
+        "detailed, photography"
       ]
     },
     {
@@ -1829,7 +1839,7 @@
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "Coqui frog in batman uniform, stood on a New York City Street. Striking a dynamic pose"
+        "A minion from despicable me, red skin, Darth Maul like spikes on head, dressed in a dark Sith lord robe, Dark Jedi, angry expression, scowling, holding a red lightsaber, pitch black background only illuminated by red lightsaber"
       ]
     },
     {
@@ -3327,7 +3337,42 @@
       "title": "🪛 Abominable Prompt",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
+      },
+      "widgets_values": [
+        false,
+        true,
+        ""
+      ]
+    },
+    {
+      "id": 110,
+      "type": "Note",
+      "pos": {
+        "0": 30,
+        "1": 610
+      },
+      "size": {
+        "0": 570,
+        "1": 290
+      },
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "INK personal tips (but feel free to experiment)",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        " * Seed              : random\n * Guidance          : 4.5     [ 3.0 - 4.5 ]\n * Refiner intensity : 16      [ 14  - 22  ]\n * Refiner attention : empty   < focuses refiner on specific objects\n * Refiner variation : 0       < creates alternative versions with different details\n * Refiner experimen : false   < not fully implemented yet\n\nLowering 'Guidance' adds more detail or realism.\nIf it looks too photorealistic, add \"detailed, photography\" to negative prompt.\nAlternatively, enable 'Refiner experimental' and increase intensity to 22.\n\nFor more information about Abominable Workflows:\nhttps://civitai.com/models/420163\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000",
+      "shape": 1
     },
     {
       "id": 95,
@@ -3343,7 +3388,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 25,
+      "order": 26,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3366,7 +3411,7 @@
         "Run widget replace on values": false
       },
       "widgets_values": [
-        "Coqui frog in batman uniform, stood on a New York City Street. Striking a dynamic pose"
+        "A minion from despicable me, red skin, Darth Maul like spikes on head, dressed in a dark Sith lord robe, Dark Jedi, angry expression, scowling, holding a red lightsaber, pitch black background only illuminated by red lightsaber"
       ],
       "color": "#232",
       "bgcolor": "#353",
@@ -3386,7 +3431,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 26,
+      "order": 27,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3407,40 +3452,10 @@
         "Run widget replace on values": false
       },
       "widgets_values": [
-        "macrophoto, bokeh"
+        "detailed, photography"
       ],
       "color": "#322",
       "bgcolor": "#533",
-      "shape": 1
-    },
-    {
-      "id": 110,
-      "type": "Note",
-      "pos": {
-        "0": 30,
-        "1": 610
-      },
-      "size": {
-        "0": 570,
-        "1": 290
-      },
-      "flags": {
-        "collapsed": false,
-        "pinned": true
-      },
-      "order": 27,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "INK personal tips (but feel free to experiment)",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        " * Seed              : random\n * Guidance          : 4.5     [ 3.0 - 4.5 ]\n * Refiner intensity : 16      [ 14  - 22  ]\n * Refiner attention : empty   < focuses refiner on specific objects\n * Refiner variation : 0       < creates alternative versions with different details\n * Refiner experimen : false   < not fully implemented yet\n\nLowering 'Guidance' adds more detail or realism.\nIf it looks too photorealistic, add \"macrophoto, bokeh\" to negative prompt.\nAlternatively, enable 'Refiner experimental' and increase intensity to 22.\n\nFor more information about Abominable Workflows:\nhttps://civitai.com/models/420163\n"
-      ],
-      "color": "#222",
-      "bgcolor": "#000",
       "shape": 1
     }
   ],

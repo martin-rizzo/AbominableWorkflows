@@ -25,7 +25,7 @@ INK personal tips (but feel free to experiment)
  * Refiner experimen : false   < not fully implemented yet
 
 Lowering 'Guidance' adds more detail or realism.
-If it looks too photorealistic, add "macrophoto, bokeh" to negative prompt.
+If it looks too photorealistic, add "detailed, photography" to negative prompt.
 Alternatively, enable 'Refiner experimental' and increase intensity to 22.
 
 For more information about Abominable Workflows:
