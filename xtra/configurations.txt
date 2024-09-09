@@ -24,8 +24,8 @@ Abominable Workflows v3 (detailed configuration for each workflow)
     Pixel art style with retro aesthetics and vibrant, blocky details.
     > size        : 1408 x 944
     > prefix      : 'A pixel-art image of '
-    > suffix      : '. low-res, blocky, pixel art style, 8-bit graphics'
-    > neg-prefix  : 'blurry, noisy, highly detailed, ultra textured, photo, realistic, macrophoto'
+    > suffix      : '. low-res, blocky, pixel art style, 8-bit graphics'   
+    > neg-prefix  : 'blurry, noisy, highly detailed, ultra textured, photo, realistic, macrophoto'  #alt: 'gradient'
     > neg-suffix  : ''
     > refi-exper  : ''
     > refi-suffix : 'pixel-art, low-res, blocky'
