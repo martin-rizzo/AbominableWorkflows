@@ -19,14 +19,14 @@ https://civitai.com/models/420163
 INK personal tips (but feel free to experiment)
  * Seed              : random
  * Guidance          : 4.5     [ 3.0 - 4.5 ]
- * Refiner intensity : 14      [ 14  - 20  ]
+ * Refiner intensity : 16      [ 14  - 22  ]
  * Refiner attention : empty   < focuses refiner on specific objects
  * Refiner variation : 0       < creates alternative versions with different details
  * Refiner experimen : false   < not fully implemented yet
 
 Lowering 'Guidance' adds more detail or realism.
-If it looks too photorealistic, add "macrophoto" or "bokeh" to negative prompt.
-Alternatively, enable 'experimental' and increase refiner intensity to 20.
+If it looks too photorealistic, add "macrophoto, bokeh" to negative prompt.
+Alternatively, enable 'Refiner experimental' and increase intensity to 22.
 
 For more information about Abominable Workflows:
 https://civitai.com/models/420163
