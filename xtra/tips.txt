@@ -55,4 +55,25 @@ For more information about Abominable Workflows:
 https://civitai.com/models/420163
 
 ----------------------------------------------------------------------------------------
+./classic_abominable_spaghetti.json
+CLASSIC personal tips (but feel free to experiment)
+ * Seed              : random
+ * Guidance          : 3.5     [ 2.8 - 5.0 ]
+ * Refiner intensity : 20      [ 15  - 25  ]
+ * Refiner attention : empty   < focuses refiner on specific objects
+ * Refiner variation : 0       < creates alternative versions with different details
+
+Samplers, these 3 are fast:
+ - euler : good for realism
+ - lms   : similar to euler but with more contrast
+ - uni_pc: best suited for drawings and art
+
+For photo style without blurry backgrounds:
+ - start prompt with: "Low quality iPhone photo of..."
+ - add to negative prompt: "small, toy, macrophoto"
+
+For more information about Abominable Workflows:
+https://civitai.com/models/420163
+
+----------------------------------------------------------------------------------------
 
