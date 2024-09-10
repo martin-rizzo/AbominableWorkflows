@@ -69,10 +69,20 @@ Abominable Workflows v3 (detailed configuration for each workflow)
     > (SD15 Start): 12
 
 ./abominable_DARKFAN80_.json
-    Deep and moody aesthetic with dark tones and dramatic lighting effects.
-    > prefix    : ''
-    > suffix    : '. (80's dark fantasy in VHS, blurry, tv captured:1.1)'
-    > neg-prefix: 'small, toy'
+    Dark, cinematic 80s style with VHS aesthetics and dramatic lighting.
+    > size        : 1536x1024
+    > prefix      : ''
+    > suffix      : '. (80's dark fantasy in VHS, blurry tv captured:1.1)'
+    > neg-prefix  : 'small, toy'
+    > neg-suffix  : ''
+    > refi-prefix : ''
+    > refi-exper  : ''
+    > KSampler    : dpmpp_2m_sde
+    > Scheduler   : beta
+    > Steps       : 16
+    > Denoise     : 1.00
+    > (SD15 Neg)  : (worst quality, low quality:1.8)
+    > (SD15 Start): 16
 
 -----------------------------------------------------------
 Next Version?

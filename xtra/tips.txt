@@ -66,6 +66,23 @@ For more information about Abominable Workflows:
 https://civitai.com/models/420163
 
 ----------------------------------------------------------------------------------------
+./abominable_DARKFAN80_.json
+DARKFAN80 personal tips (but feel free to experiment)
+ * Seed              : random
+ * Guidance          : 3.2     [ 3.0 - 4.0 ]
+ * Refiner intensity : 22      [ 20  - 28  ]
+ * Refiner attention : empty   < focuses refiner on specific objects
+ * Refiner variation : 0       < creates alternative versions with different details
+ * Refiner experimen : false   < not fully implemented yet
+
+Increasing 'Guidance' may sometimes improve coherence.
+If the image looks too undefined, try adding "(painting, draw:1.1)" to the negative.
+DARKFAN80 workflow can be unpredictable, quality varies greatly based on parameters.
+
+For more information about Abominable Workflows:
+https://civitai.com/models/420163
+
+----------------------------------------------------------------------------------------
 ./classic_abominable_spaghetti.json
 CLASSIC personal tips (but feel free to experiment)
  * Seed              : random
