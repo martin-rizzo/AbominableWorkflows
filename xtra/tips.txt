@@ -1,15 +1,18 @@
 
 ----------------------------------------------------------------------------------------
 ./abominable_PHOTO_.json
+PHOTO personal tips (but feel free to experiment)
  * Seed              : random
- * Guidance          : 3.0     [ 2.8 - 3.5 ]
- * Refiner intensity : 18      [ 18  - 25  ]
- * Refiner attention : empty   < focuses refiner on specific objects
+ * Guidance          : 3.2     [ 3.0 - 4.0 ]
+ * Refiner intensity : 22      [ 18  - 25  ]
  * Refiner variation : 0       < creates alternative versions with different details
- * Refiner experimen : false   < not fully implemented yet
+ * Refiner attention : empty   < focuses refiner on specific objects
+ * Ref.ignores prompt: false   < if enabled, the refiner will completely ignore the prompt
 
-If the image looks too drawn, add "bokeh" to the prompt
-If the image has a narrow field, add "bokeh" to the negative prompt
+If the image looks too drawn, add "bokeh" to the prompt.
+If the background is blurry, add one or more of the following to the negative prompt:
+   "bokeh", "out of focus", "macrophoto".
+Enabling 'HQ sampler' can improve contrast and details, but is slower.
 
 For more information about Abominable Workflows:
 https://civitai.com/models/420163

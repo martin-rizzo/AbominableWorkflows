@@ -11,8 +11,8 @@ Abominable Workflows v3 (detailed configuration for each workflow)
     > suffix      : '. (144p photo:1.1) with JPEG artifacts.'
     > neg-prefix  : 'macrophoto'
     > neg-suffix  : ''
+    > refi-prefix : ''
     > refi-exper  : '(argentine social womand and man:1.1), (breathtaking, detailed:1.1)'
-    > refi-suffix : ''
     > KSampler    : lms
     > Scheduler   : beta
     > Steps       : 11
