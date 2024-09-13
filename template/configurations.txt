@@ -1,0 +1,26 @@
+@TITLE: [v3] abominable *
+@TIPS: * personal tips
+
+./abominable_PHOTO_.json
+Title                  : [v3] abominable PHOTO
+Seed                   : 1
+Guidance               : 3.2
+Refiner intensity      : 22
+Landscape Width        : 1536
+Landscape Height       : 1024
+PixArt Sampler         : lms
+PixArt HQ Sampler      : heun
+PixArt Steps           : 11
+PixArt Sigmas/scheduler: beta
+PixArt Sigmas/denoise  : 0.90
+Prompt prefix          : 'An iPhone photo. '
+Prompt suffix          : '. (144p photo:1.1) with JPEG artifacts.'
+Negative prefix        : 'macrophoto'
+Negative suffix        : ''
+SD15 Sampler           : dpmpp_2m
+SD15 Sigmas/scheduler  : normal
+SD15 Sigmas/denoise    : 0.90
+SD15 Prefix            : ''
+SD15 Negative          : '(worst quality, low quality:1.8)'
+Tips                   : @tips.txt
+
