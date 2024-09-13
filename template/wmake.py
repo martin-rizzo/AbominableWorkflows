@@ -46,50 +46,38 @@ SCRIPT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 
 CONFIG_DEFAULT_NAME = 'configurations.txt'
 
+
 #----------------------------- ERROR MESSAGES ------------------------------#
 
 def warning(message: str) -> None:
-    """
-    Displays and logs a warning message to the standard error stream.
-    Args:
-        message: The warning message to display.
+    """Displays and logs a warning message to the standard error stream.
     """
     print(f"{CYAN}[{YELLOW}WARNING{CYAN}]{YELLOW} {message}{DEFAULT_COLOR}", file=sys.stderr)
 
 
 def error(message: str) -> None:
-    """
-    Displays and logs an error message to the standard error stream.
-    Args:
-        message: The error message to display.
+    """Displays and logs an error message to the standard error stream.
     """
     print(f"{CYAN}[{RED}ERROR{CYAN}]{RED} {message}{DEFAULT_COLOR}", file=sys.stderr)
 
 
 def fatal_error(error_message: str, *info_messages: str) -> None:
-    """
-    Displays a fatal error message, logs it to the standard error stream,
-    and exits the script with status code 1.
-    Optionally displays informational messages after the error.
-
+    """Displays and logs an fatal error to the standard error stream and exits.
     Args:
-        error_message: The fatal error message to display.
+        error_message : The fatal error message to display.
         *info_messages: Optional informational messages to display after the error.
     """
     error(error_message)
-
-    # Print informational messages, if any were provided
     for info_message in info_messages:
         print(f" {CYAN}\xF0\x9F\x9B\x88  {info_message}{DEFAULT_COLOR}", file=sys.stderr)
-
     exit(1)
 
 
 #--------------------------- LOAD CONFIGURATION ----------------------------#
 
 def read_filename(line: str) -> str:
-    """
-    Reads a filename from a line of text.
+    """Reads a filename from a line of text.
+
     Raises a fatal error if the filename contains spaces.
     Args:
         line: The line of text containing the filename.
@@ -105,24 +93,19 @@ def read_filename(line: str) -> str:
 
 
 def read_keyvalue(line):
-    """
-    Read a line of text in the format "key: value"
+    """Read a line of text in the format "key: value"
 
     Args:
         line (str): The line of text to parse.
-
     Returns:
         tuple: A tuple containing the key and value.
-
-    Example:
-        >>> read_keyvalue("name: John Doe")
-        ('name', 'John Doe')
     """
     key, value = line.split(':', 1)
     key, value = key.strip(), value.strip()
     if value.startswith("'"):
         value = value.strip("'")
     return key, value
+
 
 def extract_text(filepath: str, start_delimiter: str) -> str:
     """Extracts text between start_delimiter and a line with at least 4 hyphens
@@ -134,9 +117,8 @@ def extract_text(filepath: str, start_delimiter: str) -> str:
     Args:
         filepath        (str): The path to the file to read.
         start_delimiter (str): The delimiter marking the start of the text to extract.
-
     Returns:
-        str: The extracted text between the delimiters, or an empty string if no text is found.
+        The extracted text between the delimiters, or an empty string if no delimiter is found.
     """
     extracted_text = ""
     capturing = False
@@ -150,11 +132,20 @@ def extract_text(filepath: str, start_delimiter: str) -> str:
                 extracted_text += line
     return extracted_text
 
-def load_instructions(config_path):
-    variables       = {}
-    instructions    = {}
-    file_identifier = ''
-    instructions_by_file = {}
+
+def load_configurations(config_path):
+    """Loads configurations from a file.
+
+    Args:
+        config_path: The path to the configuration file.
+    Returns:
+        A tuple containing a dictionary of configurations by filename
+        and a dictionary of global variables.
+    """
+    configurations_by_filename = {}
+    configuration = {}
+    global_vars   = {}
+    filename      = ''
     config_dir = os.path.dirname(config_path)
 
     with open(config_path, 'r') as f:
@@ -166,54 +157,68 @@ def load_instructions(config_path):
                 continue
 
             elif line.startswith("@"):
+                # it's a global variable
                 key, value = read_keyvalue(line[1:])
-                variables[key] = value
+                global_vars[key] = value
 
             elif line.startswith("./"):
-                if file_identifier and instructions:
-                    instructions_by_file[file_identifier] = instructions
-                file_identifier = read_filename(line)
+                # it's a filename, start of a new configuration
+                if filename and configuration:
+                    configurations_by_filename[filename] = configuration
+                filename      = read_filename(line)
+                configuration = {}
 
             else:
+                # it's a configuration variable
                 key, value = read_keyvalue(line)
                 if value.startswith("@"):
                     path_ = os.path.join(config_dir, value[1:])
-                    value = extract_text(path_, f"./{file_identifier}").strip()
-                instructions[key] = value
+                    value = extract_text(path_, f"./{filename}").strip()
+                configuration[key] = value
                 continue
 
-    if file_identifier and instructions:
-        instructions_by_file[file_identifier] = instructions
-    return instructions_by_file, variables
+    # if any configuration is pending, add it to the dictionary
+    if filename and configuration:
+        configurations_by_filename[filename] = configuration
+
+    return configurations_by_filename, global_vars
 
 
 #---------------------------------------------------------------------------#
 
-def apply_instruction_to_json(json, instructions, variables):
+def apply_configuration_to_json(json, configuration, global_vars):
     # dummy function
     return json
 
-def make(filename, instructions, variables):
+
+def make(filename: str, configuration: dict, global_vars: dict):
     filename = filename if os.path.splitext(filename)[1] else filename + '.json'
     print("-----------------------------------------")
-    print("filename:", filename)
-    print("Variables:", variables)
-    print("Instructions:", instructions)
+    print("filename:"     , filename      )
+    print("Configuration:", configuration )
+    print("Global vars:"  , global_vars   )
 
-def process(target: str, instructions_by_filename:dict, variables: dict):
 
+def process(target: str, configurations_by_filename: dict, global_vars: dict):
+    """Processes a target based on provided configurations and global variables.
+
+    Args:
+        target (str): The target to process. Can be 'clean', 'all', or a specific filename.
+        configurations_by_filename (dict): A dictionary mapping filenames to their corresponding configurations.
+        global_vars (dict): A dictionary containing global variables used during processing.
+    """
     if target=='clean':
-        for filename, _ in instructions_by_filename.items():
+        for filename, _ in configurations_by_filename.items():
             print(f"rm {filename}")
 
     elif target=='all':
-        for filename, instructions in instructions_by_filename.items():
-            make(filename, instructions, variables)
+        for filename, configuration in configurations_by_filename.items():
+            make(filename, configuration, global_vars)
 
     else:
-        filename     = target
-        instructions = instructions_by_filename.get(filename)
-        make(filename, instructions, variables)
+        filename      = target
+        configuration = configurations_by_filename.get(filename)
+        make(filename, configuration, global_vars)
 
 
 #===========================================================================#
@@ -251,12 +256,12 @@ def main():
         fatal_error(f"Configuration file not found: {config_path}",
                     "Please provide a valid configuration file path or ensure the default configuration file exists.")
 
-    # load the instructions
-    instructions_by_filename, variables = load_instructions(config_path)
+    # load the configurations
+    configurations_by_filename, global_vars = load_configurations(config_path)
 
-    #
+     # process each target
     for target in args.target:
-        process(target, instructions_by_filename, variables)
+        process(target, configurations_by_filename, global_vars)
 
 
 if __name__ == "__main__":
