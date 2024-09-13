@@ -196,15 +196,143 @@ def load_configs(config_path):
     return configs_by_filename, global_vars
 
 
+#---------------------------------- NODES ----------------------------------#
+
+def get_title(node: dict) -> str:
+    if node is None:
+        return None
+    return node.get('title', node.get('type', ''))
+
+def get_type(node: dict) -> str:
+    if node is None:
+        return None
+    return node.get('type', '')
+
+def get_nodes_by_id(all_nodes:list) -> dict:
+    nodes_by_id = {}
+    for node in all_nodes:
+        id = node.get('id')
+        nodes_by_id[id] = node
+    return nodes_by_id
+
+def get_links_by_id(all_links:list) -> dict:
+    links_by_id = {}
+    for link in all_links:
+        id = link[0]
+        links_by_id[id] = link
+    return links_by_id
+
+
+#----------------------------- WORKFLOW CLASS ------------------------------#
+class Workflow:
+    """Represents a workflow with a name and a list of steps.
+    """
+
+    def __init__(self, data):
+        """Initializes a new Workflow object.
+        """
+        nodes = data.get('nodes')
+        links = data.get('links')
+
+        nodes_by_id = {}
+        for node in nodes:
+            if 'id' in node:
+                nodes_by_id[node['id']] = node
+
+        links_by_id = {}
+        for link in links:
+            if len(link)>=5:
+                links_by_id[link[0]] = link
+
+        self.data        = data
+        self.nodes       = nodes
+        self.links       = links
+        self.nodes_by_id = nodes_by_id
+        self.links_by_id = links_by_id
+
+
+    def save_to_json(self, filename: str):
+        """Saves the workflow to a JSON file.
+        Args:
+            filename (str): The name of the JSON file.
+        """
+        with open(filename, "w") as f:
+            json.dump(self.data, f,
+                      indent=(JSON_INDENT if JSON_INDENT>0 else None),
+                      ensure_ascii=False)
+
+
+    @staticmethod
+    def from_json(filename: str):
+        """Loads a Workflow object from a JSON file.
+        Args:
+            filename (str): The name of the JSON file.
+        Returns:
+            A Workflow object.
+        """
+        with open(filename, "r") as f:
+            data = json.load(f)
+            return Workflow(data)
+
+
+    def copy(self):
+        """Creates a copy of the workflow.
+        Returns:
+            A new Workflow object with the same data as the original.
+        """
+        copied_data = self.data.copy()
+        return Workflow(copied_data)
+
+
+    # retorna todos los nodos conectados a un output, resolviendo los reroutes
+    # output = node.outputs[n]
+    def get_all_connected_nodes(self, node: dict, output_index: int) -> list:
+        outputs = node.get('outputs')
+        if not outputs or output_index>=len(outputs):
+            return None
+        output    = outputs[output_index]
+        links_ids = output.get('links',[])
+
+        nodes = []
+        for link_id in links_ids:
+            link = self.links_by_id[ link_id ]
+            node = self.nodes_by_id[ link[3] ]
+            if get_type(node)=="Reroute":
+                nodes.extend( self.get_all_connected_nodes(node,0) )
+            else:
+                nodes.append(node)
+        return nodes
+
+    def set_node(self, node, value):
+
+        if get_type(node)=="PrimitiveNode":
+            nodes = self.get_all_connected_nodes(node, 0)
+            print("## node:", get_title(node))
+            print("## connections:", [get_title(node) for node in nodes])
+            #print("## widget_name", widget_name)
+
+
 #---------------------------- CREATING WORKFLOW ----------------------------#
 
-def create_workflow(template, config, global_vars):
-    # create a copy of the workflow dictionary to avoid modifying the original
+def create_workflow(template: Workflow, config: dict, global_vars: dict) -> Workflow:
+
+    # create a copy of the workflow to avoid modifying the template
     workflow = template.copy()
+
+    if not template.nodes:
+        warning("Pareciera no haber ningun nodo en el template suministrado")
+        return workflow
+
+    for node in workflow.nodes:
+        title = get_title(node)
+        value = config.get(title)
+        if value:
+            workflow.set_node( node, value )
+
     return workflow
 
 
-def make(filename: str, config: dict, global_vars: dict):
+def make(filename: str, config: dict, global_vars: dict) -> None:
     """Generates a JSON workflow file based on a template and configuration.
 
     Args:
@@ -223,21 +351,16 @@ def make(filename: str, config: dict, global_vars: dict):
                     "Check the value assigned to the @TEMPLATE variable.")
 
     # load the JSON template from the file
-    with open(template_filename, "r") as f:
-        template = json.load(f)
+    template = Workflow.from_json(template_filename)
 
     message(f"Building '{workflow_filename}'")
     workflow = create_workflow(template, config, global_vars)
 
     # Save the JSON workflow to a file
-    with open(workflow_filename, "w") as f:
-        json.dump(workflow, f,
-                  indent=(JSON_INDENT if JSON_INDENT>0 else None),
-                  ensure_ascii=False
-                  )
+    workflow.save_to_json(workflow_filename)
 
 
-def process(target: str, configs_by_filename: dict, global_vars: dict):
+def process(target: str, configs_by_filename: dict, global_vars: dict) -> None:
     """Processes a target based on provided configurations and global variables.
 
     Args:

@@ -8,7 +8,7 @@ NODE.MAIN              : [v3] abominable PHOTO
 NODE.TIPS              : @tips.txt
 NODE.README            : '@read.txt'
 Seed                   : 1
-Guidance               : 3.2
+Guidance               : 9.2
 Refiner intensity      : 22
 Landscape Width        : 1536
 Landscape Height       : 1024
