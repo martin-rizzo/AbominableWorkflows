@@ -1,8 +1,12 @@
-@TITLE: [v3] abominable *
-@TIPS: * personal tips
+@TEMPLATE   : abominable-template.json
+@NODE.MAIN  : '[v3] abominable *'
+@NODE.TIPS  : '* personal tips'
+@NODE.README: 'README.TXT'
 
 ./abominable_PHOTO_.json
-Title                  : [v3] abominable PHOTO
+NODE.MAIN              : [v3] abominable PHOTO
+NODE.TIPS              : @tips.txt
+NODE.README            : '@read.txt'
 Seed                   : 1
 Guidance               : 3.2
 Refiner intensity      : 22
@@ -22,5 +26,4 @@ SD15 Sigmas/scheduler  : normal
 SD15 Sigmas/denoise    : 0.90
 SD15 Prefix            : ''
 SD15 Negative          : '(worst quality, low quality:1.8)'
-Tips                   : @tips.txt
 
