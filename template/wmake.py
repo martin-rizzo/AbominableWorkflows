@@ -150,7 +150,7 @@ def extract_text(filepath: str, start_delimiter: str) -> str:
                 extracted_text += line
     return extracted_text
 
-def load_configuration(config_path):
+def load_instructions(config_path):
     variables       = {}
     instructions    = {}
     file_identifier = ''
@@ -184,7 +184,36 @@ def load_configuration(config_path):
 
     if file_identifier and instructions:
         instructions_by_file[file_identifier] = instructions
-    return variables, instructions_by_file
+    return instructions_by_file, variables
+
+
+#---------------------------------------------------------------------------#
+
+def apply_instruction_to_json(json, instructions, variables):
+    # dummy function
+    return json
+
+def make(filename, instructions, variables):
+    filename = filename if os.path.splitext(filename)[1] else filename + '.json'
+    print("-----------------------------------------")
+    print("filename:", filename)
+    print("Variables:", variables)
+    print("Instructions:", instructions)
+
+def process(target: str, instructions_by_filename:dict, variables: dict):
+
+    if target=='clean':
+        for filename, _ in instructions_by_filename.items():
+            print(f"rm {filename}")
+
+    elif target=='all':
+        for filename, instructions in instructions_by_filename.items():
+            make(filename, instructions, variables)
+
+    else:
+        filename     = target
+        instructions = instructions_by_filename.get(filename)
+        make(filename, instructions, variables)
 
 
 #===========================================================================#
@@ -192,30 +221,42 @@ def load_configuration(config_path):
 #===========================================================================#
 
 def main():
-    parser = argparse.ArgumentParser(description="Automates workflow creation using templates and configuration files.")
-    parser.add_argument("template_file", help="Path to the workflow template file")
-    parser.add_argument("--config", "-c", help="Path to the configuration file", default=None)
+    parser = argparse.ArgumentParser(
+        description="Create workflow files based on the configuration."
+    )
+    parser.add_argument('-c', '--config', metavar='FILE',
+        help="Read FILE as the configurations (default: configurations.txt)"
+    )
+    parser.add_argument('-v', '--version', action='version', version='wmake 0.2',
+        help="Show version information and exit."
+    )
+    parser.add_argument('target', nargs='*', default=['all'],
+        help="The name(s) of the workflow file(s) to create. "
+             "'all' to create all workflow files specified in the configuration. "
+             "'clean' to remove all workflow files specified in the configuration."
+    )
     args = parser.parse_args()
 
     # determine the configuration file path
     if args.config:
-        config_name = args.config
+        config_path = args.config
     elif os.path.exists(CONFIG_DEFAULT_NAME):
-        config_name = CONFIG_DEFAULT_NAME
+        config_path = CONFIG_DEFAULT_NAME
     else:
-        config_name = os.path.join(SCRIPT_DIRECTORY, CONFIG_DEFAULT_NAME)
+        config_path = os.path.join(SCRIPT_DIRECTORY, CONFIG_DEFAULT_NAME)
+
 
     # check if the configuration file exists
-    if not os.path.exists(config_name):
-        fatal_error(f"Configuration file not found: {config_name}",
+    if not os.path.exists(config_path):
+        fatal_error(f"Configuration file not found: {config_path}",
                     "Please provide a valid configuration file path or ensure the default configuration file exists.")
 
-    # load the configuration
-    variables, instructions_by_file = load_configuration(config_name)
+    # load the instructions
+    instructions_by_filename, variables = load_instructions(config_path)
 
-    # print the loaded configuration
-    print("Variables:", variables)
-    print("Instructions:", instructions_by_file)
+    #
+    for target in args.target:
+        process(target, instructions_by_filename, variables)
 
 
 if __name__ == "__main__":
