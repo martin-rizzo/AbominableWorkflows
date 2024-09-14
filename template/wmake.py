@@ -134,6 +134,18 @@ def modify_node_value(node: dict, new_value, old_value=None, node_name=None):
 
     values[found_index] = new_value
 
+def set_node_title(node: dict, title: str):
+    assert isinstance(node, dict)
+    title = str(title)
+    if 'title' in node:
+        node['title'] = title
+
+def set_node_value(node: dict, value, index: int=0):
+    assert isinstance(node, dict)
+    widgets_values = node.get('widgets_values', [])
+    if index<len(widgets_values):
+        widgets_values[index] = value
+
 
 #-------------------------- CONFIGURATIONS CLASS ---------------------------#
 class Configurations:
@@ -423,9 +435,10 @@ class Workflow:
         """Sets the value of a node.
 
         It handles different types of nodes:
-          - PrimitiveNode    : modifies the value in the node and all connected nodes.
-          - Single-Value Node: sets the single configurable value of the node.
-          - Other Node Types : displays a warning message, not yet supported.
+          - Primitive node   : modifies the value in the node and all connected nodes.
+          - Single-Value node: sets the single configurable value of the node.
+          - Note node        : sets the first line as the title and the rest as the content.
+          - Other node types : displays a warning message, not yet supported.
 
         Args:
             node (dict): The node to set the value for.
@@ -444,6 +457,17 @@ class Workflow:
             for connected_node in connected_nodes:
                 modify_node_value(connected_node, new_value, old_value,
                                   node_name=f"'{primitive_name}'->'{get_name(connected_node)}'")
+
+        # when encountering a `Note` node,
+        # the first line of the text will be the title of the note,
+        # the rest of the text will be the content
+        elif get_type(node)=="Note":
+            lines = str(value).splitlines()
+            if len(lines)>1:
+                set_node_title( node, lines[0]             )
+                set_node_value( node, "\n".join(lines[1:]) )
+            else:
+                set_node_value( node, "\n".join(lines) )
 
         # when encountering a node with only one configurable value,
         # simply set that value

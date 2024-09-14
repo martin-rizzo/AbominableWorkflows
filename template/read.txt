@@ -1,4 +1,5 @@
 >*<
+README.TXT
 Abominable Workflows v3
 =======================
 https://civitai.com/models/420163/abominable-workflows
