@@ -21,14 +21,14 @@ Portrait Height    : 1777
 PixArt Steps       : 7
 PixArt Sampler     : dpmpp_3m_sde_gpu
 PixArt HQ Sampler  : heun
-# PixArt Scheduler   : sgm_uniform
+PixArt Scheduler   : sgm_uniform
 PixArt Scheduler   : 0.77
 Prompt Prefix      : 'prefix 7 '
 Prompt Suffix      : 'suffix 7 '
 Negative Prefix    : 'neg prefix 7 '
 Negative Suffix    : 'neg suffix 7 '
 SD15 Sampler       : dpmpp_3m_sde_gpu
-# SD15 Scheduler     : sgm_uniform
+SD15 Scheduler     : sgm_uniform
 SD15 Scheduler     : 0.77
 SD15 Prefix        : 'SD15 prefix 7'
 SD15 Negative      : 'SD15 negative 7'

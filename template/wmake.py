@@ -176,22 +176,31 @@ class Configurations:
                     key, strvalue = Configurations._read_keyvalue(line,
                                               extern_dir       = configs_dir,
                                               extern_delimiter = f"./{filename}")
-                    # parameter names that start with "NODE."
-                    # may be defined as global vars
+                    # if the parameter name starts with "NODE.",
+                    # it might be defined as a global variable
                     if key.startswith('NODE.'):
                         if key in global_vars:
                             key = global_vars[key]
-                    # corregir value para que si representa un numero
-                    # tenga el tipo correcto de dato
-                    value = Configurations._fix_value(strvalue)
 
-                    # if the parameter name contains '*'
-                    # it is added to the 'wildcards' list
+                    # convert the string value to its correct data type
+                    # (e.g., int, float, etc.)
+                    value = Configurations._fix_value(strvalue)
+                    assert isinstance(value, (bool,int,float,str))
+
                     if '*' in key:
+                        # if the parameter name contains '*',
+                        # add it to the 'wildcards' list for further processing
                         parts = key.split('*', 1)
                         wildcards.append( (parts[0], parts[1], value) )
                     else:
-                        parameters[key] = value
+                        # if the parameter is new, add it to the 'parameters' dict
+                        # if the parameter already exists, create a list to store multiple values
+                        if key not in parameters:
+                            parameters[key] = value
+                        elif not isinstance(parameters[key], list):
+                            parameters[key] = [parameters[key], value]
+                        else:
+                            parameters[key].append(value)
 
         # if 'parameters' and 'wildcards' are pending,
         # add them to the dictionaries
@@ -440,15 +449,23 @@ class Workflow:
         """Sets the value of a node.
 
         It handles different types of nodes:
-          - Primitive node   : modifies the value in the node and all connected nodes.
-          - Single-Value node: sets the single configurable value of the node.
-          - Note node        : sets the first line as the title and the rest as the content.
-          - Other node types : displays a warning message, not yet supported.
+          - 'Primitive' node  : modifies the value in the node and all connected nodes.
+          - 'Note' node       : sets the first line as the title and the rest as the content.
+          - Single-Value node : sets the single configurable value of the node.
+          - Other node types  : Attempts to modify the value that has the same data kind.
 
         Args:
             node (dict): The node to set the value for.
             value (any): The new value to set.
         """
+        assert isinstance(value, (bool,int,float,str,list))
+        multiple_values = None
+
+        # si el usuario suministro varios valores
+        # entonces por default utilizar solamente el ultimo
+        if isinstance(value, list):
+            multiple_values = value
+            value           = multiple_values[-1] if len(multiple_values)>0 else ''
 
         # when encountering a `PrimitiveNode`,
         # modify the value in the node AND ALL DIRECTLY CONNECTED NODES
@@ -479,23 +496,26 @@ class Workflow:
         elif len(get_values(node))==1:
             set_node_value( node, value )
 
-        # para any other nodo
-        # intentar modificar valor que tenga el mismo kind de dato
+        # for any other node type,
+        # attempt to modify the value that has the same data kind
+        # (this is the only condition that supports multiple values for the same node)
         else:
-            modify_node_value( node, value, value_kind=get_value_kind(value) )
-            # warning(f"The configuration {DEFAULT_COLOR}'{get_name(node)}' = {value}{YELLOW} could not be applied",
-            #          "(this type of value/node is not supported by wmake).")
+            if multiple_values is None:
+                multiple_values = [value]
+            for v in multiple_values:
+                modify_node_value( node, v, value_kind=get_value_kind(v) )
 
 
-    def set_group(self, group: dict, value: str):
+    def set_group(self, group: dict, value):
         """Sets the value of a group.
         Args:
             group (dict): The group to set the value for.
-            value (str) : The new value to set.
+            value (any) : The new value to set.
         """
-        if not isinstance(value, str):
-            return
-        group['title'] = value
+        assert isinstance(value, (bool,int,float,str,list))
+        if isinstance(value, list):
+            value = value[-1] if len(value)>0 else ''
+        group['title'] = str(value)
 
 
     @classmethod
@@ -585,7 +605,7 @@ def create_workflow(filename: str,
         param_name = get_name(group)
         value      = configs.get(filename, param_name)
         if value is not None:
-            workflow.set_group( group, str(value) )
+            workflow.set_group( group, value )
 
     return workflow
 
