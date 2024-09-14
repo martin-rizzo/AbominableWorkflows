@@ -1,7 +1,8 @@
 
 >--------------------------------------------------------------------------------------
 ./abominable_PHOTO_.json
-PHOTO personal tips
+^PHOTO 777 personal tips
+777
  * Seed              : random
  * Guidance          : 3.2     [ 3.0 - 4.0 ]
  * Refiner intensity : 22      [ 18  - 25  ]
@@ -19,7 +20,7 @@ https://civitai.com/models/420163
 
 >--------------------------------------------------------------------------------------
 ./abominable_1GIRL_.json
-1GIRL personal tips
+^1GIRL personal tips
  * Seed              : random
  * Guidance          : 3.2     [ 3.0 - 4.0 ]
  * Refiner intensity : 22      [ 20  - 24  ]
@@ -37,7 +38,7 @@ https://civitai.com/models/420163
 
 >--------------------------------------------------------------------------------------
 ./abominable_INK_.json
-INK personal tips
+^INK personal tips
  * Seed              : random
  * Guidance          : 4.5     [ 3.0 - 4.5 ]
  * Refiner intensity : 16      [ 14  - 22  ]
@@ -54,7 +55,7 @@ https://civitai.com/models/420163
 
 >--------------------------------------------------------------------------------------
 ./abominable_PIXEL_.json
-PIXEL personal tips
+^PIXEL personal tips
  * Seed              : random
  * Guidance          : 4.0     [ 3.0 - 5.0 ]
  * Refiner intensity : 14      [ 12  - 18  ]
@@ -69,7 +70,7 @@ https://civitai.com/models/420163
 
 >--------------------------------------------------------------------------------------
 ./abominable_MILO_.json
-MILO personal tips
+^MILO personal tips
  * Seed              : random
  * Guidance          : 3.5     [ 3.0 - 5.0 ]
  * Refiner intensity : 18      [ 14  - 24  ]
@@ -88,7 +89,7 @@ https://civitai.com/models/420163
 
 >--------------------------------------------------------------------------------------
 ./abominable_DARKFAN80_.json
-DARKFAN80 personal tips
+^DARKFAN80 personal tips
  * Seed              : random
  * Guidance          : 3.2     [ 3.0 - 4.0 ]
  * Refiner intensity : 22      [ 20  - 28  ]
@@ -105,7 +106,7 @@ https://civitai.com/models/420163
 
 >--------------------------------------------------------------------------------------
 ./classic_abominable_spaghetti.json
-CLASSIC personal tips
+^CLASSIC personal tips
  * Seed              : random
  * Guidance          : 3.5     [ 2.8 - 5.0 ]
  * Refiner intensity : 20      [ 15  - 25  ]

@@ -49,6 +49,8 @@ SCRIPT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 # Default name for the configurations file
 CONFIGS_DEFAULT_NAME = 'configurations.txt'
 
+DEFAULT_WORKFLOW_EXT = '.json'
+
 # Indentation level for JSON output
 JSON_INDENT=2
 
@@ -138,15 +140,15 @@ class Configurations:
 
     def __init__(self,
                  filenames,
-                 parameters_by_filename,
-                 wildcards_by_filename,
+                 parameters_by_target,
+                 wildcards_by_target,
                  global_vars):
         """Initializes a new Configuration object.
         """
         self.filenames = filenames
-        self.parameters_by_filename = parameters_by_filename
-        self.wildcards_by_filename  = wildcards_by_filename
-        self.global_vars = global_vars
+        self.parameters_by_target = parameters_by_target
+        self.wildcards_by_target  = wildcards_by_target
+        self.global_vars          = global_vars
 
     @classmethod
     def from_file(cls, configs_path: str) -> 'Configurations':
@@ -156,11 +158,14 @@ class Configurations:
         Returns:
             A Configuration object.
         """
-        parameters_by_filename = {}
+        parameters_by_target = {}
+        wildcards_by_target  = {}
         parameters    = {}
+        wildcards     = []
         global_vars   = {}
         all_filenames = set()
         filename      = ''
+        target        = ''
         configs_dir   = os.path.dirname(configs_path)
 
         with open(configs_path, 'r') as f:
@@ -168,45 +173,76 @@ class Configurations:
                 line = line.strip()
 
                 if not line or line.startswith("#"):
-                    # it's a comment, skip it
+                    # it's a comment:
+                    #  skip it
                     continue
 
                 elif line.startswith("@"):
-                    # it's a global variable
+                    # it's a global variable declaration:
+                    #  store it in the 'global_vars' list
                     key, value = Configurations._read_keyvalue(line[1:])
                     global_vars[key] = value
 
                 elif line.startswith("./"):
-                    # it's a filename, start new 'parameters'
-                    if filename:
+                    # it's a filename declaration:
+                    #  1) store the collected 'parameters' for the current target
+                    #  2) start a new list of 'parameters' for the new target.
+                    if filename and target:
                         all_filenames.add(filename)
-                        parameters_by_filename[filename] = parameters
-                    filename  = Configurations._read_filename(line)
+                        parameters_by_target[target] = parameters
+                        wildcards_by_target[target]  = wildcards
                     parameters = {}
+                    wildcards  = []
+                    # filenames always have an extension,
+                    # targets are filenames without the extension
+                    filename     = Configurations._read_filename(line)
+                    target, _ext = os.path.splitext(filename)
+                    if not _ext:
+                        filename += DEFAULT_WORKFLOW_EXT
 
                 else:
-                    # it's a parameter
+                    # it's a parameter declaration:
+                    #  collect the parameter in the 'parameters' list
+                    #  o si tiene '*' colectarlo en la lista de 'wildcards'
                     key, value = Configurations._read_keyvalue(line,
                                                 extern_dir       = configs_dir,
                                                 extern_delimiter = f"./{filename}")
-                    parameters[key] = value
-                    continue
+                    if '*' in key:
+                        parts = key.split('*', 1)
+                        wildcards.append( (parts[0], parts[1], value) )
+                    else:
+                        parameters[key] = value
 
         # if 'parameters' is pending, add it to the dictionary
-        if filename:
+        if filename and target:
             all_filenames.add(filename)
-            parameters_by_filename[filename] = parameters
+            parameters_by_target[target] = parameters
+            wildcards_by_target[target]  = wildcards
 
-        return cls(all_filenames, parameters_by_filename, {}, global_vars)
+        return cls(all_filenames, parameters_by_target, wildcards_by_target, global_vars)
 
 
     def get_global(self, varname: str):
         return self.global_vars.get(varname)
 
 
-    def get(self, filename: str, varname: str):
-        parameters = self.parameters_by_filename.get(filename)
-        return parameters.get(varname) if parameters is not None else None
+    # obtiene el valor de un parametro de la configuracion de un determinado workflow
+    # target: el nombre del workflow final donde se aplicara el parametro
+    # parameter: el nombre del parametro que se desea conocer su valor
+    # normalmente target es un filename sin extension ej: "abominable_PHOTO_"
+    def get(self, target: str, parameter: str):
+        target = os.path.splitext(target)[0]
+        parameters = self.parameters_by_target.get(target)
+        value      = parameters.get(parameter) if parameters is not None else None
+        if value is not None:
+            return value
+
+        wildcards = self.wildcards_by_target.get(target)
+        for wildcard in wildcards:
+            if parameter.startswith(wildcard[0]) and parameter.endswith(wildcard[1]):
+                return wildcard[2]
+
+        return None
 
 
     @staticmethod
@@ -246,8 +282,8 @@ class Configurations:
 
         # handle external file reference
         if value.startswith("@")      \
-        and extern_dir is not None \
-        and extern_delimiter is not None:
+           and extern_dir is not None \
+           and extern_delimiter is not None:
 
             path_ = os.path.join(extern_dir, value[1:])
             value = Configurations._extract_text_from_file(path_, extern_delimiter).strip()
@@ -265,9 +301,9 @@ class Configurations:
         This function reads the file line by line and begins capturing text
         when it encounters either:
         1. The specified `start_delimiter`, or
-        2. The global wildcard delimiter "<*>".
+        2. The global wildcard delimiter ">*<".
         The text capture stops when a line starts with a '>' followed by
-        three or more hyphens ('>---').
+        two or more hyphens ('>--').
 
         Args:
             filepath        (str): The path to the file to read.
@@ -280,9 +316,9 @@ class Configurations:
         capturing = False
         with open(filepath, 'r') as file:
             for line in file:
-                if line.strip() == start_delimiter or line.strip() == '<*>':
+                if line.strip() == start_delimiter or line.strip() == '>*<':
                     capturing = True
-                elif capturing and line.startswith('>---'):
+                elif capturing and line.startswith('>--'):
                     break
                 elif capturing:
                     extracted_text += line
@@ -297,8 +333,9 @@ class Workflow:
     def __init__(self, data):
         """Initializes a new Workflow object.
         """
-        nodes = data.get('nodes')
-        links = data.get('links')
+        nodes  = data.get('nodes' , [])
+        links  = data.get('links' , [])
+        groups = data.get('groups', [])
 
         nodes_by_id = {}
         for node in nodes:
@@ -313,6 +350,7 @@ class Workflow:
         self.data        = data
         self.nodes       = nodes
         self.links       = links
+        self.groups      = groups
         self.nodes_by_id = nodes_by_id
         self.links_by_id = links_by_id
 
@@ -418,6 +456,17 @@ class Workflow:
                      "(this type of value/node is not supported by wmake).")
 
 
+    def set_group(self, group: dict, value: str):
+        """Sets the value of a group.
+        Args:
+            group (dict): The group to set the value for.
+            value (str) : The new value to set.
+        """
+        if not isinstance(value, str):
+            return
+        group['title'] = value
+
+
 #--------------------- CREATING WORKFLOW FROM TEMPLATE ---------------------#
 
 def create_workflow(filename: str,
@@ -432,10 +481,16 @@ def create_workflow(filename: str,
         return workflow
 
     for node in workflow.nodes:
-        parameter = get_name(node)
-        value     = configs.get(filename, parameter)
+        param_name = get_name(node)
+        value      = configs.get(filename, param_name)
         if value is not None:
             workflow.set_node( node, value )
+
+    for group in workflow.groups:
+        param_name = get_name(group)
+        value      = configs.get(filename, param_name)
+        if value is not None:
+            workflow.set_group( group, str(value) )
 
     return workflow
 

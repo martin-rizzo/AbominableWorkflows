@@ -1,8 +1,7 @@
 #
-# This configuration file is used by `wmake` to generate workflows based on
-# a template. Its simple format also serves as an information source for
-# anyone looking to understand the various configurations used in the
-# Abominable Workflows.
+# This configuration file is used by `wmake` to generate workflows from
+# a template. It also serves as a simple reference for anyone looking
+# to know the configurations used in the Abominable Workflows.
 #
 
 @TEMPLATE   : abominable-template.json
@@ -10,8 +9,8 @@
 @NODE.TIPS  : '* personal tips'
 
 ./abominable_PHOTO_.json
-#NODE.MAIN           : [v3] abominable PHOTO
-#NODE.TIPS           : @tips.txt
+[v3] abominable *   : [v3] abominable PHOTO 7777
+* personal tips     : @tips.txt
 README.TXT          : @read.txt
 Seed                : 7
 Guidance            : 7.1
