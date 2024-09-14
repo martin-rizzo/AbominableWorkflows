@@ -47,12 +47,26 @@ DEFAULT_COLOR = '\033[0m'
 SCRIPT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 
 # Default name for the configurations file
-CONFIGS_DEFAULT_NAME = 'configurations.txt'
+DEFAULT_CONFIGS_NAME = 'configurations.txt'
 
+# Default extension for workflow files
 DEFAULT_WORKFLOW_EXT = '.json'
 
 # Indentation level for JSON output
 JSON_INDENT=2
+
+# List of available samplers in ComfyUI
+SAMPLER_NAMES = [
+    "euler", "euler_cfg_pp", "euler_ancestral", "euler_ancestral_cfg_pp", "heun", "heunpp2","dpm_2", "dpm_2_ancestral",
+    "lms", "dpm_fast", "dpm_adaptive", "dpmpp_2s_ancestral", "dpmpp_2s_ancestral_cfg_pp", "dpmpp_sde", "dpmpp_sde_gpu",
+    "dpmpp_2m", "dpmpp_2m_sde", "dpmpp_2m_sde_gpu", "dpmpp_3m_sde", "dpmpp_3m_sde_gpu", "ddpm", "lcm",
+    "ipndm", "ipndm_v", "deis", "ddim", "uni_pc", "uni_pc_bh2"
+    ]
+
+# List of available schedulers in ComfyUI
+SCHEDULER_NAMES = [
+    "normal", "karras", "exponential", "sgm_uniform", "simple", "ddim_uniform", "beta"
+    ]
 
 
 #----------------------------- ERROR MESSAGES ------------------------------#
@@ -88,63 +102,6 @@ def fatal_error(message: str, *info_messages: str) -> None:
     for info_message in info_messages:
         print(f" {CYAN}\u24d8  {info_message}{DEFAULT_COLOR}", file=sys.stderr)
     exit(1)
-
-
-#---------------------------------- NODES ----------------------------------#
-
-def get_name(node: dict) -> str:
-    assert node is not None
-    return node.get('title', node.get('type', ''))
-
-def get_type(node: dict) -> str:
-    assert node is not None
-    return node.get('type', '')
-
-def get_values(node: dict) -> list:
-    assert node is not None
-    return node.get('widgets_values', [])
-
-def modify_node_value(node: dict, new_value, old_value=None, node_name=None):
-    assert node is not None
-
-    if node_name is None:
-        node_name = f"'{get_name(node)}'"
-
-    found_count = 0
-    found_index = None
-    values      = node.get('widgets_values', [])
-    for index in range(len(values)):
-
-        if old_value is not None and \
-           isinstance(values[index], type(old_value)) and \
-           values[index] == old_value:
-
-            found_index  = index
-            found_count += 1
-
-    if found_count == 0:
-        warning(f"The configuration {DEFAULT_COLOR}{node_name} = {new_value}{YELLOW} could not be applied.",
-                 "(no entry matching the expected type was found).")
-        return
-
-    if found_count > 1:
-        warning(f"The configuration {DEFAULT_COLOR}{node_name} = {new_value}{YELLOW} could not be applied.",
-                 "(multiple matches were found creating ambiguity).")
-        return
-
-    values[found_index] = new_value
-
-def set_node_title(node: dict, title: str):
-    assert isinstance(node, dict)
-    title = str(title)
-    if 'title' in node:
-        node['title'] = title
-
-def set_node_value(node: dict, value, index: int=0):
-    assert isinstance(node, dict)
-    widgets_values = node.get('widgets_values', [])
-    if index<len(widgets_values):
-        widgets_values[index] = value
 
 
 #-------------------------- CONFIGURATIONS CLASS ---------------------------#
@@ -193,8 +150,8 @@ class Configurations:
                 elif line.startswith("@"):
                     # it's a global variable declaration:
                     #  store it in the 'global_vars' dictionary
-                    key, value = Configurations._read_keyvalue(line[1:])
-                    global_vars[key] = value
+                    key, strvalue = Configurations._read_keyvalue(line[1:])
+                    global_vars[key] = strvalue
 
                 elif line.startswith("./"):
                     # it's a filename declaration:
@@ -216,14 +173,18 @@ class Configurations:
                 else:
                     # it's a parameter declaration:
                     #  collect the parameter in the 'parameters' dictionary
-                    key, value = Configurations._read_keyvalue(line,
-                                                extern_dir       = configs_dir,
-                                                extern_delimiter = f"./{filename}")
+                    key, strvalue = Configurations._read_keyvalue(line,
+                                              extern_dir       = configs_dir,
+                                              extern_delimiter = f"./{filename}")
                     # parameter names that start with "NODE."
                     # may be defined as global vars
                     if key.startswith('NODE.'):
                         if key in global_vars:
                             key = global_vars[key]
+                    # corregir value para que si representa un numero
+                    # tenga el tipo correcto de dato
+                    value = Configurations._fix_value(strvalue)
+
                     # if the parameter name contains '*'
                     # it is added to the 'wildcards' list
                     if '*' in key:
@@ -355,6 +316,95 @@ class Configurations:
                     extracted_text += line
         return extracted_text
 
+    @staticmethod
+    def _fix_value(strvalue:str):
+        try:
+            return int(strvalue)
+        except ValueError:
+            try:
+                return float(strvalue)
+            except ValueError:
+                return strvalue
+
+
+#---------------------------------- NODES ----------------------------------#
+
+def get_name(node: dict) -> str:
+    assert node is not None
+    return node.get('title', node.get('type', ''))
+
+def get_type(node: dict) -> str:
+    assert node is not None
+    return node.get('type', '')
+
+def get_values(node: dict) -> list:
+    assert node is not None
+    return node.get('widgets_values', [])
+
+def get_value_kind(value) -> str:
+    if isinstance(value, str):
+        if value in SAMPLER_NAMES:
+            return "sampler"
+        elif value in SCHEDULER_NAMES:
+            return "schedulers"
+        else:
+            return "string"
+    else:
+        return str(type(value))
+
+def set_node_title(node: dict, title: str):
+    assert isinstance(node, dict)
+    title = str(title)
+    if 'title' in node:
+        node['title'] = title
+
+def set_node_value(node: dict, value, index: int=0):
+    assert isinstance(node, dict)
+    widgets_values = node.get('widgets_values', [])
+    if index<len(widgets_values):
+        original_type = type(widgets_values[index])
+        widgets_values[index] = original_type(value)
+
+def modify_node_value(node: dict,
+                      new_value,
+                      old_value  = None,
+                      value_kind = None,
+                      node_name  = None
+                      ):
+    assert node is not None
+
+    if node_name is None:
+        node_name = f"'{get_name(node)}'"
+
+    found_count    = 0
+    found_index    = None
+    widgets_values = node.get('widgets_values', [])
+    for index in range(len(widgets_values)):
+
+        if old_value is not None:
+            if isinstance(widgets_values[index], type(old_value)) \
+               and widgets_values[index] == old_value:
+                found_index  = index
+                found_count += 1
+
+        if value_kind is not None:
+            if get_value_kind(widgets_values[index]) == value_kind:
+                found_index  = index
+                found_count += 1
+
+    if found_count == 0:
+        warning(f"The configuration {DEFAULT_COLOR}{node_name} = {new_value}{YELLOW} could not be applied.",
+                 "(no entry matching the expected type was found).")
+        return
+
+    if found_count > 1:
+        warning(f"The configuration {DEFAULT_COLOR}{node_name} = {new_value}{YELLOW} could not be applied.",
+                 "(multiple matches were found creating ambiguity).")
+        return
+
+    original_type = type(widgets_values[found_index])
+    widgets_values[found_index] = original_type(new_value)
+
 
 #----------------------------- WORKFLOW CLASS ------------------------------#
 class Workflow:
@@ -384,6 +434,68 @@ class Workflow:
         self.groups      = groups
         self.nodes_by_id = nodes_by_id
         self.links_by_id = links_by_id
+
+
+    def set_node(self, node: dict, value):
+        """Sets the value of a node.
+
+        It handles different types of nodes:
+          - Primitive node   : modifies the value in the node and all connected nodes.
+          - Single-Value node: sets the single configurable value of the node.
+          - Note node        : sets the first line as the title and the rest as the content.
+          - Other node types : displays a warning message, not yet supported.
+
+        Args:
+            node (dict): The node to set the value for.
+            value (any): The new value to set.
+        """
+
+        # when encountering a `PrimitiveNode`,
+        # modify the value in the node AND ALL DIRECTLY CONNECTED NODES
+        if get_type(node)=="PrimitiveNode":
+            new_value       = value
+            old_value       = get_values(node)[0]
+            connected_nodes = self.get_all_connected_nodes(node, 0)
+            primitive_name  = get_name(node)
+
+            modify_node_value(node, new_value, old_value)
+            for connected_node in connected_nodes:
+                modify_node_value(connected_node, new_value, old_value,
+                                  node_name=f"'{primitive_name}'->'{get_name(connected_node)}'")
+
+        # when encountering a `Note` node,
+        # the first line of the text will be the title of the note,
+        # the rest of the text will be the content
+        elif get_type(node)=="Note":
+            lines = str(value).splitlines()
+            if len(lines)>1:
+                set_node_title( node, lines[0]             )
+                set_node_value( node, "\n".join(lines[1:]) )
+            else:
+                set_node_value( node, "\n".join(lines) )
+
+        # when encountering a node with only one configurable value,
+        # simply set that value
+        elif len(get_values(node))==1:
+            set_node_value( node, value )
+
+        # para any other nodo
+        # intentar modificar valor que tenga el mismo kind de dato
+        else:
+            modify_node_value( node, value, value_kind=get_value_kind(value) )
+            # warning(f"The configuration {DEFAULT_COLOR}'{get_name(node)}' = {value}{YELLOW} could not be applied",
+            #          "(this type of value/node is not supported by wmake).")
+
+
+    def set_group(self, group: dict, value: str):
+        """Sets the value of a group.
+        Args:
+            group (dict): The group to set the value for.
+            value (str) : The new value to set.
+        """
+        if not isinstance(value, str):
+            return
+        group['title'] = value
 
 
     @classmethod
@@ -448,66 +560,6 @@ class Workflow:
                 # add it to the list
                 nodes.append(connected_node)
         return nodes
-
-
-    def set_node(self, node: dict, value):
-        """Sets the value of a node.
-
-        It handles different types of nodes:
-          - Primitive node   : modifies the value in the node and all connected nodes.
-          - Single-Value node: sets the single configurable value of the node.
-          - Note node        : sets the first line as the title and the rest as the content.
-          - Other node types : displays a warning message, not yet supported.
-
-        Args:
-            node (dict): The node to set the value for.
-            value (any): The new value to set.
-        """
-
-        # when encountering a `PrimitiveNode`,
-        # modify the value in the node AND ALL DIRECTLY CONNECTED NODES
-        if get_type(node)=="PrimitiveNode":
-            new_value       = value
-            old_value       = get_values(node)[0]
-            connected_nodes = self.get_all_connected_nodes(node, 0)
-            primitive_name  = get_name(node)
-
-            modify_node_value(node, new_value, old_value)
-            for connected_node in connected_nodes:
-                modify_node_value(connected_node, new_value, old_value,
-                                  node_name=f"'{primitive_name}'->'{get_name(connected_node)}'")
-
-        # when encountering a `Note` node,
-        # the first line of the text will be the title of the note,
-        # the rest of the text will be the content
-        elif get_type(node)=="Note":
-            lines = str(value).splitlines()
-            if len(lines)>1:
-                set_node_title( node, lines[0]             )
-                set_node_value( node, "\n".join(lines[1:]) )
-            else:
-                set_node_value( node, "\n".join(lines) )
-
-        # when encountering a node with only one configurable value,
-        # simply set that value
-        elif len(get_values(node))==1:
-            get_values(node)[0] = value
-
-        # any other combination of node types is not yet supported
-        else:
-            warning(f"The configuration {DEFAULT_COLOR}'{get_name(node)}' = {value}{YELLOW} could not be applied",
-                     "(this type of value/node is not supported by wmake).")
-
-
-    def set_group(self, group: dict, value: str):
-        """Sets the value of a group.
-        Args:
-            group (dict): The group to set the value for.
-            value (str) : The new value to set.
-        """
-        if not isinstance(value, str):
-            return
-        group['title'] = value
 
 
 #--------------------- CREATING WORKFLOW FROM TEMPLATE ---------------------#
@@ -616,10 +668,10 @@ def main():
     # determine the config file path
     if args.config:
         configs_path = args.config
-    elif os.path.exists(CONFIGS_DEFAULT_NAME):
-        configs_path = CONFIGS_DEFAULT_NAME
+    elif os.path.exists(DEFAULT_CONFIGS_NAME):
+        configs_path = DEFAULT_CONFIGS_NAME
     else:
-        configs_path = os.path.join(SCRIPT_DIRECTORY, CONFIGS_DEFAULT_NAME)
+        configs_path = os.path.join(SCRIPT_DIRECTORY, DEFAULT_CONFIGS_NAME)
 
 
     # check if the config file exists
