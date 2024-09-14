@@ -9,26 +9,26 @@
 @NODE.TIPS  : '* personal tips'
 
 ./abominable_PHOTO_.json
-[v3] abominable *   : [v3] abominable PHOTO 7777
-* personal tips     : @tips.txt
-README.TXT          : @read.txt
-Seed                : 7
-Guidance            : 7.1
-Refiner intensity   : 77
-Portrait Width      : 777
-Portrait Height     : 1777
-PixArt Sampler      : dpmpp_3m_sde_gpu
-PixArt HQ Sampler   : heun
-PixArt Steps        : 7
-PixArt Scheduler    : beta
-# PixArt Scheduler    : 0.90
-Prompt Prefix       : 'prefix 7 '
-Prompt Suffix       : 'suffix 7 '
-Negative Prefix     : 'neg prefix 7 '
-Negative Suffix     : 'neg suffix 7 '
-SD15 Sampler        : dpmpp_3m_sde_gpu
-SD15 Scheduler      : normal
-# SD15 Scheduler      : 0.90
-SD15 Prefix         : 'SD15 prefix 7'
-SD15 Negative       : 'SD15 negative 7'
+NODE.MAIN          : [v3] abominable PHOTO 7771
+NODE.TIPS          : @tips.txt
+README.TXT         : @read.txt
+Seed               : 7
+Guidance           : 7.1
+Refiner intensity  : 77
+Portrait Width     : 777
+Portrait Height    : 1777
+PixArt Sampler     : dpmpp_3m_sde_gpu
+PixArt HQ Sampler  : heun
+PixArt Steps       : 7
+PixArt Scheduler   : beta
+# PixArt Scheduler   : 0.90
+Prompt Prefix      : 'prefix 7 '
+Prompt Suffix      : 'suffix 7 '
+Negative Prefix    : 'neg prefix 7 '
+Negative Suffix    : 'neg suffix 7 '
+SD15 Sampler       : dpmpp_3m_sde_gpu
+SD15 Scheduler     : normal
+# SD15 Scheduler     : 0.90
+SD15 Prefix        : 'SD15 prefix 7'
+SD15 Negative      : 'SD15 negative 7'
 

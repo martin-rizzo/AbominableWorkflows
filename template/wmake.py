@@ -165,6 +165,7 @@ class Configurations:
     @classmethod
     def from_file(cls, configs_path: str) -> 'Configurations':
         """Loads a Configurations object from a file.
+
         Args:
             config_path: The path to the config file.
         Returns:
@@ -186,12 +187,12 @@ class Configurations:
 
                 if not line or line.startswith("#"):
                     # it's a comment:
-                    #  skip it
+                    #  skip the line
                     continue
 
                 elif line.startswith("@"):
                     # it's a global variable declaration:
-                    #  store it in the 'global_vars' list
+                    #  store it in the 'global_vars' dictionary
                     key, value = Configurations._read_keyvalue(line[1:])
                     global_vars[key] = value
 
@@ -214,18 +215,25 @@ class Configurations:
 
                 else:
                     # it's a parameter declaration:
-                    #  collect the parameter in the 'parameters' list
-                    #  o si tiene '*' colectarlo en la lista de 'wildcards'
+                    #  collect the parameter in the 'parameters' dictionary
                     key, value = Configurations._read_keyvalue(line,
                                                 extern_dir       = configs_dir,
                                                 extern_delimiter = f"./{filename}")
+                    # parameter names that start with "NODE."
+                    # may be defined as global vars
+                    if key.startswith('NODE.'):
+                        if key in global_vars:
+                            key = global_vars[key]
+                    # if the parameter name contains '*'
+                    # it is added to the 'wildcards' list
                     if '*' in key:
                         parts = key.split('*', 1)
                         wildcards.append( (parts[0], parts[1], value) )
                     else:
                         parameters[key] = value
 
-        # if 'parameters' is pending, add it to the dictionary
+        # if 'parameters' and 'wildcards' are pending,
+        # add them to the dictionaries
         if filename and target:
             all_filenames.add(filename)
             parameters_by_target[target] = parameters
@@ -238,11 +246,22 @@ class Configurations:
         return self.global_vars.get(varname)
 
 
-    # obtiene el valor de un parametro de la configuracion de un determinado workflow
-    # target: el nombre del workflow final donde se aplicara el parametro
-    # parameter: el nombre del parametro que se desea conocer su valor
-    # normalmente target es un filename sin extension ej: "abominable_PHOTO_"
     def get(self, target: str, parameter: str):
+        """Retrieves the value of a parameter for a specified workflow.
+
+        This function searches for the value of a configuration parameter
+        for the specified workflow target. If the exact parameter is not found,
+        it checks for matching wildcards.
+
+        Args:
+            target    (str): The name of the workflow where the parameter belongs,
+                             (generally the filename without an extension).
+            parameter (str): The name of the parameter to retrieve.
+
+        Returns:
+            The value of the parameter if found.
+            None, if the parameter is not found.
+        """
         target = os.path.splitext(target)[0]
         parameters = self.parameters_by_target.get(target)
         value      = parameters.get(parameter) if parameters is not None else None
