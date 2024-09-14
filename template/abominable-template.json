@@ -49,7 +49,7 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Switch Width",
+      "title": "Switch Width",
       "properties": {
         "Node name for S&R": "Switch any [Crystools]"
       },
@@ -147,7 +147,7 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Switch Height",
+      "title": "Switch Height",
       "properties": {
         "Node name for S&R": "Switch any [Crystools]"
       },
@@ -435,86 +435,12 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Negative suffix",
+      "title": "Negative Suffix",
       "properties": {
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
         ""
-      ]
-    },
-    {
-      "id": 104,
-      "type": "Primitive integer [Crystools]",
-      "pos": {
-        "0": 1350,
-        "1": 830
-      },
-      "size": {
-        "0": 210,
-        "1": 60
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "int",
-          "type": "INT",
-          "links": [
-            156,
-            158
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Landscape Height",
-      "properties": {
-        "Node name for S&R": "Primitive integer [Crystools]"
-      },
-      "widgets_values": [
-        1024
-      ]
-    },
-    {
-      "id": 105,
-      "type": "Primitive integer [Crystools]",
-      "pos": {
-        "0": 1350,
-        "1": 670
-      },
-      "size": {
-        "0": 210,
-        "1": 60
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "int",
-          "type": "INT",
-          "links": [
-            155,
-            157
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Landscape Width",
-      "properties": {
-        "Node name for S&R": "Primitive integer [Crystools]"
-      },
-      "widgets_values": [
-        1536
       ]
     },
     {
@@ -617,7 +543,7 @@
           "shape": 6
         }
       ],
-      "title": "🪛 Concatenate (Prompt)",
+      "title": "Concatenate (Prompt)",
       "properties": {
         "Node name for S&R": "List of strings [Crystools]"
       },
@@ -733,7 +659,7 @@
           "shape": 6
         }
       ],
-      "title": "🪛 Concatenate (Negative)",
+      "title": "Concatenate (Negative)",
       "properties": {
         "Node name for S&R": "List of strings [Crystools]"
       },
@@ -773,10 +699,15 @@
         }
       ],
       "outputs": [],
-      "title": "🪛 Abominable Negative",
+      "title": "Abominable Negative",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
+      },
+      "widgets_values": [
+        false,
+        true,
+        ""
+      ]
     },
     {
       "id": 183,
@@ -1199,10 +1130,15 @@
         }
       ],
       "outputs": [],
-      "title": "🪛 Abominable Refiner",
+      "title": "Abominable Refiner",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
+      },
+      "widgets_values": [
+        false,
+        true,
+        ""
+      ]
     },
     {
       "id": 136,
@@ -1304,7 +1240,7 @@
           "shape": 6
         }
       ],
-      "title": "🪛 Concatenate (Refiner)",
+      "title": "Concatenate (Refiner)",
       "properties": {
         "Node name for S&R": "List of strings [Crystools]"
       },
@@ -1344,10 +1280,15 @@
         }
       ],
       "outputs": [],
-      "title": "🪛 Abominable Prompt",
+      "title": "Abominable Prompt",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
+      },
+      "widgets_values": [
+        false,
+        true,
+        ""
+      ]
     },
     {
       "id": 125,
@@ -1540,7 +1481,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 4,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1596,7 +1537,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 5,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1636,7 +1577,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 6,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1674,7 +1615,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 7,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1959,7 +1900,7 @@
           "shape": 3
         }
       ],
-      "title": "Scheduler",
+      "title": "SD15 Scheduler",
       "properties": {
         "Node name for S&R": "BasicScheduler"
       },
@@ -1983,7 +1924,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 8,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1997,7 +1938,7 @@
           "shape": 3
         }
       ],
-      "title": "KSampler Selector",
+      "title": "SD15 Sampler",
       "properties": {
         "Node name for S&R": "KSamplerSelect"
       },
@@ -2128,7 +2069,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 9,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2190,7 +2131,7 @@
           "shape": 3
         }
       ],
-      "title": "SD15 Negative Prompt",
+      "title": "SD15 Negative",
       "properties": {
         "Node name for S&R": "CLIPTextEncode"
       },
@@ -2215,7 +2156,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 10,
+      "order": 8,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2229,7 +2170,7 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Prompt prefix",
+      "title": "Prompt Prefix",
       "properties": {
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
@@ -2251,7 +2192,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 11,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2265,7 +2206,7 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Prompt suffix",
+      "title": "Prompt Suffix",
       "properties": {
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
@@ -2287,7 +2228,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 12,
+      "order": 10,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2301,7 +2242,7 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Negative prefix",
+      "title": "Negative Prefix",
       "properties": {
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
@@ -2323,7 +2264,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 13,
+      "order": 11,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2337,7 +2278,7 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Refiner prefix",
+      "title": "SD15 Prefix",
       "properties": {
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
@@ -2359,7 +2300,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 14,
+      "order": 12,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2376,7 +2317,7 @@
           }
         }
       ],
-      "title": "Fast Sampler Name",
+      "title": "PixArt Sampler",
       "properties": {
         "Run widget replace on values": false
       },
@@ -2384,52 +2325,6 @@
         "lms",
         "fixed",
         ""
-      ]
-    },
-    {
-      "id": 83,
-      "type": "KSamplerSelect",
-      "pos": {
-        "0": 330,
-        "1": 1600
-      },
-      "size": {
-        "0": 210,
-        "1": 80
-      },
-      "flags": {
-        "collapsed": false,
-        "pinned": true
-      },
-      "order": 34,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "sampler_name",
-          "type": "COMBO",
-          "link": 322,
-          "widget": {
-            "name": "sampler_name"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SAMPLER",
-          "type": "SAMPLER",
-          "links": [
-            327
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "Fast Sampler",
-      "properties": {
-        "Node name for S&R": "KSamplerSelect"
-      },
-      "widgets_values": [
-        "lms"
       ]
     },
     {
@@ -2446,7 +2341,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 15,
+      "order": 13,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2460,7 +2355,7 @@
           "shape": 3
         }
       ],
-      "title": "HQ Sampler",
+      "title": "PixArt HQ Sampler",
       "properties": {
         "Node name for S&R": "KSamplerSelect"
       },
@@ -2515,7 +2410,7 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Use HQ Sampler",
+      "title": "Use HQ Sampler",
       "properties": {
         "Node name for S&R": "Switch any [Crystools]"
       },
@@ -2714,7 +2609,7 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Switch empty prompt",
+      "title": "Switch empty prompt",
       "properties": {
         "Node name for S&R": "Switch string [Crystools]"
       },
@@ -2739,7 +2634,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 16,
+      "order": 14,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2869,7 +2764,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 17,
+      "order": 15,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2886,7 +2781,7 @@
           }
         }
       ],
-      "title": "Steps",
+      "title": "PixArt Steps",
       "properties": {
         "Run widget replace on values": false
       },
@@ -2937,7 +2832,7 @@
           "shape": 3
         }
       ],
-      "title": "Scheduler",
+      "title": "PixArt Scheduler",
       "properties": {
         "Node name for S&R": "BasicScheduler"
       },
@@ -3128,7 +3023,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 18,
+      "order": 16,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3172,7 +3067,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 19,
+      "order": 17,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3215,7 +3110,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 20,
+      "order": 18,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3258,7 +3153,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 21,
+      "order": 19,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3300,7 +3195,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 22,
+      "order": 20,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3341,7 +3236,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 23,
+      "order": 21,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3382,7 +3277,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 24,
+      "order": 22,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3424,7 +3319,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 25,
+      "order": 23,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3463,7 +3358,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 26,
+      "order": 24,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3502,7 +3397,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 27,
+      "order": 25,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3541,7 +3436,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 28,
+      "order": 26,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -3563,15 +3458,15 @@
         "0": 20,
         "1": 670
       },
-      "size": [
-        610,
-        240
-      ],
+      "size": {
+        "0": 610,
+        "1": 240
+      },
       "flags": {
         "collapsed": false,
         "pinned": true
       },
-      "order": 29,
+      "order": 27,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -3585,6 +3480,124 @@
       "color": "#222",
       "bgcolor": "#000",
       "shape": 1
+    },
+    {
+      "id": 104,
+      "type": "Primitive integer [Crystools]",
+      "pos": {
+        "0": 1350,
+        "1": 670
+      },
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 28,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            156,
+            158
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Portrait Width",
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]"
+      },
+      "widgets_values": [
+        1024
+      ]
+    },
+    {
+      "id": 105,
+      "type": "Primitive integer [Crystools]",
+      "pos": {
+        "0": 1350,
+        "1": 830
+      },
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 29,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            155,
+            157
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Portrait Height",
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]"
+      },
+      "widgets_values": [
+        1536
+      ]
+    },
+    {
+      "id": 83,
+      "type": "KSamplerSelect",
+      "pos": {
+        "0": 330,
+        "1": 1600
+      },
+      "size": {
+        "0": 210,
+        "1": 80
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "sampler_name",
+          "type": "COMBO",
+          "link": 322,
+          "widget": {
+            "name": "sampler_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            327
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "lms"
+      ]
     }
   ],
   "links": [

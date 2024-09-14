@@ -61,11 +61,13 @@ def message(text: str) -> None:
     print(f"  {GREEN}>{DEFAULT_COLOR} {text}", file=sys.stderr)
 
 
-def warning(message: str) -> None:
+def warning(message: str, *info_messages: str) -> None:
     """Displays and logs a warning message to the standard error stream.
     """
     print(f"{CYAN}[{YELLOW}WARNING{CYAN}]{YELLOW} {message}{DEFAULT_COLOR}", file=sys.stderr)
-
+    for info_message in info_messages:
+        print(f"          {YELLOW}{info_message}{DEFAULT_COLOR}", file=sys.stderr)
+    print()
 
 def error(message: str) -> None:
     """Displays and logs an error message to the standard error stream.
@@ -104,41 +106,64 @@ def read_filename(line: str) -> str:
     return filename
 
 
-def read_keyvalue(line):
-    """Read a line of text in the format "key: value"
+def read_keyvalue(line, extern_dir=None, extern_delimiter=None):
+    """Reads a line of text in the format "key: value"
+
+    This function handles various cases for the value:
+    - If the value starts with "@", it assumes it's a ref to an external file.
+      The function then reads the file and extracts the value using the delimiter.
+    - If the value starts with a single quote ('), it assumes it's a string literal.
 
     Args:
-        line (str): The line of text to parse.
+        line             (str): The line of text to parse.
+        extern_dir       (str): The directory where external files are located.
+        extern_delimiter (str): The delimiter used to extract the value from external file.
     Returns:
-        tuple: A tuple containing the key and value.
+        A tuple containing the key and value.
     """
     key, value = line.split(':', 1)
     key, value = key.strip(), value.strip()
-    if value.startswith("'"):
+
+    # handle external file reference
+    if value.startswith("@")      \
+       and extern_dir is not None \
+       and extern_delimiter is not None:
+
+        path_ = os.path.join(extern_dir, value[1:])
+        value = extract_text(path_, extern_delimiter).strip()
+
+    # handle string literal
+    elif value.startswith("'"):
         value = value.strip("'")
+
     return key, value
 
 
 def extract_text(filepath: str, start_delimiter: str) -> str:
-    """Extracts text between start_delimiter and a line with at least 4 hyphens
+    """Extracts text from a file starting from a specific delimiter.
 
-    This function reads a file line by line.
-    It captured all lines starting from the specified `start_delimiter` until
-    it encounters a line  that begins with at least four hyphen-minuses ('---').
+    This function reads the file line by line and begins capturing text
+    when it encounters either:
+       1. The specified `start_delimiter`, or
+       2. The global wildcard delimiter "<*>".
+    The text capture stops when a line starts with a '>' followed by three or
+    more hyphens ('>---').
 
     Args:
         filepath        (str): The path to the file to read.
-        start_delimiter (str): The delimiter marking the start of the text to extract.
+        start_delimiter (str): The delimiter that marks where to start extracting text.
+
     Returns:
-        The extracted text between the delimiters, or an empty string if no delimiter is found.
+        The text extracted between the delimiters,
+        or an empty string if no valid delimiters are found.
     """
     extracted_text = ""
     capturing = False
     with open(filepath, 'r') as file:
         for line in file:
-            if line.strip() == start_delimiter:
+            if line.strip() == start_delimiter or line.strip() == '<*>':
                 capturing = True
-            elif capturing and line.startswith('----'):
+            elif capturing and line.startswith('>---'):
                 break
             elif capturing:
                 extracted_text += line
@@ -182,10 +207,9 @@ def load_configs(config_path):
 
             else:
                 # it's a config variable
-                key, value = read_keyvalue(line)
-                if value.startswith("@"):
-                    path_ = os.path.join(config_dir, value[1:])
-                    value = extract_text(path_, f"./{filename}").strip()
+                key, value = read_keyvalue(line,
+                                           extern_dir       = config_dir,
+                                           extern_delimiter = f"./{filename}")
                 config[key] = value
                 continue
 
@@ -198,30 +222,50 @@ def load_configs(config_path):
 
 #---------------------------------- NODES ----------------------------------#
 
-def get_title(node: dict) -> str:
-    if node is None:
-        return None
+def get_name(node: dict) -> str:
+    assert node is not None
     return node.get('title', node.get('type', ''))
 
+def get_title(node: dict) -> str:
+    return get_name(node)
+
 def get_type(node: dict) -> str:
-    if node is None:
-        return None
+    assert node is not None
     return node.get('type', '')
 
-def get_nodes_by_id(all_nodes:list) -> dict:
-    nodes_by_id = {}
-    for node in all_nodes:
-        id = node.get('id')
-        nodes_by_id[id] = node
-    return nodes_by_id
+def get_values(node: dict) -> list:
+    assert node is not None
+    return node.get('widgets_values', [])
 
-def get_links_by_id(all_links:list) -> dict:
-    links_by_id = {}
-    for link in all_links:
-        id = link[0]
-        links_by_id[id] = link
-    return links_by_id
+def modify_node_value(node: dict, new_value, old_value=None, node_name=None):
+    assert node is not None
 
+    if node_name is None:
+        node_name = f"'{get_name(node)}'"
+
+    found_count = 0
+    found_index = None
+    values      = node.get('widgets_values', [])
+    for index in range(len(values)):
+
+        if old_value is not None and \
+           isinstance(values[index], type(old_value)) and \
+           values[index] == old_value:
+
+            found_index  = index
+            found_count += 1
+
+    if found_count == 0:
+        warning(f"The configuration {DEFAULT_COLOR}{node_name} = {new_value}{YELLOW} could not be applied.",
+                 "(no entry matching the expected type was found).")
+        return
+
+    if found_count > 1:
+        warning(f"The configuration {DEFAULT_COLOR}{node_name} = {new_value}{YELLOW} could not be applied.",
+                 "(multiple matches were found creating ambiguity).")
+        return
+
+    values[found_index] = new_value
 
 #----------------------------- WORKFLOW CLASS ------------------------------#
 class Workflow:
@@ -303,16 +347,35 @@ class Workflow:
                 nodes.append(node)
         return nodes
 
+
     def set_node(self, node, value):
 
+        # cuando encuentra un node que es una primitiva
+        # debe modificar el valor en el nodo y en todos los
+        # nodos que esten directamente conectados a este
         if get_type(node)=="PrimitiveNode":
-            nodes = self.get_all_connected_nodes(node, 0)
-            print("## node:", get_title(node))
-            print("## connections:", [get_title(node) for node in nodes])
-            #print("## widget_name", widget_name)
+            new_value       = value
+            old_value       = get_values(node)[0]
+            connected_nodes = self.get_all_connected_nodes(node, 0)
+            primitive_name  = get_name(node)
+
+            modify_node_value(node, new_value, old_value)
+            for connected_node in connected_nodes:
+                modify_node_value(connected_node, new_value, old_value,
+                                  node_name=f"'{primitive_name}'->'{get_title(connected_node)}'")
+
+        # cuendo encuentra un nodo que solo tiene 1 valor configurable
+        # es facil ya que es ese unico valor el que tiene que modificar
+        elif len(get_values(node))==1:
+            get_values(node)[0] = value
+
+        # cualquuier otra combinacion todavia no esta soportada
+        else:
+            warning(f"The configuration {DEFAULT_COLOR}'{get_title(node)}' = {value}{YELLOW} could not be applied",
+                     "(this type of value/node is not supported by wmake).")
 
 
-#---------------------------- CREATING WORKFLOW ----------------------------#
+#--------------------- CREATING WORKFLOW FROM TEMPLATE ---------------------#
 
 def create_workflow(template: Workflow, config: dict, global_vars: dict) -> Workflow:
 
@@ -326,7 +389,7 @@ def create_workflow(template: Workflow, config: dict, global_vars: dict) -> Work
     for node in workflow.nodes:
         title = get_title(node)
         value = config.get(title)
-        if value:
+        if value is not None:
             workflow.set_node( node, value )
 
     return workflow

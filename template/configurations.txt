@@ -1,29 +1,35 @@
+#
+# This configuration file is used by `wmake` to generate workflows based on
+# a template. Its simple format also serves as an information source for
+# anyone looking to understand the various configurations used in the
+# Abominable Workflows.
+#
+
 @TEMPLATE   : abominable-template.json
 @NODE.MAIN  : '[v3] abominable *'
 @NODE.TIPS  : '* personal tips'
-@NODE.README: 'README.TXT'
 
 ./abominable_PHOTO_.json
-NODE.MAIN              : [v3] abominable PHOTO
-NODE.TIPS              : @tips.txt
-NODE.README            : '@read.txt'
-Seed                   : 1
-Guidance               : 9.2
-Refiner intensity      : 22
-Landscape Width        : 1536
-Landscape Height       : 1024
-PixArt Sampler         : lms
-PixArt HQ Sampler      : heun
-PixArt Steps           : 11
-PixArt Sigmas/scheduler: beta
-PixArt Sigmas/denoise  : 0.90
-Prompt prefix          : 'An iPhone photo. '
-Prompt suffix          : '. (144p photo:1.1) with JPEG artifacts.'
-Negative prefix        : 'macrophoto'
-Negative suffix        : ''
-SD15 Sampler           : dpmpp_2m
-SD15 Sigmas/scheduler  : normal
-SD15 Sigmas/denoise    : 0.90
-SD15 Prefix            : ''
-SD15 Negative          : '(worst quality, low quality:1.8)'
+#NODE.MAIN           : [v3] abominable PHOTO
+#NODE.TIPS           : @tips.txt
+README.TXT          : @read.txt
+Seed                : 7
+Guidance            : 7.1
+Refiner intensity   : 77
+Portrait Width      : 777
+Portrait Height     : 1777
+PixArt Sampler      : dpmpp_3m_sde_gpu
+PixArt HQ Sampler   : heun
+PixArt Steps        : 7
+PixArt Scheduler    : beta
+# PixArt Scheduler    : 0.90
+Prompt Prefix       : 'prefix 7 '
+Prompt Suffix       : 'suffix 7 '
+Negative Prefix     : 'neg prefix 7 '
+Negative Suffix     : 'neg suffix 7 '
+SD15 Sampler        : dpmpp_3m_sde_gpu
+SD15 Scheduler      : normal
+# SD15 Scheduler      : 0.90
+SD15 Prefix         : 'SD15 prefix 7'
+SD15 Negative       : 'SD15 negative 7'
 

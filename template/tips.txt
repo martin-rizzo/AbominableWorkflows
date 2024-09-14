@@ -1,5 +1,5 @@
 
------------------------------------------------------------------------------------------
+>--------------------------------------------------------------------------------------
 ./abominable_PHOTO_.json
 PHOTO personal tips
  * Seed              : random
@@ -17,7 +17,7 @@ Enabling 'HQ sampler' can improve contrast and details, but is slower.
 For more information about Abominable Workflows:
 https://civitai.com/models/420163
 
------------------------------------------------------------------------------------------
+>--------------------------------------------------------------------------------------
 ./abominable_1GIRL_.json
 1GIRL personal tips
  * Seed              : random
@@ -35,7 +35,7 @@ Enabling 'HQ sampler' can improve contrast and details, but is slower.
 For more information about Abominable Workflows:
 https://civitai.com/models/420163
 
------------------------------------------------------------------------------------------
+>--------------------------------------------------------------------------------------
 ./abominable_INK_.json
 INK personal tips
  * Seed              : random
@@ -52,7 +52,7 @@ Alternatively, enable 'Refiner experimental' and increase intensity to 22.
 For more information about Abominable Workflows:
 https://civitai.com/models/420163
 
------------------------------------------------------------------------------------------
+>--------------------------------------------------------------------------------------
 ./abominable_PIXEL_.json
 PIXEL personal tips
  * Seed              : random
@@ -67,7 +67,7 @@ Lowering 'Guidance' produces more detailed pixel art with more colors.
 For more information about Abominable Workflows:
 https://civitai.com/models/420163
 
------------------------------------------------------------------------------------------
+>--------------------------------------------------------------------------------------
 ./abominable_MILO_.json
 MILO personal tips
  * Seed              : random
@@ -86,7 +86,7 @@ MILO workflow can be unpredictable, quality varies greatly based on parameters.
 For more information about Abominable Workflows:
 https://civitai.com/models/420163
 
------------------------------------------------------------------------------------------
+>--------------------------------------------------------------------------------------
 ./abominable_DARKFAN80_.json
 DARKFAN80 personal tips
  * Seed              : random
@@ -103,7 +103,7 @@ DARKFAN80 workflow can be unpredictable, quality varies greatly based on paramet
 For more information about Abominable Workflows:
 https://civitai.com/models/420163
 
------------------------------------------------------------------------------------------
+>--------------------------------------------------------------------------------------
 ./classic_abominable_spaghetti.json
 CLASSIC personal tips
  * Seed              : random
@@ -124,4 +124,4 @@ For photo style without blurry backgrounds:
 For more information about Abominable Workflows:
 https://civitai.com/models/420163
 
------------------------------------------------------------------------------------------
+>--------------------------------------------------------------------------------------
