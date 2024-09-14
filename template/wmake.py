@@ -46,8 +46,8 @@ DEFAULT_COLOR = '\033[0m'
 # Get the directory of the current Python script
 SCRIPT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 
-# Default name for the configuration file
-CONFIG_DEFAULT_NAME = 'configurations.txt'
+# Default name for the configurations file
+CONFIGS_DEFAULT_NAME = 'configurations.txt'
 
 # Indentation level for JSON output
 JSON_INDENT=2
@@ -60,7 +60,6 @@ def message(text: str) -> None:
     """
     print(f"  {GREEN}>{DEFAULT_COLOR} {text}", file=sys.stderr)
 
-
 def warning(message: str, *info_messages: str) -> None:
     """Displays and logs a warning message to the standard error stream.
     """
@@ -69,155 +68,24 @@ def warning(message: str, *info_messages: str) -> None:
         print(f"          {YELLOW}{info_message}{DEFAULT_COLOR}", file=sys.stderr)
     print()
 
-def error(message: str) -> None:
+def error(message: str, *info_messages: str) -> None:
     """Displays and logs an error message to the standard error stream.
     """
     print(f"{CYAN}[{RED}ERROR{CYAN}]{RED} {message}{DEFAULT_COLOR}", file=sys.stderr)
+    for info_message in info_messages:
+        print(f"          {RED}{info_message}{DEFAULT_COLOR}", file=sys.stderr)
+    print()
 
-
-def fatal_error(error_message: str, *info_messages: str) -> None:
+def fatal_error(message: str, *info_messages: str) -> None:
     """Displays and logs an fatal error to the standard error stream and exits.
     Args:
-        error_message : The fatal error message to display.
+        message       : The fatal error message to display.
         *info_messages: Optional informational messages to display after the error.
     """
-    error(error_message)
+    error(message)
     for info_message in info_messages:
         print(f" {CYAN}\u24d8  {info_message}{DEFAULT_COLOR}", file=sys.stderr)
     exit(1)
-
-
-#-------------------------- LOADING CONFIGURATION --------------------------#
-
-def read_filename(line: str) -> str:
-    """Reads a filename from a line of text.
-
-    Raises a fatal error if the filename contains spaces.
-    Args:
-        line: The line of text containing the filename.
-    Returns:
-        The filename, stripped of leading periods and slashes.
-    """
-    filename = line.strip()
-    while filename.startswith(".") or filename.startswith("/"):
-        filename = filename[1:]
-    if " " in filename:
-        fatal_error(f"Filename cannot contain spaces: {filename}", "Please check the input.")
-    return filename
-
-
-def read_keyvalue(line, extern_dir=None, extern_delimiter=None):
-    """Reads a line of text in the format "key: value"
-
-    This function handles various cases for the value:
-    - If the value starts with "@", it assumes it's a ref to an external file.
-      The function then reads the file and extracts the value using the delimiter.
-    - If the value starts with a single quote ('), it assumes it's a string literal.
-
-    Args:
-        line             (str): The line of text to parse.
-        extern_dir       (str): The directory where external files are located.
-        extern_delimiter (str): The delimiter used to extract the value from external file.
-    Returns:
-        A tuple containing the key and value.
-    """
-    key, value = line.split(':', 1)
-    key, value = key.strip(), value.strip()
-
-    # handle external file reference
-    if value.startswith("@")      \
-       and extern_dir is not None \
-       and extern_delimiter is not None:
-
-        path_ = os.path.join(extern_dir, value[1:])
-        value = extract_text(path_, extern_delimiter).strip()
-
-    # handle string literal
-    elif value.startswith("'"):
-        value = value.strip("'")
-
-    return key, value
-
-
-def extract_text(filepath: str, start_delimiter: str) -> str:
-    """Extracts text from a file starting from a specific delimiter.
-
-    This function reads the file line by line and begins capturing text
-    when it encounters either:
-       1. The specified `start_delimiter`, or
-       2. The global wildcard delimiter "<*>".
-    The text capture stops when a line starts with a '>' followed by three or
-    more hyphens ('>---').
-
-    Args:
-        filepath        (str): The path to the file to read.
-        start_delimiter (str): The delimiter that marks where to start extracting text.
-
-    Returns:
-        The text extracted between the delimiters,
-        or an empty string if no valid delimiters are found.
-    """
-    extracted_text = ""
-    capturing = False
-    with open(filepath, 'r') as file:
-        for line in file:
-            if line.strip() == start_delimiter or line.strip() == '<*>':
-                capturing = True
-            elif capturing and line.startswith('>---'):
-                break
-            elif capturing:
-                extracted_text += line
-    return extracted_text
-
-
-def load_configs(config_path):
-    """Loads configurations from a file.
-
-    Args:
-        config_path: The path to the config file.
-    Returns:
-        A tuple containing a dictionary of configurations by filename
-        and a dictionary of global variables.
-    """
-    configs_by_filename = {}
-    config      = {}
-    global_vars = {}
-    filename    = ''
-    config_dir  = os.path.dirname(config_path)
-
-    with open(config_path, 'r') as f:
-        for line in f:
-            line = line.strip()
-
-            if not line or line.startswith("#"):
-                # it's a comment, skip it
-                continue
-
-            elif line.startswith("@"):
-                # it's a global variable
-                key, value = read_keyvalue(line[1:])
-                global_vars[key] = value
-
-            elif line.startswith("./"):
-                # it's a filename, start of a new config
-                if filename and config:
-                    configs_by_filename[filename] = config
-                filename      = read_filename(line)
-                config = {}
-
-            else:
-                # it's a config variable
-                key, value = read_keyvalue(line,
-                                           extern_dir       = config_dir,
-                                           extern_delimiter = f"./{filename}")
-                config[key] = value
-                continue
-
-    # if any config is pending, add it to the dictionary
-    if filename and config:
-        configs_by_filename[filename] = config
-
-    return configs_by_filename, global_vars
 
 
 #---------------------------------- NODES ----------------------------------#
@@ -225,9 +93,6 @@ def load_configs(config_path):
 def get_name(node: dict) -> str:
     assert node is not None
     return node.get('title', node.get('type', ''))
-
-def get_title(node: dict) -> str:
-    return get_name(node)
 
 def get_type(node: dict) -> str:
     assert node is not None
@@ -267,6 +132,163 @@ def modify_node_value(node: dict, new_value, old_value=None, node_name=None):
 
     values[found_index] = new_value
 
+
+#-------------------------- CONFIGURATIONS CLASS ---------------------------#
+class Configurations:
+
+    def __init__(self,
+                 filenames,
+                 parameters_by_filename,
+                 wildcards_by_filename,
+                 global_vars):
+        """Initializes a new Configuration object.
+        """
+        self.filenames = filenames
+        self.parameters_by_filename = parameters_by_filename
+        self.wildcards_by_filename  = wildcards_by_filename
+        self.global_vars = global_vars
+
+    @classmethod
+    def from_file(cls, configs_path: str) -> 'Configurations':
+        """Loads a Configurations object from a file.
+        Args:
+            config_path: The path to the config file.
+        Returns:
+            A Configuration object.
+        """
+        parameters_by_filename = {}
+        parameters    = {}
+        global_vars   = {}
+        all_filenames = set()
+        filename      = ''
+        configs_dir   = os.path.dirname(configs_path)
+
+        with open(configs_path, 'r') as f:
+            for line in f:
+                line = line.strip()
+
+                if not line or line.startswith("#"):
+                    # it's a comment, skip it
+                    continue
+
+                elif line.startswith("@"):
+                    # it's a global variable
+                    key, value = Configurations._read_keyvalue(line[1:])
+                    global_vars[key] = value
+
+                elif line.startswith("./"):
+                    # it's a filename, start new 'parameters'
+                    if filename:
+                        all_filenames.add(filename)
+                        parameters_by_filename[filename] = parameters
+                    filename  = Configurations._read_filename(line)
+                    parameters = {}
+
+                else:
+                    # it's a parameter
+                    key, value = Configurations._read_keyvalue(line,
+                                                extern_dir       = configs_dir,
+                                                extern_delimiter = f"./{filename}")
+                    parameters[key] = value
+                    continue
+
+        # if 'parameters' is pending, add it to the dictionary
+        if filename:
+            all_filenames.add(filename)
+            parameters_by_filename[filename] = parameters
+
+        return cls(all_filenames, parameters_by_filename, {}, global_vars)
+
+
+    def get_global(self, varname: str):
+        return self.global_vars.get(varname)
+
+
+    def get(self, filename: str, varname: str):
+        parameters = self.parameters_by_filename.get(filename)
+        return parameters.get(varname) if parameters is not None else None
+
+
+    @staticmethod
+    def _read_filename(line: str) -> str:
+        """Reads a filename from a line of text.
+        Args:
+            line: The line of text containing the filename.
+        Returns:
+            The filename, stripped of leading periods and slashes.
+        """
+        filename = line.strip()
+        while filename.startswith(".") or filename.startswith("/"):
+            filename = filename[1:]
+        if " " in filename:
+            fatal_error(f"Filename cannot contain spaces: {filename}", "Please check the input.")
+        return filename
+
+
+    @staticmethod
+    def _read_keyvalue(line, extern_dir=None, extern_delimiter=None) -> tuple:
+        """Reads a line of text in the format "key: value"
+
+        This function handles various cases for the value:
+        - If the value starts with "@", it assumes it's a ref to an external file.
+        The function then reads the file and extracts the value using the delimiter.
+        - If the value starts with a single quote ('), it assumes it's a string literal.
+
+        Args:
+            line             (str): The line of text to parse.
+            extern_dir       (str): The directory where external files are located.
+            extern_delimiter (str): The delimiter used to extract the value from external file.
+        Returns:
+            A tuple containing the key and value.
+        """
+        key, value = line.split(':', 1)
+        key, value = key.strip(), value.strip()
+
+        # handle external file reference
+        if value.startswith("@")      \
+        and extern_dir is not None \
+        and extern_delimiter is not None:
+
+            path_ = os.path.join(extern_dir, value[1:])
+            value = Configurations._extract_text_from_file(path_, extern_delimiter).strip()
+
+        # handle string literal
+        elif value.startswith("'"):
+            value = value.strip("'")
+
+        return key, value
+
+    @staticmethod
+    def _extract_text_from_file(filepath: str, start_delimiter: str) -> str:
+        """Extracts text from a file starting from a specific delimiter.
+
+        This function reads the file line by line and begins capturing text
+        when it encounters either:
+        1. The specified `start_delimiter`, or
+        2. The global wildcard delimiter "<*>".
+        The text capture stops when a line starts with a '>' followed by
+        three or more hyphens ('>---').
+
+        Args:
+            filepath        (str): The path to the file to read.
+            start_delimiter (str): The delimiter that marks where to start extracting text.
+        Returns:
+            The text extracted between the delimiters,
+            or an empty string if no valid delimiters are found.
+        """
+        extracted_text = ""
+        capturing = False
+        with open(filepath, 'r') as file:
+            for line in file:
+                if line.strip() == start_delimiter or line.strip() == '<*>':
+                    capturing = True
+                elif capturing and line.startswith('>---'):
+                    break
+                elif capturing:
+                    extracted_text += line
+        return extracted_text
+
+
 #----------------------------- WORKFLOW CLASS ------------------------------#
 class Workflow:
     """Represents a workflow with a name and a list of steps.
@@ -295,6 +317,19 @@ class Workflow:
         self.links_by_id = links_by_id
 
 
+    @classmethod
+    def from_json(cls, filename: str):
+        """Loads a Workflow object from a JSON file.
+        Args:
+            filename (str): The name of the JSON file.
+        Returns:
+            A Workflow object.
+        """
+        with open(filename, "r") as f:
+            data = json.load(f)
+            return cls(data)
+
+
     def save_to_json(self, filename: str):
         """Saves the workflow to a JSON file.
         Args:
@@ -306,19 +341,6 @@ class Workflow:
                       ensure_ascii=False)
 
 
-    @staticmethod
-    def from_json(filename: str):
-        """Loads a Workflow object from a JSON file.
-        Args:
-            filename (str): The name of the JSON file.
-        Returns:
-            A Workflow object.
-        """
-        with open(filename, "r") as f:
-            data = json.load(f)
-            return Workflow(data)
-
-
     def copy(self):
         """Creates a copy of the workflow.
         Returns:
@@ -328,9 +350,15 @@ class Workflow:
         return Workflow(copied_data)
 
 
-    # retorna todos los nodos conectados a un output, resolviendo los reroutes
-    # output = node.outputs[n]
     def get_all_connected_nodes(self, node: dict, output_index: int) -> list:
+        """Returns all nodes connected to a specific output, resolving reroutes.
+        Args:
+            node        (dict): The node to analyze.
+            output_index (int): The index of the output to analyze.
+
+        Returns:
+            A list of all connected nodes, including those connected through reroutes.
+        """
         outputs = node.get('outputs')
         if not outputs or output_index>=len(outputs):
             return None
@@ -340,19 +368,34 @@ class Workflow:
         nodes = []
         for link_id in links_ids:
             link = self.links_by_id[ link_id ]
-            node = self.nodes_by_id[ link[3] ]
-            if get_type(node)=="Reroute":
-                nodes.extend( self.get_all_connected_nodes(node,0) )
+            # get the node connected to the current link
+            connected_node = self.nodes_by_id[ link[3] ]
+            if get_type(connected_node)=="Reroute":
+                # if the connected node is a reroute,
+                # recursively get all connected nodes from its output
+                nodes.extend( self.get_all_connected_nodes(connected_node,0) )
             else:
-                nodes.append(node)
+                # if the connected node is NOT a reroute,
+                # add it to the list
+                nodes.append(connected_node)
         return nodes
 
 
-    def set_node(self, node, value):
+    def set_node(self, node: dict, value):
+        """Sets the value of a node.
 
-        # cuando encuentra un node que es una primitiva
-        # debe modificar el valor en el nodo y en todos los
-        # nodos que esten directamente conectados a este
+        It handles different types of nodes:
+          - PrimitiveNode    : modifies the value in the node and all connected nodes.
+          - Single-Value Node: sets the single configurable value of the node.
+          - Other Node Types : displays a warning message, not yet supported.
+
+        Args:
+            node (dict): The node to set the value for.
+            value (any): The new value to set.
+        """
+
+        # when encountering a `PrimitiveNode`,
+        # modify the value in the node AND ALL DIRECTLY CONNECTED NODES
         if get_type(node)=="PrimitiveNode":
             new_value       = value
             old_value       = get_values(node)[0]
@@ -362,22 +405,24 @@ class Workflow:
             modify_node_value(node, new_value, old_value)
             for connected_node in connected_nodes:
                 modify_node_value(connected_node, new_value, old_value,
-                                  node_name=f"'{primitive_name}'->'{get_title(connected_node)}'")
+                                  node_name=f"'{primitive_name}'->'{get_name(connected_node)}'")
 
-        # cuendo encuentra un nodo que solo tiene 1 valor configurable
-        # es facil ya que es ese unico valor el que tiene que modificar
+        # when encountering a node with only one configurable value,
+        # simply set that value
         elif len(get_values(node))==1:
             get_values(node)[0] = value
 
-        # cualquuier otra combinacion todavia no esta soportada
+        # any other combination of node types is not yet supported
         else:
-            warning(f"The configuration {DEFAULT_COLOR}'{get_title(node)}' = {value}{YELLOW} could not be applied",
+            warning(f"The configuration {DEFAULT_COLOR}'{get_name(node)}' = {value}{YELLOW} could not be applied",
                      "(this type of value/node is not supported by wmake).")
 
 
 #--------------------- CREATING WORKFLOW FROM TEMPLATE ---------------------#
 
-def create_workflow(template: Workflow, config: dict, global_vars: dict) -> Workflow:
+def create_workflow(filename: str,
+                    template: Workflow,
+                    configs : Configurations) -> Workflow:
 
     # create a copy of the workflow to avoid modifying the template
     workflow = template.copy()
@@ -387,24 +432,22 @@ def create_workflow(template: Workflow, config: dict, global_vars: dict) -> Work
         return workflow
 
     for node in workflow.nodes:
-        title = get_title(node)
-        value = config.get(title)
+        parameter = get_name(node)
+        value     = configs.get(filename, parameter)
         if value is not None:
             workflow.set_node( node, value )
 
     return workflow
 
 
-def make(filename: str, config: dict, global_vars: dict) -> None:
+def make(filename: str, configs: Configurations) -> None:
     """Generates a JSON workflow file based on a template and configuration.
-
     Args:
-        filename     (str): The name of the output JSON file.
-        config      (dict): A dict containing configuration values to be applied to the template.
-        global_vars (dict): A dict containing global variables used in the template.
+        filename         (str): The name of the output JSON file.
+        config (Configuration): A object with the configuration values to be applied to the template.
     """
     workflow_filename = filename if os.path.splitext(filename)[1] else filename + '.json'
-    template_filename = global_vars.get('TEMPLATE')
+    template_filename = configs.get_global('TEMPLATE')
 
     if not template_filename:
         fatal_error("No template is defined in the configuration.",
@@ -417,34 +460,30 @@ def make(filename: str, config: dict, global_vars: dict) -> None:
     template = Workflow.from_json(template_filename)
 
     message(f"Building '{workflow_filename}'")
-    workflow = create_workflow(template, config, global_vars)
+    workflow = create_workflow(filename, template, configs)
 
     # Save the JSON workflow to a file
     workflow.save_to_json(workflow_filename)
 
 
-def process(target: str, configs_by_filename: dict, global_vars: dict) -> None:
-    """Processes a target based on provided configurations and global variables.
-
+def process(target: str, configs: Configurations) -> None:
+    """Processes a target based on provided configurations.
     Args:
-        target              (str) : The target to process. Can be 'clean', 'all', or a specific filename.
-        configs_by_filename (dict): A dictionary mapping filenames to their corresponding configuration.
-        global_vars         (dict): A dictionary containing global variables used during processing.
+        target (str): The target to process, can be 'clean', 'all', or a specific filename.
+        config (Configuration): A object with the configuration values.
     """
     if target == 'clean':
-        for filename, _ in configs_by_filename.items():
+        for filename in configs.filenames:
             if os.path.isfile(filename):
                 message(f"Removing '{filename}'")
                 os.remove(filename)
 
     elif target == 'all':
-        for filename, config in configs_by_filename.items():
-            make(filename, config, global_vars)
+        for filename in configs.filenames:
+            make(filename, configs)
 
     else:
-        filename = target
-        config   = configs_by_filename.get(filename)
-        make(filename, config, global_vars)
+        make(filename, configs)
 
 
 #===========================================================================#
@@ -478,24 +517,24 @@ def main():
 
     # determine the config file path
     if args.config:
-        config_path = args.config
-    elif os.path.exists(CONFIG_DEFAULT_NAME):
-        config_path = CONFIG_DEFAULT_NAME
+        configs_path = args.config
+    elif os.path.exists(CONFIGS_DEFAULT_NAME):
+        configs_path = CONFIGS_DEFAULT_NAME
     else:
-        config_path = os.path.join(SCRIPT_DIRECTORY, CONFIG_DEFAULT_NAME)
+        configs_path = os.path.join(SCRIPT_DIRECTORY, CONFIGS_DEFAULT_NAME)
 
 
     # check if the config file exists
-    if not os.path.exists(config_path):
-        fatal_error(f"config file not found: {config_path}",
-                    "Please provide a valid config file path or ensure the default config file exists.")
+    if not os.path.exists(configs_path):
+        fatal_error(f"Configurations file not found: {configs_path}",
+                    "Please provide a valid file path or ensure the default config file exists.")
 
     # load the configurations
-    configs_by_filename, global_vars = load_configs(config_path)
+    configs = Configurations.from_file(configs_path)
 
      # process each target
     for target in args.target:
-        process(target, configs_by_filename, global_vars)
+        process(target, configs)
 
 
 if __name__ == "__main__":
