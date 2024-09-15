@@ -4,31 +4,149 @@
 # to know the configurations used in the Abominable Workflows.
 #
 
+
 @TEMPLATE    : abominable-template.json
 @NODE.MAIN   : '[v3] abominable *'
 @NODE.TIPS   : '* personal tips'
 @NODE.README : README.TXT
 
+
 ./abominable_PHOTO_.json
-NODE.MAIN          : [v3] abominable PHOTO 7771
+# Realistic images with photographic details.
+NODE.MAIN          : [v3] abominable PHOTO
 NODE.TIPS          : @tips.txt
 NODE.README        : @read.txt
-Seed               : 7
-Guidance           : 7.1
-Refiner intensity  : 77
-Portrait Width     : 777
-Portrait Height    : 1777
-PixArt Steps       : 7
-PixArt Sampler     : dpmpp_3m_sde_gpu
+Seed               : 1
+Guidance           : 3.2
+Refiner intensity  : 22
+Portrait Width     : 1024
+Portrait Height    : 1536
+PixArt Steps       : 11
+PixArt Sampler     : lms
+PixArt HQ Sampler  : heun
+PixArt Scheduler   : beta
+PixArt Scheduler   : 0.90
+Prompt Prefix      : 'An iPhone photo. '
+## Prompt Prefix   : 'Poor quality iPhone photo of ' ##
+Prompt Suffix      : '. (144p photo:1.1) with JPEG artifacts.'
+Negative Prefix    : 'macrophoto'
+Negative Suffix    : ''
+SD15 start step    : 12
+SD15 Sampler       : dpmpp_2m
+SD15 Scheduler     : normal
+SD15 Scheduler     : 0.90
+SD15 Prefix        : ''
+SD15 Negative      : '(worst quality, low quality:1.8)'
+
+
+./abominable_PIXEL_.json
+# Pixel art style with retro aesthetics and vibrant, blocky details.
+NODE.MAIN          : [v3] abominable PIXEL
+NODE.TIPS          : @tips.txt
+NODE.README        : @read.txt
+Seed               : 1
+Guidance           : 4.0
+Refiner intensity  : 14
+Portrait Width     : 944
+Portrait Height    : 1408
+PixArt Steps       : 17
+PixArt Sampler     : uni_pc
+PixArt HQ Sampler  : heun
+PixArt Scheduler   : beta
+PixArt Scheduler   : 0.75
+Prompt Prefix      : 'A pixel-art image of '
+Prompt Suffix      : '. low-res, blocky, pixel art style, 8-bit graphics'
+Negative Prefix    : 'blurry, noisy, highly detailed, ultra textured, photo, realistic, macrophoto'
+## Negative Prefix : 'gradient' ##
+Negative Suffix    : ''
+SD15 start step    : 12
+SD15 Sampler       : dpmpp_2m
+SD15 Scheduler     : normal
+SD15 Scheduler     : 0.90
+SD15 Prefix        : 'pixel-art, low-res, blocky'
+SD15 Negative      : '(worst quality, low quality:1.8)'
+
+
+./abominable_INK_.json
+# Ink-style illustrations with bold outlines and hand-painted details.
+NODE.MAIN          : [v3] abominable INK
+NODE.TIPS          : @tips.txt
+NODE.README        : @read.txt
+Seed               : 1
+Guidance           : 4.5
+Refiner intensity  : 16
+Portrait Width     : 1024
+Portrait Height    : 1536
+PixArt Steps       : 16
+PixArt Sampler     : uni_pc
 PixArt HQ Sampler  : heun
 PixArt Scheduler   : sgm_uniform
-PixArt Scheduler   : 0.77
-Prompt Prefix      : 'prefix 7 '
-Prompt Suffix      : 'suffix 7 '
-Negative Prefix    : 'neg prefix 7 '
-Negative Suffix    : 'neg suffix 7 '
-SD15 Sampler       : dpmpp_3m_sde_gpu
-SD15 Scheduler     : sgm_uniform
-SD15 Scheduler     : 0.77
-SD15 Prefix        : 'SD15 prefix 7'
-SD15 Negative      : 'SD15 negative 7'
+PixArt Scheduler   : 0.80
+Prompt Prefix      : 'Cute pencil illustration of '
+Prompt Suffix      : '. Outlined minimalist with solid colors.'
+Negative Prefix    : 'blurry'
+Negative Suffix    : ''
+SD15 start step    : 12
+SD15 Sampler       : dpmpp_2m
+SD15 Scheduler     : normal
+SD15 Scheduler     : 0.90
+SD15 Prefix        : 'pixel-art, low-res, blocky'
+## SD15 Prefix     : '(vector image, cute, illustration:1.1)' ##
+SD15 Negative      : '(worst quality, low quality:1.6)'
+
+
+./abominable_DARKFAN80_.json
+# Dark, cinematic 80s style with VHS aesthetics and dramatic lighting.
+NODE.MAIN          : [v3] abominable DARKFAN80
+NODE.TIPS          : @tips.txt
+NODE.README        : @read.txt
+Seed               : 1
+Guidance           : 3.2
+Refiner intensity  : 22
+Portrait Width     : 1024
+Portrait Height    : 1536
+PixArt Steps       : 16
+PixArt Sampler     : dpmpp_2m_sde
+PixArt HQ Sampler  : dpmpp_sde
+PixArt Scheduler   : beta
+PixArt Scheduler   : 1.00
+Prompt Prefix      : ''
+Prompt Suffix      : '. (80's dark fantasy in VHS, blurry tv captured:1.1)'
+Negative Prefix    : 'small, toy'
+Negative Suffix    : ''
+SD15 start step    : 16
+SD15 Sampler       : lms
+SD15 Scheduler     : normal
+SD15 Scheduler     : 1.00
+SD15 Prefix        : ''
+SD15 Negative      : '(worst quality, low quality:1.8)'
+
+
+./abominable_MILO_.json
+# European comic style, featuring stylized figures and intense details.
+NODE.MAIN          : [v3] abominable MILO
+NODE.TIPS          : @tips.txt
+NODE.README        : @read.txt
+Seed               : 1
+Guidance           : 3.5
+Refiner intensity  : 18
+Portrait Width     : 1024
+Portrait Height    : 1536
+PixArt Steps       : 16
+## PixArt Steps    : 17 ##
+PixArt Sampler     : uni_pc
+PixArt HQ Sampler  : heun
+PixArt Scheduler   : beta
+PixArt Scheduler   : 0.80
+## PixArt Scheduler: 0.75 ##
+Prompt Prefix      : 'Black outlined comic of '
+Prompt Suffix      : '. (Milo Manara:1.25). Poster in white, red, blue and black with solid colors.'
+Negative Prefix    : 'gradient'
+Negative Suffix    : ''
+SD15 start step    : 12
+SD15 Sampler       : dpmpp_2m
+SD15 Scheduler     : normal
+SD15 Scheduler     : 0.90
+SD15 Prefix        : 'Poster by Milo Manara'
+SD15 Negative      : '(worst quality, low quality:1.8)'
+
