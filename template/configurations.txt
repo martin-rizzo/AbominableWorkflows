@@ -5,8 +5,8 @@
 #
 
 @TEMPLATE    : abominable-template.json
-@NODE.MAIN   : '[v3] abominable *'
-@NODE.TIPS   : '* personal tips'
+@NODE.MAIN   : '[v3] abominable*'
+@NODE.TIPS   : '*personal tips'
 @NODE.README : README.TXT
 
 
@@ -29,7 +29,8 @@ Prompt Prefix      : 'An iPhone photo. '
 Prompt Suffix      : '. (144p photo:1.1) with JPEG artifacts.'
 Negative Prefix    : 'macrophoto'
 Negative Suffix    : ''
-SD15 start step    : 12
+SD15 Guidance      : 2.0
+SD15 Start Step    : 12
 SD15 Sampler       : dpmpp_2m
 SD15 Scheduler     : normal
 SD15 Scheduler     : 0.90
@@ -58,7 +59,8 @@ Prompt Prefix      : ''
 Prompt Suffix      : ". (80's dark fantasy in VHS, blurry tv captured:1.1)"
 Negative Prefix    : 'small, toy'
 Negative Suffix    : ''
-SD15 start step    : 16
+SD15 Start Step    : 16
+SD15 Guidance      : 2.0
 SD15 Sampler       : lms
 SD15 Scheduler     : normal
 SD15 Scheduler     : 1.00
@@ -85,7 +87,8 @@ Prompt Prefix      : 'A pixel-art image of '
 Prompt Suffix      : '. low-res, blocky, pixel art style, 8-bit graphics'
 Negative Prefix    : 'blurry, noisy, highly detailed, ultra textured, photo, realistic, macrophoto'
 Negative Suffix    : ''
-SD15 start step    : 12
+SD15 Start Step    : 12
+SD15 Guidance      : 2.0
 SD15 Sampler       : dpmpp_2m
 SD15 Scheduler     : normal
 SD15 Scheduler     : 0.90
@@ -114,11 +117,12 @@ Prompt Prefix      : 'Cute pencil illustration of '
 Prompt Suffix      : '. Outlined minimalist with solid colors.'
 Negative Prefix    : 'blurry'
 Negative Suffix    : ''
-SD15 start step    : 12
+SD15 Start Step    : 12
+SD15 Guidance      : 3.5
 SD15 Sampler       : dpmpp_2m
 SD15 Scheduler     : normal
 SD15 Scheduler     : 0.90
-SD15 Prefix        : 'pixel-art, low-res, blocky'
+SD15 Prefix        : ''
 SD15 Negative      : '(worst quality, low quality:1.6)'
 ## alternatives -----------------------------------------
 ## SD15 Experiment : '(vector image, cute, illustration:1.1)' # intensity=22
@@ -143,7 +147,8 @@ Prompt Prefix      : 'Black outlined comic of '
 Prompt Suffix      : '. (Milo Manara:1.25). Poster in white, red, blue and black with solid colors.'
 Negative Prefix    : 'gradient'
 Negative Suffix    : ''
-SD15 start step    : 12
+SD15 Start Step    : 12
+SD15 Guidance      : 2.0
 SD15 Sampler       : dpmpp_2m
 SD15 Scheduler     : normal
 SD15 Scheduler     : 0.90
@@ -173,10 +178,30 @@ Prompt Prefix      : 'Poor quality iPhone photo of '
 Prompt Suffix      : '. overexposed filter, (144p photo:1.1) with JPEG artifacts.'
 Negative Prefix    : 'macrophoto'
 Negative Suffix    : ''
-SD15 start step    : 12
+SD15 Start Step    : 12
+SD15 Guidance      : 2.0
 SD15 Sampler       : dpmpp_2m
 SD15 Scheduler     : normal
 SD15 Scheduler     : 0.90
 SD15 Prefix        : '(An argentine social woman:1.1)'
 SD15 Negative      : '(worst quality, low quality:1.8)'
+
+
+#----------------------------------------------------------------------------
+#
+# Next Version?
+# =============
+#
+#./abominable_GHIBLI_.json
+#    Inspired by Japanese animation, characterized by vibrant colors and soft lines.
+#    > prefix    : 'An anime style draw of '
+#    > suffix    : '. (Outlined draw with solid colors and high contrast by Studio Ghibli:1.2), big eyes.'
+#    > neg-prefix: ''
+#
+#./abominable_POLAROID_.json
+#    Nostalgic feel, mimicking the aesthetic of a Polaroid photograph.
+#    > prefix    : 'Bright flash vintage Polaroid snapshot of '
+#    > suffix    : '. High contrast.'
+#    > neg-prefix: 'painting, draw'
+#
 

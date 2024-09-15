@@ -702,12 +702,7 @@
       "title": "Abominable Negative",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 183,
@@ -1133,12 +1128,7 @@
       "title": "Abominable Refiner",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 136,
@@ -1283,12 +1273,7 @@
       "title": "Abominable Prompt",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 125,
@@ -1848,6 +1833,7 @@
           "shape": 3
         }
       ],
+      "title": "SD15 Guidance",
       "properties": {
         "Node name for S&R": "SamplerCustom"
       },
@@ -1855,7 +1841,7 @@
         true,
         0,
         "fixed",
-        2
+        2.1
       ]
     },
     {
@@ -2085,7 +2071,7 @@
           }
         }
       ],
-      "title": "SD15 start step",
+      "title": "SD15 Start Step",
       "properties": {
         "Run widget replace on values": false
       },
@@ -2415,7 +2401,7 @@
         "Node name for S&R": "Switch any [Crystools]"
       },
       "widgets_values": [
-        true
+        false
       ]
     },
     {
@@ -3340,7 +3326,7 @@
         "Run widget replace on values": false
       },
       "widgets_values": [
-        true
+        false
       ],
       "shape": 1
     },
@@ -3452,36 +3438,6 @@
       "shape": 1
     },
     {
-      "id": 110,
-      "type": "Note",
-      "pos": {
-        "0": 20,
-        "1": 670
-      },
-      "size": {
-        "0": 610,
-        "1": 240
-      },
-      "flags": {
-        "collapsed": false,
-        "pinned": true
-      },
-      "order": 27,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "PHOTO personal tips",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        " * Seed              : random\n * Guidance          : 3.2     [ 3.0 - 4.0 ]\n * Refiner intensity : 22      [ 18  - 25  ]\n * Refiner variation : 0       < different values create slight changes in small details\n * Refiner attention : empty   < add words to focus refinement on specific objects\n * Ref.ignores prompt: false   < if enabled, the refiner will completely ignore the prompt\n\nIf the image looks too drawn, add \"bokeh\" to the prompt.\nIf the background is blurry, add one or more of the following to the negative prompt:\n   \"bokeh\", \"out of focus\", \"macrophoto\".\nEnabling 'HQ sampler' can improve contrast and details, but is slower.\n\nFor more information about Abominable Workflows:\nhttps://civitai.com/models/420163"
-      ],
-      "color": "#222",
-      "bgcolor": "#000",
-      "shape": 1
-    },
-    {
       "id": 104,
       "type": "Primitive integer [Crystools]",
       "pos": {
@@ -3495,7 +3451,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 28,
+      "order": 27,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3532,7 +3488,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 29,
+      "order": 28,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3598,6 +3554,36 @@
       "widgets_values": [
         "lms"
       ]
+    },
+    {
+      "id": 110,
+      "type": "Note",
+      "pos": {
+        "0": 20,
+        "1": 670
+      },
+      "size": {
+        "0": 610,
+        "1": 240
+      },
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 29,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "personal tips",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "-"
+      ],
+      "color": "#222",
+      "bgcolor": "#000",
+      "shape": 1
     }
   ],
   "links": [
@@ -4316,72 +4302,12 @@
   ],
   "groups": [
     {
-      "title": "Sampler Logic",
-      "bounding": [
-        40,
-        1530,
-        510,
-        290
-      ],
-      "color": "#444",
-      "font_size": 20,
-      "flags": {}
-    },
-    {
-      "title": "SD15 Refiner",
-      "bounding": [
-        1090,
-        930,
-        920,
-        570
-      ],
-      "color": "#444",
-      "font_size": 20,
-      "flags": {}
-    },
-    {
-      "title": "[v3] abominable PHOTO",
-      "bounding": [
-        10,
-        0,
-        1270,
-        870
-      ],
-      "color": "#b58b2a",
-      "font_size": 22,
-      "flags": {}
-    },
-    {
-      "title": "Models",
-      "bounding": [
-        40,
-        930,
-        460,
-        570
-      ],
-      "color": "#88A",
-      "font_size": 20,
-      "flags": {}
-    },
-    {
-      "title": "PixArt-Σ Denoising",
-      "bounding": [
-        530,
-        930,
-        530,
-        570
-      ],
-      "color": "#444",
-      "font_size": 20,
-      "flags": {}
-    },
-    {
-      "title": "Size Logic",
+      "title": "Civitai Integration Nodes",
       "bounding": [
         1340,
-        600,
+        180,
         670,
-        300
+        390
       ],
       "color": "#444",
       "font_size": 20,
@@ -4400,12 +4326,72 @@
       "flags": {}
     },
     {
-      "title": "Civitai Integration Nodes",
+      "title": "Size Logic",
       "bounding": [
         1340,
-        180,
+        600,
         670,
-        390
+        300
+      ],
+      "color": "#444",
+      "font_size": 20,
+      "flags": {}
+    },
+    {
+      "title": "PixArt-Σ Denoising",
+      "bounding": [
+        530,
+        930,
+        530,
+        570
+      ],
+      "color": "#444",
+      "font_size": 20,
+      "flags": {}
+    },
+    {
+      "title": "Models",
+      "bounding": [
+        40,
+        930,
+        460,
+        570
+      ],
+      "color": "#88A",
+      "font_size": 20,
+      "flags": {}
+    },
+    {
+      "title": "[v3] abominable-template.json",
+      "bounding": [
+        10,
+        0,
+        1270,
+        870
+      ],
+      "color": "#b58b2a",
+      "font_size": 22,
+      "flags": {}
+    },
+    {
+      "title": "SD15 Refiner",
+      "bounding": [
+        1090,
+        930,
+        920,
+        570
+      ],
+      "color": "#444",
+      "font_size": 20,
+      "flags": {}
+    },
+    {
+      "title": "Sampler Logic",
+      "bounding": [
+        40,
+        1530,
+        510,
+        290
       ],
       "color": "#444",
       "font_size": 20,
