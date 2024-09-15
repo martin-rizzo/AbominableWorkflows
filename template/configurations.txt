@@ -4,7 +4,6 @@
 # to know the configurations used in the Abominable Workflows.
 #
 
-
 @TEMPLATE    : abominable-template.json
 @NODE.MAIN   : '[v3] abominable *'
 @NODE.TIPS   : '* personal tips'
@@ -38,6 +37,33 @@ SD15 Prefix        : ''
 SD15 Negative      : '(worst quality, low quality:1.8)'
 ## alternatives -----------------------------------------
 ## Prompt Prefix   : 'Poor quality iPhone photo of '
+
+
+./abominable_DARKFAN80_.json
+# Dark, cinematic 80s style with VHS aesthetics and dramatic lighting.
+NODE.MAIN          : '[v3] abominable DARKFAN80'
+NODE.TIPS          : @tips.txt
+NODE.README        : @read.txt
+Seed               : 1
+Guidance           : 3.2
+Refiner intensity  : 22
+Portrait Width     : 1024
+Portrait Height    : 1536
+PixArt Steps       : 16
+PixArt Sampler     : dpmpp_2m_sde
+PixArt HQ Sampler  : dpmpp_sde
+PixArt Scheduler   : beta
+PixArt Scheduler   : 1.00
+Prompt Prefix      : ''
+Prompt Suffix      : ". (80's dark fantasy in VHS, blurry tv captured:1.1)"
+Negative Prefix    : 'small, toy'
+Negative Suffix    : ''
+SD15 start step    : 16
+SD15 Sampler       : lms
+SD15 Scheduler     : normal
+SD15 Scheduler     : 1.00
+SD15 Prefix        : ''
+SD15 Negative      : '(worst quality, low quality:1.8)'
 
 
 ./abominable_PIXEL_.json
@@ -95,34 +121,7 @@ SD15 Scheduler     : 0.90
 SD15 Prefix        : 'pixel-art, low-res, blocky'
 SD15 Negative      : '(worst quality, low quality:1.6)'
 ## alternatives -----------------------------------------
-## SD15 Prefix     : '(vector image, cute, illustration:1.1)'
-
-
-./abominable_DARKFAN80_.json
-# Dark, cinematic 80s style with VHS aesthetics and dramatic lighting.
-NODE.MAIN          : '[v3] abominable DARKFAN80'
-NODE.TIPS          : @tips.txt
-NODE.README        : @read.txt
-Seed               : 1
-Guidance           : 3.2
-Refiner intensity  : 22
-Portrait Width     : 1024
-Portrait Height    : 1536
-PixArt Steps       : 16
-PixArt Sampler     : dpmpp_2m_sde
-PixArt HQ Sampler  : dpmpp_sde
-PixArt Scheduler   : beta
-PixArt Scheduler   : 1.00
-Prompt Prefix      : ''
-Prompt Suffix      : ". (80's dark fantasy in VHS, blurry tv captured:1.1)"
-Negative Prefix    : 'small, toy'
-Negative Suffix    : ''
-SD15 start step    : 16
-SD15 Sampler       : lms
-SD15 Scheduler     : normal
-SD15 Scheduler     : 1.00
-SD15 Prefix        : ''
-SD15 Negative      : '(worst quality, low quality:1.8)'
+## SD15 Experiment : '(vector image, cute, illustration:1.1)' # intensity=22
 
 
 ./abominable_MILO_.json

@@ -1,8 +1,7 @@
 
 >--------------------------------------------------------------------------------------
 ./abominable_PHOTO_.json
-PHOTO 777 personal tips
-777
+PHOTO personal tips
  * Seed              : random
  * Guidance          : 3.2     [ 3.0 - 4.0 ]
  * Refiner intensity : 22      [ 18  - 25  ]
@@ -10,10 +9,78 @@ PHOTO 777 personal tips
  * Refiner attention : empty   < add words to focus refinement on specific objects
  * Ref.ignores prompt: false   < if enabled, the refiner will completely ignore the prompt
 
-If the image looks too drawn, add "bokeh" to the prompt.
+If the image looks too drawn, add "bokeh" or "macrophoto" to the prompt.
 If the background is blurry, add one or more of the following to the negative prompt:
-   "bokeh", "out of focus", "macrophoto".
-Enabling 'HQ sampler' can improve contrast and details, but is slower.
+    bokeh, out of focus, macrophoto
+Enabling 'HQ sampler' can improve contrast and details, but slower and doesn’t always help.
+
+For more information about Abominable Workflows:
+https://civitai.com/models/420163
+
+>--------------------------------------------------------------------------------------
+./abominable_DARKFAN80_.json
+DARKFAN80 personal tips
+ * Seed              : random
+ * Guidance          : 3.2     [ 3.0 - 4.0 ]
+ * Refiner intensity : 22      [ 20  - 28  ]
+ * Refiner variation : 0       < different values create slight changes in small details
+ * Refiner attention : empty   < add words to focus refinement on specific objects
+ * Ref.ignores prompt: false   < if enabled, the refiner will completely ignore the prompt
+
+Increasing 'Guidance' may sometimes improve coherence.
+If the image looks too undefined, try adding "(painting, draw:1.1)" to the negative.
+DARKFAN80 workflow can be unpredictable, quality varies greatly based on parameters.
+
+For more information about Abominable Workflows:
+https://civitai.com/models/420163
+
+>--------------------------------------------------------------------------------------
+./abominable_PIXEL_.json
+PIXEL personal tips
+ * Seed              : random
+ * Guidance          : 4.0     [ 3.0 - 5.0 ]
+ * Refiner intensity : 14      [ 12  - 18  ]
+ * Refiner variation : 0       < different values create slight changes in small details
+ * Refiner attention : empty   < add words to focus refinement on specific objects
+ * Ref.ignores prompt: false   < if enabled, the refiner will completely ignore the prompt
+
+Increasing 'Guidance' makes the pixel art look more old-school.
+Lowering 'Guidance' creates more detailed pixel art with smoother color gradients.
+
+For more information about Abominable Workflows:
+https://civitai.com/models/420163
+
+>--------------------------------------------------------------------------------------
+./abominable_INK_.json
+INK personal tips
+ * Seed              : random
+ * Guidance          : 4.5     [ 3.0 - 4.5 ]
+ * Refiner intensity : 16      [ 14  - 22  ]
+ * Refiner variation : 0       < different values create slight changes in small details
+ * Refiner attention : empty   < add words to focus refinement on specific objects
+ * Ref.ignores prompt: false   < if enabled, the refiner will completely ignore the prompt
+
+Lowering 'Guidance' adds more detail or realism.
+If it looks too photorealistic, add "detailed, photography" to negative prompt.
+
+For more information about Abominable Workflows:
+https://civitai.com/models/420163
+
+>--------------------------------------------------------------------------------------
+./abominable_MILO_.json
+MILO personal tips
+ * Seed              : random
+ * Guidance          : 3.5     [ 3.0 - 5.0 ]
+ * Refiner intensity : 18      [ 14  - 24  ]
+ * Refiner variation : 0       < different values create slight changes in small details
+ * Refiner attention : empty   < add words to focus refinement on specific objects
+ * Ref.ignores prompt: false   < if enabled, the refiner will completely ignore the prompt
+
+A lower 'Guidance' value results in more detailed drawings.
+A higher 'Guidance' adds contrast and simplifies the drawing.
+If it looks like a photo, increase 'Guidance' or add "bokeh" to negative prompt.
+Increasing 'Refiner intensity' creates more polished artwork, similar to cover art.
+MILO workflow can be unpredictable, quality varies greatly based on parameters.
 
 For more information about Abominable Workflows:
 https://civitai.com/models/420163
@@ -32,74 +99,6 @@ If the image looks too drawn, add "bokeh" to the prompt.
 If the background is blurry, add one or more of the following to the negative prompt:
    "bokeh", "out of focus", "macrophoto".
 Enabling 'HQ sampler' can improve contrast and details, but is slower.
-
-For more information about Abominable Workflows:
-https://civitai.com/models/420163
-
->--------------------------------------------------------------------------------------
-./abominable_INK_.json
-INK personal tips
- * Seed              : random
- * Guidance          : 4.5     [ 3.0 - 4.5 ]
- * Refiner intensity : 16      [ 14  - 22  ]
- * Refiner attention : empty   < focuses refiner on specific objects
- * Refiner variation : 0       < creates alternative versions with different details
- * Refiner experimen : false   < not fully implemented yet
-
-Lowering 'Guidance' adds more detail or realism.
-If it looks too photorealistic, add "detailed, photography" to negative prompt.
-Alternatively, enable 'Refiner experimental' and increase intensity to 22.
-
-For more information about Abominable Workflows:
-https://civitai.com/models/420163
-
->--------------------------------------------------------------------------------------
-./abominable_PIXEL_.json
-PIXEL personal tips
- * Seed              : random
- * Guidance          : 4.0     [ 3.0 - 5.0 ]
- * Refiner intensity : 14      [ 12  - 18  ]
- * Refiner attention : empty   < focuses refiner on specific objects
- * Refiner variation : 0       < creates alternative versions with different details
-
-Increasing 'Guidance' makes the pixel art look more old-school.
-Lowering 'Guidance' produces more detailed pixel art with more colors.
-
-For more information about Abominable Workflows:
-https://civitai.com/models/420163
-
->--------------------------------------------------------------------------------------
-./abominable_MILO_.json
-MILO personal tips
- * Seed              : random
- * Guidance          : 3.5     [ 3.0 - 5.0 ]
- * Refiner intensity : 18      [ 14  - 24  ]
- * Refiner attention : empty   < focuses refiner on specific objects
- * Refiner variation : 0       < creates alternative versions with different details
- * Refiner experimen : false   < not fully implemented yet
-
-A lower 'Guidance' value results in more detailed drawings.
-A higher 'Guidance' adds contrast and simplifies the drawing.
-If it looks like a photo, increase 'Guidance' or add "bokeh" to negative prompt.
-Increasing 'Refiner intensity' creates more polished artwork, similar to cover art.
-MILO workflow can be unpredictable, quality varies greatly based on parameters.
-
-For more information about Abominable Workflows:
-https://civitai.com/models/420163
-
->--------------------------------------------------------------------------------------
-./abominable_DARKFAN80_.json
-DARKFAN80 personal tips
- * Seed              : random
- * Guidance          : 3.2     [ 3.0 - 4.0 ]
- * Refiner intensity : 22      [ 20  - 28  ]
- * Refiner attention : empty   < focuses refiner on specific objects
- * Refiner variation : 0       < creates alternative versions with different details
- * Refiner experimen : false   < not fully implemented yet
-
-Increasing 'Guidance' may sometimes improve coherence.
-If the image looks too undefined, try adding "(painting, draw:1.1)" to the negative.
-DARKFAN80 workflow can be unpredictable, quality varies greatly based on parameters.
 
 For more information about Abominable Workflows:
 https://civitai.com/models/420163
