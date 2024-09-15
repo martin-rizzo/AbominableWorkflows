@@ -154,3 +154,30 @@ SD15 Negative      : '(worst quality, low quality:1.8)'
 ## PixArt Steps    : 17
 ## PixArt Scheduler: 0.75
 
+
+./abominable_1GIRL_.json
+# Realistic images focused on an attractive woman with photographic details.
+NODE.MAIN          : '[v3] abominable 1GIRL'
+NODE.TIPS          : @tips.txt
+NODE.README        : @read.txt
+Seed               : 1
+Guidance           : 3.2
+Refiner intensity  : 22
+Portrait Width     : 1024
+Portrait Height    : 1536
+PixArt Steps       : 12
+PixArt Sampler     : lms
+PixArt HQ Sampler  : heun
+PixArt Scheduler   : beta
+PixArt Scheduler   : 0.90
+Prompt Prefix      : 'Poor quality iPhone photo of '
+Prompt Suffix      : '. overexposed filter, (144p photo:1.1) with JPEG artifacts.'
+Negative Prefix    : 'macrophoto'
+Negative Suffix    : ''
+SD15 start step    : 12
+SD15 Sampler       : dpmpp_2m
+SD15 Scheduler     : normal
+SD15 Scheduler     : 0.90
+SD15 Prefix        : '(An argentine social woman:1.1)'
+SD15 Negative      : '(worst quality, low quality:1.8)'
+
