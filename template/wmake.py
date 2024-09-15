@@ -292,6 +292,8 @@ class Configurations:
         # handle string literal
         elif value.startswith("'"):
             value = value.strip("'")
+        elif value.startswith('"'):
+            value = value.strip('"')
 
         return key, value
 
