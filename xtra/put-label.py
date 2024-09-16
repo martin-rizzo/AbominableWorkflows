@@ -32,8 +32,52 @@
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 """
 import os
+import sys
 import argparse
 from PIL import Image, ImageDraw, ImageFont
+from PIL.PngImagePlugin import PngInfo
+
+# ANSI escape codes for colored terminal output
+RED    = '\033[91m'
+GREEN  = '\033[92m'
+YELLOW = '\033[93m'
+CYAN   = '\033[96m'
+DEFAULT_COLOR = '\033[0m'
+
+
+#----------------------------- ERROR MESSAGES ------------------------------#
+
+def message(text: str) -> None:
+    """Displays and logs a regular message to the standard error stream.
+    """
+    print(f"  {GREEN}>{DEFAULT_COLOR} {text}", file=sys.stderr)
+
+def warning(message: str, *info_messages: str) -> None:
+    """Displays and logs a warning message to the standard error stream.
+    """
+    print(f"{CYAN}[{YELLOW}WARNING{CYAN}]{YELLOW} {message}{DEFAULT_COLOR}", file=sys.stderr)
+    for info_message in info_messages:
+        print(f"          {YELLOW}{info_message}{DEFAULT_COLOR}", file=sys.stderr)
+    print()
+
+def error(message: str, *info_messages: str) -> None:
+    """Displays and logs an error message to the standard error stream.
+    """
+    print(f"{CYAN}[{RED}ERROR{CYAN}]{RED} {message}{DEFAULT_COLOR}", file=sys.stderr)
+    for info_message in info_messages:
+        print(f"          {RED}{info_message}{DEFAULT_COLOR}", file=sys.stderr)
+    print()
+
+def fatal_error(message: str, *info_messages: str) -> None:
+    """Displays and logs an fatal error to the standard error stream and exits.
+    Args:
+        message       : The fatal error message to display.
+        *info_messages: Optional informational messages to display after the error.
+    """
+    error(message)
+    for info_message in info_messages:
+        print(f" {CYAN}\u24d8  {info_message}{DEFAULT_COLOR}", file=sys.stderr)
+    exit(1)
 
 
 #--------------------------------- HELPERS ---------------------------------#
@@ -52,6 +96,14 @@ def load_font(font_name, font_size):
         print(f"Warning: Could not load font from {font_name}. Using default font.")
         font = ImageFont.load_default()
     return font
+
+def get_abominable_scale(image):
+    ABOMINABLE_HEIGHT = 1536
+    image_width, image_height = image.size
+    if image_width>image_height:
+        image_width, image_height = image_height, image_width
+    return image_height/ABOMINABLE_HEIGHT
+
 
 #-------------------------------- BOX CLASS --------------------------------#
 class Box(tuple):
@@ -151,41 +203,48 @@ class Box(tuple):
         return f"Box(left={self.left}, top={self.top}, right={self.right}, bottom={self.bottom})"
 
 
-#------------------------------ DRAWING LABEL ------------------------------#
+#---------------------------- DRAWING THE LABEL ----------------------------#
 
-def add_label(image, width, height, word1, color1, font1, word2, color2, font2):
-    """
-    image: la imagen original a etiquetar
-    width: el ancho de la etiqueta en pixeles
-    height: la altura de la etiqueta en pixeles
-    word1: la primer palabra de la etiqueta
-    color1: el color de la primer palabra
-    font1: el font utilizado en la primer palabra
-    word2: la segunda palabra de la etiqueta
-    color2: el color de la segunda palabra
-    font2: el font utilizado en la segunda palabra
-    font_size: el tama~nio aproximado del font a utilizar
-    autoscale: si True entonces la etiqueta se escalara acorde al tama~nio de la imagen
+def add_two_words(image, word1, color1, font1, word2, color2, font2):
+    """Draws a rectangle containing two words on an image.
+
+    This function takes an image, two words, and draws a rectangle with
+    a white background containing the two words centered within it.
+
+    Args:
+        image    (PIL.Image) : The original image to be labeled.
+        word1        (str)   : The first word of the label.
+        color1       (str)   : The color of the first word.
+        font1 (PIL.ImageFont): The font used for the first word.
+        word2        (str)   : The second word of the label.
+        color2       (str)   : The color of the second word.
+        font2 (PIL.ImageFont): The font used for the second word.
+
+    Returns:
+        PIL.Image: The image with the label added.
     """
     image_width, image_height = image.size
-    radius      = height/3 # radio de la esquina del rectangulo
-    space_width = 10       # el espacio entre ambas palabras
-    margin      = 10       # el margen minimo entre el borde y el texto
+    space_width = 10 # space between the two words
 
     draw = ImageDraw.Draw(image)
 
-    # calcular el espacio que ocuparan las palabras
+    # calculate the space occupied by the two words
     word1_box = Box.container_for_text(word1, font1)
     word2_box = Box.container_for_text(word2, font2)
     total_width  = word1_box.width + word2_box.width + space_width
     total_height = max(word1_box.height, word2_box.height)
     total_box    = Box(0,0, total_width, total_height)
 
+    # calculate the size of the rectangle needed to contain the two words
+    width       = 400
+    height      = 60
+    radius      = height/3 # radius of the rectangle's corner
+    margin      = 10       # minimum margin between the border and the text
     minimum_width = margin + total_width + margin
     if width < minimum_width:
         width = minimum_width
 
-    # dibujar el rectangulo blanco
+    # draw the white rectangle
     whitebox1 = Box(0,0,width,height).moved_to( (image_width, image_height), anchor='rb' )
     whitebox2 = whitebox1.moved_by(-radius,radius).with_size( radius, whitebox1.height-radius )
     circlebox = whitebox1.moved_by(-radius,0).with_size( radius*2, radius*2 )
@@ -193,57 +252,92 @@ def add_label(image, width, height, word1, color1, font1, word2, color2, font2):
     draw.rectangle(whitebox2, fill="white")
     draw.ellipse(  circlebox, fill="white")
 
-
-    # centrar ambas palabras dentro del whitebox
+    # center both words within the whitebox
     total_box = total_box.centered_in( whitebox1.moved_by(-radius/2,0) )
 
-    # acomodar la palabra 1 a la izquierda de la total_box
-    # y la palabra 2 a la derecha de la total_box
+    # position word1 to the left of `total_box` and word2 to the right
     word1_box = word1_box.moved_to( total_box.left, total_box.top, anchor='lt')
     word2_box = word2_box.moved_to( total_box.right, total_box.top, anchor='rt')
 
-    # alinear la palabra 1 con la palabra 2
-    # ya que ambos fonts tienen distintos tama~nios
+    # align word1 with word2 since they have different font sizes
     word1_box = word1_box.moved_by(0, height_diference(font2, font1))
 
-    # escribir y retornar
+    # write the words and return the image
     draw.text(word1_box, word1, fill=color1, font=font1, anchor='la')
     draw.text(word2_box, word2, fill=color2, font=font2, anchor='la')
     return image
 
 
-def add_workflow_label(filenames, font_size, prefix='labeled'):
-    """
-    Process images by adding labels and saving them with a new prefix.
-    # filenames = una lista con los nombres de archivo de las imagenes a procesar
-    # font_size = el tamanio aproximado del texto a escribir
-    # prefix = el prefijo que sera agregado a cada nombre de archivo al salvar la imagen
+def add_label_to_image(image, font_size):
+    """Adds a label with the workflow name to the image
+
+    Args:
+        image (PIL.Image): The image to add the labels to.
+        font_size  (int) : The approximate font size for the label.
+
+    Returns:
+        PIL.Image: The image with the labels added.
     """
 
-    # crea los 2 fonts que seran utilizados para etiquetar las imagenes
-    font1 = load_font("RobotoSlab-Bold.ttf" , font_size)
-    font2 = load_font("RobotoSlab-Black.ttf", font_size*1.1)
+     # calculate the scale for drawing the labels
+    scale = get_abominable_scale(image)
+    print("## scale:", scale)
 
+    # load the fonts for each word
+    font1 = load_font("RobotoSlab-Bold.ttf" , font_size * scale)
+    font2 = load_font("RobotoSlab-Black.ttf", font_size * scale * 1.1)
+
+    # define the words to be used (hardcoded for now)
+    word1 = "abominable"
+    word2 = "DARKFAN80"
+
+    # add a label with the two words to the image
+    labeled_image = add_two_words(image,
+                                  word1, "black", font1,
+                                  word2, "red"  , font2 )
+    return labeled_image
+
+
+def add_label(filenames, font_size, prefix):
+    """Processes images by adding labels and saving them with a new prefix.
+
+    Args:
+        filenames (str or list): A filename or a list of filenames of the images to process.
+        font_size         (int): The approximate font size for the labels.
+        prefix            (str): The prefix to be added to each filename when saving the labeled image.
+    """
     if not isinstance(filenames,list):
         filenames = [filenames]
 
     for filename in filenames:
         #try:
-            with Image.open(filename) as image:
-                labeled_image = add_label(image,
-                                          400, 60,
-                                          "abominable", "black", font1,
-                                          "DARKFAN80"     , "red"  , font2,
-                                          )
 
-                # generate new file name
-                base_name = os.path.basename(filename)
+            with Image.open(filename) as image:
+
+                # attempt to extract the workflow from the PNG file metadata
+                prompt   = image.info.get('prompt')
+                workflow = image.info.get('workflow')
+                if not workflow:
+                    warning(f"The image {filename} does not seem to contain any workflow.")
+                    continue
+
+                # add label
+                labeled_image = add_label_to_image(image, font_size)
+
+                # generate a new filename
+                base_name        = os.path.basename(filename)
                 name_without_ext = os.path.splitext(base_name)[0]
                 new_file_name = f"{prefix}_{name_without_ext}.png"
 
-                # save the new image
-                labeled_image.save(new_file_name, "PNG")
+                # save the new image with the workflow in metadata
+                metadata = PngInfo()
+                if prompt is not None:
+                    metadata.add_text("prompt", prompt)
+                if workflow is not None:
+                    metadata.add_text("workflow", workflow)
+                labeled_image.save(new_file_name, format="PNG", pnginfo=metadata, compress_level=9)
                 print(f"Labeled: {new_file_name}")
+
         #except Exception as e:
         #    print(f"Error processing {filename}: {str(e)}")
 
@@ -261,7 +355,8 @@ def main():
     parser.add_argument("--font-size", type=int, default=36, help="Font size for the label")
 
     args = parser.parse_args()
-    add_workflow_label(args.images, font_size=args.font_size, prefix=args.prefix)
+    add_label(args.images, font_size=args.font_size, prefix=args.prefix)
+
 
 if __name__ == "__main__":
     main()
