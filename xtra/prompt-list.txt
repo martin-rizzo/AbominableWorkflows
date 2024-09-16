@@ -32,7 +32,7 @@ Prompt:
 A cat with eyeglasses having an argument with a goose with a straw hat in the middle of a swamp
 
 Prompt:
-A tranquil mountain landscape at sunset, with peaks silhouetted against a sky painted in warm, soft hues of orange, pink, and violet. A serene lake reflects the colors of the sky, bordered by trees scattered along its shore. Golden sunlight filters through the branches, casting elongated shadows on the ground. In the distance, a small cabin sits beside a winding stream, surrounded by lush green meadows dotted with wildflowers. Bokeh
+A tranquil mountain landscape at sunset, with peaks silhouetted against a sky painted in warm, soft hues of orange, pink, and violet. A serene lake reflects the colors of the sky, bordered by trees scattered along its shore. Golden sunlight filters through the branches, casting elongated shadows on the ground. In the distance, a small cabin sits beside a winding stream, surrounded by lush green meadows dotted with wildflowers
 
 Prompt:
 cat farmer working the land, potato farm, humanoid, human sized cat, job attire
@@ -65,7 +65,7 @@ Prompt:
 An old computer with green phosphor monitor. On the screen you see a cute bear drawn with asciiart
 
 Prompt:
-An empty arcade room with no one, filled with old arcade machines covered in dust and wires, surrounded by junk, casting a dark and creepy atmosphere. Bokeh
+An empty arcade room with no one, filled with old arcade machines covered in dust and wires, surrounded by junk, casting a dark and creepy atmosphere
 
 Prompt:
 A robot woman sitting drinking coffee in Paris. Blue cup. Through the window you can see the Eiffel Tower
