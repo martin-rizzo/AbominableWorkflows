@@ -33,6 +33,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 """
 import os
 import sys
+import json
 import argparse
 from PIL import Image, ImageDraw, ImageFont
 from PIL.PngImagePlugin import PngInfo
@@ -43,6 +44,12 @@ GREEN  = '\033[92m'
 YELLOW = '\033[93m'
 CYAN   = '\033[96m'
 DEFAULT_COLOR = '\033[0m'
+
+# The default height for an abominable image.
+DEFAULT_ABOMINABLE_HEIGHT = 1536
+
+# This flag controls whether a warning message is shown when a font cannot be loaded.
+SHOW_FONT_WARNING = True
 
 
 #----------------------------- ERROR MESSAGES ------------------------------#
@@ -82,27 +89,94 @@ def fatal_error(message: str, *info_messages: str) -> None:
 
 #--------------------------------- HELPERS ---------------------------------#
 
-def height_diference(font1, font2):
+def ascent_diference(font1: ImageFont, font2: ImageFont) -> int:
+    """Calculates the difference in ascent between two fonts.
+    """
     ascent1, _ = font1.getmetrics()
     ascent2, _ = font2.getmetrics()
     return ascent1 - ascent2
 
-def load_font(font_name, font_size):
+
+def load_font(font_name: str, font_size: int) -> ImageFont:
+    """Loads a font from a file.
+
+    This function attempts to load a font from the specified file.
+    If the font cannot be loaded, it uses the default font.
+
+    Args:
+        font_name (str): The path to the font file.
+        font_size (int): The desired font size.
+    Returns:
+        PIL.ImageFont: The loaded font or the default font if loading failed.
+    """
+    global SHOW_FONT_WARNING
     try:
         font = ImageFont.truetype(font_name, font_size)
     except Exception:
         font = None
     if not font:
-        print(f"Warning: Could not load font from {font_name}. Using default font.")
+        if SHOW_FONT_WARNING:
+            SHOW_FONT_WARNING = False
+            warning(f"Could not load font from {font_name}. Using default font.")
         font = ImageFont.load_default()
     return font
 
-def get_abominable_scale(image):
-    ABOMINABLE_HEIGHT = 1536
+
+def get_abominable_scale(image: Image) -> float:
+    """Calculates the scale factor for an abominable image.
+    Args:
+        image (PIL.Image): The image to be scaled.
+    Returns:
+        float: The scale factor for the abominable image.
+    """
     image_width, image_height = image.size
     if image_width>image_height:
         image_width, image_height = image_height, image_width
-    return image_height/ABOMINABLE_HEIGHT
+    return image_height/DEFAULT_ABOMINABLE_HEIGHT
+
+
+def filter_words(words: list) -> list:
+    """Removes words from a list that do not start with an alphanumeric character.
+    Args:
+        word_list: A list of strings representing words.
+    Returns:
+        A new list containing only the words that start with an alphanumeric character.
+    """
+    filtered_words = []
+    for word in words:
+        if word and word[0].isalnum():
+            filtered_words.append(word)
+    return filtered_words
+
+
+def get_workflow_name(workflow_json: str) -> str:
+    """Extracts the workflow name from a JSON
+    Args:
+        workflow_json: A JSON string containing workflow data.
+    Returns:
+        The title of the maint group in the workflow.
+    """
+    try:
+        name          = 'abominable workflow'
+        name_distance = 100000
+
+        workflow = json.loads(workflow_json)
+        groups = workflow.get('groups', [])
+        for group in groups:
+            title    = group.get('title')
+            bounding = group.get('bounding')
+            if not isinstance(title, str) or not isinstance(bounding, list):
+                continue
+            if len(bounding)<2:
+                continue
+            if bounding[0]+bounding[1] < name_distance:
+                name_distance = bounding[0]+bounding[1]
+                name          = title
+        name_words = name.split()
+        return ' '.join( filter_words(name_words) )
+
+    except Exception:
+        return 'invalid workflow'
 
 
 #-------------------------------- BOX CLASS --------------------------------#
@@ -205,7 +279,7 @@ class Box(tuple):
 
 #---------------------------- DRAWING THE LABEL ----------------------------#
 
-def add_two_words(image, word1, color1, font1, word2, color2, font2):
+def draw_two_words(image, word1, color1, font1, word2, color2, font2):
     """Draws a rectangle containing two words on an image.
 
     This function takes an image, two words, and draws a rectangle with
@@ -260,7 +334,7 @@ def add_two_words(image, word1, color1, font1, word2, color2, font2):
     word2_box = word2_box.moved_to( total_box.right, total_box.top, anchor='rt')
 
     # align word1 with word2 since they have different font sizes
-    word1_box = word1_box.moved_by(0, height_diference(font2, font1))
+    word1_box = word1_box.moved_by(0, ascent_diference(font2, font1))
 
     # write the words and return the image
     draw.text(word1_box, word1, fill=color1, font=font1, anchor='la')
@@ -268,11 +342,13 @@ def add_two_words(image, word1, color1, font1, word2, color2, font2):
     return image
 
 
-def add_label_to_image(image, font_size):
-    """Adds a label with the workflow name to the image
+def add_label_to_image(image: Image, text: str, font_size: int) -> Image:
+    """Adds a label with the text to the image
 
     Args:
         image (PIL.Image): The image to add the labels to.
+        text       (str) : The text to be displayed in the label,
+                           (this text will be split into two words).
         font_size  (int) : The approximate font size for the label.
 
     Returns:
@@ -281,36 +357,55 @@ def add_label_to_image(image, font_size):
 
      # calculate the scale for drawing the labels
     scale = get_abominable_scale(image)
-    print("## scale:", scale)
 
     # load the fonts for each word
     font1 = load_font("RobotoSlab-Bold.ttf" , font_size * scale)
     font2 = load_font("RobotoSlab-Black.ttf", font_size * scale * 1.1)
 
-    # define the words to be used (hardcoded for now)
-    word1 = "abominable"
-    word2 = "DARKFAN80"
+    # extract the first two words from the provided text
+    if ' ' in text:
+        words = text.split(' ', 2)
+    elif '_' in text:
+        words = text.split('_', 2)
+    elif '-' in text:
+        words = text.split('-', 2)
+    else:
+        words = text
+    word1 = words[0] if len(words)>=1 else '???'
+    word2 = words[1] if len(words)>=2 else '???'
 
     # add a label with the two words to the image
-    labeled_image = add_two_words(image,
-                                  word1, "black", font1,
-                                  word2, "red"  , font2 )
+    labeled_image = draw_two_words(image,
+                                   word1, "black", font1,
+                                   word2, "red"  , font2 )
     return labeled_image
 
 
-def add_label(filenames, font_size, prefix):
+def add_label(filenames: list, font_size=None, forced_text=None, file_prefix=None):
     """Processes images by adding labels and saving them with a new prefix.
 
     Args:
         filenames (str or list): A filename or a list of filenames of the images to process.
-        font_size         (int): The approximate font size for the labels.
-        prefix            (str): The prefix to be added to each filename when saving the labeled image.
+        font_size         (int): The approximate font size for the labels, (defaults to 36)
+        forced_text       (str): If provided, this text will be used instead of the workflow
+                                 name extractedfrom the image's metadata.
+        file_prefix       (str): The prefix to be added to each filename when saving the labeled image.
     """
     if not isinstance(filenames,list):
         filenames = [filenames]
+    font_size   = 36        if font_size   is None else font_size
+    file_prefix = 'labeled' if file_prefix is None else file_prefix
+
+    # ensure `file_prefix` always ends with an underscore
+    if not file_prefix.endswith('_'):
+        file_prefix += '_'
 
     for filename in filenames:
         #try:
+
+            # skip images that were previously labeled
+            if filename.startswith(file_prefix):
+                continue
 
             with Image.open(filename) as image:
 
@@ -321,13 +416,14 @@ def add_label(filenames, font_size, prefix):
                     warning(f"The image {filename} does not seem to contain any workflow.")
                     continue
 
-                # add label
-                labeled_image = add_label_to_image(image, font_size)
+                # add label with workflow name
+                text = get_workflow_name(workflow) if not forced_text else forced_text
+                labeled_image = add_label_to_image(image, text, font_size)
 
                 # generate a new filename
                 base_name        = os.path.basename(filename)
                 name_without_ext = os.path.splitext(base_name)[0]
-                new_file_name = f"{prefix}_{name_without_ext}.png"
+                new_file_name = f"{file_prefix}{name_without_ext}.png"
 
                 # save the new image with the workflow in metadata
                 metadata = PngInfo()
@@ -349,13 +445,13 @@ def add_label(filenames, font_size, prefix):
 def main():
     parser = argparse.ArgumentParser(description="Draws a label with the workflow name on each image.")
     parser.add_argument("images", nargs="+", help="Image file(s) to process")
-    parser.add_argument("--text", default="abominable workflow", help="Text to add to the image")
-    parser.add_argument("--prefix", default="labeled", help="Prefix for processed image files")
+    parser.add_argument("--text", help="Text to add to the image")
+    parser.add_argument("--prefix", help="Prefix for processed image files")
     parser.add_argument("--font", help="Path to font file")
-    parser.add_argument("--font-size", type=int, default=36, help="Font size for the label")
+    parser.add_argument("--font-size", type=int, help="Font size for the label")
 
     args = parser.parse_args()
-    add_label(args.images, font_size=args.font_size, prefix=args.prefix)
+    add_label(args.images, font_size=args.font_size, forced_text=args.text, file_prefix=args.prefix)
 
 
 if __name__ == "__main__":
