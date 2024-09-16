@@ -10,24 +10,51 @@
 @NODE.README : README.TXT
 
 
+#./abominable_PHOTO_OLD_.json
+## old version to delete
+#NODE.MAIN          : '[v3] old version PHOTO'
+#NODE.TIPS          : @tips.txt
+#NODE.README        : @read.txt
+#Seed               : 1
+#Guidance           : 3.2
+#Refiner intensity  : 22
+#Portrait Width     : 1024
+#Portrait Height    : 1536
+#PixArt Steps       : 11
+#PixArt Sampler     : lms
+#PixArt HQ Sampler  : heun
+#PixArt Scheduler   : beta
+#PixArt Scheduler   : 0.90
+#Prompt Prefix      : 'An iPhone photo. '
+#Prompt Suffix      : '. (144p photo:1.1) with JPEG artifacts.'
+#Negative Prefix    : 'macrophoto'
+#Negative Suffix    : ''
+#SD15 Guidance      : 2.0
+#SD15 Start Step    : 12
+#SD15 Sampler       : dpmpp_2m
+#SD15 Scheduler     : normal
+#SD15 Scheduler     : 0.90
+#SD15 Prefix        : ''
+#SD15 Negative      : '(worst quality, low quality:1.8)'
+
 ./abominable_PHOTO_.json
 # Realistic images with photographic details.
 NODE.MAIN          : '[v3] abominable PHOTO'
 NODE.TIPS          : @tips.txt
 NODE.README        : @read.txt
 Seed               : 1
-Guidance           : 3.2
+Guidance           : 3.5
 Refiner intensity  : 22
 Portrait Width     : 1024
 Portrait Height    : 1536
-PixArt Steps       : 11
-PixArt Sampler     : lms
-PixArt HQ Sampler  : heun
+PixArt Steps       : 14
+PixArt Sampler     : dpmpp_2m_sde
+PixArt HQ Sampler  : dpmpp_sde
 PixArt Scheduler   : beta
 PixArt Scheduler   : 0.90
 Prompt Prefix      : 'An iPhone photo. '
 Prompt Suffix      : '. (144p photo:1.1) with JPEG artifacts.'
-Negative Prefix    : 'macrophoto'
+Negative Prefix    : 'macrophoto, bokeh, out of focus'
 Negative Suffix    : ''
 SD15 Guidance      : 2.0
 SD15 Start Step    : 12
