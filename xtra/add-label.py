@@ -45,12 +45,23 @@ YELLOW = '\033[93m'
 CYAN   = '\033[96m'
 DEFAULT_COLOR = '\033[0m'
 
-# The default height for an abominable image.
+# Default height value used for an abominable image
 DEFAULT_ABOMINABLE_HEIGHT = 1536
 
-# This flag controls whether a warning message is shown when a font cannot be loaded.
+# Flag to display a warning if a font fails to load
 SHOW_FONT_WARNING = True
 
+# Hex color codes mapped to specific words for visual presentation
+COLORS_BY_WORD = {
+    "PHOTO"     : "#dd2525", # Red
+    "PIXEL"     : "#008800", # Green
+    "MILO"      : "#9b00ff", # Purple
+    "INK"       : "#0021d1", # Blue
+    "1GIRL"     : "#f2258a", # Pink
+    "DARKFAN80" : "#4c516c", # Gray
+    "WORKFLOW"  : "#dd2525", # - Red
+    "WORKFLOWS" : "#dd2525", # - Red
+}
 
 #----------------------------- ERROR MESSAGES ------------------------------#
 
@@ -88,6 +99,9 @@ def fatal_error(message: str, *info_messages: str) -> None:
 
 
 #--------------------------------- HELPERS ---------------------------------#
+
+def get_word_color(word: str, default_color: str=None) -> str:
+    return COLORS_BY_WORD.get(word.upper(), default_color)
 
 def ascent_diference(font1: ImageFont, font2: ImageFont) -> int:
     """Calculates the difference in ascent between two fonts.
@@ -307,7 +321,7 @@ def draw_two_word_label(image  : Image,
     """
     image_width, image_height = image.size
     unit = Box.bounding_for_text('m', font1).width
-    space_width = 0.3 * unit # space between the two words
+    space_width = 0.2 * unit # space between the two words
     margin      = 1   * unit # minimum margin between the border and the text
 
     draw = ImageDraw.Draw(image)
@@ -380,15 +394,17 @@ def add_label_to_image(image: Image, text: str, font_size: int) -> Image:
         words = text.split('-', 2)
     else:
         words = text
-    word1 = words[0] if len(words)>=1 else '???'
-    word2 = words[1] if len(words)>=2 else '???'
+    word1  = words[0] if len(words)>=1 else '???'
+    word2  = words[1] if len(words)>=2 else '???'
+    color1 = get_word_color(word1, "black")
+    color2 = get_word_color(word2, "red"  )
 
     # add a label with the two words to the image
     labeled_image = draw_two_word_label(image,
                                         label_width,
                                         label_height,
-                                        word1, "black", font1,
-                                        word2, "red"  , font2 )
+                                        word1, color1, font1,
+                                        word2, color2, font2 )
     return labeled_image
 
 
