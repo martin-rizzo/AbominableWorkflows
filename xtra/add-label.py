@@ -1,5 +1,5 @@
 """
-  File    : put-label.py
+  File    : add-label.py
   Brief   : Draws a label with the workflow name on each image.
   Author  : Martin Rizzo | <martinrizzo@gmail.com>
   Date    : Sep 15, 2024
