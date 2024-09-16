@@ -187,8 +187,8 @@ class Box(tuple):
         return super(Box, cls).__new__(cls, (left, top, right, bottom))
 
     @classmethod
-    def bounding_for_text(cls, text, font):
-        return cls(0,0,0,0)
+    def bounding_for_text(cls, text: str, font: ImageFont):
+        return cls( font.getbbox(text) )
 
     @classmethod
     def container_for_text(cls, text: str, font):
@@ -279,14 +279,22 @@ class Box(tuple):
 
 #---------------------------- DRAWING THE LABEL ----------------------------#
 
-def draw_two_words(image, word1, color1, font1, word2, color2, font2):
+def draw_two_word_label(image  : Image,
+                        width  : int,
+                        height : int,
+                        word1: str, color1: str, font1: ImageFont,
+                        word2: str, color2: str, font2: ImageFont
+                        ) -> Image:
     """Draws a rectangle containing two words on an image.
 
     This function takes an image, two words, and draws a rectangle with
     a white background containing the two words centered within it.
+    The rectangle is drawn in the bottom right corner of the image.
 
     Args:
         image    (PIL.Image) : The original image to be labeled.
+        width        (int)   : The width of the label rectangle.
+        height       (int)   : The height of the label rectangle.
         word1        (str)   : The first word of the label.
         color1       (str)   : The color of the first word.
         font1 (PIL.ImageFont): The font used for the first word.
@@ -298,7 +306,9 @@ def draw_two_words(image, word1, color1, font1, word2, color2, font2):
         PIL.Image: The image with the label added.
     """
     image_width, image_height = image.size
-    space_width = 10 # space between the two words
+    unit = Box.bounding_for_text('m', font1).width
+    space_width = 0.3 * unit # space between the two words
+    margin      = 1   * unit # minimum margin between the border and the text
 
     draw = ImageDraw.Draw(image)
 
@@ -309,16 +319,13 @@ def draw_two_words(image, word1, color1, font1, word2, color2, font2):
     total_height = max(word1_box.height, word2_box.height)
     total_box    = Box(0,0, total_width, total_height)
 
-    # calculate the size of the rectangle needed to contain the two words
-    width       = 400
-    height      = 60
-    radius      = height/3 # radius of the rectangle's corner
-    margin      = 10       # minimum margin between the border and the text
+    # adjust the size of the rectangle to contain the two words
     minimum_width = margin + total_width + margin
     if width < minimum_width:
         width = minimum_width
 
     # draw the white rectangle
+    radius    = height/3 # radius of the rectangle's corner
     whitebox1 = Box(0,0,width,height).moved_to( (image_width, image_height), anchor='rb' )
     whitebox2 = whitebox1.moved_by(-radius,radius).with_size( radius, whitebox1.height-radius )
     circlebox = whitebox1.moved_by(-radius,0).with_size( radius*2, radius*2 )
@@ -357,6 +364,8 @@ def add_label_to_image(image: Image, text: str, font_size: int) -> Image:
 
      # calculate the scale for drawing the labels
     scale = get_abominable_scale(image)
+    label_width  = int( 480 * scale )
+    label_height = int(  64 * scale )
 
     # load the fonts for each word
     font1 = load_font("RobotoSlab-Bold.ttf" , font_size * scale)
@@ -375,13 +384,15 @@ def add_label_to_image(image: Image, text: str, font_size: int) -> Image:
     word2 = words[1] if len(words)>=2 else '???'
 
     # add a label with the two words to the image
-    labeled_image = draw_two_words(image,
-                                   word1, "black", font1,
-                                   word2, "red"  , font2 )
+    labeled_image = draw_two_word_label(image,
+                                        label_width,
+                                        label_height,
+                                        word1, "black", font1,
+                                        word2, "red"  , font2 )
     return labeled_image
 
 
-def add_label(filenames: list, font_size=None, forced_text=None, file_prefix=None):
+def add_label(filenames: list, font_size: int=None, forced_text: str=None, file_prefix: str=None):
     """Processes images by adding labels and saving them with a new prefix.
 
     Args:
