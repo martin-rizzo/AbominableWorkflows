@@ -30,15 +30,15 @@ To use the workflows, you need to have the following models installed in ComfyUI
 Please place them in the corresponding directories as specified below:
 
  * __(your_comfyui_dir) / models / checkpoints /__
-   * [PixArt-Sigma-1024.safetensors](
+   * [pixart_sigma-FP16.safetensors](
      https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/checkpoints)
-   * [Photon-Refiner.safetensors](
+   * [photon_refiner-FP16.safetensors](
      https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/checkpoints)
  * __(your_comfyui_dir) / models / clip /__
-   * [T5-Encoder-Q5_K_M.gguf](
+   * [t5_xxl_encoder-FP8.safetensors](
      https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/clip)
  * __(your_comfyui_dir) / models / vae /__
-   * [PixArt-Sigma-VAE.safetensors](
+   * [pixart_vae.safetensors](
      https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/vae)
 
 
@@ -50,8 +50,6 @@ Please place them in the corresponding directories as specified below:
 Additionally, the workflows require the following custom nodes to be installed:
  * [__ComfyUI_ExtraModels__](
    https://github.com/city96/ComfyUI_ExtraModels): provides support for PixArt-Sigma.
- * [__ComfyUI-GGUF__](
-   https://github.com/city96/ComfyUI-GGUF): provides support for the GGUF format (quantized T5).
  * [__ComfyUI-Crystools__](
    https://github.com/crystian/ComfyUI-Crystools): used for some simple string operations.
 
@@ -71,7 +69,6 @@ To manually install the nodes, open a terminal and run the following commands:
 ```
 cd <your_comfyui_dir>
 git clone https://github.com/city96/ComfyUI_ExtraModels ./custom_nodes/ComfyUI_ExtraModels
-git clone https://github.com/city96/ComfyUI-GGUF        ./custom_nodes/ComfyUI-GGUF
 git clone https://github.com/crystian/ComfyUI-Crystools ./custom_nodes/ComfyUI-Crystools
 ```
 
@@ -86,7 +83,6 @@ source .venv/bin/activate
 Then, install the dependencies required by the nodes:
 ```
 python -m pip install -r ./custom_nodes/ComfyUI_ExtraModels/requirements.txt
-python -m pip install -r ./custom_nodes/ComfyUI-GGUF/requirements.txt
 python -m pip install -r ./custom_nodes/ComfyUI-Crystools/requirements.txt
 ```
 
@@ -99,14 +95,12 @@ file).
 From that directory, run the following commands to install the required nodes:
 ```
 git clone https://github.com/city96/ComfyUI_ExtraModels ComfyUI/custom_nodes/ComfyUI_ExtraModels
-git clone https://github.com/city96/ComfyUI-GGUF        ComfyUI/custom_nodes/ComfyUI-GGUF
 git clone https://github.com/crystian/ComfyUI-Crystools ComfyUI/custom_nodes/ComfyUI-Crystools
 ```
 
 Then, install the dependencies required by these nodes:
 ```
 .\python_embeded\python.exe -s -m pip install -r .\ComfyUI\custom_nodes\ComfyUI_ExtraModels\requirements.txt
-.\python_embeded\python.exe -s -m pip install -r .\ComfyUI\custom_nodes\ComfyUI-GGUF\requirements.txt
 .\python_embeded\python.exe -s -m pip install -r .\ComfyUI\custom_nodes\ComfyUI-Crystools\requirements.txt
 ```
 
