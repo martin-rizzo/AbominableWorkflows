@@ -1,6 +1,6 @@
 {
-  "last_node_id": 189,
-  "last_link_id": 313,
+  "last_node_id": 190,
+  "last_link_id": 315,
   "nodes": [
     {
       "id": 103,
@@ -226,7 +226,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 37,
+      "order": 40,
       "mode": 0,
       "inputs": [
         {
@@ -259,7 +259,7 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "Photo of a huge wave breaking, with a rubber duck wearing sunglasses riding the wave at sunset. The wave is large and dynamic, forming a perfect tube around the duck. The sunset in the background casts a warm, golden glow over the scene, with dramatic clouds and palm trees silhouetted against the sky. The water is clear with a vibrant blue-green tint, capturing the motion and energy of the ocean."
+        "Photo of a cute corgi, smiling with great joy, soaring high over the river bank in Yosemite National Park, donning a Superman cape."
       ]
     },
     {
@@ -647,7 +647,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 48,
+      "order": 49,
       "mode": 0,
       "inputs": [
         {
@@ -763,7 +763,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 54,
+      "order": 55,
       "mode": 0,
       "inputs": [
         {
@@ -776,41 +776,7 @@
       "title": "🪛 Abominable Negative",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
-    },
-    {
-      "id": 66,
-      "type": "Note",
-      "pos": {
-        "0": -520,
-        "1": 40
-      },
-      "size": {
-        "0": 530,
-        "1": 1410
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "README.TXT",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "Abominable Workflows v3\n=======================\nhttps://civitai.com/models/420163/abominable-workflows\n\nREQUIRED FILES\n--------------\n To use this workflow, you need to install the following models in ComfyUI.\n Place them in the specified directories:\n\n <your_comfyui_dir> / models / checkpoints /\n   > PixArt-Sigma-1024.safetensors\n   > Photon-Refiner.safetensors\n\n <your_comfyui_dir> / models / clip /\n   > T5-Encoder-Q5_K_M.gguf\n\n <your_comfyui_dir> / models / vae /\n   > PixArt-Sigma-VAE.safetensors\n\n All four files can be downloaded from:\n   https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main\n\nREQUIRED NODES\n--------------\n This workflow also requires the following custom nodes:\n\n   > ComfyUI_ExtraModels\n     https://github.com/city96/ComfyUI_ExtraModels\n\n   > ComfyUI-GGUF\n     https://github.com/city96/ComfyUI-GGUF\n\n   > ComfyUI-Crystools\n     https://github.com/crystian/ComfyUI-Crystools\n\n For detailed installation instructions for these nodes, please refer to the main page of Abominable Workflows.\n\nOUTPUT IMAGES\n-------------\n Generated images will be automatically saved in:\n    <your_comfyui_dir> / output / abominable /\n\nIMAGE SIZE\n----------\n This workflow uses PixArt-1024 beyond its recommended size. For optimal quality, consider using the values provided by PixArt's authors:\n\n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768\n\nABOMINABLE WORKFLOWS IN V3\n--------------------------\n  > abominable_1GIRL_.json\n  > abominable_DARKFAN80_.json\n  > abominable_GHIBLI_.json\n  > abominable_INK_.json\n  > abominable_MILO_.json\n  > abominable_PHOTO_.json\n  > abominable_POLAROID_.json\n  > classic_abominable_spaghetti.json\n"
-      ],
-      "color": "#222",
-      "bgcolor": "#000",
-      "shape": 1
+      }
     },
     {
       "id": 61,
@@ -873,6 +839,7 @@
       "properties": {
         "Node name for S&R": "PreviewImage"
       },
+      "widgets_values": [],
       "color": "#323",
       "bgcolor": "#535",
       "shape": 1
@@ -1208,7 +1175,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 61,
+      "order": 60,
       "mode": 0,
       "inputs": [
         {
@@ -1251,7 +1218,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1294,7 +1261,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1374,7 +1341,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1415,7 +1382,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 8,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1458,7 +1425,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 9,
+      "order": 8,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1544,7 +1511,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 10,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1580,7 +1547,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 60,
+      "order": 59,
       "mode": 0,
       "inputs": [
         {
@@ -1593,12 +1560,7 @@
       "title": "🪛 Abominable Refiner",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 92,
@@ -1615,7 +1577,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 36,
+      "order": 39,
       "mode": 0,
       "inputs": [
         {
@@ -1643,7 +1605,7 @@
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "Photo of a huge wave breaking, with a rubber duck wearing sunglasses riding the wave at sunset. The wave is large and dynamic, forming a perfect tube around the duck. The sunset in the background casts a warm, golden glow over the scene, with dramatic clouds and palm trees silhouetted against the sky. The water is clear with a vibrant blue-green tint, capturing the motion and energy of the ocean."
+        "Photo of a cute corgi, smiling with great joy, soaring high over the river bank in Yosemite National Park, donning a Superman cape."
       ]
     },
     {
@@ -1661,7 +1623,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 39,
+      "order": 42,
       "mode": 0,
       "inputs": [
         {
@@ -1689,7 +1651,7 @@
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "small, toy, painting"
+        "small, toy, macrophoto"
       ]
     },
     {
@@ -1707,7 +1669,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 49,
+      "order": 48,
       "mode": 0,
       "inputs": [
         {
@@ -1761,7 +1723,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 40,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
@@ -1808,7 +1770,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 38,
+      "order": 41,
       "mode": 0,
       "inputs": [
         {
@@ -1836,7 +1798,7 @@
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "Photo of a huge wave breaking, with a rubber duck wearing sunglasses riding the wave at sunset. The wave is large and dynamic, forming a perfect tube around the duck. The sunset in the background casts a warm, golden glow over the scene, with dramatic clouds and palm trees silhouetted against the sky. The water is clear with a vibrant blue-green tint, capturing the motion and energy of the ocean."
+        "Photo of a cute corgi, smiling with great joy, soaring high over the river bank in Yosemite National Park, donning a Superman cape."
       ]
     },
     {
@@ -1853,7 +1815,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 56,
+      "order": 54,
       "mode": 0,
       "inputs": [
         {
@@ -1982,12 +1944,7 @@
       "title": "🪛 Abominable Prompt",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 115,
@@ -2003,7 +1960,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 62,
+      "order": 63,
       "mode": 0,
       "inputs": [
         {
@@ -2094,7 +2051,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 55,
+      "order": 56,
       "mode": 0,
       "inputs": [
         {
@@ -2135,7 +2092,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 11,
+      "order": 10,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2172,47 +2129,7 @@
         "Node name for S&R": "CheckpointLoaderSimple"
       },
       "widgets_values": [
-        "Photon-Refiner.safetensors"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
-      "id": 78,
-      "type": "CLIPLoaderGGUF",
-      "pos": {
-        "0": 50,
-        "1": 1000
-      },
-      "size": {
-        "0": 440,
-        "1": 90
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 12,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            115,
-            116
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "T5 Encoder Loader (GGUF)",
-      "properties": {
-        "Node name for S&R": "CLIPLoaderGGUF"
-      },
-      "widgets_values": [
-        "T5-Encoder-Q5_K_M.gguf",
-        "stable_diffusion"
+        "photon_refiner-FP16.safetensors"
       ],
       "color": "#223",
       "bgcolor": "#335"
@@ -2231,7 +2148,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 13,
+      "order": 11,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2250,7 +2167,7 @@
         "Node name for S&R": "VAELoader"
       },
       "widgets_values": [
-        "PixArt-Sigma-VAE.safetensors"
+        "pixart_vae.safetensors"
       ],
       "color": "#223",
       "bgcolor": "#335"
@@ -2269,7 +2186,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 14,
+      "order": 12,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2289,7 +2206,7 @@
         "Node name for S&R": "PixArtCheckpointLoader"
       },
       "widgets_values": [
-        "PixArt-Sigma-1024.safetensors",
+        "pixart_sigma-FP16.safetensors",
         "PixArtMS_Sigma_XL_2"
       ],
       "color": "#223",
@@ -2338,7 +2255,8 @@
       "title": "SD15 VAE Encoder",
       "properties": {
         "Node name for S&R": "VAEEncode"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 175,
@@ -2382,7 +2300,8 @@
       "title": "Final SD15 VAE Decoder",
       "properties": {
         "Node name for S&R": "VAEDecode"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 176,
@@ -2427,7 +2346,8 @@
       "title": "PixArt-Σ VAE Decoder",
       "properties": {
         "Node name for S&R": "VAEDecode"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 172,
@@ -2578,7 +2498,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 15,
+      "order": 13,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2615,7 +2535,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 63,
+      "order": 62,
       "mode": 0,
       "inputs": [
         {
@@ -2723,7 +2643,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 16,
+      "order": 14,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2810,7 +2730,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 17,
+      "order": 15,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2846,7 +2766,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 18,
+      "order": 16,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2882,7 +2802,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 19,
+      "order": 17,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2918,7 +2838,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 20,
+      "order": 18,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2954,7 +2874,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 21,
+      "order": 19,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2994,11 +2914,11 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 22,
+      "order": 20,
       "mode": 0,
       "inputs": [],
       "outputs": [],
-      "title": "CLASSIC personal tips (but feel free to experiment)",
+      "title": "CLASSIC personal tips",
       "properties": {
         "text": ""
       },
@@ -3007,90 +2927,6 @@
       ],
       "color": "#222",
       "bgcolor": "#000",
-      "shape": 1
-    },
-    {
-      "id": 95,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 30,
-        "1": 70
-      },
-      "size": {
-        "0": 680,
-        "1": 250
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 23,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            169,
-            190,
-            240
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "title": "Prompt",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        "Photo of a huge wave breaking, with a rubber duck wearing sunglasses riding the wave at sunset. The wave is large and dynamic, forming a perfect tube around the duck. The sunset in the background casts a warm, golden glow over the scene, with dramatic clouds and palm trees silhouetted against the sky. The water is clear with a vibrant blue-green tint, capturing the motion and energy of the ocean."
-      ],
-      "color": "#232",
-      "bgcolor": "#353",
-      "shape": 1
-    },
-    {
-      "id": 97,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 250,
-        "1": 480
-      },
-      "size": {
-        "0": 390,
-        "1": 90
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 24,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            235
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "title": "Negative prompt",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        "small, toy, painting"
-      ],
-      "color": "#322",
-      "bgcolor": "#533",
       "shape": 1
     },
     {
@@ -3107,7 +2943,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 25,
+      "order": 21,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3145,7 +2981,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 26,
+      "order": 22,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3185,7 +3021,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 41,
+      "order": 37,
       "mode": 0,
       "inputs": [
         {
@@ -3230,14 +3066,14 @@
         "0": 610,
         "1": 730
       },
-      "size": [
-        260,
-        130
-      ],
+      "size": {
+        "0": 260,
+        "1": 130
+      },
       "flags": {
         "pinned": true
       },
-      "order": 27,
+      "order": 23,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3280,7 +3116,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 42,
+      "order": 38,
       "mode": 0,
       "inputs": [
         {
@@ -3326,13 +3162,13 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 59,
+      "order": 61,
       "mode": 0,
       "inputs": [
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 116
+          "link": 315
         },
         {
           "name": "text",
@@ -3383,7 +3219,7 @@
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 115
+          "link": 314
         },
         {
           "name": "text",
@@ -3457,6 +3293,158 @@
         "showOutputText": true,
         "horizontal": true
       }
+    },
+    {
+      "id": 190,
+      "type": "CLIPLoader",
+      "pos": {
+        "0": 50,
+        "1": 1000
+      },
+      "size": {
+        "0": 440,
+        "1": 90
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            314,
+            315
+          ],
+          "shape": 3
+        }
+      ],
+      "title": "T5 Encoder Loader",
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5_xxl_encoder-FP8.safetensors",
+        "sd3"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 95,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 30,
+        "1": 70
+      },
+      "size": {
+        "0": 680,
+        "1": 250
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            169,
+            190,
+            240
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "title": "Prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "Photo of a cute corgi, smiling with great joy, soaring high over the river bank in Yosemite National Park, donning a Superman cape."
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 97,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 250,
+        "1": 480
+      },
+      "size": {
+        "0": 390,
+        "1": 90
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            235
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "title": "Negative prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "small, toy, macrophoto"
+      ],
+      "color": "#322",
+      "bgcolor": "#533",
+      "shape": 1
+    },
+    {
+      "id": 66,
+      "type": "Note",
+      "pos": {
+        "0": -520,
+        "1": 40
+      },
+      "size": {
+        "0": 530,
+        "1": 1410
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "README.TXT",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Abominable Workflows v3\n=======================\nhttps://civitai.com/models/420163/abominable-workflows\n\nREQUIRED FILES\n--------------\n To use these workflows, you need to install the following models in ComfyUI.\n Place them in the specified directories:\n\n <your_comfyui_dir> / models / checkpoints /\n   > pixart_sigma-FP16.safetensors\n   > photon_refiner-FP16.safetensors\n\n <your_comfyui_dir> / models / clip /\n   > t5_xxl_encoder-FP8.safetensors\n\n <your_comfyui_dir> / models / vae /\n   > pixart_vae.safetensors\n\n All four files can be downloaded from:\n   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main\n\nREQUIRED NODES\n--------------\n Abominable workflows also requires the following custom nodes:\n\n   > ComfyUI_ExtraModels\n     https://github.com/city96/ComfyUI_ExtraModels\n\n   > ComfyUI-Crystools\n     https://github.com/crystian/ComfyUI-Crystools\n\n For detailed installation instructions for these nodes, please refer to the main page of Abominable Workflows.\n\nOUTPUT IMAGES\n-------------\n Generated images will be automatically saved in:\n    <your_comfyui_dir> / output / abominable /\n\nWORKFLOWS INCLUDED\n------------------\n This pack contains multiple workflows, each designed for a different image style:\n   > abominable_1GIRL_\n   > abominable_DARKFAN80_\n   > abominable_INK_\n   > abominable_MILO_\n   > abominable_PHOTO_\n   > abominable_PIXEL_\n  \nIMAGE SIZE\n----------\n Abominable uses PixArt-1024 beyond its recommended size.\n For optimal quality, consider using the values provided by PixArt's authors:\n\n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000",
+      "shape": 1
     }
   ],
   "links": [
@@ -3475,22 +3463,6 @@
       53,
       0,
       "IMAGE"
-    ],
-    [
-      115,
-      78,
-      0,
-      79,
-      0,
-      "CLIP"
-    ],
-    [
-      116,
-      78,
-      0,
-      80,
-      0,
-      "CLIP"
     ],
     [
       133,
@@ -4147,64 +4119,32 @@
       115,
       3,
       "SAMPLER"
+    ],
+    [
+      314,
+      190,
+      0,
+      79,
+      0,
+      "CLIP"
+    ],
+    [
+      315,
+      190,
+      0,
+      80,
+      0,
+      "CLIP"
     ]
   ],
   "groups": [
     {
-      "title": "SD15 Refiner",
-      "bounding": [
-        1090,
-        930,
-        920,
-        570
-      ],
-      "color": "#444",
-      "font_size": 20,
-      "flags": {}
-    },
-    {
-      "title": "[v3] classic abominable spaghetti",
-      "bounding": [
-        20,
-        0,
-        1270,
-        870
-      ],
-      "color": "#b58b2a",
-      "font_size": 28,
-      "flags": {}
-    },
-    {
-      "title": "Models",
-      "bounding": [
-        40,
-        930,
-        460,
-        570
-      ],
-      "color": "#88A",
-      "font_size": 20,
-      "flags": {}
-    },
-    {
-      "title": "PixArt-Σ Denoising",
-      "bounding": [
-        530,
-        930,
-        530,
-        570
-      ],
-      "color": "#444",
-      "font_size": 20,
-      "flags": {}
-    },
-    {
-      "title": "Size Logic",
+      "title": "Civitai Integration Nodes",
       "bounding": [
         1340,
-        600,
+        180,
         670,
-        300
+        390
       ],
       "color": "#444",
       "font_size": 20,
@@ -4223,12 +4163,60 @@
       "flags": {}
     },
     {
-      "title": "Civitai Integration Nodes",
+      "title": "Size Logic",
       "bounding": [
         1340,
-        180,
+        600,
         670,
-        390
+        300
+      ],
+      "color": "#444",
+      "font_size": 20,
+      "flags": {}
+    },
+    {
+      "title": "PixArt-Σ Denoising",
+      "bounding": [
+        530,
+        930,
+        530,
+        570
+      ],
+      "color": "#444",
+      "font_size": 20,
+      "flags": {}
+    },
+    {
+      "title": "Models",
+      "bounding": [
+        40,
+        930,
+        460,
+        570
+      ],
+      "color": "#88A",
+      "font_size": 20,
+      "flags": {}
+    },
+    {
+      "title": "[v3] classic abominable spaghetti",
+      "bounding": [
+        20,
+        0,
+        1270,
+        870
+      ],
+      "color": "#b58b2a",
+      "font_size": 28,
+      "flags": {}
+    },
+    {
+      "title": "SD15 Refiner",
+      "bounding": [
+        1090,
+        930,
+        920,
+        570
       ],
       "color": "#444",
       "font_size": 20,
