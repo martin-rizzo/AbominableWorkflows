@@ -1,6 +1,6 @@
 {
-  "last_node_id": 189,
-  "last_link_id": 313,
+  "last_node_id": 212,
+  "last_link_id": 338,
   "nodes": [
     {
       "id": 103,
@@ -16,7 +16,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 43,
+      "order": 48,
       "mode": 0,
       "inputs": [
         {
@@ -49,7 +49,7 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Switch Width",
+      "title": "Switch Width",
       "properties": {
         "Node name for S&R": "Switch any [Crystools]"
       },
@@ -71,7 +71,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 29,
+      "order": 37,
       "mode": 0,
       "inputs": [
         {
@@ -114,7 +114,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 44,
+      "order": 49,
       "mode": 0,
       "inputs": [
         {
@@ -147,7 +147,7 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Switch Height",
+      "title": "Switch Height",
       "properties": {
         "Node name for S&R": "Switch any [Crystools]"
       },
@@ -169,7 +169,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 50,
+      "order": 54,
       "mode": 0,
       "inputs": [
         {
@@ -226,7 +226,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 34,
+      "order": 43,
       "mode": 0,
       "inputs": [
         {
@@ -259,7 +259,7 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "Elon Musk meets an xeromorph alien in a shopping mall, jocking, funny faces, very happy"
+        "A female Captain America holding a heavy shield in the street and wearing a tight top"
       ]
     },
     {
@@ -320,14 +320,14 @@
         "0": 1550,
         "1": 250
       },
-      "size": [
-        450,
-        310
-      ],
+      "size": {
+        "0": 450,
+        "1": 310
+      },
       "flags": {
         "pinned": true
       },
-      "order": 58,
+      "order": 61,
       "mode": 0,
       "inputs": [
         {
@@ -399,7 +399,7 @@
         1,
         "randomize",
         16,
-        3,
+        3.5,
         "uni_pc",
         "beta",
         0,
@@ -435,86 +435,12 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Negative suffix",
+      "title": "Negative Suffix",
       "properties": {
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
         ""
-      ]
-    },
-    {
-      "id": 104,
-      "type": "Primitive integer [Crystools]",
-      "pos": {
-        "0": 1350,
-        "1": 830
-      },
-      "size": {
-        "0": 210,
-        "1": 60
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "int",
-          "type": "INT",
-          "links": [
-            156,
-            158
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Landscape Height",
-      "properties": {
-        "Node name for S&R": "Primitive integer [Crystools]"
-      },
-      "widgets_values": [
-        1024
-      ]
-    },
-    {
-      "id": 105,
-      "type": "Primitive integer [Crystools]",
-      "pos": {
-        "0": 1350,
-        "1": 670
-      },
-      "size": {
-        "0": 210,
-        "1": 60
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "int",
-          "type": "INT",
-          "links": [
-            155,
-            157
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Landscape Width",
-      "properties": {
-        "Node name for S&R": "Primitive integer [Crystools]"
-      },
-      "widgets_values": [
-        1536
       ]
     },
     {
@@ -531,7 +457,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 46,
+      "order": 51,
       "mode": 0,
       "inputs": [
         {
@@ -617,7 +543,7 @@
           "shape": 6
         }
       ],
-      "title": "🪛 Concatenate (Prompt)",
+      "title": "Concatenate (Prompt)",
       "properties": {
         "Node name for S&R": "List of strings [Crystools]"
       },
@@ -647,7 +573,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 45,
+      "order": 50,
       "mode": 0,
       "inputs": [
         {
@@ -733,7 +659,7 @@
           "shape": 6
         }
       ],
-      "title": "🪛 Concatenate (Negative)",
+      "title": "Concatenate (Negative)",
       "properties": {
         "Node name for S&R": "List of strings [Crystools]"
       },
@@ -763,7 +689,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 51,
+      "order": 55,
       "mode": 0,
       "inputs": [
         {
@@ -773,104 +699,15 @@
         }
       ],
       "outputs": [],
-      "title": "🪛 Abominable Negative",
+      "title": "Abominable Negative",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
-    },
-    {
-      "id": 66,
-      "type": "Note",
-      "pos": {
-        "0": -520,
-        "1": 40
-      },
-      "size": {
-        "0": 530,
-        "1": 1410
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "README.TXT",
-      "properties": {
-        "text": ""
       },
       "widgets_values": [
-        "Abominable Workflows v3\n=======================\nhttps://civitai.com/models/420163/abominable-workflows\n\nREQUIRED FILES\n--------------\n To use this workflow, you need to install the following models in ComfyUI.\n Place them in the specified directories:\n\n <your_comfyui_dir> / models / checkpoints /\n   > PixArt-Sigma-1024.safetensors\n   > Photon-Refiner.safetensors\n\n <your_comfyui_dir> / models / clip /\n   > T5-Encoder-Q5_K_M.gguf\n\n <your_comfyui_dir> / models / vae /\n   > PixArt-Sigma-VAE.safetensors\n\n All four files can be downloaded from:\n   https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main\n\nREQUIRED NODES\n--------------\n This workflow also requires the following custom nodes:\n\n   > ComfyUI_ExtraModels\n     https://github.com/city96/ComfyUI_ExtraModels\n\n   > ComfyUI-GGUF\n     https://github.com/city96/ComfyUI-GGUF\n\n   > ComfyUI-Crystools\n     https://github.com/crystian/ComfyUI-Crystools\n\n For detailed installation instructions for these nodes, please refer to the main page of Abominable Workflows.\n\nOUTPUT IMAGES\n-------------\n Generated images will be automatically saved in:\n    <your_comfyui_dir> / output / abominable /\n\nIMAGE SIZE\n----------\n This workflow uses PixArt-1024 beyond its recommended size. For optimal quality, consider using the values provided by PixArt's authors:\n\n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768\n\nABOMINABLE WORKFLOWS IN V3\n--------------------------\n  > abominable_1GIRL_.json\n  > abominable_DARKFAN80_.json\n  > abominable_GHIBLI_.json\n  > abominable_INK_.json\n  > abominable_MILO_.json\n  > abominable_PHOTO_.json\n  > abominable_POLAROID_.json\n  > classic_abominable_spaghetti.json\n"
-      ],
-      "color": "#222",
-      "bgcolor": "#000",
-      "shape": 1
-    },
-    {
-      "id": 61,
-      "type": "SaveImage",
-      "pos": {
-        "0": 880,
-        "1": 70
-      },
-      "size": {
-        "0": 400,
-        "1": 640
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 72,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 107
-        }
-      ],
-      "outputs": [],
-      "title": "Saved Refined Image",
-      "properties": {},
-      "widgets_values": [
-        "abominable/%date:yyyy-MM-dd%/%date:hhmmss%"
-      ],
-      "color": "#323",
-      "bgcolor": "#535",
-      "shape": 1
-    },
-    {
-      "id": 53,
-      "type": "PreviewImage",
-      "pos": {
-        "0": 720,
-        "1": 70
-      },
-      "size": {
-        "0": 150,
-        "1": 250
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 69,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 109
-        }
-      ],
-      "outputs": [],
-      "title": "PixArt-Σ Image",
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      },
-      "color": "#323",
-      "bgcolor": "#535",
-      "shape": 1
+        false,
+        true,
+        ""
+      ]
     },
     {
       "id": 183,
@@ -886,7 +723,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 64,
+      "order": 67,
       "mode": 0,
       "inputs": [
         {
@@ -931,7 +768,7 @@
         {
           "name": "",
           "type": "*",
-          "link": 273
+          "link": 336
         }
       ],
       "outputs": [
@@ -964,7 +801,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 28,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
@@ -1005,7 +842,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 39,
+      "order": 32,
       "mode": 0,
       "inputs": [
         {
@@ -1045,7 +882,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 38,
+      "order": 31,
       "mode": 0,
       "inputs": [
         {
@@ -1085,7 +922,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 71,
+      "order": 74,
       "mode": 0,
       "inputs": [
         {
@@ -1124,7 +961,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 67,
+      "order": 70,
       "mode": 0,
       "inputs": [
         {
@@ -1163,7 +1000,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 37,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -1203,7 +1040,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 61,
+      "order": 64,
       "mode": 0,
       "inputs": [
         {
@@ -1232,92 +1069,6 @@
       }
     },
     {
-      "id": 71,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 320,
-        "1": 360
-      },
-      "size": {
-        "0": 250,
-        "1": 82
-      },
-      "flags": {
-        "collapsed": false,
-        "pinned": true
-      },
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "FLOAT",
-          "type": "FLOAT",
-          "links": [
-            178,
-            194
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "cfg"
-          }
-        }
-      ],
-      "title": "Guidance",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        3,
-        "fixed"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1
-    },
-    {
-      "id": 64,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 580,
-        "1": 360
-      },
-      "size": [
-        250,
-        82
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 6,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            286
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "value"
-          }
-        }
-      ],
-      "title": "Refiner intensity",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        14,
-        "fixed"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1
-    },
-    {
       "id": 124,
       "type": "Reroute",
       "pos": {
@@ -1331,7 +1082,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 57,
+      "order": 60,
       "mode": 0,
       "inputs": [
         {
@@ -1356,251 +1107,6 @@
       }
     },
     {
-      "id": 107,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 30,
-        "1": 480
-      },
-      "size": [
-        210,
-        90
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 7,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "BOOLEAN",
-          "type": "BOOLEAN",
-          "links": [
-            207
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "value"
-          }
-        }
-      ],
-      "title": "Landscape mode",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        false
-      ],
-      "color": "#323",
-      "bgcolor": "#535",
-      "shape": 1
-    },
-    {
-      "id": 116,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 60,
-        "1": 360
-      },
-      "size": [
-        250,
-        82
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 8,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            191,
-            214
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "noise_seed"
-          }
-        }
-      ],
-      "title": "Seed",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        1,
-        "fixed"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159",
-      "shape": 1
-    },
-    {
-      "id": 187,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 610,
-        "1": 610
-      },
-      "size": {
-        "0": 260,
-        "1": 82
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 9,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            294
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "noise_seed"
-          }
-        }
-      ],
-      "title": "Refiner variation",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        2,
-        "fixed"
-      ],
-      "shape": 1
-    },
-    {
-      "id": 144,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 610,
-        "1": 730
-      },
-      "size": [
-        260,
-        60
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 10,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "BOOLEAN",
-          "type": "BOOLEAN",
-          "links": [
-            262
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "value"
-          }
-        }
-      ],
-      "title": "Refiner experimental prompt",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        false
-      ],
-      "shape": 1
-    },
-    {
-      "id": 137,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 840,
-        "1": 2080
-      },
-      "size": {
-        "0": 243.60000610351562,
-        "1": 46.00004196166992
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 36,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "link": 238,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            222
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Refiner prefix user",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
-      "id": 155,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 810,
-        "1": 2280
-      },
-      "size": {
-        "0": 330,
-        "1": 80
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 11,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            239
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Refiner experimental prompt",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        ""
-      ]
-    },
-    {
       "id": 146,
       "type": "Show any [Crystools]",
       "pos": {
@@ -1614,7 +1120,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 60,
+      "order": 63,
       "mode": 0,
       "inputs": [
         {
@@ -1624,248 +1130,14 @@
         }
       ],
       "outputs": [],
-      "title": "🪛 Abominable Refiner",
+      "title": "Abominable Refiner",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
-    },
-    {
-      "id": 92,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 870,
-        "1": 1700
-      },
-      "size": {
-        "0": 243.60000610351562,
-        "1": 46.00001525878906
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 33,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "link": 169,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            307
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Prompt user",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "Elon Musk meets an xeromorph alien in a shopping mall, jocking, funny faces, very happy"
-      ]
-    },
-    {
-      "id": 149,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 860,
-        "1": 1950
-      },
-      "size": {
-        "0": 243.60000610351562,
-        "1": 34
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 32,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "link": 235,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            304
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Negative user",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
+        false,
+        true,
         ""
-      ]
-    },
-    {
-      "id": 154,
-      "type": "Switch any [Crystools]",
-      "pos": {
-        "0": 1200,
-        "1": 2220
-      },
-      "size": {
-        "0": 210,
-        "1": 74
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 47,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "on_true",
-          "type": "*",
-          "link": 239
-        },
-        {
-          "name": "on_false",
-          "type": "*",
-          "link": 241
-        },
-        {
-          "name": "boolean",
-          "type": "BOOLEAN",
-          "link": 261,
-          "widget": {
-            "name": "boolean"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "*",
-          "links": [
-            308
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "Switch any [Crystools]"
-      },
-      "widgets_values": [
-        false
-      ]
-    },
-    {
-      "id": 168,
-      "type": "Reroute",
-      "pos": {
-        "0": 540,
-        "1": 2100
-      },
-      "size": [
-        75,
-        26
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 31,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "",
-          "type": "*",
-          "link": 262,
-          "pos": [
-            37.5,
-            0
-          ],
-          "widget": {
-            "name": "value"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "",
-          "type": "BOOLEAN",
-          "links": [
-            261
-          ],
-          "slot_index": 0,
-          "label": "experimental"
-        }
-      ],
-      "properties": {
-        "showOutputText": false,
-        "horizontal": true
-      }
-    },
-    {
-      "id": 156,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 840,
-        "1": 2210
-      },
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 35,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "link": 240,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            241
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Refiner prompt user",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        "Elon Musk meets an xeromorph alien in a shopping mall, jocking, funny faces, very happy"
       ]
     },
     {
@@ -1882,13 +1154,13 @@
       "flags": {
         "pinned": true
       },
-      "order": 55,
+      "order": 59,
       "mode": 0,
       "inputs": [
         {
           "name": "string_1",
           "type": "STRING",
-          "link": 222,
+          "link": 316,
           "widget": {
             "name": "string_1"
           }
@@ -1896,7 +1168,7 @@
         {
           "name": "string_2",
           "type": "STRING",
-          "link": 296,
+          "link": null,
           "widget": {
             "name": "string_2"
           }
@@ -1912,7 +1184,7 @@
         {
           "name": "string_4",
           "type": "STRING",
-          "link": 308,
+          "link": 315,
           "widget": {
             "name": "string_4"
           }
@@ -1944,7 +1216,7 @@
         {
           "name": "string_8",
           "type": "STRING",
-          "link": null,
+          "link": 332,
           "widget": {
             "name": "string_8"
           }
@@ -1968,7 +1240,7 @@
           "shape": 6
         }
       ],
-      "title": "🪛 Concatenate (Refiner)",
+      "title": "Concatenate (Refiner)",
       "properties": {
         "Node name for S&R": "List of strings [Crystools]"
       },
@@ -1998,7 +1270,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 53,
+      "order": 57,
       "mode": 0,
       "inputs": [
         {
@@ -2008,378 +1280,14 @@
         }
       ],
       "outputs": [],
-      "title": "🪛 Abominable Prompt",
+      "title": "Abominable Prompt",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
-    },
-    {
-      "id": 159,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 1030,
-        "1": 1850
-      },
-      "size": {
-        "0": 330,
-        "1": 80
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 12,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            245
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Negative prefix",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "gradient"
-      ]
-    },
-    {
-      "id": 157,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 1030,
-        "1": 2100
-      },
-      "size": {
-        "0": 330,
-        "1": 80
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 13,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            296
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Refiner prefix",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        "Poster by Milo Manara"
-      ]
-    },
-    {
-      "id": 162,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 1030,
-        "1": 1720
-      },
-      "size": {
-        "0": 330,
-        "1": 80
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 14,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            302
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Prompt suffix",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        ". (Milo Manara:1.25). Poster in white, red, blue and black with solid colors."
-      ]
-    },
-    {
-      "id": 163,
-      "type": "Primitive string multiline [Crystools]",
-      "pos": {
-        "0": 1030,
-        "1": 1600
-      },
-      "size": {
-        "0": 330,
-        "1": 80
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 15,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "string",
-          "type": "STRING",
-          "links": [
-            247
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Prompt prefix",
-      "properties": {
-        "Node name for S&R": "Primitive string multiline [Crystools]"
-      },
-      "widgets_values": [
-        "Black outlined comic of "
-      ]
-    },
-    {
-      "id": 97,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 250,
-        "1": 480
-      },
-      "size": {
-        "0": 390,
-        "1": 90
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 16,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            235
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "title": "Negative prompt",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
+        false,
+        true,
         ""
-      ],
-      "color": "#322",
-      "bgcolor": "#533",
-      "shape": 1
-    },
-    {
-      "id": 95,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 30,
-        "1": 70
-      },
-      "size": {
-        "0": 680,
-        "1": 250
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 17,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            169,
-            190,
-            240
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "title": "Prompt",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        "Elon Musk meets an xeromorph alien in a shopping mall, jocking, funny faces, very happy"
-      ],
-      "color": "#232",
-      "bgcolor": "#353",
-      "shape": 1
-    },
-    {
-      "id": 132,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 650,
-        "1": 480
-      },
-      "size": {
-        "0": 220,
-        "1": 90
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 18,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            238
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "title": "Refiner attention",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        ""
-      ],
-      "shape": 1
-    },
-    {
-      "id": 79,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": 540,
-        "1": 1000
-      },
-      "size": {
-        "0": 220,
-        "1": 60
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 54,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 115
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 252,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            175
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "T5 Txt Encoder",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "Poor quality iPhone photo of Kermit the Frog drinking tea, sitting in a coffee booth near the window, with a light rain outside. (144p photo:1.1) with JPEG artifacts."
-      ]
-    },
-    {
-      "id": 80,
-      "type": "CLIPTextEncode",
-      "pos": {
-        "0": 540,
-        "1": 1040
-      },
-      "size": {
-        "0": 230,
-        "1": 60
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 59,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 116
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 257,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            176
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "T5 Txt Encoder (Neg)",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "macrophoto"
       ]
     },
     {
@@ -2396,7 +1304,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 30,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -2428,66 +1336,20 @@
       }
     },
     {
-      "id": 83,
-      "type": "KSamplerSelect",
-      "pos": {
-        "0": 540,
-        "1": 1080
-      },
-      "size": [
-        210,
-        30
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 42,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "sampler_name",
-          "type": "COMBO",
-          "link": 309,
-          "widget": {
-            "name": "sampler_name"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SAMPLER",
-          "type": "SAMPLER",
-          "links": [
-            313
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "KSampler Selector",
-      "properties": {
-        "Node name for S&R": "KSamplerSelect"
-      },
-      "widgets_values": [
-        "uni_pc"
-      ]
-    },
-    {
       "id": 115,
       "type": "SamplerCustom",
       "pos": {
         "0": 810,
         "1": 1000
       },
-      "size": [
-        240,
-        490
-      ],
+      "size": {
+        "0": 240,
+        "1": 490
+      },
       "flags": {
         "pinned": true
       },
-      "order": 62,
+      "order": 65,
       "mode": 0,
       "inputs": [
         {
@@ -2508,7 +1370,7 @@
         {
           "name": "sampler",
           "type": "SAMPLER",
-          "link": 313
+          "link": 321
         },
         {
           "name": "sigmas",
@@ -2561,7 +1423,7 @@
         true,
         1,
         "randomize",
-        3
+        3.5
       ]
     },
     {
@@ -2578,7 +1440,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 52,
+      "order": 56,
       "mode": 0,
       "inputs": [
         {
@@ -2612,14 +1474,14 @@
         "0": 50,
         "1": 1380
       },
-      "size": [
-        440,
-        110
-      ],
+      "size": {
+        "0": 440,
+        "1": 110
+      },
       "flags": {
         "pinned": true
       },
-      "order": 19,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2656,85 +1518,7 @@
         "Node name for S&R": "CheckpointLoaderSimple"
       },
       "widgets_values": [
-        "Photon-Refiner.safetensors"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
-      "id": 78,
-      "type": "CLIPLoaderGGUF",
-      "pos": {
-        "0": 50,
-        "1": 1000
-      },
-      "size": [
-        440,
-        90
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 20,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            115,
-            116
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "T5 Encoder Loader (GGUF)",
-      "properties": {
-        "Node name for S&R": "CLIPLoaderGGUF"
-      },
-      "widgets_values": [
-        "T5-Encoder-Q5_K_M.gguf",
-        "stable_diffusion"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
-      "id": 8,
-      "type": "VAELoader",
-      "pos": {
-        "0": 50,
-        "1": 1260
-      },
-      "size": [
-        440,
-        70
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 21,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            273
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "PixArt-Sigma VAE Loader",
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "PixArt-Sigma-VAE.safetensors"
+        "photon_refiner-FP16.safetensors"
       ],
       "color": "#223",
       "bgcolor": "#335"
@@ -2746,14 +1530,14 @@
         "0": 50,
         "1": 1130
       },
-      "size": [
-        440,
-        90
-      ],
+      "size": {
+        "0": 440,
+        "1": 90
+      },
       "flags": {
         "pinned": true
       },
-      "order": 22,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2773,7 +1557,7 @@
         "Node name for S&R": "PixArtCheckpointLoader"
       },
       "widgets_values": [
-        "PixArt-Sigma-1024.safetensors",
+        "pixart_sigma-FP16.safetensors",
         "PixArtMS_Sigma_XL_2"
       ],
       "color": "#223",
@@ -2794,7 +1578,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 66,
+      "order": 69,
       "mode": 0,
       "inputs": [
         {
@@ -2822,7 +1606,8 @@
       "title": "SD15 VAE Encoder",
       "properties": {
         "Node name for S&R": "VAEEncode"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 175,
@@ -2838,7 +1623,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 70,
+      "order": 73,
       "mode": 0,
       "inputs": [
         {
@@ -2866,7 +1651,8 @@
       "title": "Final SD15 VAE Decoder",
       "properties": {
         "Node name for S&R": "VAEDecode"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 176,
@@ -2882,7 +1668,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 65,
+      "order": 68,
       "mode": 0,
       "inputs": [
         {
@@ -2911,7 +1697,8 @@
       "title": "PixArt-Σ VAE Decoder",
       "properties": {
         "Node name for S&R": "VAEDecode"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 172,
@@ -2920,14 +1707,14 @@
         "0": 1540,
         "1": 1000
       },
-      "size": [
-        240,
-        490
-      ],
+      "size": {
+        "0": 240,
+        "1": 490
+      },
       "flags": {
         "pinned": true
       },
-      "order": 68,
+      "order": 71,
       "mode": 0,
       "inputs": [
         {
@@ -2986,14 +1773,15 @@
           "shape": 3
         }
       ],
+      "title": "SD15 Guidance",
       "properties": {
         "Node name for S&R": "SamplerCustom"
       },
       "widgets_values": [
         true,
-        2,
+        0,
         "fixed",
-        2
+        2.0
       ]
     },
     {
@@ -3003,14 +1791,14 @@
         "0": 1220,
         "1": 1190
       },
-      "size": [
-        310,
-        100
-      ],
+      "size": {
+        "0": 310,
+        "1": 102
+      },
       "flags": {
         "pinned": true
       },
-      "order": 48,
+      "order": 47,
       "mode": 0,
       "inputs": [
         {
@@ -3038,13 +1826,13 @@
           "shape": 3
         }
       ],
-      "title": "Scheduler",
+      "title": "SD15 Scheduler",
       "properties": {
         "Node name for S&R": "BasicScheduler"
       },
       "widgets_values": [
         "normal",
-        14,
+        18,
         0.9
       ]
     },
@@ -3055,14 +1843,14 @@
         "0": 1220,
         "1": 1090
       },
-      "size": [
-        310,
-        60
-      ],
+      "size": {
+        "0": 310,
+        "1": 60
+      },
       "flags": {
         "pinned": true
       },
-      "order": 23,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3076,145 +1864,12 @@
           "shape": 3
         }
       ],
-      "title": "KSampler Selector",
+      "title": "SD15 Sampler",
       "properties": {
         "Node name for S&R": "KSamplerSelect"
       },
       "widgets_values": [
         "dpmpp_2m"
-      ]
-    },
-    {
-      "id": 189,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 540,
-        "1": 1120
-      },
-      "size": [
-        250,
-        80
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 24,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            311,
-            312
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "steps"
-          }
-        }
-      ],
-      "title": "Steps",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        16,
-        "fixed"
-      ]
-    },
-    {
-      "id": 188,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 540,
-        "1": 1240
-      },
-      "size": [
-        250,
-        110
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 25,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "COMBO",
-          "type": "COMBO",
-          "links": [
-            309,
-            310
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "sampler_name"
-          }
-        }
-      ],
-      "title": "Sampler",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        "uni_pc",
-        "fixed",
-        ""
-      ]
-    },
-    {
-      "id": 84,
-      "type": "BasicScheduler",
-      "pos": {
-        "0": 540,
-        "1": 1390
-      },
-      "size": [
-        250,
-        100
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 41,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 133
-        },
-        {
-          "name": "steps",
-          "type": "INT",
-          "link": 311,
-          "widget": {
-            "name": "steps"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SIGMAS",
-          "type": "SIGMAS",
-          "links": [
-            173
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "Scheduler",
-      "properties": {
-        "Node name for S&R": "BasicScheduler"
-      },
-      "widgets_values": [
-        "beta",
-        16,
-        0.8
       ]
     },
     {
@@ -3224,15 +1879,15 @@
         "0": 1220,
         "1": 1000
       },
-      "size": [
-        310,
-        50
-      ],
+      "size": {
+        "0": 310,
+        "1": 54
+      },
       "flags": {
         "collapsed": false,
         "pinned": true
       },
-      "order": 63,
+      "order": 66,
       "mode": 0,
       "inputs": [
         {
@@ -3276,14 +1931,14 @@
         "0": 1790,
         "1": 1280
       },
-      "size": [
-        210,
-        60
-      ],
+      "size": {
+        "0": 210,
+        "1": 60
+      },
       "flags": {
         "pinned": true
       },
-      "order": 56,
+      "order": 53,
       "mode": 0,
       "inputs": [
         {
@@ -3332,15 +1987,15 @@
         "0": 1790,
         "1": 1390
       },
-      "size": [
-        210,
-        100
-      ],
+      "size": {
+        "0": 210,
+        "1": 100
+      },
       "flags": {
         "collapsed": false,
         "pinned": true
       },
-      "order": 26,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3356,7 +2011,7 @@
           }
         }
       ],
-      "title": "SD15 start step",
+      "title": "SD15 Start Step",
       "properties": {
         "Run widget replace on values": false
       },
@@ -3375,14 +2030,14 @@
         "0": 1220,
         "1": 1340
       },
-      "size": [
-        310,
-        150
-      ],
+      "size": {
+        "0": 310,
+        "1": 150
+      },
       "flags": {
         "pinned": true
       },
-      "order": 49,
+      "order": 45,
       "mode": 0,
       "inputs": [
         {
@@ -3402,7 +2057,7 @@
           "shape": 3
         }
       ],
-      "title": "SD15 Negative Prompt",
+      "title": "SD15 Negative",
       "properties": {
         "Node name for S&R": "CLIPTextEncode"
       },
@@ -3414,30 +2069,1534 @@
       "shape": 1
     },
     {
-      "id": 110,
-      "type": "Note",
+      "id": 163,
+      "type": "Primitive string multiline [Crystools]",
       "pos": {
-        "0": 30,
-        "1": 610
+        "0": 1030,
+        "1": 1600
       },
       "size": {
-        "0": 570,
-        "1": 290
+        "0": 330,
+        "1": 80
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            247
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Prompt Prefix",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        "Black outlined comic of "
+      ]
+    },
+    {
+      "id": 162,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 1030,
+        "1": 1720
+      },
+      "size": {
+        "0": 330,
+        "1": 80
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            302
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Prompt Suffix",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        ". (Milo Manara:1.25). Poster in white, red, blue and black with solid colors."
+      ]
+    },
+    {
+      "id": 159,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 1030,
+        "1": 1850
+      },
+      "size": {
+        "0": 330,
+        "1": 80
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            245
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Negative Prefix",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        "gradient"
+      ]
+    },
+    {
+      "id": 157,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 1030,
+        "1": 2100
+      },
+      "size": {
+        "0": 330,
+        "1": 80
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            316
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "SD15 Prefix",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        "Poster by Milo Manara"
+      ]
+    },
+    {
+      "id": 188,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 50,
+        "1": 1600
+      },
+      "size": {
+        "0": 270,
+        "1": 110
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "COMBO",
+          "type": "COMBO",
+          "links": [
+            310,
+            322
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "sampler_name"
+          }
+        }
+      ],
+      "title": "PixArt Sampler",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "uni_pc",
+        "fixed",
+        ""
+      ]
+    },
+    {
+      "id": 192,
+      "type": "KSamplerSelect",
+      "pos": {
+        "0": 50,
+        "1": 1750
+      },
+      "size": {
+        "0": 270,
+        "1": 60
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            328
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "PixArt HQ Sampler",
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "heun"
+      ]
+    },
+    {
+      "id": 193,
+      "type": "Switch any [Crystools]",
+      "pos": {
+        "0": 330,
+        "1": 1720
+      },
+      "size": {
+        "0": 210,
+        "1": 90
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 46,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "on_true",
+          "type": "*",
+          "link": 328
+        },
+        {
+          "name": "on_false",
+          "type": "*",
+          "link": 327
+        },
+        {
+          "name": "boolean",
+          "type": "BOOLEAN",
+          "link": 324,
+          "widget": {
+            "name": "boolean"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "*",
+          "links": [
+            321
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Use HQ Sampler",
+      "properties": {
+        "Node name for S&R": "Switch any [Crystools]"
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 168,
+      "type": "Reroute",
+      "pos": {
+        "0": 550,
+        "1": 2170
+      },
+      "size": [
+        75,
+        26
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 333,
+          "pos": [
+            37.5,
+            0
+          ],
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "BOOLEAN",
+          "links": [
+            330
+          ],
+          "slot_index": 0,
+          "label": "ignore prompt"
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": true
+      }
+    },
+    {
+      "id": 137,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 860,
+        "1": 2220
+      },
+      "size": {
+        "0": 243.60000610351562,
+        "1": 46.00004196166992
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 238,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            315
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Refiner prefix user",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 156,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 860,
+        "1": 2300
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 240,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            331
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Refiner prompt user",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        "A female Captain America holding a heavy shield in the street and wearing a tight top"
+      ]
+    },
+    {
+      "id": 195,
+      "type": "Switch string [Crystools]",
+      "pos": {
+        "0": 1140,
+        "1": 2260
+      },
+      "size": {
+        "0": 210,
+        "1": 90
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 52,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "on_true",
+          "type": "STRING",
+          "link": 329,
+          "widget": {
+            "name": "on_true"
+          }
+        },
+        {
+          "name": "on_false",
+          "type": "STRING",
+          "link": 331,
+          "widget": {
+            "name": "on_false"
+          }
+        },
+        {
+          "name": "boolean",
+          "type": "BOOLEAN",
+          "link": 330,
+          "widget": {
+            "name": "boolean"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            332
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Switch empty prompt",
+      "properties": {
+        "Node name for S&R": "Switch string [Crystools]"
+      },
+      "widgets_values": [
+        "",
+        "",
+        false
+      ]
+    },
+    {
+      "id": 196,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 850,
+        "1": 2260
+      },
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            329
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "on_true"
+          }
+        }
+      ],
+      "title": "Refiner empty prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 92,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 890,
+        "1": 1700
+      },
+      "size": {
+        "0": 243.60000610351562,
+        "1": 46.00001525878906
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 169,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            307
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Prompt user",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        "A female Captain America holding a heavy shield in the street and wearing a tight top"
+      ]
+    },
+    {
+      "id": 149,
+      "type": "Primitive string multiline [Crystools]",
+      "pos": {
+        "0": 880,
+        "1": 1950
+      },
+      "size": {
+        "0": 243.60000610351562,
+        "1": 34
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 235,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "links": [
+            304
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Negative user",
+      "properties": {
+        "Node name for S&R": "Primitive string multiline [Crystools]"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 189,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 540,
+        "1": 1260
+      },
+      "size": {
+        "0": 250,
+        "1": 82
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            311,
+            312
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "title": "PixArt Steps",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        16,
+        "fixed"
+      ]
+    },
+    {
+      "id": 84,
+      "type": "BasicScheduler",
+      "pos": {
+        "0": 540,
+        "1": 1380
+      },
+      "size": {
+        "0": 250,
+        "1": 110
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 133
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": 311,
+          "widget": {
+            "name": "steps"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            173
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "PixArt Scheduler",
+      "properties": {
+        "Node name for S&R": "BasicScheduler"
+      },
+      "widgets_values": [
+        "beta",
+        16,
+        0.8
+      ]
+    },
+    {
+      "id": 79,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 540,
+        "1": 1040
+      },
+      "size": {
+        "0": 250,
+        "1": 70
       },
       "flags": {
         "collapsed": false,
         "pinned": true
       },
-      "order": 27,
+      "order": 58,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 337
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 252,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            175
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "T5 Txt Encoder",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Poor quality iPhone photo of Kermit the Frog drinking tea, sitting in a coffee booth near the window, with a light rain outside. (144p photo:1.1) with JPEG artifacts."
+      ]
+    },
+    {
+      "id": 80,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": 540,
+        "1": 1150
+      },
+      "size": {
+        "0": 250,
+        "1": 70
+      },
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 62,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 338
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 257,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            176
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "T5 Txt Encoder (Neg)",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "macrophoto"
+      ]
+    },
+    {
+      "id": 53,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 710,
+        "1": 60
+      },
+      "size": {
+        "0": 150,
+        "1": 250
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 72,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 109
+        }
+      ],
+      "outputs": [],
+      "title": "PixArt-Σ Image",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "color": "#323",
+      "bgcolor": "#535",
+      "shape": 1
+    },
+    {
+      "id": 61,
+      "type": "SaveImage",
+      "pos": {
+        "0": 870,
+        "1": 60
+      },
+      "size": {
+        "0": 400,
+        "1": 640
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 75,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 107
+        }
+      ],
+      "outputs": [],
+      "title": "Saved Refined Image",
+      "properties": {},
+      "widgets_values": [
+        "abominable/%date:yyyy-MM-dd%/%date:hhmmss%"
+      ],
+      "color": "#323",
+      "bgcolor": "#535",
+      "shape": 1
+    },
+    {
+      "id": 71,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 310,
+        "1": 350
+      },
+      "size": {
+        "0": 250,
+        "1": 82
+      },
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            178,
+            194
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "cfg"
+          }
+        }
+      ],
+      "title": "Guidance",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        3.5,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 116,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 50,
+        "1": 350
+      },
+      "size": [
+        250,
+        82
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            191,
+            214
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "title": "Seed",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        1,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 64,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 570,
+        "1": 350
+      },
+      "size": [
+        250,
+        82
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            286
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "title": "Refiner intensity",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        18,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 107,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 20,
+        "1": 470
+      },
+      "size": [
+        210,
+        60
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            207
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "title": "Landscape mode",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        false
+      ],
+      "color": "#323",
+      "bgcolor": "#535",
+      "shape": 1
+    },
+    {
+      "id": 187,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 610,
+        "1": 470
+      },
+      "size": {
+        "0": 250,
+        "1": 82
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            294
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "title": "Refiner variation",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        0,
+        "fixed"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159",
+      "shape": 1
+    },
+    {
+      "id": 194,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 20,
+        "1": 570
+      },
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            324
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "boolean"
+          }
+        }
+      ],
+      "title": "HQ sampler",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        false
+      ],
+      "shape": 1
+    },
+    {
+      "id": 132,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 640,
+        "1": 590
+      },
+      "size": {
+        "0": 220,
+        "1": 90
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            238
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "title": "Refiner attention",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        ""
+      ],
+      "shape": 1
+    },
+    {
+      "id": 144,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 640,
+        "1": 720
+      },
+      "size": [
+        220,
+        60
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            333
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "title": "Refiner ignores prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        false
+      ],
+      "shape": 1
+    },
+    {
+      "id": 104,
+      "type": "Primitive integer [Crystools]",
+      "pos": {
+        "0": 1350,
+        "1": 670
+      },
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            156,
+            158
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Portrait Width",
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]"
+      },
+      "widgets_values": [
+        1024
+      ]
+    },
+    {
+      "id": 105,
+      "type": "Primitive integer [Crystools]",
+      "pos": {
+        "0": 1350,
+        "1": 830
+      },
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            155,
+            157
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Portrait Height",
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]"
+      },
+      "widgets_values": [
+        1536
+      ]
+    },
+    {
+      "id": 83,
+      "type": "KSamplerSelect",
+      "pos": {
+        "0": 330,
+        "1": 1600
+      },
+      "size": {
+        "0": 210,
+        "1": 80
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "sampler_name",
+          "type": "COMBO",
+          "link": 322,
+          "widget": {
+            "name": "sampler_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            327
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "uni_pc"
+      ]
+    },
+    {
+      "id": 110,
+      "type": "Note",
+      "pos": {
+        "0": 20,
+        "1": 670
+      },
+      "size": {
+        "0": 610,
+        "1": 240
+      },
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 24,
       "mode": 0,
       "inputs": [],
       "outputs": [],
-      "title": "MILO personal tips (but feel free to experiment)",
+      "title": "MILO personal tips",
       "properties": {
         "text": ""
       },
       "widgets_values": [
-        " * Seed              : random\n * Guidance          : 3.5     [ 3.0 - 5.0 ]\n * Refiner intensity : 18      [ 14  - 24  ]\n * Refiner attention : empty   < focuses refiner on specific objects\n * Refiner variation : 0       < creates alternative versions with different details\n * Refiner experimen : false   < not fully implemented yet\n\nA lower 'Guidance' value results in more detailed drawings.\nA higher 'Guidance' adds contrast and simplifies the drawing.\nIf it looks like a photo, increase 'Guidance' or add \"bokeh\" to negative prompt.\nIncreasing 'Refiner intensity' creates more polished artwork, similar to cover art.\nMILO workflow can be unpredictable, quality varies greatly based on parameters.\n\nFor more information about Abominable Workflows:\nhttps://civitai.com/models/420163\n"
+        " * Seed              : random\n * Guidance          : 3.5     [ 3.0 - 5.0 ]\n * Refiner intensity : 18      [ 14  - 24  ]\n * Refiner variation : 0       < different values create slight changes in small details\n * Refiner attention : empty   < add words to focus refinement on specific objects\n * Ref.ignores prompt: false   < if enabled, the refiner will completely ignore the prompt\n\nA lower 'Guidance' value results in more detailed drawings.\nA higher 'Guidance' adds contrast and simplifies the drawing.\nIf it looks like a photo, increase 'Guidance' or add \"bokeh\" to negative prompt.\nIncreasing 'Refiner intensity' creates more polished artwork, similar to cover art.\nMILO workflow can be unpredictable, quality varies greatly based on parameters.\n\nFor more information about Abominable Workflows:\nhttps://civitai.com/models/420163"
+      ],
+      "color": "#222",
+      "bgcolor": "#000",
+      "shape": 1
+    },
+    {
+      "id": 211,
+      "type": "VAELoader",
+      "pos": {
+        "0": 50,
+        "1": 1260
+      },
+      "size": {
+        "0": 440,
+        "1": 80
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            336
+          ],
+          "shape": 3
+        }
+      ],
+      "title": "PixArt-Sigma VAE Loader",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "pixart_vae.safetensors"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 212,
+      "type": "CLIPLoader",
+      "pos": {
+        "0": 50,
+        "1": 1000
+      },
+      "size": {
+        "0": 440,
+        "1": 90
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            337,
+            338
+          ],
+          "shape": 3
+        }
+      ],
+      "title": "T5 Encoder Loader",
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5_xxl_encoder-FP8.safetensors",
+        "sd3"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 97,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 240,
+        "1": 470
+      },
+      "size": {
+        "0": 360,
+        "1": 160
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            235
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "title": "Negative prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533",
+      "shape": 1
+    },
+    {
+      "id": 95,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 20,
+        "1": 60
+      },
+      "size": {
+        "0": 680,
+        "1": 250
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 28,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            169,
+            190,
+            240
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "title": "Prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "A female Captain America holding a heavy shield in the street and wearing a tight top"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
+      "id": 66,
+      "type": "Note",
+      "pos": {
+        "0": -530,
+        "1": 40
+      },
+      "size": {
+        "0": 530,
+        "1": 1410
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 29,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "README.TXT",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "Abominable Workflows v3\n=======================\nhttps://civitai.com/models/420163/abominable-workflows\n\nREQUIRED FILES\n--------------\n To use these workflows, you need to install the following models in ComfyUI.\n Place them in the specified directories:\n\n <your_comfyui_dir> / models / checkpoints /\n   > pixart_sigma-FP16.safetensors\n   > photon_refiner-FP16.safetensors\n\n <your_comfyui_dir> / models / clip /\n   > t5_xxl_encoder-FP8.safetensors\n\n <your_comfyui_dir> / models / vae /\n   > pixart_vae.safetensors\n\n All four files can be downloaded from:\n   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main\n\nREQUIRED NODES\n--------------\n Abominable workflows also requires the following custom nodes:\n\n   > ComfyUI_ExtraModels\n     https://github.com/city96/ComfyUI_ExtraModels\n\n   > ComfyUI-Crystools\n     https://github.com/crystian/ComfyUI-Crystools\n\n For detailed installation instructions for these nodes, please refer to the main page of Abominable Workflows.\n\nOUTPUT IMAGES\n-------------\n Generated images will be automatically saved in:\n    <your_comfyui_dir> / output / abominable /\n\nWORKFLOWS INCLUDED\n------------------\n This pack contains multiple workflows, each designed for a different image style:\n   > abominable_1GIRL_\n   > abominable_DARKFAN80_\n   > abominable_INK_\n   > abominable_MILO_\n   > abominable_PHOTO_\n   > abominable_PIXEL_\n  \nIMAGE SIZE\n----------\n Abominable uses PixArt-1024 beyond its recommended size.\n For optimal quality, consider using the values provided by PixArt's authors:\n\n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768"
       ],
       "color": "#222",
       "bgcolor": "#000",
@@ -3460,22 +3619,6 @@
       53,
       0,
       "IMAGE"
-    ],
-    [
-      115,
-      78,
-      0,
-      79,
-      0,
-      "CLIP"
-    ],
-    [
-      116,
-      78,
-      0,
-      80,
-      0,
-      "CLIP"
     ],
     [
       133,
@@ -3686,14 +3829,6 @@
       "*"
     ],
     [
-      222,
-      137,
-      0,
-      136,
-      0,
-      "STRING"
-    ],
-    [
       229,
       136,
       0,
@@ -3726,28 +3861,12 @@
       "STRING"
     ],
     [
-      239,
-      155,
-      0,
-      154,
-      0,
-      "*"
-    ],
-    [
       240,
       95,
       0,
       156,
       0,
       "STRING"
-    ],
-    [
-      241,
-      156,
-      0,
-      154,
-      1,
-      "*"
     ],
     [
       245,
@@ -3794,22 +3913,6 @@
       147,
       0,
       165,
-      0,
-      "*"
-    ],
-    [
-      261,
-      168,
-      0,
-      154,
-      2,
-      "BOOLEAN"
-    ],
-    [
-      262,
-      144,
-      0,
-      168,
       0,
       "*"
     ],
@@ -3882,14 +3985,6 @@
       39,
       2,
       179,
-      0,
-      "*"
-    ],
-    [
-      273,
-      8,
-      0,
-      180,
       0,
       "*"
     ],
@@ -4046,14 +4141,6 @@
       "INT"
     ],
     [
-      296,
-      157,
-      0,
-      136,
-      1,
-      "STRING"
-    ],
-    [
       301,
       158,
       0,
@@ -4086,22 +4173,6 @@
       "STRING"
     ],
     [
-      308,
-      154,
-      0,
-      136,
-      3,
-      "STRING"
-    ],
-    [
-      309,
-      188,
-      0,
-      83,
-      0,
-      "COMBO"
-    ],
-    [
       310,
       188,
       0,
@@ -4126,15 +4197,139 @@
       "INT"
     ],
     [
-      313,
-      83,
+      315,
+      137,
+      0,
+      136,
+      3,
+      "STRING"
+    ],
+    [
+      316,
+      157,
+      0,
+      136,
+      0,
+      "STRING"
+    ],
+    [
+      321,
+      193,
       0,
       115,
       3,
       "SAMPLER"
+    ],
+    [
+      322,
+      188,
+      0,
+      83,
+      0,
+      "COMBO"
+    ],
+    [
+      324,
+      194,
+      0,
+      193,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      327,
+      83,
+      0,
+      193,
+      1,
+      "*"
+    ],
+    [
+      328,
+      192,
+      0,
+      193,
+      0,
+      "*"
+    ],
+    [
+      329,
+      196,
+      0,
+      195,
+      0,
+      "STRING"
+    ],
+    [
+      330,
+      168,
+      0,
+      195,
+      2,
+      "BOOLEAN"
+    ],
+    [
+      331,
+      156,
+      0,
+      195,
+      1,
+      "STRING"
+    ],
+    [
+      332,
+      195,
+      0,
+      136,
+      7,
+      "STRING"
+    ],
+    [
+      333,
+      144,
+      0,
+      168,
+      0,
+      "*"
+    ],
+    [
+      336,
+      211,
+      0,
+      180,
+      0,
+      "*"
+    ],
+    [
+      337,
+      212,
+      0,
+      79,
+      0,
+      "CLIP"
+    ],
+    [
+      338,
+      212,
+      0,
+      80,
+      0,
+      "CLIP"
     ]
   ],
   "groups": [
+    {
+      "title": "Sampler Logic",
+      "bounding": [
+        40,
+        1530,
+        510,
+        290
+      ],
+      "color": "#444",
+      "font_size": 20,
+      "flags": {}
+    },
     {
       "title": "SD15 Refiner",
       "bounding": [
@@ -4150,13 +4345,13 @@
     {
       "title": "[v3] abominable MILO",
       "bounding": [
-        20,
+        10,
         0,
         1270,
         870
       ],
       "color": "#b58b2a",
-      "font_size": 28,
+      "font_size": 22,
       "flags": {}
     },
     {

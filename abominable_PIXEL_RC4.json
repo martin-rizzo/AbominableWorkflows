@@ -1,6 +1,6 @@
 {
-  "last_node_id": 196,
-  "last_link_id": 333,
+  "last_node_id": 212,
+  "last_link_id": 338,
   "nodes": [
     {
       "id": 103,
@@ -16,7 +16,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 49,
+      "order": 48,
       "mode": 0,
       "inputs": [
         {
@@ -49,7 +49,7 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Switch Width",
+      "title": "Switch Width",
       "properties": {
         "Node name for S&R": "Switch any [Crystools]"
       },
@@ -71,7 +71,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 41,
+      "order": 37,
       "mode": 0,
       "inputs": [
         {
@@ -114,7 +114,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 50,
+      "order": 49,
       "mode": 0,
       "inputs": [
         {
@@ -147,7 +147,7 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Switch Height",
+      "title": "Switch Height",
       "properties": {
         "Node name for S&R": "Switch any [Crystools]"
       },
@@ -169,7 +169,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 56,
+      "order": 54,
       "mode": 0,
       "inputs": [
         {
@@ -226,7 +226,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 37,
+      "order": 43,
       "mode": 0,
       "inputs": [
         {
@@ -259,7 +259,7 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "A colossal, ancient temple complex is carved into the rocky cliffs of a secluded, mist-laden valley, featuring grand arches, towering columns, and intricate stone facades adorned with faded frescoes and mosaics that depict mythical scenes and celestial maps. The architecture blends elements of Greco-Roman and Byzantine styles, evoking a sense of timelessness and reverence. A lone scholar, draped in dark, flowing robes reminiscent of monastic scribes, moves deliberately through the temple, their presence adding to the scene’s quiet, contemplative atmosphere. Soft, ethereal light filters through natural fissures in the rock, casting a muted glow that emphasizes the grandeur and mystery of the space. The geography suggests a remote, ancient land, far removed from civilization, with dense fog and towering cliffs enhancing the sense of seclusion and sacredness. The few figures present interact minimally, absorbed in their own silent quests for knowledge, adding to the overall feeling of introspection and awe as they navigate this vast, sacred sanctuary. Bokeh"
+        "Batman playing soccer on a muddy field, under a cloudy sky with a lightning bolt in the background, amidst intense rain, with the stadium stands packed with people in the distance"
       ]
     },
     {
@@ -396,11 +396,11 @@
       },
       "widgets_values": [
         "enable",
-        2,
+        1,
         "randomize",
-        11,
-        3.2,
-        "lms",
+        17,
+        4.0,
+        "uni_pc",
         "beta",
         0,
         10000,
@@ -435,86 +435,12 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Negative suffix",
+      "title": "Negative Suffix",
       "properties": {
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
         ""
-      ]
-    },
-    {
-      "id": 104,
-      "type": "Primitive integer [Crystools]",
-      "pos": {
-        "0": 1350,
-        "1": 830
-      },
-      "size": {
-        "0": 210,
-        "1": 60
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "int",
-          "type": "INT",
-          "links": [
-            156,
-            158
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Landscape Height",
-      "properties": {
-        "Node name for S&R": "Primitive integer [Crystools]"
-      },
-      "widgets_values": [
-        1024
-      ]
-    },
-    {
-      "id": 105,
-      "type": "Primitive integer [Crystools]",
-      "pos": {
-        "0": 1350,
-        "1": 670
-      },
-      "size": {
-        "0": 210,
-        "1": 60
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "int",
-          "type": "INT",
-          "links": [
-            155,
-            157
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "🪛 Landscape Width",
-      "properties": {
-        "Node name for S&R": "Primitive integer [Crystools]"
-      },
-      "widgets_values": [
-        1536
       ]
     },
     {
@@ -531,7 +457,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 47,
+      "order": 51,
       "mode": 0,
       "inputs": [
         {
@@ -617,7 +543,7 @@
           "shape": 6
         }
       ],
-      "title": "🪛 Concatenate (Prompt)",
+      "title": "Concatenate (Prompt)",
       "properties": {
         "Node name for S&R": "List of strings [Crystools]"
       },
@@ -647,7 +573,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 51,
+      "order": 50,
       "mode": 0,
       "inputs": [
         {
@@ -733,7 +659,7 @@
           "shape": 6
         }
       ],
-      "title": "🪛 Concatenate (Negative)",
+      "title": "Concatenate (Negative)",
       "properties": {
         "Node name for S&R": "List of strings [Crystools]"
       },
@@ -763,7 +689,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 57,
+      "order": 55,
       "mode": 0,
       "inputs": [
         {
@@ -773,10 +699,15 @@
         }
       ],
       "outputs": [],
-      "title": "🪛 Abominable Negative",
+      "title": "Abominable Negative",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
+      },
+      "widgets_values": [
+        false,
+        true,
+        ""
+      ]
     },
     {
       "id": 183,
@@ -831,13 +762,13 @@
       "flags": {
         "pinned": true
       },
-      "order": 33,
+      "order": 40,
       "mode": 0,
       "inputs": [
         {
           "name": "",
           "type": "*",
-          "link": 273
+          "link": 336
         }
       ],
       "outputs": [
@@ -870,7 +801,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 40,
+      "order": 36,
       "mode": 0,
       "inputs": [
         {
@@ -1199,10 +1130,15 @@
         }
       ],
       "outputs": [],
-      "title": "🪛 Abominable Refiner",
+      "title": "Abominable Refiner",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
+      },
+      "widgets_values": [
+        false,
+        true,
+        ""
+      ]
     },
     {
       "id": 136,
@@ -1304,7 +1240,7 @@
           "shape": 6
         }
       ],
-      "title": "🪛 Concatenate (Refiner)",
+      "title": "Concatenate (Refiner)",
       "properties": {
         "Node name for S&R": "List of strings [Crystools]"
       },
@@ -1334,7 +1270,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 53,
+      "order": 57,
       "mode": 0,
       "inputs": [
         {
@@ -1344,10 +1280,15 @@
         }
       ],
       "outputs": [],
-      "title": "🪛 Abominable Prompt",
+      "title": "Abominable Prompt",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      }
+      },
+      "widgets_values": [
+        false,
+        true,
+        ""
+      ]
     },
     {
       "id": 125,
@@ -1363,7 +1304,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 39,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -1480,9 +1421,9 @@
       },
       "widgets_values": [
         true,
-        2,
+        1,
         "randomize",
-        3.2
+        4.0
       ]
     },
     {
@@ -1499,7 +1440,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 58,
+      "order": 56,
       "mode": 0,
       "inputs": [
         {
@@ -1540,7 +1481,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 4,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1577,85 +1518,7 @@
         "Node name for S&R": "CheckpointLoaderSimple"
       },
       "widgets_values": [
-        "Photon-Refiner.safetensors"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
-      "id": 78,
-      "type": "CLIPLoaderGGUF",
-      "pos": {
-        "0": 50,
-        "1": 1000
-      },
-      "size": {
-        "0": 440,
-        "1": 90
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            115,
-            116
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "T5 Encoder Loader (GGUF)",
-      "properties": {
-        "Node name for S&R": "CLIPLoaderGGUF"
-      },
-      "widgets_values": [
-        "T5-Encoder-Q5_K_M.gguf",
-        "stable_diffusion"
-      ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
-      "id": 8,
-      "type": "VAELoader",
-      "pos": {
-        "0": 50,
-        "1": 1260
-      },
-      "size": {
-        "0": 440,
-        "1": 70
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 6,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            273
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "PixArt-Sigma VAE Loader",
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "PixArt-Sigma-VAE.safetensors"
+        "photon_refiner-FP16.safetensors"
       ],
       "color": "#223",
       "bgcolor": "#335"
@@ -1674,7 +1537,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 7,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1694,7 +1557,7 @@
         "Node name for S&R": "PixArtCheckpointLoader"
       },
       "widgets_values": [
-        "PixArt-Sigma-1024.safetensors",
+        "pixart_sigma-FP16.safetensors",
         "PixArtMS_Sigma_XL_2"
       ],
       "color": "#223",
@@ -1743,7 +1606,8 @@
       "title": "SD15 VAE Encoder",
       "properties": {
         "Node name for S&R": "VAEEncode"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 175,
@@ -1787,7 +1651,8 @@
       "title": "Final SD15 VAE Decoder",
       "properties": {
         "Node name for S&R": "VAEDecode"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 176,
@@ -1832,7 +1697,8 @@
       "title": "PixArt-Σ VAE Decoder",
       "properties": {
         "Node name for S&R": "VAEDecode"
-      }
+      },
+      "widgets_values": []
     },
     {
       "id": 172,
@@ -1907,6 +1773,7 @@
           "shape": 3
         }
       ],
+      "title": "SD15 Guidance",
       "properties": {
         "Node name for S&R": "SamplerCustom"
       },
@@ -1914,7 +1781,7 @@
         true,
         0,
         "fixed",
-        2
+        2.0
       ]
     },
     {
@@ -1931,7 +1798,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 48,
+      "order": 47,
       "mode": 0,
       "inputs": [
         {
@@ -1959,13 +1826,13 @@
           "shape": 3
         }
       ],
-      "title": "Scheduler",
+      "title": "SD15 Scheduler",
       "properties": {
         "Node name for S&R": "BasicScheduler"
       },
       "widgets_values": [
         "normal",
-        24,
+        14,
         0.9
       ]
     },
@@ -1983,7 +1850,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 8,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -1997,7 +1864,7 @@
           "shape": 3
         }
       ],
-      "title": "KSampler Selector",
+      "title": "SD15 Sampler",
       "properties": {
         "Node name for S&R": "KSamplerSelect"
       },
@@ -2071,7 +1938,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 55,
+      "order": 53,
       "mode": 0,
       "inputs": [
         {
@@ -2128,7 +1995,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 9,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2144,7 +2011,7 @@
           }
         }
       ],
-      "title": "SD15 start step",
+      "title": "SD15 Start Step",
       "properties": {
         "Run widget replace on values": false
       },
@@ -2190,7 +2057,7 @@
           "shape": 3
         }
       ],
-      "title": "SD15 Negative Prompt",
+      "title": "SD15 Negative",
       "properties": {
         "Node name for S&R": "CLIPTextEncode"
       },
@@ -2215,7 +2082,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 10,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2229,12 +2096,12 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Prompt prefix",
+      "title": "Prompt Prefix",
       "properties": {
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "An iPhone photo. "
+        "A pixel-art image of "
       ]
     },
     {
@@ -2251,7 +2118,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 11,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2265,12 +2132,12 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Prompt suffix",
+      "title": "Prompt Suffix",
       "properties": {
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        ". (144p photo:1.1) with JPEG artifacts."
+        ". low-res, blocky, pixel art style, 8-bit graphics"
       ]
     },
     {
@@ -2287,7 +2154,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 12,
+      "order": 8,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2301,12 +2168,12 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Negative prefix",
+      "title": "Negative Prefix",
       "properties": {
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "macrophoto"
+        "blurry, noisy, highly detailed, ultra textured, photo, realistic, macrophoto"
       ]
     },
     {
@@ -2323,7 +2190,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 13,
+      "order": 9,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2337,12 +2204,12 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Refiner prefix",
+      "title": "SD15 Prefix",
       "properties": {
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        ""
+        "pixel-art, low-res, blocky"
       ]
     },
     {
@@ -2359,7 +2226,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 14,
+      "order": 10,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2376,60 +2243,14 @@
           }
         }
       ],
-      "title": "Fast Sampler Name",
+      "title": "PixArt Sampler",
       "properties": {
         "Run widget replace on values": false
       },
       "widgets_values": [
-        "lms",
+        "uni_pc",
         "fixed",
         ""
-      ]
-    },
-    {
-      "id": 83,
-      "type": "KSamplerSelect",
-      "pos": {
-        "0": 330,
-        "1": 1600
-      },
-      "size": {
-        "0": 210,
-        "1": 80
-      },
-      "flags": {
-        "collapsed": false,
-        "pinned": true
-      },
-      "order": 34,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "sampler_name",
-          "type": "COMBO",
-          "link": 322,
-          "widget": {
-            "name": "sampler_name"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SAMPLER",
-          "type": "SAMPLER",
-          "links": [
-            327
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "Fast Sampler",
-      "properties": {
-        "Node name for S&R": "KSamplerSelect"
-      },
-      "widgets_values": [
-        "lms"
       ]
     },
     {
@@ -2446,7 +2267,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 15,
+      "order": 11,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2460,7 +2281,7 @@
           "shape": 3
         }
       ],
-      "title": "HQ Sampler",
+      "title": "PixArt HQ Sampler",
       "properties": {
         "Node name for S&R": "KSamplerSelect"
       },
@@ -2515,12 +2336,12 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Use HQ Sampler",
+      "title": "Use HQ Sampler",
       "properties": {
         "Node name for S&R": "Switch any [Crystools]"
       },
       "widgets_values": [
-        true
+        false
       ]
     },
     {
@@ -2537,7 +2358,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 44,
+      "order": 39,
       "mode": 0,
       "inputs": [
         {
@@ -2584,7 +2405,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 43,
+      "order": 38,
       "mode": 0,
       "inputs": [
         {
@@ -2630,7 +2451,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 38,
+      "order": 44,
       "mode": 0,
       "inputs": [
         {
@@ -2658,7 +2479,7 @@
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "A colossal, ancient temple complex is carved into the rocky cliffs of a secluded, mist-laden valley, featuring grand arches, towering columns, and intricate stone facades adorned with faded frescoes and mosaics that depict mythical scenes and celestial maps. The architecture blends elements of Greco-Roman and Byzantine styles, evoking a sense of timelessness and reverence. A lone scholar, draped in dark, flowing robes reminiscent of monastic scribes, moves deliberately through the temple, their presence adding to the scene’s quiet, contemplative atmosphere. Soft, ethereal light filters through natural fissures in the rock, casting a muted glow that emphasizes the grandeur and mystery of the space. The geography suggests a remote, ancient land, far removed from civilization, with dense fog and towering cliffs enhancing the sense of seclusion and sacredness. The few figures present interact minimally, absorbed in their own silent quests for knowledge, adding to the overall feeling of introspection and awe as they navigate this vast, sacred sanctuary. Bokeh"
+        "Batman playing soccer on a muddy field, under a cloudy sky with a lightning bolt in the background, amidst intense rain, with the stadium stands packed with people in the distance"
       ]
     },
     {
@@ -2714,7 +2535,7 @@
           "shape": 3
         }
       ],
-      "title": "🪛 Switch empty prompt",
+      "title": "Switch empty prompt",
       "properties": {
         "Node name for S&R": "Switch string [Crystools]"
       },
@@ -2739,7 +2560,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 16,
+      "order": 12,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2778,7 +2599,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 36,
+      "order": 42,
       "mode": 0,
       "inputs": [
         {
@@ -2806,7 +2627,7 @@
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "A colossal, ancient temple complex is carved into the rocky cliffs of a secluded, mist-laden valley, featuring grand arches, towering columns, and intricate stone facades adorned with faded frescoes and mosaics that depict mythical scenes and celestial maps. The architecture blends elements of Greco-Roman and Byzantine styles, evoking a sense of timelessness and reverence. A lone scholar, draped in dark, flowing robes reminiscent of monastic scribes, moves deliberately through the temple, their presence adding to the scene’s quiet, contemplative atmosphere. Soft, ethereal light filters through natural fissures in the rock, casting a muted glow that emphasizes the grandeur and mystery of the space. The geography suggests a remote, ancient land, far removed from civilization, with dense fog and towering cliffs enhancing the sense of seclusion and sacredness. The few figures present interact minimally, absorbed in their own silent quests for knowledge, adding to the overall feeling of introspection and awe as they navigate this vast, sacred sanctuary. Bokeh"
+        "Batman playing soccer on a muddy field, under a cloudy sky with a lightning bolt in the background, amidst intense rain, with the stadium stands packed with people in the distance"
       ]
     },
     {
@@ -2824,7 +2645,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 42,
+      "order": 41,
       "mode": 0,
       "inputs": [
         {
@@ -2869,7 +2690,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 17,
+      "order": 13,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2886,12 +2707,12 @@
           }
         }
       ],
-      "title": "Steps",
+      "title": "PixArt Steps",
       "properties": {
         "Run widget replace on values": false
       },
       "widgets_values": [
-        11,
+        17,
         "fixed"
       ]
     },
@@ -2909,7 +2730,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 35,
+      "order": 34,
       "mode": 0,
       "inputs": [
         {
@@ -2937,14 +2758,14 @@
           "shape": 3
         }
       ],
-      "title": "Scheduler",
+      "title": "PixArt Scheduler",
       "properties": {
         "Node name for S&R": "BasicScheduler"
       },
       "widgets_values": [
         "beta",
-        11,
-        0.9
+        17,
+        0.75
       ]
     },
     {
@@ -2962,13 +2783,13 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 54,
+      "order": 58,
       "mode": 0,
       "inputs": [
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 115
+          "link": 337
         },
         {
           "name": "text",
@@ -3019,7 +2840,7 @@
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 116
+          "link": 338
         },
         {
           "name": "text",
@@ -3077,6 +2898,7 @@
       "properties": {
         "Node name for S&R": "PreviewImage"
       },
+      "widgets_values": [],
       "color": "#323",
       "bgcolor": "#535",
       "shape": 1
@@ -3115,49 +2937,6 @@
       "shape": 1
     },
     {
-      "id": 95,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 20,
-        "1": 60
-      },
-      "size": {
-        "0": 680,
-        "1": 250
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 18,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            169,
-            190,
-            240
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "title": "Prompt",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        "A colossal, ancient temple complex is carved into the rocky cliffs of a secluded, mist-laden valley, featuring grand arches, towering columns, and intricate stone facades adorned with faded frescoes and mosaics that depict mythical scenes and celestial maps. The architecture blends elements of Greco-Roman and Byzantine styles, evoking a sense of timelessness and reverence. A lone scholar, draped in dark, flowing robes reminiscent of monastic scribes, moves deliberately through the temple, their presence adding to the scene’s quiet, contemplative atmosphere. Soft, ethereal light filters through natural fissures in the rock, casting a muted glow that emphasizes the grandeur and mystery of the space. The geography suggests a remote, ancient land, far removed from civilization, with dense fog and towering cliffs enhancing the sense of seclusion and sacredness. The few figures present interact minimally, absorbed in their own silent quests for knowledge, adding to the overall feeling of introspection and awe as they navigate this vast, sacred sanctuary. Bokeh"
-      ],
-      "color": "#232",
-      "bgcolor": "#353",
-      "shape": 1
-    },
-    {
       "id": 71,
       "type": "PrimitiveNode",
       "pos": {
@@ -3172,7 +2951,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 19,
+      "order": 14,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3194,7 +2973,7 @@
         "Run widget replace on values": false
       },
       "widgets_values": [
-        3.2,
+        4.0,
         "fixed"
       ],
       "color": "#2a363b",
@@ -3215,7 +2994,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 20,
+      "order": 15,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3237,7 +3016,7 @@
         "Run widget replace on values": false
       },
       "widgets_values": [
-        2,
+        1,
         "fixed"
       ],
       "color": "#2a363b",
@@ -3258,7 +3037,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 21,
+      "order": 16,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3279,7 +3058,7 @@
         "Run widget replace on values": false
       },
       "widgets_values": [
-        24,
+        14,
         "fixed"
       ],
       "color": "#2a363b",
@@ -3300,7 +3079,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 22,
+      "order": 17,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3328,47 +3107,6 @@
       "shape": 1
     },
     {
-      "id": 97,
-      "type": "PrimitiveNode",
-      "pos": {
-        "0": 240,
-        "1": 470
-      },
-      "size": {
-        "0": 360,
-        "1": 160
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 23,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            235
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "string"
-          }
-        }
-      ],
-      "title": "Negative prompt",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        ""
-      ],
-      "color": "#322",
-      "bgcolor": "#533",
-      "shape": 1
-    },
-    {
       "id": 187,
       "type": "PrimitiveNode",
       "pos": {
@@ -3382,7 +3120,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 24,
+      "order": 18,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3424,7 +3162,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 25,
+      "order": 19,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3445,7 +3183,7 @@
         "Run widget replace on values": false
       },
       "widgets_values": [
-        true
+        false
       ],
       "shape": 1
     },
@@ -3463,7 +3201,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 26,
+      "order": 20,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3502,7 +3240,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 27,
+      "order": 21,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -3528,6 +3266,314 @@
       "shape": 1
     },
     {
+      "id": 104,
+      "type": "Primitive integer [Crystools]",
+      "pos": {
+        "0": 1350,
+        "1": 670
+      },
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            156,
+            158
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Portrait Width",
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]"
+      },
+      "widgets_values": [
+        944
+      ]
+    },
+    {
+      "id": 105,
+      "type": "Primitive integer [Crystools]",
+      "pos": {
+        "0": 1350,
+        "1": 830
+      },
+      "size": {
+        "0": 210,
+        "1": 60
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "links": [
+            155,
+            157
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Portrait Height",
+      "properties": {
+        "Node name for S&R": "Primitive integer [Crystools]"
+      },
+      "widgets_values": [
+        1408
+      ]
+    },
+    {
+      "id": 83,
+      "type": "KSamplerSelect",
+      "pos": {
+        "0": 330,
+        "1": 1600
+      },
+      "size": {
+        "0": 210,
+        "1": 80
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "sampler_name",
+          "type": "COMBO",
+          "link": 322,
+          "widget": {
+            "name": "sampler_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            327
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "uni_pc"
+      ]
+    },
+    {
+      "id": 110,
+      "type": "Note",
+      "pos": {
+        "0": 20,
+        "1": 670
+      },
+      "size": {
+        "0": 610,
+        "1": 240
+      },
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "PIXEL personal tips",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        " * Seed              : random\n * Guidance          : 4.0     [ 3.0 - 5.0 ]\n * Refiner intensity : 14      [ 12  - 18  ]\n * Refiner variation : 0       < different values create slight changes in small details\n * Refiner attention : empty   < add words to focus refinement on specific objects\n * Ref.ignores prompt: false   < if enabled, the refiner will completely ignore the prompt\n\nIncreasing 'Guidance' makes the pixel art look more old-school.\nLowering 'Guidance' creates more detailed pixel art with smoother color gradients.\n\nFor more information about Abominable Workflows:\nhttps://civitai.com/models/420163"
+      ],
+      "color": "#222",
+      "bgcolor": "#000",
+      "shape": 1
+    },
+    {
+      "id": 211,
+      "type": "VAELoader",
+      "pos": {
+        "0": 50,
+        "1": 1260
+      },
+      "size": {
+        "0": 440,
+        "1": 80
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            336
+          ],
+          "shape": 3
+        }
+      ],
+      "title": "PixArt-Sigma VAE Loader",
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "pixart_vae.safetensors"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 212,
+      "type": "CLIPLoader",
+      "pos": {
+        "0": 50,
+        "1": 1000
+      },
+      "size": {
+        "0": 440,
+        "1": 90
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            337,
+            338
+          ],
+          "shape": 3
+        }
+      ],
+      "title": "T5 Encoder Loader",
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5_xxl_encoder-FP8.safetensors",
+        "sd3"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 97,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 240,
+        "1": 470
+      },
+      "size": {
+        "0": 360,
+        "1": 160
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            235
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "title": "Negative prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533",
+      "shape": 1
+    },
+    {
+      "id": 95,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": 20,
+        "1": 60
+      },
+      "size": {
+        "0": 680,
+        "1": 250
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 28,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            169,
+            190,
+            240
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "string"
+          }
+        }
+      ],
+      "title": "Prompt",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        "Batman playing soccer on a muddy field, under a cloudy sky with a lightning bolt in the background, amidst intense rain, with the stadium stands packed with people in the distance"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    },
+    {
       "id": 66,
       "type": "Note",
       "pos": {
@@ -3541,7 +3587,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 28,
+      "order": 29,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -3550,37 +3596,7 @@
         "text": ""
       },
       "widgets_values": [
-        "Abominable Workflows v3\n=======================\nhttps://civitai.com/models/420163/abominable-workflows\n\nREQUIRED FILES\n--------------\n To use this workflow, you need to install the following models in ComfyUI.\n Place them in the specified directories:\n\n <your_comfyui_dir> / models / checkpoints /\n   > PixArt-Sigma-1024.safetensors\n   > Photon-Refiner.safetensors\n\n <your_comfyui_dir> / models / clip /\n   > T5-Encoder-Q5_K_M.gguf\n\n <your_comfyui_dir> / models / vae /\n   > PixArt-Sigma-VAE.safetensors\n\n All four files can be downloaded from:\n   https://huggingface.co/martin-rizzo/AbominableWorkflow/tree/main\n\nREQUIRED NODES\n--------------\n This workflow also requires the following custom nodes:\n\n   > ComfyUI_ExtraModels\n     https://github.com/city96/ComfyUI_ExtraModels\n\n   > ComfyUI-GGUF\n     https://github.com/city96/ComfyUI-GGUF\n\n   > ComfyUI-Crystools\n     https://github.com/crystian/ComfyUI-Crystools\n\n For detailed installation instructions for these nodes, please refer to the main page of Abominable Workflows.\n\nOUTPUT IMAGES\n-------------\n Generated images will be automatically saved in:\n    <your_comfyui_dir> / output / abominable /\n\nIMAGE SIZE\n----------\n This workflow uses PixArt-1024 beyond its recommended size. For optimal quality, consider using the values provided by PixArt's authors:\n\n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768\n\nABOMINABLE WORKFLOWS IN V3\n--------------------------\n  > abominable_1GIRL_.json\n  > abominable_DARKFAN80_.json\n  > abominable_GHIBLI_.json\n  > abominable_INK_.json\n  > abominable_MILO_.json\n  > abominable_PHOTO_.json\n  > abominable_POLAROID_.json\n  > classic_abominable_spaghetti.json\n"
-      ],
-      "color": "#222",
-      "bgcolor": "#000",
-      "shape": 1
-    },
-    {
-      "id": 110,
-      "type": "Note",
-      "pos": {
-        "0": 20,
-        "1": 670
-      },
-      "size": [
-        610,
-        240
-      ],
-      "flags": {
-        "collapsed": false,
-        "pinned": true
-      },
-      "order": 29,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "PHOTO personal tips",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        " * Seed              : random\n * Guidance          : 3.2     [ 3.0 - 4.0 ]\n * Refiner intensity : 22      [ 18  - 25  ]\n * Refiner variation : 0       < different values create slight changes in small details\n * Refiner attention : empty   < add words to focus refinement on specific objects\n * Ref.ignores prompt: false   < if enabled, the refiner will completely ignore the prompt\n\nIf the image looks too drawn, add \"bokeh\" to the prompt.\nIf the background is blurry, add one or more of the following to the negative prompt:\n   \"bokeh\", \"out of focus\", \"macrophoto\".\nEnabling 'HQ sampler' can improve contrast and details, but is slower.\n\nFor more information about Abominable Workflows:\nhttps://civitai.com/models/420163"
+        "Abominable Workflows v3\n=======================\nhttps://civitai.com/models/420163/abominable-workflows\n\nREQUIRED FILES\n--------------\n To use these workflows, you need to install the following models in ComfyUI.\n Place them in the specified directories:\n\n <your_comfyui_dir> / models / checkpoints /\n   > pixart_sigma-FP16.safetensors\n   > photon_refiner-FP16.safetensors\n\n <your_comfyui_dir> / models / clip /\n   > t5_xxl_encoder-FP8.safetensors\n\n <your_comfyui_dir> / models / vae /\n   > pixart_vae.safetensors\n\n All four files can be downloaded from:\n   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main\n\nREQUIRED NODES\n--------------\n Abominable workflows also requires the following custom nodes:\n\n   > ComfyUI_ExtraModels\n     https://github.com/city96/ComfyUI_ExtraModels\n\n   > ComfyUI-Crystools\n     https://github.com/crystian/ComfyUI-Crystools\n\n For detailed installation instructions for these nodes, please refer to the main page of Abominable Workflows.\n\nOUTPUT IMAGES\n-------------\n Generated images will be automatically saved in:\n    <your_comfyui_dir> / output / abominable /\n\nWORKFLOWS INCLUDED\n------------------\n This pack contains multiple workflows, each designed for a different image style:\n   > abominable_1GIRL_\n   > abominable_DARKFAN80_\n   > abominable_INK_\n   > abominable_MILO_\n   > abominable_PHOTO_\n   > abominable_PIXEL_\n  \nIMAGE SIZE\n----------\n Abominable uses PixArt-1024 beyond its recommended size.\n For optimal quality, consider using the values provided by PixArt's authors:\n\n    9:21 =  640 x 1536\n    9:16 =  768 x 1344\n    4:5  =  896 x 1152\n    2:3  =  832 x 1216\n    1:1  = 1024 x 1024\n    3:2  = 1216 x  832\n    5:4  =  896 x 1152\n   21:9  = 1536 x  640\n   16:9  = 1344 x  768"
       ],
       "color": "#222",
       "bgcolor": "#000",
@@ -3603,22 +3619,6 @@
       53,
       0,
       "IMAGE"
-    ],
-    [
-      115,
-      78,
-      0,
-      79,
-      0,
-      "CLIP"
-    ],
-    [
-      116,
-      78,
-      0,
-      80,
-      0,
-      "CLIP"
     ],
     [
       133,
@@ -3989,14 +3989,6 @@
       "*"
     ],
     [
-      273,
-      8,
-      0,
-      180,
-      0,
-      "*"
-    ],
-    [
       274,
       179,
       0,
@@ -4299,6 +4291,30 @@
       168,
       0,
       "*"
+    ],
+    [
+      336,
+      211,
+      0,
+      180,
+      0,
+      "*"
+    ],
+    [
+      337,
+      212,
+      0,
+      79,
+      0,
+      "CLIP"
+    ],
+    [
+      338,
+      212,
+      0,
+      80,
+      0,
+      "CLIP"
     ]
   ],
   "groups": [
@@ -4327,7 +4343,7 @@
       "flags": {}
     },
     {
-      "title": "[v3] abominable PHOTO",
+      "title": "[v3] abominable PIXEL",
       "bounding": [
         10,
         0,
