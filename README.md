@@ -26,20 +26,22 @@ models that we've always loved.
 
 ## Required Files
 
-To use the workflows, you need to have the following models installed in ComfyUI.
-Please place them in the corresponding directories as specified below:
+To use the workflows, you need to have the following models installed in ComfyUI.<br/>
+Place them in the corresponding directories as specified below.
 
- * __(your_comfyui_dir) / models / checkpoints /__
-   * [pixart_sigma-FP16.safetensors](
-     https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/checkpoints)
-   * [photon_refiner-FP16.safetensors](
-     https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/checkpoints)
- * __(your_comfyui_dir) / models / clip /__
-   * [t5_xxl_encoder-FP8.safetensors](
-     https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/clip)
- * __(your_comfyui_dir) / models / vae /__
-   * [pixart_vae.safetensors](
-     https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/vae)
+__`<your_comfyui_dir>` / models / checkpoints :__
+ * [pixart_sigma-FP16.safetensors](
+   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/checkpoints)
+ * [photon_refiner-FP16.safetensors](
+   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/checkpoints)
+
+__`<your_comfyui_dir>` / models / clip :__
+ * [t5_xxl_encoder-FP8.safetensors](
+   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/clip)
+
+__`<your_comfyui_dir>` / models / vae :__
+ * [pixart_vae.safetensors](
+   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/vae)
 
 
 ## Required Nodes
