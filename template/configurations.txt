@@ -10,38 +10,12 @@
 @NODE.README : README.TXT
 
 
-#./abominable_PHOTO_OLD_.json
-## old version to delete
-#NODE.MAIN          : '[v3] old version PHOTO'
-#NODE.TIPS          : @tips.txt
-#NODE.README        : @read.txt
-#Seed               : 1
-#Guidance           : 3.2
-#Refiner intensity  : 22
-#Portrait Width     : 1024
-#Portrait Height    : 1536
-#PixArt Steps       : 11
-#PixArt Sampler     : lms
-#PixArt HQ Sampler  : heun
-#PixArt Scheduler   : beta
-#PixArt Scheduler   : 0.90
-#Prompt Prefix      : 'An iPhone photo. '
-#Prompt Suffix      : '. (144p photo:1.1) with JPEG artifacts.'
-#Negative Prefix    : 'macrophoto'
-#Negative Suffix    : ''
-#SD15 Guidance      : 2.0
-#SD15 Start Step    : 12
-#SD15 Sampler       : dpmpp_2m
-#SD15 Scheduler     : normal
-#SD15 Scheduler     : 0.90
-#SD15 Prefix        : ''
-#SD15 Negative      : '(worst quality, low quality:1.8)'
-
 ./abominable_PHOTO_.json
 # Realistic images with photographic details.
 NODE.MAIN          : '[v3] abominable PHOTO'
 NODE.TIPS          : @tips.txt
 NODE.README        : @read.txt
+Prompt             : A tiny hedgehog wrapped snugly in a miniature blanket, holding a small cup of hot chocolate with both paws, sitting on a wooden floor. Near a fireplace made of stacked shiny stones
 Seed               : 1
 Guidance           : 3.5
 Refiner intensity  : 22
@@ -72,6 +46,8 @@ SD15 Negative      : '(worst quality, low quality:1.8)'
 NODE.MAIN          : '[v3] abominable DARKFAN80'
 NODE.TIPS          : @tips.txt
 NODE.README        : @read.txt
+Prompt             : A demonic creature with horns and wings lurking in the shadows of a dilapidated castle dungeon, lit only by flickering torches
+Negative prompt    : minimalist
 Seed               : 1
 Guidance           : 3.2
 Refiner intensity  : 22
@@ -100,6 +76,7 @@ SD15 Negative      : '(worst quality, low quality:1.8)'
 NODE.MAIN          : '[v3] abominable PIXEL'
 NODE.TIPS          : @tips.txt
 NODE.README        : @read.txt
+Prompt             : Batman playing soccer on a muddy field, under a cloudy sky with a lightning bolt in the background, amidst intense rain, with the stadium stands packed with people in the distance
 Seed               : 1
 Guidance           : 4.0
 Refiner intensity  : 14
@@ -130,6 +107,7 @@ SD15 Negative      : '(worst quality, low quality:1.8)'
 NODE.MAIN          : '[v3] abominable INK'
 NODE.TIPS          : @tips.txt
 NODE.README        : @read.txt
+Prompt             : A bare chested muscular Warhammer dwarf, red beard and a Mohawk haircut, tattooed, in the desert
 Seed               : 1
 Guidance           : 4.5
 Refiner intensity  : 16
@@ -160,6 +138,7 @@ SD15 Negative      : '(worst quality, low quality:1.6)'
 NODE.MAIN          : '[v3] abominable MILO'
 NODE.TIPS          : @tips.txt
 NODE.README        : @read.txt
+Prompt             : A female Captain America holding a heavy shield in the street and wearing a tight top
 Seed               : 1
 Guidance           : 3.5
 Refiner intensity  : 18
@@ -191,6 +170,7 @@ SD15 Negative      : '(worst quality, low quality:1.8)'
 NODE.MAIN          : '[v3] abominable 1GIRL'
 NODE.TIPS          : @tips.txt
 NODE.README        : @read.txt
+Prompt             : A light-skinned black young woman with frizzy curls in a strapless dress with stripes, in public, outdoors, tattoo on hand
 Seed               : 1
 Guidance           : 3.2
 Refiner intensity  : 22
@@ -213,9 +193,36 @@ SD15 Scheduler     : 0.90
 SD15 Prefix        : '(An argentine social woman:1.1)'
 SD15 Negative      : '(worst quality, low quality:1.8)'
 
+#----------------------------------------------------------------------------
+# Discarded
+#./abominable_PHOTO_OLD_.json
+## old version to delete
+#NODE.MAIN          : '[v3] old version PHOTO'
+#NODE.TIPS          : @tips.txt
+#NODE.README        : @read.txt
+#Seed               : 1
+#Guidance           : 3.2
+#Refiner intensity  : 22
+#Portrait Width     : 1024
+#Portrait Height    : 1536
+#PixArt Steps       : 11
+#PixArt Sampler     : lms
+#PixArt HQ Sampler  : heun
+#PixArt Scheduler   : beta
+#PixArt Scheduler   : 0.90
+#Prompt Prefix      : 'An iPhone photo. '
+#Prompt Suffix      : '. (144p photo:1.1) with JPEG artifacts.'
+#Negative Prefix    : 'macrophoto'
+#Negative Suffix    : ''
+#SD15 Guidance      : 2.0
+#SD15 Start Step    : 12
+#SD15 Sampler       : dpmpp_2m
+#SD15 Scheduler     : normal
+#SD15 Scheduler     : 0.90
+#SD15 Prefix        : ''
+#SD15 Negative      : '(worst quality, low quality:1.8)'
 
 #----------------------------------------------------------------------------
-#
 # Next Version?
 # =============
 #

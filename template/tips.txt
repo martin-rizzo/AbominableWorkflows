@@ -28,6 +28,7 @@ DARKFAN80 personal tips
  * Ref.ignores prompt: false   < if enabled, the refiner will completely ignore the prompt
 
 Increasing 'Guidance' may sometimes improve coherence.
+Adding 'minimalist' to the negative prompt can enhance detail.
 If the image looks too undefined, try adding "(painting, draw:1.1)" to the negative.
 DARKFAN80 workflow can be unpredictable, quality varies greatly based on parameters.
 
