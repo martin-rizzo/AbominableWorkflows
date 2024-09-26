@@ -31,17 +31,17 @@ Place them in the corresponding directories as specified below.
 
 __`<your_comfyui_dir>` / models / checkpoints :__
  * [pixart_sigma-FP16.safetensors](
-   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/checkpoints)
+   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main)
  * [photon_refiner-FP16.safetensors](
-   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/checkpoints)
+   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main)
 
 __`<your_comfyui_dir>` / models / clip :__
  * [t5_xxl_encoder-FP8.safetensors](
-   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/clip)
+   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main)
 
 __`<your_comfyui_dir>` / models / vae :__
  * [pixart_vae.safetensors](
-   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main/vae)
+   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main)
 
 
 ## Required Nodes
