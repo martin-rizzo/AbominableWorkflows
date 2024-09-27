@@ -1,6 +1,15 @@
+import os
 import sys
 import json
 import argparse
+try:
+    # PIL is used to read workflow data embedded in images
+    from PIL import Image
+    PIL_AVAILABLE = True
+except ImportError:
+    print("Warning: The Pillow library is not installed: functionality will be limited.")
+    PIL_AVAILABLE = False
+
 
 # ANSI escape codes for colored terminal output
 RED    = '\033[91m'
@@ -19,7 +28,7 @@ def is_terminal_output():
     """Check if the standard output is connected to a terminal."""
     return sys.stdout.isatty()
 
-def get_unpinned_nodes(workflow):
+def get_unpinned_nodes(workflow: dict) -> (list, int):
     """Extracts unpinned nodes from a workflow
 
     This function extracts all nodes that are not pinned.
@@ -57,7 +66,7 @@ def get_unpinned_nodes(workflow):
             unpinned_node = type('Node', (), {'name': title, 'x': x, 'y': y})
             unpinned_nodes.append(unpinned_node)
 
-    return unpinned_nodes
+    return unpinned_nodes, len(nodes)
 
 def is_two_element_array_like(data):
     """Checks if the input data is a two-element array-like structure
@@ -122,6 +131,45 @@ def get_workflow_view(workflow):
     return view_x, view_y, view_scale
 
 
+#---------------------------- READING WORKFLOW -----------------------------#
+
+def read_workflow_from_json(filename: str) -> dict:
+    """Reads workflow data from a JSON file
+    Args:
+        filename (str): The path to the JSON file.
+    Returns:
+        A dictionary containing the workflow data,
+        or None if no workflow data is found.
+    """
+    try:
+        workflow = None
+        with open(filename, 'r') as f:
+            workflow = json.load(f)
+        return workflow
+    except (FileNotFoundError, IOError, json.JSONDecodeError):
+        return None
+
+
+def read_workflow_from_png(filename: str) -> dict:
+    """Reads workflow data embedded in a PNG image
+    Args:
+        filename (str): The path to the PNG image file.
+    Returns:
+        A dictionary containing the workflow data,
+        or None if no workflow data is found.
+    """
+    if not PIL_AVAILABLE:
+        return None
+    try:
+        workflow = None
+        with Image.open(filename) as image:
+            if 'prompt' in image.info and 'workflow' in image.info:
+                workflow = image.info.get('workflow')
+        return json.loads(workflow) if isinstance(workflow,str) else None
+    except (IOError, OSError):
+        return None
+
+
 #===========================================================================#
 #////////////////////////////////// MAIN ///////////////////////////////////#
 #===========================================================================#
@@ -143,19 +191,28 @@ def main():
         disable_colors()
 
     for filename in args.workflow_file:
-
         print()
         print(filename)
-        with open(filename, 'r') as f:
-            workflow = json.load(f)
 
-        unpinned_nodes = get_unpinned_nodes(workflow)
+        _, extension = os.path.splitext(filename)
+        if extension.lower() == '.json':
+            workflow = read_workflow_from_json(filename)
+        elif extension.lower() == '.png':
+            workflow = read_workflow_from_png(filename)
+        else:
+            workflow = None
+
+        if not workflow:
+            print(f"{YELLOW} - Imposible leer el workflow del archivo.{DEFAULT_COLOR}")
+            continue
+
+        unpinned_nodes, total_count   = get_unpinned_nodes(workflow)
         pos_bug_count, size_bug_count = check_node_dimensions(workflow);
         view_x, view_y, view_scale    = get_workflow_view(workflow)
         view_displaced = view_x != 0 or view_y != 0 or view_scale != 1
 
         if not unpinned_nodes and not view_displaced:
-            print(f"{GREEN}  - All nodes are pinned and view is at the origin.{DEFAULT_COLOR}")
+            print(f"{GREEN}  - The {total_count} nodes are pinned and view is at the origin.{DEFAULT_COLOR}")
 
         if pos_bug_count > 0:
             print(f"{RED}  - Potential issues with 'pos' attribute : {pos_bug_count}{DEFAULT_COLOR}")
@@ -171,6 +228,7 @@ def main():
                 #print(f"       {node.name}  ({node.x}, {node.y})")
                 print(f"       ({node.x:>4},{node.y:>4}) {node.name}")
 
+    print()
 
 if __name__ == '__main__':
     main()
