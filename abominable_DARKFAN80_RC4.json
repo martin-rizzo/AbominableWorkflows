@@ -2658,7 +2658,7 @@
         "Node name for S&R": "Primitive string multiline [Crystools]"
       },
       "widgets_values": [
-        "minimalist"
+        ""
       ]
     },
     {
@@ -3510,7 +3510,7 @@
         "Run widget replace on values": false
       },
       "widgets_values": [
-        "minimalist"
+        ""
       ],
       "color": "#322",
       "bgcolor": "#533",

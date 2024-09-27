@@ -47,7 +47,6 @@ NODE.MAIN          : '[v3] abominable DARKFAN80'
 NODE.TIPS          : @tips.txt
 NODE.README        : @read.txt
 Prompt             : A demonic creature with horns and wings lurking in the shadows of a dilapidated castle dungeon, lit only by flickering torches
-Negative prompt    : minimalist
 Seed               : 1
 Guidance           : 3.2
 Refiner intensity  : 22
