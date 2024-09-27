@@ -11,6 +11,11 @@
                     "build_cmd": "./add-label.sh *.png",
                     "name": "add-label",
                     "run_cmd": ""
+                },
+                {
+                    "build_cmd": "./wcheck.sh ../*.json",
+                    "name": "wcheck",
+                    "run_cmd": ""
                 }
             ]
         }
