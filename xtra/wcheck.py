@@ -111,6 +111,17 @@ def check_node_dimensions(workflow):
     return pos_bug_count, size_bug_count
 
 
+def get_workflow_view(workflow):
+    view_x, view_y, view_scale = 0.0, 0.0, 1.0
+    ds = workflow.get('extra',{}).get('ds',{})
+    if 'offset' in ds and len(ds['offset'])>=2:
+        view_x = ds['offset'][0]
+        view_y = ds['offset'][1]
+    if 'scale' in ds:
+        view_scale = ds['scale']
+    return view_x, view_y, view_scale
+
+
 #===========================================================================#
 #////////////////////////////////// MAIN ///////////////////////////////////#
 #===========================================================================#
@@ -140,14 +151,19 @@ def main():
 
         unpinned_nodes = get_unpinned_nodes(workflow)
         pos_bug_count, size_bug_count = check_node_dimensions(workflow);
+        view_x, view_y, view_scale    = get_workflow_view(workflow)
+        view_displaced = view_x != 0 or view_y != 0 or view_scale != 1
 
-        if not unpinned_nodes:
-            print(f"{GREEN}  - All nodes are pinned{DEFAULT_COLOR}")
+        if not unpinned_nodes and not view_displaced:
+            print(f"{GREEN}  - All nodes are pinned and view is at the origin.{DEFAULT_COLOR}")
 
         if pos_bug_count > 0:
             print(f"{RED}  - Potential issues with 'pos' attribute : {pos_bug_count}{DEFAULT_COLOR}")
         if size_bug_count > 0:
             print(f"{RED}  - Potential issues with 'size' attribute: {size_bug_count}{DEFAULT_COLOR}")
+
+        if view_displaced:
+            print(f"{RED} - The view is not at the origin.{DEFAULT_COLOR}")
 
         if unpinned_nodes:
             print(f"{RED}  - Found {len(unpinned_nodes)} unpinned nodes:{DEFAULT_COLOR}")
