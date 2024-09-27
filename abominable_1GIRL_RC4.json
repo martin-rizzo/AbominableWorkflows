@@ -702,12 +702,7 @@
       "title": "Abominable Negative",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 183,
@@ -1133,12 +1128,7 @@
       "title": "Abominable Refiner",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 136,
@@ -1283,12 +1273,7 @@
       "title": "Abominable Prompt",
       "properties": {
         "Node name for S&R": "Show any [Crystools]"
-      },
-      "widgets_values": [
-        false,
-        true,
-        ""
-      ]
+      }
     },
     {
       "id": 125,
@@ -3351,7 +3336,8 @@
         "1": 80
       },
       "flags": {
-        "collapsed": false
+        "collapsed": false,
+        "pinned": true
       },
       "order": 33,
       "mode": 0,
