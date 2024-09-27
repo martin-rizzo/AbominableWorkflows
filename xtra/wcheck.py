@@ -1,9 +1,23 @@
-import argparse
+import sys
 import json
+import argparse
 
-RED   = "\033[91m"
-GREEN = "\033[92m"
-ENDC  = "\033[0m"
+# ANSI escape codes for colored terminal output
+RED    = '\033[91m'
+GREEN  = '\033[92m'
+YELLOW = '\033[93m'
+CYAN   = '\033[96m'
+DEFAULT_COLOR = '\033[0m'
+
+
+def disable_colors():
+    """Set all color codes to empty strings, effectively disabling colored output."""
+    global RED, GREEN, YELLOW, CYAN, DEFAULT_COLOR
+    RED, GREEN, YELLOW, CYAN, DEFAULT_COLOR = '', '', '', '', ''
+
+def is_terminal_output():
+    """Check if the standard output is connected to a terminal."""
+    return sys.stdout.isatty()
 
 def get_unpinned_nodes(workflow):
     """Extracts unpinned nodes from a workflow
@@ -105,10 +119,17 @@ def main():
     parser = argparse.ArgumentParser(
         description = "Analyzes ComfyUI workflow files to check for issues."
         )
-    parser.add_argument("workflow_file", nargs="+", help="ComfyUI workflow file(s) (.json) to analyze.")
-    parser.add_argument("--verbose", action="store_true", help="Show additional information about unpinned nodes.")
+    parser.add_argument("workflow_file" , nargs="+",           help="ComfyUI workflow file(s) (.json) to analyze.")
+    parser.add_argument('-c', '--color' , action="store_true", help="use color output when connected to a terminal")
+    parser.add_argument('--color-always', action="store_true", help="always use color output")
+    parser.add_argument("--verbose"     , action="store_true", help="Show additional information about unpinned nodes.")
 
     args = parser.parse_args()
+
+    # determine if color should be used
+    use_color = args.color_always or (args.color and is_terminal_output())
+    if not use_color:
+        disable_colors()
 
     for filename in args.workflow_file:
 
@@ -121,15 +142,15 @@ def main():
         pos_bug_count, size_bug_count = check_node_dimensions(workflow);
 
         if not unpinned_nodes:
-            print(f"{GREEN}  - All nodes are pinned{ENDC}")
+            print(f"{GREEN}  - All nodes are pinned{DEFAULT_COLOR}")
 
         if pos_bug_count > 0:
-            print(f"{RED}  - Potential issues with 'pos' attribute : {pos_bug_count}{ENDC}")
+            print(f"{RED}  - Potential issues with 'pos' attribute : {pos_bug_count}{DEFAULT_COLOR}")
         if size_bug_count > 0:
-            print(f"{RED}  - Potential issues with 'size' attribute: {size_bug_count}{ENDC}")
+            print(f"{RED}  - Potential issues with 'size' attribute: {size_bug_count}{DEFAULT_COLOR}")
 
         if unpinned_nodes:
-            print(f"{RED}  - Found {len(unpinned_nodes)} unpinned nodes:{ENDC}")
+            print(f"{RED}  - Found {len(unpinned_nodes)} unpinned nodes:{DEFAULT_COLOR}")
             for node in unpinned_nodes:
                 #print(f"       {node.name}  ({node.x}, {node.y})")
                 print(f"       ({node.x:>4},{node.y:>4}) {node.name}")
