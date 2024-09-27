@@ -12,7 +12,8 @@ Thumbs.db
 #
 /README-PERSONAL.MD
 /NEXT-LEVEL/
+/.kateproject.build
 /template/abominable_*.json
 /xtra/*.png
-xzip.sh
+/xzip.sh
 
