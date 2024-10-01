@@ -1,7 +1,6 @@
 <div align="center">
 
 # Abominable Workflows
-**A collection of comfyui workflows for PixArt-Sigma, each designed to bring a unique visual style to life.**
 
 <p>
 <img alt="Platform" src="https://img.shields.io/badge/platform-ComfyUI-33F">
@@ -10,12 +9,13 @@
 <img alt="Version"  src="https://img.shields.io/github/v/tag/martin-rizzo/AbominableWorkflows?label=version">
 </p>
 
-![Abominable Screenshot](examples/abominable_screenshot.jpg)
+![Abominable Workflows Grid](./demo_images/abominable_grid.jpg)
 </div>
 
-**Abominable Workflows** is a versatile suite that combines the creativity and
-prompt adherence of PixArt-Sigma with the impactful visual detail of the SD15
-models that we've always loved.
+**Abominable Workflows** is a collection of [ComfyUI](https://github.com/comfyanonymous/ComfyUI) workflows that unleashes the full potential of PixArt-Sigma by enhancing its exceptional prompt-following capabilities with the rich detail of SD15 models, resulting in stunning and unique visuals.
+
+
+## Setup Guide
 
  * [Required Files](#required-files)
  * [Required Nodes](#required-nodes)
@@ -112,6 +112,7 @@ Then, install the dependencies required by these nodes:
 - [x] Editable parameters grouped together.
 - [x] Explanation of how to install required files.
 - [x] Explanation of how to manually install nodes on Linux and Windows.
+- [x] Option to select portrait or landscape image orientation.
 - [ ] Support for 2K model.
 - [ ] Simplify installation process.
 - [ ] Automatic detection of model used.
