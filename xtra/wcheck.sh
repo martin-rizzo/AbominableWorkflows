@@ -7,7 +7,7 @@ SCRIPT_NAME=$(basename "${BASH_SOURCE[0]}" .sh)
 SCRIPT_DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 
 # construct the full path to the python script
-PYTHON_SCRIPT="$SCRIPT_DIR/${SCRIPT_NAME%%-*}.py"
+PYTHON_SCRIPT="${SCRIPT_DIR}/${SCRIPT_NAME}.py"
 
 # check if the python script exists
 if [ ! -f "$PYTHON_SCRIPT" ]; then
