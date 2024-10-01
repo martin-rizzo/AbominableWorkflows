@@ -45,6 +45,9 @@ YELLOW = '\033[93m'
 CYAN   = '\033[96m'
 DEFAULT_COLOR = '\033[0m'
 
+# Default font size for labels
+DEFAULT_FONT_SIZE = 36
+
 # Default height value used for an abominable image
 DEFAULT_ABOMINABLE_HEIGHT = 1536
 
@@ -447,7 +450,7 @@ def add_label_to_image(image: Image, text: str, font_size: int) -> Image:
     return labeled_image
 
 
-def add_label(filenames: list, font_size: int=None, forced_text: str=None, file_prefix: str=None):
+def add_label(filenames: list, font_size: int=None, forced_text: str=None, file_prefix: str=None, scale: float=None):
     """Processes images by adding labels and saving them with a new prefix.
 
     Args:
@@ -456,11 +459,22 @@ def add_label(filenames: list, font_size: int=None, forced_text: str=None, file_
         forced_text       (str): If provided, this text will be used instead of the workflow
                                  name extractedfrom the image's metadata.
         file_prefix       (str): The prefix to be added to each filename when saving the labeled image.
+        scale           (float): Scaling factor for resizing images after labeling.
+                                 A value of 1.0 (or None) means no scaling. Defaults to None
+
     """
     if not isinstance(filenames,list):
         filenames = [filenames]
-    font_size   = 36        if font_size   is None else font_size
-    file_prefix = 'labeled' if file_prefix is None else file_prefix
+
+    # scale of 1.0 is equivalent to no scaling
+    scale = None if scale == 1.0 else scale
+
+    # determine file prefix based on scaling
+    if not file_prefix:
+        file_prefix = 'labeled'
+        if scale is not None and scale>=0.01 and scale<1.0:
+            percent     = int(scale * 100)
+            file_prefix = f"lab{percent:02d}per"
 
     # ensure `file_prefix` always ends with an underscore
     if not file_prefix.endswith('_'):
@@ -484,7 +498,13 @@ def add_label(filenames: list, font_size: int=None, forced_text: str=None, file_
 
                 # add label with workflow name
                 text = get_workflow_name(workflow) if not forced_text else forced_text
-                labeled_image = add_label_to_image(image, text, font_size)
+                labeled_image = add_label_to_image(image, text, font_size or DEFAULT_FONT_SIZE)
+
+                # scale the image if requested
+                if scale:
+                    _width, _height = labeled_image.size
+                    _size = ( int(scale*_width), int(scale*_height) )
+                    labeled_image = labeled_image.resize( _size, Image.Resampling.LANCZOS )
 
                 # generate a new filename
                 base_name        = os.path.basename(filename)
@@ -497,6 +517,7 @@ def add_label(filenames: list, font_size: int=None, forced_text: str=None, file_
                     metadata.add_text("prompt", prompt)
                 if workflow is not None:
                     metadata.add_text("workflow", workflow)
+
                 labeled_image.save(new_file_name, format="PNG", pnginfo=metadata, compress_level=9)
                 print(f"Labeled: {new_file_name}")
 
@@ -510,14 +531,18 @@ def add_label(filenames: list, font_size: int=None, forced_text: str=None, file_
 
 def main():
     parser = argparse.ArgumentParser(description="Draws a label with the workflow name on each image.")
-    parser.add_argument("images", nargs="+", help="Image file(s) to process")
-    parser.add_argument("--text", help="Text to add to the image")
-    parser.add_argument("--prefix", help="Prefix for processed image files")
-    parser.add_argument("--font", help="Path to font file")
-    parser.add_argument("--font-size", type=int, help="Font size for the label")
+    parser.add_argument( 'images'       ,    nargs="+", help="Image file(s) to process")
+    parser.add_argument('-t', '--text'  ,               help="Text to add to the image")
+    parser.add_argument('-s', '--scale' ,   type=float, help="Scaling factor (max 1.0) to scale the output image")
+    parser.add_argument(      '--prefix',               help="Prefix for processed image files")
+    parser.add_argument(      '--font'  ,               help="Path to font file")
+    parser.add_argument(      '--font-size',  type=int, help="Font size for the label")
 
-    args = parser.parse_args()
-    add_label(args.images, font_size=args.font_size, forced_text=args.text, file_prefix=args.prefix)
+    args  = parser.parse_args()
+    scale = None
+    if args.scale:
+        scale = 0.01 if args.scale<=0.01 else 1.0 if args.scale>=1.0 else args.scale
+    add_label(args.images, font_size=args.font_size, forced_text=args.text, file_prefix=args.prefix, scale=scale)
 
 
 if __name__ == "__main__":
