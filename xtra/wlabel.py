@@ -136,6 +136,29 @@ def load_font(font_name: str, font_size: int) -> ImageFont:
     return font
 
 
+def get_font_filepath() -> str:
+    """Returns the full path to the .ttf font file.
+
+    Searches for a .ttf font file in the directory named after the
+    script with '-font' appended.
+
+    Returns:
+        The full path to the .ttf font
+        or `None` if for some reason it could not be found.
+    """
+    script_dir, script_name = os.path.split( os.path.abspath(__file__) )
+    font_dir      = os.path.join(script_dir, os.path.splitext(script_name)[0] + "-font")
+    font_filepath = None
+
+    if os.path.exists(font_dir):
+        for filename in os.listdir(font_dir):
+            if filename.lower().endswith(".ttf"):
+                font_filepath = os.path.join(font_dir, filename)
+                break
+
+    return font_filepath
+
+
 def get_abominable_scale(image: Image) -> float:
     """Calculates the scale factor for an abominable image.
     Args:
@@ -381,9 +404,25 @@ def add_label_to_image(image: Image, text: str, font_size: int) -> Image:
     label_width  = int( 480 * scale )
     label_height = int(  64 * scale )
 
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    font_dir   = os.path.join(script_dir, os.path.splitext(os.path.basename(__file__))[0] + "-font")
+
+    font_path = None
+    if os.path.exists(font_dir):
+        for filename in os.listdir(font_dir):
+            if filename.lower().endswith(".ttf"):
+                font_path = os.path.join(font_dir, filename)
+                break
+
     # load the fonts for each word
-    font1 = load_font("RobotoSlab-Bold.ttf" , font_size * scale)
-    font2 = load_font("RobotoSlab-Black.ttf", font_size * scale * 1.1)
+    font_filepath = get_font_filepath()
+    if font_filepath:
+        font1 = load_font(font_path, font_size * scale * 1.0)
+        font2 = load_font(font_path, font_size * scale * 1.1)
+    else:
+        warning("Warning: No TTF font found!. Using default font.")
+        font1 = ImageFont.load_default()
+        font2 = ImageFont.load_default()
 
     # extract the first two words from the provided text
     if ' ' in text:
