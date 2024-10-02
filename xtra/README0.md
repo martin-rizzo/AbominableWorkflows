@@ -2,13 +2,13 @@
 
 **Abominable Workflows** is a collection of ComfyUI workflows that unleashes the full potential of PixArt-Sigma by enhancing its exceptional prompt-following capabilities with the rich detail of SD15 models. Each workflow generates a distinct style of imagery:
 
- *  **abominable_PHOTO_**     : Realistic images with photographic details.
- *  **abominable_DARKFAN80_** : Dark, cinematic 80s style with VHS aesthetics and dramatic lighting.
- *  **abominable_PIXEL_**     : Pixel art style with retro aesthetics and vibrant, blocky shapes.
- *  **abominable_INK_**       : Ink-style illustrations with bold outlines and a hand-painted finish.
- *  **abominable_1GIRL_**     : Images centered on a captivating woman with photographic realism.
- *  **abominable_MILO_**      : European stylized comic book aesthetic with intricate linework.
- *  **classic_abominable_spaghetti** : Similar experience to the previous v2 but with all the new enhancements.
+  *  **abominable_PHOTO_**     : Realistic images with photographic details.
+  *  **abominable_DARKFAN80_** : Dark, cinematic 80s style with VHS aesthetics and dramatic lighting.
+  *  **abominable_PIXEL_**     : Pixel art style with retro aesthetics and vibrant, blocky shapes.
+  *  **abominable_INK_**       : Ink-style illustrations with bold outlines and a hand-painted finish.
+  *  **abominable_1GIRL_**     : Images centered on a captivating woman with photographic realism.
+  *  **abominable_MILO_**      : European stylized comic book aesthetic with intricate linework.
+  *  **classic_abominable_spaghetti** : Similar experience to the previous v2 but with all the new enhancements.
 
 
 ## Required Files
@@ -16,14 +16,14 @@
 To use the workflows, you need to have the following models installed in ComfyUI.
 Place them in the corresponding directories as specified below. 
 
-<your_comfyui_dir> / models / checkpoints :
+`<your_comfyui_dir>` / models / checkpoints :
   * pixart_sigma-FP16.safetensors   (1.2GB)
   * photon_refiner-FP16.safetensors (2.1GB)
 
-<your_comfyui_dir> / models / clip :
+`<your_comfyui_dir>` / models / clip :
   * t5_xxl_encoder-FP8.safetensors  (4.9GB)
 
-<your_comfyui_dir> / models / vae :
+`<your_comfyui_dir>` / models / vae :
   * pixart_vae.safetensors          (0.1GB)
 
 ```
@@ -52,11 +52,9 @@ The easiest way to install the required nodes is by using ComfyUI-Manager.
 This extension for ComfyUI offers management functions to install, remove,
 disable, and enable custom nodes. It simplifies the process and can save you
 a lot of trouble.
-
 ```
 https://github.com/ltdrdata/ComfyUI-Manager
 ```
-
 If for some reason you cannot use ComfyUI-Manager, follow the instructions
 below to install the nodes manually.
 
@@ -129,7 +127,7 @@ Then, install the dependencies required by these nodes:
 
 Copyright (c) 2024 Martin Rizzo  
 This project is licensed under the MIT license.  
-See the ["LICENSE"](LICENSE) file for details.
+See the LICENSE file for details.
 
 
 ## Acknowledgments
