@@ -122,14 +122,24 @@ Then, install the dependencies required by these nodes:
 
 ## Project Checklist
 
+### Workflows
 - [x] Editable parameters grouped together.
+- [x] Option to select portrait or landscape image orientation.
+- [x] Option to choose between two samplers (fast/quality).
+- [x] Option for refiner to ignore prompt and focus on other elements.
+- [x] Variations by changing the refiner seed.
+- [x] Preconfigured workflows with different styles.
+- [x] Unified PixArt prompt and refiner prompt.
+- [x] CivitAI prompt extractor compatibility.
+- [ ] Support for PixArt 2K model.
+- [ ] Automatic detection of the model used and the optimal image size.
+
+### Development & documentation
 - [x] Explanation of how to install required files.
 - [x] Explanation of how to manually install nodes on Linux and Windows.
-- [x] Option to select portrait or landscape image orientation.
-- [ ] Support for 2K model.
-- [ ] Simplify installation process.
-- [ ] Automatic detection of model used.
-- [ ] Automatic image size selection.
+- [x] Models in FP16 or FP8 for minimal VRAM (6 or 8GB).
+- [ ] Apply ComfyUI advances to speed up inference (own nodes?).
+- [ ] Simplify installation with minimal custom nodes.
 
 
 ## Lincense
