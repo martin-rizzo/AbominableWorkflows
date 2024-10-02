@@ -1,19 +1,22 @@
 
 #-----------------------------
-# System and temporary files
+# System files
 #
-*.kate-swp
 .DS_Store
 .profile
 Thumbs.db
 
 #-----------------------------
+# Kate editor files
+#
+*.kate-swp
+/.kateproject.build
+
+#-----------------------------
 # User-specific files
 #
-/00NEXT/
-/README-PERSONAL.MD
-/.kateproject.build
 /template/abominable_*.json
 /xtra/*.png
 /xzip.sh
+_*
 
