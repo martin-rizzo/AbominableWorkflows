@@ -1,6 +1,6 @@
 <div align="center">
 
-# Abominable Workflows
+# Abominable Workflows v3
 
 <p>
 <img alt="Platform"     src="https://img.shields.io/badge/platform-ComfyUI-blue">
@@ -44,17 +44,17 @@ Place them in the corresponding directories as specified below.
 
 __`<your_comfyui_dir>` / models / checkpoints :__
  * [pixart_sigma-FP16.safetensors](
-   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main)
+   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main) (1.2GB)
  * [photon_refiner-FP16.safetensors](
-   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main)
+   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main) (2.1GB)
 
 __`<your_comfyui_dir>` / models / clip :__
  * [t5_xxl_encoder-FP8.safetensors](
-   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main)
+   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main) (4.9GB)
 
 __`<your_comfyui_dir>` / models / vae :__
  * [pixart_vae.safetensors](
-   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main)
+   https://huggingface.co/martin-rizzo/AbominableWorkflows/tree/main) (0.1GB)
 
 
 ## Required Nodes

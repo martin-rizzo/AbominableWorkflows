@@ -10,8 +10,8 @@ Thumbs.db
 #-----------------------------
 # User-specific files
 #
+/00NEXT/
 /README-PERSONAL.MD
-/NEXT-LEVEL/
 /.kateproject.build
 /template/abominable_*.json
 /xtra/*.png
