@@ -21,6 +21,7 @@ Each workflow generates a distinct style of imagery:
 * **abominable_INK_** : Ink-style illustrations with bold outlines and a hand-painted finish.
 * **abominable_1GIRL_** : Images centered on a captivating woman with photographic realism.
 * **abominable_MILO_** : European stylized comic book aesthetic with intricate linework.
+* **classic_abominable_spaghetti** : Similar experience to the previous v2 but with all the new enhancements.
 
 
 ## Setup Guide
