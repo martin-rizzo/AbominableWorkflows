@@ -12,7 +12,7 @@
 ![Abominable Workflows Grid](./demo_images/abominable_grid.jpg)
 </div>
 
-**Abominable Workflows** is a collection of [ComfyUI](https://github.com/comfyanonymous/ComfyUI) workflows that unleashes the full potential of PixArt-Sigma by enhancing its exceptional prompt-following capabilities with the rich detail of SD15 models. <br/>
+**Abominable Workflows** is a collection of [ComfyUI](https://github.com/comfyanonymous/ComfyUI) workflows that unleashes the full potential of [PixArt-Sigma](https://github.com/PixArt-alpha/PixArt-sigma) by enhancing its exceptional prompt-following capabilities with the rich detail of SD15 models. <br/>
 Each workflow generates a distinct style of imagery:
 
 * **abominable_PHOTO_** : Realistic images with photographic details.
