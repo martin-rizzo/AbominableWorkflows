@@ -12,7 +12,15 @@
 ![Abominable Workflows Grid](./demo_images/abominable_grid.jpg)
 </div>
 
-**Abominable Workflows** is a collection of [ComfyUI](https://github.com/comfyanonymous/ComfyUI) workflows that unleashes the full potential of PixArt-Sigma by enhancing its exceptional prompt-following capabilities with the rich detail of SD15 models, resulting in stunning and unique visuals.
+**Abominable Workflows** is a collection of [ComfyUI](https://github.com/comfyanonymous/ComfyUI) workflows that unleashes the full potential of PixArt-Sigma by enhancing its exceptional prompt-following capabilities with the rich detail of SD15 models. <br/>
+Each workflow generates a distinct style of imagery:
+
+* **abominable_PHOTO_** : Realistic images with photographic details.
+* **abominable_DARKFAN80_** : Dark, cinematic 80s style with VHS aesthetics and dramatic lighting.
+* **abominable_PIXEL_** : Pixel art style with retro aesthetics and vibrant, blocky shapes.
+* **abominable_INK_** : Ink-style illustrations with bold outlines and a hand-painted finish.
+* **abominable_1GIRL_** : Images centered on a captivating woman with photographic realism.
+* **abominable_MILO_** : European stylized comic book aesthetic with intricate linework.
 
 
 ## Setup Guide
