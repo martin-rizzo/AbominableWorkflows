@@ -3,10 +3,14 @@
 # Abominable Workflows
 
 <p>
-<img alt="Platform" src="https://img.shields.io/badge/platform-ComfyUI-33F">
-<img alt="License"  src="https://img.shields.io/github/license/martin-rizzo/AbominableWorkflows?color=11D">
-<img alt="Last"     src="https://img.shields.io/github/last-commit/martin-rizzo/AbominableWorkflows">
-<img alt="Version"  src="https://img.shields.io/github/v/tag/martin-rizzo/AbominableWorkflows?label=version">
+<img alt="Platform"     src="https://img.shields.io/badge/platform-ComfyUI-blue">
+<img alt="License"      src="https://img.shields.io/github/license/martin-rizzo/AbominableWorkflows?color=blue">
+<img alt="Version"      src="https://img.shields.io/github/v/tag/martin-rizzo/AbominableWorkflows?label=version">
+<img alt="Last"         src="https://img.shields.io/github/last-commit/martin-rizzo/AbominableWorkflows"> |
+<a href="https://civitai.com/models/420163/abominable-workflows">
+   <img alt="CivitAI"      src="https://img.shields.io/badge/page-CivitAI-00F"></a>
+<a href="https://huggingface.co/martin-rizzo/AbominableWorkflows">
+   <img alt="Hugging Face" src="https://img.shields.io/badge/models-HuggingFace-yellow"></a>
 </p>
 
 ![Abominable Workflows Grid](./demo_images/abominable_grid.jpg)
