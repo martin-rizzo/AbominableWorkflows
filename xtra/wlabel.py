@@ -264,6 +264,10 @@ class Box(tuple):
     def bounding_for_text(cls, text: str, font: ImageFont):
         return cls( font.getbbox(text) )
 
+    # @classmethod
+    # def multiline_bbox(cls, text: str, font: ImageFont, draw: ImageDraw):
+    #     draw.multiline_bbox((0,0))
+
     @classmethod
     def container_for_text(cls, text: str, font):
         ascent, descent = font.getmetrics()
@@ -365,33 +369,33 @@ class Box(tuple):
         return f"Box(left={self.left}, top={self.top}, right={self.right}, bottom={self.bottom})"
 
 
-#----------------------------- IMAGE FUNCTIONS -----------------------------#
+#------------------------ COMPLEX DRAWING FUNCTIONS ------------------------#
 
 def add_borders(image : Image,
                 left  : int,
                 top   : int,
                 right : int,
                 bottom: int,
-                border_color: tuple[int, int, int] | str) -> Image:
-    """
-    Expand the image by adding borders on all sides.
+                border_color: tuple[int, int, int] | str
+                ) -> Image:
+    """Expand the image by adding borders on all sides.
 
     This function takes an image and expands it by adding specified borders on
     each side with a given color. The size of the new image will be expanded
     based on the provided left, top, right, and bottom values.
 
     Args:
-        image (PIL.Image): The original image to which borders are added.
-        left       (int) : Number of pixels to add to the left side of the image.
-        top        (int) : Number of pixels to add to the top side of the image.
-        right      (int) : Number of pixels to add to the right side of the image.
-        bottom     (int) : Number of pixels to add to the bottom side of the image.
+        image (Image): The original image to which borders are added.
+        left   (int) : Number of pixels to add to the left side of the image.
+        top    (int) : Number of pixels to add to the top side of the image.
+        right  (int) : Number of pixels to add to the right side of the image.
+        bottom (int) : Number of pixels to add to the bottom side of the image.
         border_color (tuple or str): The color for the borders, specified as a tuple
             (R, G, B) where R, G, and B are integers in the range [0, 255],
             or as a string representing the color name ("red", "blue", etc.).
 
     Returns:
-        PIL.Image: The image with expanded borders.
+        The image with expanded borders.
     """
     width, height = image.size
 
@@ -409,18 +413,20 @@ def write_text_in_box(image: Image,
                       box  : Box,
                       text : str,
                       font : ImageFont,
-                      align: str = 'left') -> None:
+                      align: str = 'left'
+                      ) -> None:
     """Writes a given text within the rectangle defined by a Box object.
 
     Args:
-        image   (Image) : The image object where the text will be written.
+        image    (Image): The image object where the text will be written.
         box       (Box) : The bounding box specifying the region in the image where the text should be placed.
         text      (str) : The text string to be written.
         font (ImageFont): The font object used for rendering the text.
         align     (str) : Alignment of the text within the box ('left', 'center' or 'right').
     """
-    draw  = ImageDraw.Draw(image)
-    words = text.split()
+    spacing = 4
+    draw    = ImageDraw.Draw(image)
+    words   = text.split()
 
     # divide the text into lines that fit within the box's width
     lines = []
@@ -438,14 +444,28 @@ def write_text_in_box(image: Image,
     # join all lines with newline characters
     text = '\n'.join(lines)
 
-    # write the text on the image at the appropriate position based on alignment
-    if align == 'left':
-        draw.multiline_text( (box.left, box.top), text, fill='black', font=font, anchor='la', align='left')
-    elif align == 'center':
-        draw.multiline_text( (box.center, box.top), text, fill='black', font=font, anchor='ma', align='center')
+    # set the appropriate position based on alignment
+    if align == 'center':
+        x, y   = box.center, box.top
+        anchor = 'ma'
     elif align == 'right':
-        draw.multiline_text( (box.right, box.top), text, fill='black', font=font, anchor='ra', align='right')
+        x, y   = box.right, box.top
+        anchor = 'ra'
+    else:
+        align  = 'left'
+        x, y   = box.left, box.top
+        anchor = 'la'
 
+    textbbox = Box( draw.multiline_textbbox( (0,0), text, font=font, anchor=anchor, align=align, spacing=spacing ) )
+    top_offset = textbbox.top
+    _, descent = font.getmetrics()
+    #textbbox = textbbox.moved_by(0, (box.height-textbbox.height) / 2)
+
+    textbbox = textbbox.centered_in( box )
+    y = textbbox.top - top_offset + (descent/4)
+    #draw.rectangle( box, fill='red' )
+    #draw.rectangle( textbbox, fill='yellow')
+    draw.multiline_text( (x,y), text, font=font, anchor=anchor, align=align, spacing=spacing, fill='black')
 
 
 def draw_two_word_label(image  : Image,
@@ -461,15 +481,15 @@ def draw_two_word_label(image  : Image,
     The rectangle is drawn in the bottom right corner of the image.
 
     Args:
-        image    (PIL.Image) : The original image to be labeled.
-        width        (int)   : The width of the label rectangle.
-        height       (int)   : The height of the label rectangle.
-        word1        (str)   : The first word of the label.
-        color1       (str)   : The color of the first word.
-        font1 (PIL.ImageFont): The font used for the first word.
-        word2        (str)   : The second word of the label.
-        color2       (str)   : The color of the second word.
-        font2 (PIL.ImageFont): The font used for the second word.
+        image    (Image) : The original image to be labeled.
+        width     (int)  : The width of the label rectangle.
+        height    (int)  : The height of the label rectangle.
+        word1     (str)  : The first word of the label.
+        color1    (str)  : The color of the first word.
+        font1 (ImageFont): The font used for the first word.
+        word2     (str)  : The second word of the label.
+        color2    (str)  : The color of the second word.
+        font2 (ImageFont): The font used for the second word.
 
     Returns:
         PIL.Image: The image with the label added.
@@ -518,23 +538,23 @@ def draw_two_word_label(image  : Image,
     return image
 
 
-#---------------------------- DRAWING THE LABEL ----------------------------#
+#----------------------- WLABEL RENDERING FUNCTIONS ------------------------#
 
-def get_abominable_fonts(image: Image, font_size: int) -> tuple:
-    """Loads the three fonts that will be used for the given image.
-
-    The size of the fonts is automatically adjusted based on the
-    dimensions of the image.
+def get_all_required_fonts(font_size: int,
+                           scale    : float = 1.0
+                           ) -> tuple:
+    """Loads all the fonts required for rendering text.
 
     Args:
-        image   (Image): The image for which the text will be written.
         font_size (int): The desired base size of the fonts in points.
-
+        scale   (float): A multiplier to adjust the size of the loaded
+                         fonts, default is 1.0 which means no scaling.
     Returns:
-        tuple: A tuple containing three ImageFont objects
+        A tuple containing three elements:
+            - font_w1: The font used to write the first word on the label.
+            - font_w2: The font used to write the second word on the label.
+            - prompt_fonts: A list of additional fonts in different sizes used to write the prompt.
     """
-    scale = get_abominable_scale(image)
-
     script_dir, script_name = os.path.split( os.path.abspath(__file__) )
     font_dir = os.path.join(script_dir, os.path.splitext(script_name)[0] + "-font")
 
@@ -559,39 +579,44 @@ def get_abominable_fonts(image: Image, font_size: int) -> tuple:
     # (prefer the one with multiple variations if available)
     font_file = multi_variation_font or single_face_font
     if font_file:
-        font1 = load_font(font_file, font_size * scale * 1.0)
-        font2 = load_font(font_file, font_size * scale * 1.1)
-        font3 = load_font(font_file, font_size * scale * 0.9)
+        font_w1 = load_font(font_file, font_size * scale * 1.0)
+        font_w2 = load_font(font_file, font_size * scale * 1.1)
+        prompt_fonts = [ load_font(font_file, font_size * scale * 0.9) ]
     # if no valid fonts are found, use the default font
     else:
         warning("Warning: No TTF font found!. Using default font.")
-        font1 = ImageFont.load_default()
-        font2 = ImageFont.load_default()
-        font3 = ImageFont.load_default()
+        font_w1 = ImageFont.load_default()
+        font_w2 = ImageFont.load_default()
+        prompt_fonts= [ ImageFont.load_default() ]
 
-    select_font_variation(font1, b'ExtraBold', b'Black', b'Bold')
-    select_font_variation(font2, b'ExtraBold', b'Black', b'Bold')
-    select_font_variation(font3, b'Regular', b'Medium')
+    select_font_variation(font_w1, b'ExtraBold', b'Black', b'Bold')
+    select_font_variation(font_w2, b'ExtraBold', b'Black', b'Bold')
+    for font in prompt_fonts:
+        select_font_variation(font, b'Regular', b'Medium')
 
-    return (font1, font2, font3)
+    return (font_w1, font_w2, prompt_fonts)
 
 
-def add_label_to_image(image: Image, text: str, font1: ImageFont, font2: ImageFont) -> Image:
-    """Adds a label with the text to the image
+def add_label_to_image(image: Image,
+                       text : str,
+                       font1: ImageFont,
+                       font2: ImageFont,
+                       scale: float = 1.0
+                       ) -> Image:
+    """Adds a label with two words to the image.
 
     Args:
-        image (Image): The image to which labels will be added.
-        text   (str) : The text to be displayed in the label.
-                       (this text will be split into two words).
-        font1 (ImageFont): The font to be used for the first word.
-        font2 (ImageFont): The font to be used for the second word.
+        image    (Image) : The base image to which labels will be added.
+        text      (str)  : The input text from which two words will be extracted and used for labeling.
+        font1 (ImageFont): The font object to use for the first word in the label.
+        font2 (ImageFont): The font object to use for the second word in the label.
+        scale    (float) : A scaling factor that adjusts the size of the label.
 
     Returns:
-        PIL.Image: The image with the labels added.
+        The modified image with the labels added.
     """
 
-    # calculate the scaling factor based on the image size
-    scale = get_abominable_scale(image)
+    # calculate the label size based on the scale provided
     label_width  = int( 480 * scale )
     label_height = int(  64 * scale )
 
@@ -606,10 +631,12 @@ def add_label_to_image(image: Image, text: str, font1: ImageFont, font2: ImageFo
         words = text
     word1  = words[0] if len(words)>=1 else '???'
     word2  = words[1] if len(words)>=2 else '???'
+
+    # determine the color for each word based on predefined rules
     color1 = get_word_color(word1, "black")
     color2 = get_word_color(word2, "red"  )
 
-    # add a label with the two words to the image
+    # add a label with both words to the image
     labeled_image = draw_two_word_label(image,
                                         label_width,
                                         label_height,
@@ -618,12 +645,34 @@ def add_label_to_image(image: Image, text: str, font1: ImageFont, font2: ImageFo
     return labeled_image
 
 
-def add_prompt_to_image(image: Image, prompt: str, font: ImageFont) -> Image:
-    width, _ = image.size
+def add_prompt_to_image(image : Image,
+                        prompt: str,
+                        fonts : [ImageFont],
+                        scale : float = 1.0
+                        ) -> Image:
+    """Adds a text prompt to the image at the top.
 
+    This function takes an image and adds a text prompt at the top of the image.
+    The prompt is split into multiple lines if it exceeds the width of the image.
+
+    Args:
+        image      (Image) : The base image to which prompts will be added.
+        prompt      (str)  : The text string containing the prompt to be displayed.
+        fonts ([ImageFont]): A list of fonts in decreasing order of size for
+                             rendering the text. The function will attempt to
+                             use the appropriate font size (not implemented)
+        scale      (float) : A scaling factor that adjusts the size of the prompt.
+
+    Returns:
+        The modified image with the prompt added.
+    """
+    width, _ = image.size
     box = Box(0,0, width, 128)
+
+    # add a border on top of the image
+    # and write the prompt inside the defined box area
     image = add_borders(image, 0, box.height, 0, 0, 'white')
-    write_text_in_box(image, box.shrunken(16,8), prompt, font, align='center')
+    write_text_in_box(image, box.shrunken(16,8), prompt, fonts[0], align='center')
     return image
 
 
@@ -631,89 +680,122 @@ def add_prompt_to_image(image: Image, prompt: str, font: ImageFont) -> Image:
 #////////////////////////////////// MAIN ///////////////////////////////////#
 #===========================================================================#
 
-def process_files(filenames   : list,
-                  font_size   : int   = None,
-                  forced_text : str   = None,
-                  file_prefix : str   = None,
-                  scale       : float = None,
-                  write_prompt: bool  = False):
-    """Processes images by adding labels and saving them with a new prefix.
+def process_image(image         : Image,
+                  workflow_json : str,
+                  font_size     : int   = DEFAULT_FONT_SIZE,
+                  write_prompt  : bool  = False,
+                  workflow_name : str   = None,
+                  output_scale  : float = None,
+                  ) -> Image:
+    """Process an image by adding labels based on a given workflow.
 
     Args:
-        filenames (str or list): A filename or a list of filenames of the images to process.
-        font_size         (int): The approximate font size for the labels, (defaults to DEFAULT_FONT_SIZE)
-        forced_text       (str): If provided, this text will be used instead of the workflow
-                                 name extractedfrom the image's metadata.
-        file_prefix       (str): The prefix to be added to each filename when saving the labeled image.
-        scale           (float): Scaling factor for resizing images after labeling.
-                                 A value of 1.0 (or None) means no scaling. Defaults to None
-        write_prompt     (bool): If true, writes the original prompt text on the image.
+        image        (Image): The base image to process and label.
+        workflow_json (str) : The comfyui workflow in JSON format.
+        font_size     (int) : Approximate font size used to label the image. Defaults to DEFAULT_FONT_SIZE
+        write_prompt  (bool): If True, writes the original prompt text into the image.
+        workflow_name (str) : The name of the workflow to be used for labeling the image;
+                              if not provided, an attempt will be made to extract it from the JSON.
+        output_scale (float): Scaling factor for resizing the final image;
+                              a value of 1.0 (or None) means no scaling, defaults to None.
+    Returns:
+        The processed image with the labels added.
+    """
+
+    # determine the workflow name from JSON if not provided
+    if not workflow_name:
+        workflow_name = get_workflow_name(workflow_json)
+
+    # calculate the scale factor based on the original image size
+    # and the size of a normal "abominable" image
+    draw_scale = get_abominable_scale(image)
+
+    # get the appropriate fonts based on the calculated scale
+    font_w1, font_w2, prompt_fonts = get_all_required_fonts(font_size, scale=draw_scale)
+
+    # add a label to the bottom right of the image indicating the workflow name
+    output_image = add_label_to_image(image, workflow_name, font_w1, font_w2, scale=draw_scale)
+
+    # optionally, write the original prompt text on the image
+    if write_prompt:
+        prompt = get_prompt_text(workflow_json) or "<no prompt found>"
+        output_image = add_prompt_to_image(output_image, prompt, prompt_fonts, scale=draw_scale)
+
+    # resize the final image if any output scaling was requested
+    if output_scale:
+        _width, _height = output_image.size
+        _size = ( int(output_scale*_width), int(output_scale*_height) )
+        output_image = output_image.resize( _size, Image.Resampling.LANCZOS )
+
+    return output_image
+
+
+def process_all_images(filenames    : list,
+                       font_size    : int,
+                       write_prompt : bool  = False,
+                       workflow_name: str   = None,
+                       output_scale : float = None,
+                       output_prefix: str   = None
+                       ) -> None:
+    """Process multiple images by adding labels and saving them with a new prefix.
+
+    Args:
+        filenames      (list): A filename or a list of filenames of the images to process
+        font_size      (int) : Approximate font size used to label the images.
+        write_prompt   (bool): If True, writes the original prompt from each image.
+        workflow_name  (str) : User-provided workflow name that will be labeled on the images;
+                               if not provided, it will be extracted from the image metadata.
+        output_scale  (float): Scaling factor for resizing the processed images after labeling;
+                               a value of 1.0 (or None) means no scaling, defaults to None.
+        output_prefix  (str) : A string that prefixes each new filename denoting processing details;
+                               defaults to 'labeled' if no scaling is applied and 'scaled' otherwise.
     """
     if not isinstance(filenames,list):
         filenames = [filenames]
 
     # set scale to None if it's exactly 1.0
     # since this means no scaling should be applied
-    scale = None if scale == 1.0 else scale
+    if output_scale == 1.0:
+        output_scale = None
 
-    # determine file prefix based on scaling
-    if not file_prefix:
-        file_prefix = 'labeled'
-        if scale is not None and scale>=0.01 and scale<1.0:
-            percent     = int(scale * 100)
-            file_prefix = f"lab{percent:02d}per"
-
-    # ensure `file_prefix` always ends with an underscore
-    if not file_prefix.endswith('_'):
-        file_prefix += '_'
+    # determine the output file prefix based on scaling and
+    # ensure prefix always ends with an underscore
+    if not output_prefix:
+        output_prefix = 'labeled' if not output_scale else 'scaled'
+    if not output_prefix.endswith('_'):
+        output_prefix += '_'
 
     for filename in filenames:
         #try:
 
             # skip images that were previously labeled
-            if filename.startswith(file_prefix):
+            if filename.startswith(output_prefix):
                 continue
 
-            with Image.open(filename) as image:
+            # generate a new filename
+            base_name        = os.path.basename(filename)
+            name_without_ext = os.path.splitext(base_name)[0]
+            new_file_name    = f"{output_prefix}{name_without_ext}.png"
 
-                # attempt to extract the workflow from the PNG file metadata
+            # open the image and process it
+            with Image.open(filename) as image:
                 prompt   = image.info.get('prompt')
                 workflow = image.info.get('workflow')
                 if not workflow:
                     warning(f"The image {filename} does not seem to contain any workflow.")
                     continue
+                output_image = process_image(image, workflow, font_size, write_prompt, workflow_name, output_scale)
 
-                font1, font2, font3 = get_abominable_fonts(image, font_size or DEFAULT_FONT_SIZE)
+            # prepare metadata for saving the processed image
+            metadata = PngInfo()
+            if prompt is not None:
+                metadata.add_text("prompt", prompt)
+            if workflow is not None:
+                metadata.add_text("workflow", workflow)
 
-                # add label with workflow name
-                text = get_workflow_name(workflow) if not forced_text else forced_text
-                labeled_image = add_label_to_image(image, text, font1, font2)
-
-                # optionally add the original prompt to the image
-                if write_prompt:
-                    text = get_prompt_text(workflow) or "<no prompt>"
-                    labeled_image = add_prompt_to_image(labeled_image, text, font3)
-
-                # scale the image if requested
-                if scale:
-                    _width, _height = labeled_image.size
-                    _size = ( int(scale*_width), int(scale*_height) )
-                    labeled_image = labeled_image.resize( _size, Image.Resampling.LANCZOS )
-
-                # generate a new filename
-                base_name        = os.path.basename(filename)
-                name_without_ext = os.path.splitext(base_name)[0]
-                new_file_name = f"{file_prefix}{name_without_ext}.png"
-
-                # save the new image with the workflow in metadata
-                metadata = PngInfo()
-                if prompt is not None:
-                    metadata.add_text("prompt", prompt)
-                if workflow is not None:
-                    metadata.add_text("workflow", workflow)
-
-                labeled_image.save(new_file_name, format="PNG", pnginfo=metadata, compress_level=9)
-                print(f"Labeled: {new_file_name}")
+            # save the processed image with its new name
+            output_image.save(new_file_name, format="PNG", pnginfo=metadata, compress_level=9)
+            print(f"Labeled: {new_file_name}")
 
         #except Exception as e:
         #    print(f"Error processing {filename}: {str(e)}")
@@ -734,7 +816,13 @@ def main():
     scale = None
     if args.scale:
         scale = 0.01 if args.scale<=0.01 else 1.0 if args.scale>=1.0 else args.scale
-    process_files(args.images, font_size=args.font_size, forced_text=args.text, file_prefix=args.prefix, scale=scale, write_prompt=args.write_prompt)
+    process_all_images(args.images,
+                       font_size     = args.font_size or DEFAULT_FONT_SIZE,
+                       write_prompt  = args.write_prompt,
+                       workflow_name = args.text,
+                       output_scale  = scale,
+                       output_prefix = args.prefix
+                       )
 
 
 if __name__ == "__main__":
