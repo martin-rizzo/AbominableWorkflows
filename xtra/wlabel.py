@@ -1,5 +1,5 @@
 """
-  File    : add-label.py
+  File    : wlabel.py
   Brief   : Draws a label with the workflow name on each image.
   Author  : Martin Rizzo | <martinrizzo@gmail.com>
   Date    : Sep 15, 2024
@@ -116,27 +116,27 @@ def ascent_diference(font1: ImageFont, font2: ImageFont) -> int:
     return ascent1 - ascent2
 
 
-def load_font(font_name: str, font_size: int) -> ImageFont:
-    """Loads a font from a file.
-
-    This function attempts to load a font from the specified file.
-    If the font cannot be loaded, it uses the default font.
+def load_font(filepath: str, font_size: int) -> ImageFont:
+    """Attempts to load a font from the specified file.
 
     Args:
-        font_name (str): The path to the font file.
+        filepath  (str): The path to the font file;
+                         Si `None` o string vacio, retornara el font default.
         font_size (int): The desired font size.
     Returns:
-        PIL.ImageFont: The loaded font or the default font if loading failed.
+        The loaded font or the default font if loading failed.
     """
     global SHOW_FONT_WARNING
+
     try:
-        font = ImageFont.truetype(font_name, font_size)
+        font = filepath and ImageFont.truetype(filepath, font_size)
     except Exception:
         font = None
+
     if not font:
         if SHOW_FONT_WARNING:
             SHOW_FONT_WARNING = False
-            warning(f"Could not load font from {font_name}. Using default font.")
+            warning(f"Could not load font from {filepath}. Using default font.")
         font = ImageFont.load_default()
 
     return font
@@ -168,6 +168,35 @@ def select_font_variation(font: ImageFont,
             font.set_variation_by_axes(variation_alt2)
     except:
         return
+
+
+def wrap_text(text: str, font: ImageFont, width: int) -> tuple[list[str], float]:
+    """Splits text into lines that fit within the given width.
+
+    Args:
+        text      (str) : The input text to be split.
+        font (ImageFont): Font used for rendering the text.
+        width     (int) : Maximum width in pixels that each line of text can occupy.
+
+    Returns:
+        A list of lines (strings)
+        and the percentage length of the last line.
+    """
+    words = text.split()
+    lines = []
+    current_line = ""
+    for i, word in enumerate(words):
+        test_line = f"{current_line} {word}" if i>0 else word
+        if font.getlength(test_line) <= width:
+            current_line = test_line
+        else:
+            lines.append(current_line)
+            current_line = word
+    if current_line:
+        lines.append(current_line)
+
+    last_line_percent = 100.0 * len(lines[-1]) / len(lines[0])
+    return lines, last_line_percent
 
 
 def get_abominable_scale(image: Image) -> float:
@@ -263,6 +292,18 @@ class Box(tuple):
     @classmethod
     def bounding_for_text(cls, text: str, font: ImageFont):
         return cls( font.getbbox(text) )
+
+    @classmethod
+    def multiline_textbbox(cls,
+                           draw   : ImageDraw,
+                           xy     : tuple[float, float],
+                           text   : str,
+                           font   : ImageFont,
+                           anchor : str | None = None,
+                           spacing: float      = 4,
+                           align  : str        = "left"
+                           ):
+        return cls( draw.multiline_textbbox( xy, text, font=font, anchor=anchor, spacing=spacing, align=align ) )
 
     # @classmethod
     # def multiline_bbox(cls, text: str, font: ImageFont, draw: ImageDraw):
@@ -409,13 +450,19 @@ def add_borders(image : Image,
     return new_image
 
 
-def write_text_in_box(image: Image,
-                      box  : Box,
-                      text : str,
-                      font : ImageFont,
-                      align: str = 'left'
-                      ) -> None:
-    """Writes a given text within the rectangle defined by a Box object.
+
+
+def write_text_in_box(image  : Image,
+                      box    : Box,
+                      text   : str,
+                      font   : ImageFont,
+                      spacing: float = 4,
+                      align  : str  = 'left',
+                      force  : bool = False
+                      ) -> bool:
+    """Attempts to write a given text within the rectangle defined by the Box object.
+
+    This function only writes the text if it fits completely within the box.
 
     Args:
         image    (Image): The image object where the text will be written.
@@ -423,23 +470,20 @@ def write_text_in_box(image: Image,
         text      (str) : The text string to be written.
         font (ImageFont): The font object used for rendering the text.
         align     (str) : Alignment of the text within the box ('left', 'center' or 'right').
+        force     (bool): If True, writes the text even if it doesn't fit completely inside the box;
+                          default is False.
+    Returns:
+        True if the text was written successfully, False otherwise.
     """
-    spacing = 4
-    draw    = ImageDraw.Draw(image)
-    words   = text.split()
+    draw = ImageDraw.Draw(image)
 
-    # divide the text into lines that fit within the box's width
-    lines = []
-    current_line = ""
-    for i, word in enumerate(words):
-        test_line = f"{current_line} {word}" if i>0 else word
-        if font.getlength(test_line) <= box.width:
-            current_line = test_line
-        else:
-            lines.append(current_line)
-            current_line = word
-    if current_line:
-        lines.append(current_line)
+    # split the text into lines within the box width and adjust the box size
+    # dynamically to prevent excessively short final line (ensuring last_line>35%)
+    for i in range(1, 10):
+        lines, last_line_percent = wrap_text( text, font, box.width )
+        if last_line_percent > 35  or  box.width < 300:
+            break
+        box = box.shrunken(20,0)
 
     # join all lines with newline characters
     text = '\n'.join(lines)
@@ -456,16 +500,22 @@ def write_text_in_box(image: Image,
         x, y   = box.left, box.top
         anchor = 'la'
 
-    textbbox = Box( draw.multiline_textbbox( (0,0), text, font=font, anchor=anchor, align=align, spacing=spacing ) )
+    textbbox = Box.multiline_textbbox( draw, (0,0), text, font=font, anchor=anchor, spacing=spacing, align=align )
     top_offset = textbbox.top
     _, descent = font.getmetrics()
-    #textbbox = textbbox.moved_by(0, (box.height-textbbox.height) / 2)
 
     textbbox = textbbox.centered_in( box )
     y = textbbox.top - top_offset + (descent/4)
+
+    ## debug rectangles
     #draw.rectangle( box, fill='red' )
     #draw.rectangle( textbbox, fill='yellow')
-    draw.multiline_text( (x,y), text, font=font, anchor=anchor, align=align, spacing=spacing, fill='black')
+
+    if force or textbbox.top >= box.top:
+        draw.multiline_text( (x,y), text, font=font, anchor=anchor, spacing=spacing, align=align, fill='black')
+        return True
+    else:
+        return False
 
 
 def draw_two_word_label(image  : Image,
@@ -562,32 +612,28 @@ def get_all_required_fonts(font_size: int,
     if not os.path.exists(font_dir):
         return None
 
-    # search through the font directory for any TTF files that might
-    # have multiple variations or just a single face
-    multi_variation_font = None
-    single_face_font = None
+    # search through the font directory for TTF files
+    opensans_ttf_file   = None
+    robotoslab_ttf_file = None
+    default_ttf_file    = None
     for filename in os.listdir(font_dir):
-        if filename.lower().endswith(".ttf"):
-            # if 'variable' is in the filename
-            # then the font may contain multiple variations
-            if "variable" in filename.lower():
-                multi_variation_font = os.path.join(font_dir, filename)
-            else:
-                single_face_font = os.path.join(font_dir, filename)
+        filename_lower = filename.lower()
+        if not filename_lower.endswith(".ttf"):
+            continue
+        elif 'opensans' in filename_lower:
+              opensans_ttf_file = os.path.join(font_dir, filename)
+        elif 'robotoslab' in filename_lower:
+              robotoslab_ttf_file = os.path.join(font_dir, filename)
+        elif default_ttf_file is None:
+             default_ttf_file = os.path.join(font_dir, filename)
 
     # load the fonts based on what was found
-    # (prefer the one with multiple variations if available)
-    font_file = multi_variation_font or single_face_font
-    if font_file:
-        font_w1 = load_font(font_file, font_size * scale * 1.0)
-        font_w2 = load_font(font_file, font_size * scale * 1.1)
-        prompt_fonts = [ load_font(font_file, font_size * scale * 0.9) ]
-    # if no valid fonts are found, use the default font
-    else:
-        warning("Warning: No TTF font found!. Using default font.")
-        font_w1 = ImageFont.load_default()
-        font_w2 = ImageFont.load_default()
-        prompt_fonts= [ ImageFont.load_default() ]
+    label_ttf_file   = robotoslab_ttf_file or default_ttf_file
+    prompt_ttf_file  = opensans_ttf_file   or default_ttf_file
+
+    font_w1      = load_font(label_ttf_file, int(font_size * scale * 1.0) )
+    font_w2      = load_font(label_ttf_file, int(font_size * scale * 1.1) )
+    prompt_fonts = [load_font(prompt_ttf_file, size) for size in range(int(font_size * scale), 10, -2)]
 
     select_font_variation(font_w1, b'ExtraBold', b'Black', b'Bold')
     select_font_variation(font_w2, b'ExtraBold', b'Black', b'Bold')
@@ -672,7 +718,14 @@ def add_prompt_to_image(image : Image,
     # add a border on top of the image
     # and write the prompt inside the defined box area
     image = add_borders(image, 0, box.height, 0, 0, 'white')
-    write_text_in_box(image, box.shrunken(16,8), prompt, fonts[0], align='center')
+
+    # va recorriendo todos los fonts hasta que encuentra un font
+    # que hace que el texto entre completo dentro del box
+    for i, font in enumerate(fonts):
+        is_last = ( i == len(fonts)-1 )
+        fit = write_text_in_box(image, box.shrunken(16,8), prompt, font, spacing=0, align='center', force=is_last)
+        if fit:
+            break
     return image
 
 
