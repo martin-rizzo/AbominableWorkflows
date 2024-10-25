@@ -783,12 +783,14 @@ def process_image(image         : Image,
     return output_image
 
 
-def process_all_images(filenames    : list,
-                       font_size    : int,
-                       write_prompt : bool  = False,
-                       workflow_name: str   = None,
-                       output_scale : float = None,
-                       output_prefix: str   = None
+def process_all_images(filenames        : list,
+                       font_size        : int,
+                       write_prompt     : bool  = False,
+                       workflow_name    : str   = None,
+                       output_scale     : float = None,
+                       output_dir       : str   = None,
+                       output_prefix    : str   = None,
+                       keep_original_dir: bool  = False,
                        ) -> None:
     """Process multiple images by adding labels and saving them with a new prefix.
 
@@ -800,13 +802,17 @@ def process_all_images(filenames    : list,
                                if not provided, it will be extracted from the image metadata.
         output_scale  (float): Scaling factor for resizing the processed images after labeling;
                                a value of 1.0 (or None) means no scaling, defaults to None.
+        output_dir     (str) : Directory where the labeled images will be saved.
+                               If not provided, the current working directory will be used.
         output_prefix  (str) : A string that prefixes each new filename denoting processing details;
                                defaults to 'labeled' if no scaling is applied and 'scaled' otherwise.
+        keep_original_dir (bool): If True, the images will be saved in the same dir as the original
+                                  image. Otherwise, they will be stored in the current working dir.
     """
     if not isinstance(filenames,list):
         filenames = [filenames]
 
-    # set scale to None if it's exactly 1.0
+    # set output_scale to None if it's exactly 1.0
     # since this means no scaling should be applied
     if output_scale == 1.0:
         output_scale = None
@@ -818,6 +824,9 @@ def process_all_images(filenames    : list,
     if not output_prefix.endswith('_'):
         output_prefix += '_'
 
+    # create new directories only if a specific output_dir is provided
+    should_make_dirs = True if output_dir else False
+
     for filename in filenames:
         #try:
 
@@ -826,9 +835,15 @@ def process_all_images(filenames    : list,
                 continue
 
             # generate a new filename
-            base_name        = os.path.basename(filename)
-            name_without_ext = os.path.splitext(base_name)[0]
-            new_file_name    = f"{output_prefix}{name_without_ext}.png"
+            original_dir, name  = os.path.split(filename)
+            name_without_ext    = os.path.splitext(name)[0]
+            new_file_path       = f"{output_prefix}{name_without_ext}.png"
+            if keep_original_dir:
+                new_file_path = os.path.join(original_dir, new_file_path)
+            if output_dir:
+                new_file_path = os.path.join(output_dir, new_file_path)
+                if new_file_path != os.path.normpath(new_file_path):
+                    continue
 
             # open the image and process it
             with Image.open(filename) as image:
@@ -846,9 +861,13 @@ def process_all_images(filenames    : list,
             if workflow is not None:
                 metadata.add_text("workflow", workflow)
 
+            # create new directories if necessary
+            if should_make_dirs:
+                os.makedirs(os.path.dirname(new_file_path), exist_ok=True)
+
             # save the processed image with its new name
-            output_image.save(new_file_name, format="PNG", pnginfo=metadata, compress_level=9)
-            print(f"Labeled: {new_file_name}")
+            output_image.save(new_file_path, format="PNG", pnginfo=metadata, compress_level=9)
+            print(f"Labeled: {new_file_path}")
 
         #except Exception as e:
         #    print(f"Error processing {filename}: {str(e)}")
@@ -856,14 +875,15 @@ def process_all_images(filenames    : list,
 
 def main():
     parser = argparse.ArgumentParser(description="Draws a label with the workflow name on each image.")
-    parser.add_argument('images'              , nargs="+",           help="Image file(s) to which the label will be applied.")
-    parser.add_argument('-t', '--text'        ,                      help="Text to write on the image label. If not specified, the workflow name will be used.")
+    parser.add_argument('images'              , nargs="+",           help="Image file(s) to which the label will be applied")
+    parser.add_argument('-t', '--text'        ,                      help="Text to write on the image label. If not specified, the workflow name will be used")
     parser.add_argument('-s', '--scale'       , type=float,          help="Scaling factor (max 1.0) to scale the output image")
-    parser.add_argument('-p', '--write-prompt', action='store_true', help="Include the original prompt text in the final image.")
+    parser.add_argument('-p', '--write-prompt', action='store_true', help="Include the original prompt text in the final image")
+    parser.add_argument('-k', '--keep-dir'    , action='store_true', help="Keep the structure of directories for processed images")
+    parser.add_argument('-o', '--output-dir'  ,                      help="Directory where the labeled images will be saved")
     parser.add_argument(      '--prefix'      ,                      help="Prefix for processed image files")
     parser.add_argument(      '--font'        ,                      help="Path to font file")
     parser.add_argument(      '--font-size'   , type=int,            help="Font size for the label")
-
 
     args  = parser.parse_args()
     scale = None
@@ -874,7 +894,9 @@ def main():
                        write_prompt  = args.write_prompt,
                        workflow_name = args.text,
                        output_scale  = scale,
-                       output_prefix = args.prefix
+                       output_dir    = args.output_dir,
+                       output_prefix = args.prefix,
+                       keep_original_dir = args.keep_dir
                        )
 
 
