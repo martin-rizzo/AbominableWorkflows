@@ -271,30 +271,36 @@ def get_workflow_name(workflow_json: str) -> str:
 
 
 def get_prompt_text(workflow_json: str) -> str:
+    """Extracts the prompt text from a JSON string
+    Args:
+        workflow_json (str): A JSON string containing workflow data.
+    Returns:
+        The text of the prompt node in the workflow.
+    """
+    prompt = None
+    max_distance = 1000
 
-        prompt = None
-        max_distance = 1000
+    workflow = json.loads(workflow_json)
+    nodes = workflow.get('nodes', [])
+    for node in nodes:
 
-        workflow = json.loads(workflow_json)
-        nodes = workflow.get('nodes', [])
-        for node in nodes:
+        title = node.get('title','')
+        pos   = node.get('pos')
+        if isinstance(pos, dict):
+            distance = pos.get('0',0) + pos.get('1',0)
+        elif isinstance(pos, list):
+            distance = pos[0] + pos[1]
+        else:
+            distance = max_distance
 
-            title = node.get('title','')
-            pos   = node.get('pos')
-            if isinstance(pos, dict):
-                distance = pos.get('0',0) + pos.get('1',0)
-            elif isinstance(pos, list):
-                distance = pos[0] + pos[1]
-            else:
-                distance = max_distance
+        if distance<max_distance and title.lower() == 'prompt':
+            widgets_values = node.get('widgets_values')
+            if isinstance(widgets_values, list):
+                prompt = widgets_values[0]
+                max_distance = distance
 
-            if distance<max_distance and title.lower() == 'prompt':
-                widgets_values = node.get('widgets_values')
-                if isinstance(widgets_values, list):
-                    prompt = widgets_values[0]
-                    max_distance = distance
+    return prompt
 
-        return prompt
 
 #-------------------------------- BOX CLASS --------------------------------#
 class Box(tuple):
