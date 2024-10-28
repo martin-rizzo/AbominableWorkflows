@@ -82,6 +82,27 @@ def fatal_error(message: str, *info_messages: str) -> None:
 
 #--------------------------------- HELPERS ---------------------------------#
 
+def get_unique_path(path):
+    """Generates a unique path by appending a counter to the filename if a file already exists.
+    """
+    directory, filename = os.path.split(path)
+    name, extension     = os.path.splitext(filename)
+    separator           = '-'
+
+    # if the filename already ends with a separator,
+    # no additional separator will be added
+    if name.endswith('-') or name.endswith('_'):
+        separator = ''
+
+    unique_path, counter = path, 0
+    while os.path.exists(unique_path):
+        counter += 1
+        # format the new filename with a two-digit counter and original extension
+        new_filename = name + separator + str(counter).zfill(2) + extension
+        unique_path  = os.path.join(directory, new_filename)
+    return unique_path
+
+
 def filter_words(words: list) -> list:
     """Removes words from a list that do not start with an alphanumeric character.
     Args:
@@ -130,13 +151,16 @@ def get_workflow_name(workflow_json: str) -> str:
 #////////////////////////////////// MAIN ///////////////////////////////////#
 #===========================================================================#
 
-def locate_image(filename: str, root_dir: str = None):
+def locate_image(filename: str, root_dir: str = None, overwrite: bool = False):
     """Moves an image to the directory that indicates the workflow with which it was created.
 
     Args:
-        filename (str): The path to the image file to locate.
-        root_dir (str): The root directory used as the base of the destination dir..
-                        If not provided, the current working directory will be used as the base.
+        filename  (str) : The path to the image file to locate.
+        root_dir  (str) : The base directory for determining the destination folder.
+                          If not provided, the current working directory will be used as default.
+        overwrite (bool): Whether to allow overwriting files with the same name:
+                          If True, existing files can be overwritten;
+                          If False, a unique filename will be generated to avoid overwriting.
     """
 
     # get the workflow name from the image
@@ -156,6 +180,8 @@ def locate_image(filename: str, root_dir: str = None):
 
     try:
         new_location = os.path.join(destination, os.path.basename(filename))
+        if not overwrite:
+            new_location = get_unique_path(new_location)
         os.rename(filename, new_location)
         return True
     except OSError as e:
@@ -165,12 +191,13 @@ def locate_image(filename: str, root_dir: str = None):
 
 def main():
     parser = argparse.ArgumentParser(description="Moves images to directories based on the workflow name.")
-    parser.add_argument('images'          , nargs="+", help="Image file(s) to move.")
-    parser.add_argument('-r', '--root-dir',            help="The root directory used as the base of the destination folder.")
+    parser.add_argument('images'           , nargs="+"         ,  help="Image file(s) to move.")
+    parser.add_argument('-r', '--root-dir' ,                      help="The root directory used as the base of the destination folder.")
+    parser.add_argument(      '--overwrite', action='store_true', help="Allow overwriting files with the same name.")
 
     args  = parser.parse_args()
     for filepath in args.images:
-        locate_image(filepath, root_dir=args.root_dir)
+        locate_image(filepath, root_dir=args.root_dir, overwrite=args.overwrite)
 
 
 if __name__ == "__main__":
