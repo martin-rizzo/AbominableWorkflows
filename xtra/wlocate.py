@@ -34,6 +34,7 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 import os
 import sys
 import json
+import hashlib
 import argparse
 from PIL import Image
 
@@ -81,6 +82,28 @@ def fatal_error(message: str, *info_messages: str) -> None:
 
 
 #--------------------------------- HELPERS ---------------------------------#
+
+def replace_filename(path, new_name=None, new_extension=None):
+    """Replace the name or extension of a given file path.
+    """
+    if not path:
+        raise ValueError("The 'path' parameter must be provided.")
+
+    directory, filename = os.path.split(path)
+    name, extension     = os.path.splitext(filename)
+
+    # replace the name if a new one is provided
+    if new_name:
+        name = new_name
+
+    # replace the extension if a new one is provided
+    if new_extension:
+        extension = new_extension
+
+    # construct the new full path with updated name & extension
+    new_path = os.path.join(directory, f"{name}{extension}")
+    return new_path
+
 
 def get_unique_path(path):
     """Generates a unique path by appending a counter to the filename if a file already exists.
@@ -147,20 +170,70 @@ def get_workflow_name(workflow_json: str) -> str:
         return 'invalid workflow'
 
 
+def get_prompt_text(workflow_json: str) -> str:
+    """Extracts the prompt text from a JSON string
+    Args:
+        workflow_json (str): A JSON string containing workflow data.
+    Returns:
+        The text of the prompt node in the workflow.
+    """
+    prompt = None
+    max_distance = 1000
+
+    workflow = json.loads(workflow_json)
+    nodes = workflow.get('nodes', [])
+    for node in nodes:
+
+        title = node.get('title','')
+        pos   = node.get('pos')
+        if isinstance(pos, dict):
+            distance = pos.get('0',0) + pos.get('1',0)
+        elif isinstance(pos, list):
+            distance = pos[0] + pos[1]
+        else:
+            distance = max_distance
+
+        if distance<max_distance and title.lower() == 'prompt':
+            widgets_values = node.get('widgets_values')
+            if isinstance(widgets_values, list):
+                prompt = widgets_values[0]
+                max_distance = distance
+
+    return prompt
+
+
+def generate_hash(input_string: str, length: int = None) -> str:
+    """Generates a hash from the input string.
+    Args:
+        input_string (str): The string to be hashed.
+        length       (int): Specify the desired length of the hash (in characters).
+    Returns:
+        A hexadecimal representation of the hash.
+    """
+    shake_signature = hashlib.shake_256()
+    shake_signature.update(input_string.encode())
+    hex_hash = shake_signature.hexdigest( int((length+1)/2) )
+    return hex_hash
+
+
 #===========================================================================#
 #////////////////////////////////// MAIN ///////////////////////////////////#
 #===========================================================================#
 
-def locate_image(filename: str, root_dir: str = None, overwrite: bool = False):
+def locate_image(filename       : str,
+                 root_dir       : str  = None,
+                 use_prompt_hash: bool = False,
+                 overwrite_files: bool = False):
     """Moves an image to the directory that indicates the workflow with which it was created.
 
     Args:
-        filename  (str) : The path to the image file to locate.
-        root_dir  (str) : The base directory for determining the destination folder.
-                          If not provided, the current working directory will be used as default.
-        overwrite (bool): Whether to allow overwriting files with the same name:
-                          If True, existing files can be overwritten;
-                          If False, a unique filename will be generated to avoid overwriting.
+        filename    (str) : The path to the image file to locate.
+        root_dir    (str) : The base directory for determining the destination folder.
+                            If not provided, the current working directory will be used as default.
+        prompt_hash (bool): Whether to use the hash of the prompt as the new filename.
+        overwrite   (bool): Whether to allow overwriting files with the same name:
+                            If True, existing files can be overwritten;
+                            If False, a unique filename will be generated to avoid overwriting.
     """
 
     # get the workflow name from the image
@@ -180,7 +253,11 @@ def locate_image(filename: str, root_dir: str = None, overwrite: bool = False):
 
     try:
         new_location = os.path.join(destination, os.path.basename(filename))
-        if not overwrite:
+        if use_prompt_hash:
+            prompt       = get_prompt_text(workflow_json)
+            prompt_hash  = generate_hash(prompt, length=12) if prompt is not None else None
+            new_location = replace_filename(new_location, new_name=prompt_hash)
+        if not overwrite_files:
             new_location = get_unique_path(new_location)
         os.rename(filename, new_location)
         return True
@@ -191,13 +268,14 @@ def locate_image(filename: str, root_dir: str = None, overwrite: bool = False):
 
 def main():
     parser = argparse.ArgumentParser(description="Moves images to directories based on the workflow name.")
-    parser.add_argument('images'           , nargs="+"         ,  help="Image file(s) to move.")
-    parser.add_argument('-r', '--root-dir' ,                      help="The root directory used as the base of the destination folder.")
-    parser.add_argument(      '--overwrite', action='store_true', help="Allow overwriting files with the same name.")
+    parser.add_argument('images'            , nargs="+"         ,  help="Image file(s) to move.")
+    parser.add_argument('-r', '--root-dir'  ,                      help="The root directory used as the base of the destination folder.")
+    parser.add_argument( '--use-prompt-hash', action='store_true', help="Use the hash of the prompt as the new filename.")
+    parser.add_argument( '--overwrite-files', action='store_true', help="Allow overwriting files with the same name.")
 
     args  = parser.parse_args()
     for filepath in args.images:
-        locate_image(filepath, root_dir=args.root_dir, overwrite=args.overwrite)
+        locate_image(filepath, root_dir=args.root_dir, use_prompt_hash=args.use_prompt_hash, overwrite_files=args.overwrite_files)
 
 
 if __name__ == "__main__":
