@@ -45,11 +45,16 @@ YELLOW = '\033[93m'
 CYAN   = '\033[96m'
 DEFAULT_COLOR = '\033[0m'
 
-# Default font size for labels
-DEFAULT_FONT_SIZE = 36
-
 # Default height value used for an abominable image
 DEFAULT_ABOMINABLE_HEIGHT = 1536
+
+# Default font size for labels
+DEFAULT_FONT_SIZE    = 40
+DEFAULT_LABEL_WIDTH  = 512
+DEFAULT_LABEL_HEIGHT = 64
+
+# Color used for prompt text
+PROMPT_TEXT_COLOR = "#333344"
 
 # Flag to display a warning if a font fails to load
 SHOW_FONT_WARNING = True
@@ -65,6 +70,8 @@ COLORS_BY_WORD = {
     "WORKFLOW"  : "#dd2525", # - Red
     "WORKFLOWS" : "#dd2525", # - Red
 }
+def get_word_color(word: str, default_color: str=None) -> str:
+    return COLORS_BY_WORD.get(word.upper(), default_color)
 
 
 #----------------------------- ERROR MESSAGES ------------------------------#
@@ -104,8 +111,15 @@ def fatal_error(message: str, *info_messages: str) -> None:
 
 #--------------------------------- HELPERS ---------------------------------#
 
-def get_word_color(word: str, default_color: str=None) -> str:
-    return COLORS_BY_WORD.get(word.upper(), default_color)
+def find_images_in_dir(directory: str) -> list[str]:
+    """Find all PNG image files in a given directory.
+    """
+    images = []
+    for file_name in os.listdir(directory):
+        file_path = os.path.join(directory, file_name)
+        if os.path.isfile(file_path) and file_name.lower().endswith('.png'):
+            images.append(file_path)
+    return images
 
 
 def ascent_diference(font1: ImageFont, font2: ImageFont) -> int:
@@ -458,6 +472,7 @@ def write_text_in_box(image  : Image,
                       font   : ImageFont,
                       spacing: float = 4,
                       align  : str  = 'left',
+                      color  : str  = 'black',
                       force  : bool = False
                       ) -> bool:
     """Attempts to write a given text within the rectangle defined by the Box object.
@@ -470,8 +485,9 @@ def write_text_in_box(image  : Image,
         text      (str) : The text string to be written.
         font (ImageFont): The font object used for rendering the text.
         align     (str) : Alignment of the text within the box ('left', 'center' or 'right').
-        force     (bool): If True, writes the text even if it doesn't fit completely inside the box;
-                          default is False.
+        color     (str) : Color to use for the text.
+        force     (bool): If True, writes the text even if it doesn't fit completely inside
+                          the box; default is False.
     Returns:
         True if the text was written successfully, False otherwise.
     """
@@ -512,7 +528,7 @@ def write_text_in_box(image  : Image,
     #draw.rectangle( textbbox, fill='yellow')
 
     if force or textbbox.top >= box.top:
-        draw.multiline_text( (x,y), text, font=font, anchor=anchor, spacing=spacing, align=align, fill='black')
+        draw.multiline_text( (x,y), text, font=font, anchor=anchor, spacing=spacing, align=align, fill=color)
         return True
     else:
         return False
@@ -633,7 +649,7 @@ def get_all_required_fonts(font_size: int,
 
     font_w1      = load_font(label_ttf_file, int(font_size * scale * 1.0) )
     font_w2      = load_font(label_ttf_file, int(font_size * scale * 1.1) )
-    prompt_fonts = [load_font(prompt_ttf_file, size) for size in range(int(font_size * scale), 10, -2)]
+    prompt_fonts = [load_font(prompt_ttf_file, size) for size in range(int(font_size * scale * 1.3), 10, -2)]
 
     select_font_variation(font_w1, b'ExtraBold', b'Black', b'Bold')
     select_font_variation(font_w2, b'ExtraBold', b'Black', b'Bold')
@@ -663,8 +679,8 @@ def add_label_to_image(image: Image,
     """
 
     # calculate the label size based on the scale provided
-    label_width  = int( 480 * scale )
-    label_height = int(  64 * scale )
+    label_width  = int( DEFAULT_LABEL_WIDTH  * scale )
+    label_height = int( DEFAULT_LABEL_HEIGHT * scale )
 
     # extract the first two words from the provided text
     if ' ' in text:
@@ -713,7 +729,7 @@ def add_prompt_to_image(image : Image,
         The modified image with the prompt added.
     """
     width, _ = image.size
-    box = Box(0,0, width, 128)
+    box = Box(0,0, int(width), int(200*scale))
 
     # add a border on top of the image
     # and write the prompt inside the defined box area
@@ -723,7 +739,15 @@ def add_prompt_to_image(image : Image,
     # que hace que el texto entre completo dentro del box
     for i, font in enumerate(fonts):
         is_last = ( i == len(fonts)-1 )
-        fit = write_text_in_box(image, box.shrunken(16,8), prompt, font, spacing=0, align='center', force=is_last)
+        fit = write_text_in_box(image,
+                                box.shrunken(16,8),
+                                prompt,
+                                font,
+                                spacing = 0,
+                                align   = 'center',
+                                color   = PROMPT_TEXT_COLOR,
+                                force   = is_last
+                                )
         if fit:
             break
     return image
@@ -874,8 +898,8 @@ def process_all_images(filenames        : list,
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Draws a label with the workflow name on each image.")
-    parser.add_argument('images'              , nargs="+",           help="Image file(s) to which the label will be applied")
+    parser = argparse.ArgumentParser(description="Draws a label to your images with the workflow name (or custom text).")
+    parser.add_argument('images'              , nargs="+",           help="Image files (or directories containing .png) to which the label will be applied")
     parser.add_argument('-t', '--text'        ,                      help="Text to write on the image label. If not specified, the workflow name will be used")
     parser.add_argument('-s', '--scale'       , type=float,          help="Scaling factor (max 1.0) to scale the output image")
     parser.add_argument('-p', '--write-prompt', action='store_true', help="Include the original prompt text in the final image")
@@ -886,10 +910,20 @@ def main():
     parser.add_argument(      '--font-size'   , type=int,            help="Font size for the label")
 
     args  = parser.parse_args()
+
     scale = None
     if args.scale:
         scale = 0.01 if args.scale<=0.01 else 1.0 if args.scale>=1.0 else args.scale
-    process_all_images(args.images,
+
+    # find all images from the provided arguments (files or directories)
+    images = []
+    for image in args.images:
+        if os.path.isfile(image):
+            images.append(image)
+        elif os.path.isdir(image):
+            images.extend(find_images_in_dir(image))
+
+    process_all_images(images,
                        font_size     = args.font_size or DEFAULT_FONT_SIZE,
                        write_prompt  = args.write_prompt,
                        workflow_name = args.text,
