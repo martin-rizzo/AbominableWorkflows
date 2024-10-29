@@ -302,6 +302,40 @@ def get_prompt_text(workflow_json: str) -> str:
     return prompt
 
 
+def save_image(filepath        : str,
+               image           : Image,
+               text_chunks     : dict[str, str] = [],
+               should_make_dirs: bool           = False,
+               ) -> None:
+    """Save an image to a specified filepath with optional metadata.
+
+    The function supports both JPEG and PNG formats, saving in the appropriate
+    format based on the file extension.
+
+    Args:
+        filepath          (str): The full path where the image will be saved.
+        image           (Image): The PIL Image object to be saved.
+        text_chunks      (dict): A dictionary containing key-value metadata
+                                 that will be embedded into the PNG file.
+        should_make_dirs (bool): If true, creates necessary directories before saving the image.
+    """
+    extension = os.path.splitext(filepath)[1].lower()
+
+    # create new directories if necessary
+    if should_make_dirs:
+        os.makedirs(os.path.dirname(filepath), exist_ok=True)
+
+    # save the image using the appropriate format according to the extension
+    if extension == '.jpg' or extension == '.jpeg':
+        image.save(filepath, 'JPEG', quality=80)
+    else:
+        # prepare text chunks to be saved together with the PNG image
+        pnginfo = PngInfo()
+        for key in text_chunks:
+            pnginfo.add_text(key, text_chunks[key])
+        image.save(filepath, 'PNG', pnginfo=pnginfo, compress_level=9, optimize=True)
+
+
 #-------------------------------- BOX CLASS --------------------------------#
 class Box(tuple):
     def __new__(cls, left, top=None, right=None, bottom=None):
@@ -813,19 +847,20 @@ def process_image(image         : Image,
     return output_image
 
 
-def process_all_images(filenames        : list,
+def process_all_images(image_paths      : list,
                        font_size        : int,
                        write_prompt     : bool  = False,
                        workflow_name    : str   = None,
                        output_scale     : float = None,
                        output_dir       : str   = None,
                        output_prefix    : str   = None,
+                       output_format    : str   = None,
                        keep_original_dir: bool  = False,
                        ) -> None:
     """Process multiple images by adding labels and saving them with a new prefix.
 
     Args:
-        filenames      (list): A filename or a list of filenames of the images to process
+        image_paths    (list): A list with the paths of the images to process
         font_size      (int) : Approximate font size used to label the images.
         write_prompt   (bool): If True, writes the original prompt from each image.
         workflow_name  (str) : User-provided workflow name that will be labeled on the images;
@@ -836,11 +871,13 @@ def process_all_images(filenames        : list,
                                If not provided, the current working directory will be used.
         output_prefix  (str) : A string that prefixes each new filename denoting processing details;
                                defaults to 'labeled' if no scaling is applied and 'scaled' otherwise.
+        output_format  (str) : Specifies the format for saving the processed image. Supports "jpeg" or "png".
+                               If not specified, the same format as the original image will be used.
         keep_original_dir (bool): If True, the images will be saved in the same dir as the original
                                   image. Otherwise, they will be stored in the current working dir.
     """
-    if not isinstance(filenames,list):
-        filenames = [filenames]
+    if not isinstance(image_paths,list):
+        image_paths = [image_paths]
 
     # set output_scale to None if it's exactly 1.0
     # since this means no scaling should be applied
@@ -857,50 +894,56 @@ def process_all_images(filenames        : list,
     # create new directories only if a specific output_dir is provided
     should_make_dirs = True if output_dir else False
 
-    for filename in filenames:
+    for image_path in image_paths:
         #try:
+
+            original_dir, filename  = os.path.split(image_path)
+            name, extension         = os.path.splitext(filename)
 
             # skip images that were previously labeled
             if filename.startswith(output_prefix):
                 continue
 
-            # generate a new filename
-            original_dir, name  = os.path.split(filename)
-            name_without_ext    = os.path.splitext(name)[0]
-            new_file_path       = f"{output_prefix}{name_without_ext}.png"
+            # change extension based on output_format
+            if output_format == 'jpeg':
+                extension = '.jpg'
+            elif output_format == 'png':
+                extension = '.png'
+
+            # generate the new path
+            new_image_path  = f"{output_prefix}{name}{extension}"
             if keep_original_dir:
-                new_file_path = os.path.join(original_dir, new_file_path)
+                new_image_path = os.path.join(original_dir, new_image_path)
             if output_dir:
-                new_file_path = os.path.join(output_dir, new_file_path)
-                if new_file_path != os.path.normpath(new_file_path):
+                new_image_path = os.path.join(output_dir, new_image_path)
+                if new_image_path != os.path.normpath(new_image_path):
                     continue
 
             # open the image and process it
-            with Image.open(filename) as image:
-                prompt   = image.info.get('prompt')
-                workflow = image.info.get('workflow')
+            with Image.open(image_path) as image:
+                text_chunks = image.text if hasattr(image,'text') else []
+                workflow    = text_chunks.get('workflow')
                 if not workflow:
-                    warning(f"The image {filename} does not seem to contain any workflow.")
+                    warning(f"The image {image_path} does not seem to contain any workflow.")
                     continue
                 output_image = process_image(image, workflow, font_size, write_prompt, workflow_name, output_scale)
 
-            # prepare metadata for saving the processed image
-            metadata = PngInfo()
-            if prompt is not None:
-                metadata.add_text("prompt", prompt)
-            if workflow is not None:
-                metadata.add_text("workflow", workflow)
-
-            # create new directories if necessary
-            if should_make_dirs:
-                os.makedirs(os.path.dirname(new_file_path), exist_ok=True)
-
-            # save the processed image with its new name
-            output_image.save(new_file_path, format="PNG", pnginfo=metadata, compress_level=9)
-            print(f"Labeled: {new_file_path}")
+            save_image(new_image_path, output_image,
+                       text_chunks      = text_chunks,
+                       should_make_dirs = should_make_dirs
+                       )
+            print(f" Labeled: {new_image_path}")
 
         #except Exception as e:
-        #    print(f"Error processing {filename}: {str(e)}")
+        #    print(f"Error processing {image_path}: {str(e)}")
+
+
+
+# TODO:
+# agregar que --scale pueda tener un valor en pixels
+#   * si es menor de 2 es valor porcentual ej: 0.75
+#   * si es mayor de 32 es valor en pixels ej: 640
+#   * otros valores tira error
 
 
 def main():
@@ -911,6 +954,7 @@ def main():
     parser.add_argument('-p', '--write-prompt', action='store_true', help="Include the original prompt text in the final image")
     parser.add_argument('-k', '--keep-dir'    , action='store_true', help="Keep the structure of directories for processed images")
     parser.add_argument('-o', '--output-dir'  ,                      help="Directory where the labeled images will be saved")
+    parser.add_argument('-j', '--jpeg'        , action='store_true', help="Save labeled images in JPEG format")
     parser.add_argument(      '--prefix'      ,                      help="Prefix for processed image files")
     parser.add_argument(      '--font'        ,                      help="Path to font file")
     parser.add_argument(      '--font-size'   , type=int,            help="Font size for the label")
@@ -936,6 +980,7 @@ def main():
                        output_scale  = scale,
                        output_dir    = args.output_dir,
                        output_prefix = args.prefix,
+                       output_format = 'jpeg' if args.jpeg else None,
                        keep_original_dir = args.keep_dir
                        )
 
