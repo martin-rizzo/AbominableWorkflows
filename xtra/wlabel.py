@@ -801,7 +801,8 @@ def process_image(image         : Image,
                   workflow_json : str,
                   font_size     : int   = DEFAULT_FONT_SIZE,
                   write_prompt  : bool  = False,
-                  workflow_name : str   = None,
+                  write_label   : bool  = True,
+                  label_text    : str   = None,
                   output_scale  : float = None,
                   ) -> Image:
     """Process an image by adding labels based on a given workflow.
@@ -810,18 +811,19 @@ def process_image(image         : Image,
         image        (Image): The base image to process and label.
         workflow_json (str) : The comfyui workflow in JSON format.
         font_size     (int) : Approximate font size used to label the image. Defaults to DEFAULT_FONT_SIZE
-        write_prompt  (bool): If True, writes the original prompt text into the image.
-        workflow_name (str) : The name of the workflow to be used for labeling the image;
-                              if not provided, an attempt will be made to extract it from the JSON.
+        write_prompt  (bool): If True, the original prompt text will be written at the top of the image.
+        write_label   (bool): If True, a label with two words will be drawn in the corner of the image.
+        label_text    (str) : If provided, this text will be used as the label.
         output_scale (float): Scaling factor for resizing the final image;
                               a value of 1.0 (or None) means no scaling, defaults to None.
     Returns:
         The processed image with the labels added.
     """
+    output_image = image
 
-    # determine the workflow name from JSON if not provided
-    if not workflow_name:
-        workflow_name = get_workflow_name(workflow_json)
+    # determine the workflow name if label_text is not provided
+    if not label_text:
+        label_text = get_workflow_name(workflow_json)
 
     # calculate the scale factor based on the original image size
     # and the size of a normal "abominable" image
@@ -831,11 +833,16 @@ def process_image(image         : Image,
     font_w1, font_w2, prompt_fonts = get_all_required_fonts(font_size, scale=draw_scale)
 
     # add a label to the bottom right of the image indicating the workflow name
-    output_image = add_label_to_image(image, workflow_name, font_w1, font_w2, scale=draw_scale)
+    if write_label:
+        output_image = add_label_to_image(image, label_text, font_w1, font_w2, scale=draw_scale)
 
     # optionally, write the original prompt text on the image
     if write_prompt:
-        prompt = get_prompt_text(workflow_json) or "<no prompt found>"
+        prompt = get_prompt_text(workflow_json)
+        if prompt is not None:
+            prompt = '"' + prompt + '"'
+        else:
+            prompt = "<no prompt found>"
         output_image = add_prompt_to_image(output_image, prompt, prompt_fonts, scale=draw_scale)
 
     # resize the final image if any output scaling was requested
@@ -850,7 +857,8 @@ def process_image(image         : Image,
 def process_all_images(image_paths      : list,
                        font_size        : int,
                        write_prompt     : bool  = False,
-                       workflow_name    : str   = None,
+                       write_label      : bool  = True,
+                       label_text       : str   = None,
                        output_scale     : float = None,
                        output_dir       : str   = None,
                        output_prefix    : str   = None,
@@ -860,11 +868,12 @@ def process_all_images(image_paths      : list,
     """Process multiple images by adding labels and saving them with a new prefix.
 
     Args:
-        image_paths    (list): A list with the paths of the images to process
+        image_paths    (list): A list with the paths of the images to process.
         font_size      (int) : Approximate font size used to label the images.
-        write_prompt   (bool): If True, writes the original prompt from each image.
-        workflow_name  (str) : User-provided workflow name that will be labeled on the images;
-                               if not provided, it will be extracted from the image metadata.
+        write_prompt   (bool): If True, writes the original prompt on each image. Defaults to False.
+        write_label    (bool): If True, draws a label on each image. Defaults to True.
+        label_text     (str) : If provided, this text will be used as the label.
+                               Otherwise, the workflow name extracted from the image will be used.
         output_scale  (float): Scaling factor for resizing the processed images after labeling;
                                a value of 1.0 (or None) means no scaling, defaults to None.
         output_dir     (str) : Directory where the labeled images will be saved.
@@ -926,12 +935,12 @@ def process_all_images(image_paths      : list,
                 if not workflow:
                     warning(f"The image {image_path} does not seem to contain any workflow.")
                     continue
-                output_image = process_image(image, workflow, font_size, write_prompt, workflow_name, output_scale)
+                output_image = process_image(image, workflow, font_size, write_prompt, write_label, label_text, output_scale)
 
-            save_image(new_image_path, output_image,
+            save_image(new_image_path,
+                       output_image  ,
                        text_chunks      = text_chunks,
-                       should_make_dirs = should_make_dirs
-                       )
+                       should_make_dirs = should_make_dirs)
             print(f" Labeled: {new_image_path}")
 
         #except Exception as e:
@@ -949,9 +958,10 @@ def process_all_images(image_paths      : list,
 def main():
     parser = argparse.ArgumentParser(description="Draws a label to your images with the workflow name (or custom text).")
     parser.add_argument('images'              , nargs="+",           help="Image files (or directories containing .png) to which the label will be applied")
+    parser.add_argument('-p', '--write-prompt', action='store_true', help="Include the original prompt text in the final image")
+    parser.add_argument('-n', '--no-label'    , action='store_true', help="Prevents the label from being added to any image.")
     parser.add_argument('-t', '--text'        ,                      help="Text to write on the image label. If not specified, the workflow name will be used")
     parser.add_argument('-s', '--scale'       , type=float,          help="Scaling factor (max 1.0) to scale the output image")
-    parser.add_argument('-p', '--write-prompt', action='store_true', help="Include the original prompt text in the final image")
     parser.add_argument('-k', '--keep-dir'    , action='store_true', help="Keep the structure of directories for processed images")
     parser.add_argument('-o', '--output-dir'  ,                      help="Directory where the labeled images will be saved")
     parser.add_argument('-j', '--jpeg'        , action='store_true', help="Save labeled images in JPEG format")
@@ -976,7 +986,8 @@ def main():
     process_all_images(images,
                        font_size     = args.font_size or DEFAULT_FONT_SIZE,
                        write_prompt  = args.write_prompt,
-                       workflow_name = args.text,
+                       write_label   = False if args.no_label else True,
+                       label_text    = args.text,
                        output_scale  = scale,
                        output_dir    = args.output_dir,
                        output_prefix = args.prefix,
